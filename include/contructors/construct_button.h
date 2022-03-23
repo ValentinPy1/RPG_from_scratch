@@ -62,4 +62,6 @@ int my_strcmp(char *str1, char *str2);
 
 int my_getnbr(char *str);
 
+int init_hitbox(hitbox_t *hitbox);
+
 #endif /*BUTT_H_*/

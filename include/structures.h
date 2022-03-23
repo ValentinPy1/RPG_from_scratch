@@ -9,20 +9,30 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
 
+typedef struct coord_s {
+    double x;
+    double y;
+
+} coord_t;
+
+typedef struct vector_s {
+    double x;
+    double y;
+
+} vector_t;
+
 typedef struct hitbox_s {
     sfVector2f position;
-    sfVector2f center;
     int height;
     int width;
     double rotation;
     int is_hovered;
-    sfVector2i **vertices;
+    sfVector2f **vertices;
     sfRectangleShape *rectangle;
 } hitbox_t;
 
 typedef struct button_s {
     sfVector2f position;
-    sfVector2f center;
     double rotation;
     sfVector2f scale;
     hitbox_t *hitbox;

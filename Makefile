@@ -6,6 +6,7 @@
 ##
 
 SRC = 	src/main.c														\
+		src/collision/point_in_rect.c	\
 		src/config_management/get_names_scene.c \
 		src/config_management/get_config_files.c						\
 		src/config_management/get_content_file.c						\
@@ -14,10 +15,13 @@ SRC = 	src/main.c														\
 		src/config_management/constructors/my_parser.c					\
 		src/config_management/constructors/error_handling.c				\
 		src/config_management/constructors/construct_scenes.c			\
+		src/config_management/constructors/construct_buttons/parse_buttons.c \
 		src/config_management/constructors/construct_buttons/construct_button1.c \
 		src/config_management/constructors/construct_buttons/construct_button2.c \
 		src/config_management/constructors/construct_buttons/construct_button3.c \
-		src/config_management/constructors/construct_buttons/construct_button4.c \
+		src/config_management/constructors/construct_hitbox/init_hitbox.c		\
+		src/config_management/constructors/construct_hitbox/load_vertices.c		\
+		src/config_management/callbacks/button_callback1.c	\
 		src/window_management/open_window.c	\
 		src/window_management/manage_display.c \
 		src/window_management/manage_events.c	\
@@ -29,7 +33,7 @@ NAME = my_rpg
 OBJ = $(SRC:.c=.o)
 
 LDFLAGS = -L lib/ -lmy -lcsfml-graphics -lcsfml-system \
-			-lcsfml-window -lcsfml-audio
+			-lcsfml-window -lcsfml-audio -lm
 
 CPPFLAGS = -I./include -I./include/contructors
 

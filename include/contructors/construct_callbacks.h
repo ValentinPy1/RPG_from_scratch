@@ -14,7 +14,10 @@ typedef struct but_call_s {
     int (*func)(struct button_s *button, char **scenes_name, int *index_run);
 } but_call_t;
 
+int temporary_func(struct button_s *button, char **scenes_name, int *index_run);
+
 static const but_call_t BUT_CALL[] = {
+    {"temporary", temporary_func},
     {NULL, NULL}
 };
 

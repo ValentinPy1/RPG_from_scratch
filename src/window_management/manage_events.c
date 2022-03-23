@@ -16,7 +16,9 @@ void event_handling(sfRenderWindow *window, scene_t *scene, char **scene_name, i
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
-        if (event.type == sfEvtMouseButtonReleased)
+        if (event.type == sfEvtMouseButtonReleased) {
             printf("Clic released at: (%i, %i)\n", mouse_loc.x, mouse_loc.y);
+            button_collision(mouse_loc, scene->buttons);
+        }
     }
 }

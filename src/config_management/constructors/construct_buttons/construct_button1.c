@@ -6,69 +6,45 @@
 */
 #include "construct_button.h"
 
-int get_nb_buttons(char **content, int buttons)
+int construct_posx(button_t *button, char *value)
 {
-    int counter = 0;
+    int coord_x = my_getnbr(value);
 
-    for (buttons = buttons; content[buttons] != NULL
-        && nb_char_in_str(content[buttons], '\t') != 1; buttons++) {
-        if (nb_char_in_str(content[buttons], '\t') == 2)
-            counter++;
-    }
-    return (counter);
-}
-
-int assign_button_value(button_t *button, char *keyword,
-                        char *value, int index)
-{
-    if (my_strcmp(BUT_CONS[index].name, keyword) == 1)
-        if ((*BUT_CONS[index].func)(button, value) == -1) {
-            write_error("Error while loading buttons\n");
-            return (-1);
-        }
+    button->position.x = coord_x;
+    button->hitbox->position.x = coord_x;
     return (0);
 }
 
-int get_button_value(button_t *button, char **content, int line)
+int construct_posy(button_t *button, char *value)
 {
-    char *keyword;
-    char *value;
+    int coord_y = my_getnbr(value);
 
-    for (int index = 0; BUT_CONS[index].name != NULL; index++) {
-        keyword = get_keyword(content[line]);
-        value = get_value(content, line);
-        if (assign_button_value(button, keyword, value, index) == -1)
-            return (-1);
-    }
+    button->position.y = coord_y;
+    button->hitbox->position.y = coord_y;
     return (0);
 }
 
-void create_button(button_t *button, char **content, int line)
+int construct_width(button_t *button, char *value)
 {
-    button->hitbox = malloc(sizeof(hitbox_t));
-    button->is_selected = 0;
-    for (line += 1; nb_char_in_str(content[line], '\t') == 3; line++) {
-        if (get_button_value(button, content, line) == -1)
-            button = NULL;
-    }
+    int width = my_getnbr(value);
+
+    button->hitbox->width = width;
+    return (0);
 }
 
-void construct_button(scene_t *scene, char **content, int index)
+int construct_height(button_t *button, char *value)
 {
-    int buttons = index + 1;
-    int button_index = 0;
-    int nb_buttons = get_nb_buttons(content, buttons);
-    button_t **list_button = malloc((nb_buttons + 1) * sizeof(button_t));
+    int height = my_getnbr(value);
+    
+    button->hitbox->height = height;
+    return (0);
+}
 
-    for (buttons = buttons; content[buttons] != NULL
-        && nb_char_in_str(content[buttons], '\t') != 1; buttons++) {
-        if (nb_char_in_str(content[buttons], '\t') == 2) {
-            list_button[button_index] = malloc(sizeof(button_t));
-            create_button(list_button[button_index], content, buttons);
-            button_index++;
-        }
-    }
-    list_button[button_index] = NULL;
-    scene->buttons = list_button;
-    return;
+int construct_rotation(button_t *button, char *value)
+{
+    int rot = my_getnbr(value);
+
+    button->rotation = rot;
+    button->hitbox->rotation = rot;
+    return (0);
 }

@@ -3,6 +3,13 @@
         "main.h": "c",
         "structures.h": "c",
         "get_names_scene.h": "c",
-        "get_run_index.h": "c"
-    }
+        "get_run_index.h": "c",
+        "construct_button.h": "c",
+        "array": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "utility": "c",
+        "init_hitbox.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

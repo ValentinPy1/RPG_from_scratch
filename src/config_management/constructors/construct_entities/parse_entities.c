@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** construct_sprite
+** parse_entities
 ** File description:
-** Source code to construct sprite of a scene
+** Source code to construct entities of a scene
 */
 #include "construct_entity.h"
 
