@@ -13,6 +13,11 @@ SRC = 	src/main.c														\
 		src/config_management/constructors/my_parser.c					\
 		src/config_management/constructors/error_handling.c				\
 		src/config_management/constructors/construct_scenes.c			\
+		src/config_management/constructors/construct_buttons/construct_button1.c \
+		src/config_management/constructors/construct_buttons/construct_button2.c \
+		src/config_management/constructors/construct_buttons/construct_button3.c \
+		src/config_management/constructors/construct_buttons/construct_button4.c
+
 		
 
 NAME = my_rpg
@@ -24,7 +29,7 @@ LDFLAGS = -L lib/ -lmy -lcsfml-graphics -lcsfml-system \
 
 CPPFLAGS = -I./include -I./include/contructors
 
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -g3
 
 all: built $(NAME)
 

@@ -15,7 +15,8 @@ SRC =	fonctions/count_char.c		\
 		fonctions/write_error.c		\
 		fonctions/add_char.c		\
 		fonctions/my_realloc.c		\
-		fonctions/my_strcmp.c
+		fonctions/my_strcmp.c		\
+		fonctions/my_getnbr.c
 		
 
 NAME =	libmy.a

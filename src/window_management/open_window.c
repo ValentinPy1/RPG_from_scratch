@@ -20,13 +20,12 @@ void event_handling(sfRenderWindow *window, scene_t **scene_list, int index)
     sfVector2i mouse_loc;
 
     mouse_loc = sfMouse_getPositionRenderWindow(window);
-    scene_list[index]->mouse_loc = mouse_loc;
-    check_button_state(scene_list[index]->buttons, mouse_loc);
+    //TO DO EVENT
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         if (event.type == sfEvtMouseButtonReleased)
-            check_button_clicked(scene_list, mouse_loc, index);
+            printf("Clic released at: (%i, %i)\n", mouse_loc.x, mouse_loc.y);
     }
 }
 

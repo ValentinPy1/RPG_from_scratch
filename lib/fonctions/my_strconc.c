@@ -16,7 +16,6 @@ char *my_strconc(char *str1, char *str2)
     int i_str2;
     int index = 0;
 
-    printf("%i\n", lens + 1);
     for (i_str1 = 0; str1[i_str1] != '\0'; i_str1++) {
         res[index] = str1[i_str1];
         index++;

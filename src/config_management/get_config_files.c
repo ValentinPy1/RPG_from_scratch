@@ -10,6 +10,7 @@ int count_files(DIR *d, struct dirent *file)
 {
     int file_count = 0;
     d = opendir("config_files/scene_config/");
+    // TO DO ERROR HANDLING
     while ((file = readdir(d)) != NULL) {
         if (file->d_name[0] != '.') {
             file_count += 1;;
@@ -25,6 +26,7 @@ char **get_file_names(DIR *d, struct dirent *file, int nb_files)
     char **file_names = malloc((nb_files + 1) * sizeof(char *));
 
     d = opendir("config_files/scene_config/");
+    // TO DO ERROR HANDLING
     for (int loop = 0; (file = readdir(d)) != NULL; loop ++) {
         if (file->d_name[0] != '.') {
             file_names[index] = malloc((my_strlen(file->d_name) + 1) *
