@@ -16,11 +16,6 @@ typedef struct but_cons_s {
     int (*func)(button_t *button, char *value);
 } but_cons_t;
 
-typedef struct but_call_s {
-    char *name;
-    void (*func)(button_t *button, scene_t **scene_list, int index);
-} but_call_t;
-
 int construct_posx(button_t *button, char *value);
 
 int construct_posy(button_t *button, char *value);
@@ -37,8 +32,6 @@ int construct_texture(button_t *button, char *value);
 
 int construct_ho_texture(button_t *button, char *value);
 
-int construct_sel_texture(button_t *button, char *value);
-
 int construct_sound(button_t *button, char *value);
 
 int construct_callback(button_t *button, char *value);
@@ -52,20 +45,10 @@ static const but_cons_t BUT_CONS[] = {
     {"scale", construct_scale},
     {"texture", construct_texture},
     {"ho_texture", construct_ho_texture},
-    {"selected_texture", construct_sel_texture},
     {"sound", construct_sound},
     {"callback", construct_callback},
     {NULL, NULL}
 };
-
-static const but_call_t BUT_CALL[] = {
-    {NULL, NULL}
-};
-
-hitbox_t *init_hitbox(hitbox_data_t *hitbox_data, int height, int width);
-
-void fill_hitbox_data(hitbox_data_t *hitbox_data, sfVector2f center,
-                        sfVector2f scale, double rotation);
 
 int write_error(char const *str);
 

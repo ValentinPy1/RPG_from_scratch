@@ -45,6 +45,8 @@ int get_button_value(button_t *button, char **content, int line)
 
 void create_button(button_t *button, char **content, int line)
 {
+    button->hitbox = malloc(sizeof(hitbox_t));
+    button->is_selected = 0;
     for (line += 1; nb_char_in_str(content[line], '\t') == 3; line++) {
         if (get_button_value(button, content, line) == -1)
             button = NULL;

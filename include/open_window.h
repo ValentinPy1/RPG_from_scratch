@@ -18,4 +18,6 @@ void check_button_clicked(scene_t **scene_list, sfVector2i mouse_loc, int index)
 
 void display_scene(sfRenderWindow *window, scene_t *scene);
 
+void event_handling(sfRenderWindow *window, scene_t *scene);
+
 #endif /*WIN_H_*/

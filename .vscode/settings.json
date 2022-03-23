@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "main.h": "c",
+        "structures.h": "c",
+        "get_names_scene.h": "c",
+        "get_run_index.h": "c"
+    }
+}

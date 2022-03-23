@@ -8,17 +8,20 @@
 
 int main(int ac, char **av)
 {
-    scene_t **scene_list;
+    data_t *game_data = malloc(sizeof(data_t));
+
     if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h') {
-        printf("HELP\n");
+        my_putstr("HELP\n"); // TO DO: USAGE
         return (0);
     }
-    scene_list = get_scenes();
-    if (scene_list == NULL) {
-        printf("Error while loading scene\n"); //TODO REMOVE  
+    game_data->scene_list = get_scenes();
+    game_data->scene_names = get_names_scene(game_data->scene_list);
+    game_data->run_index = get_run_index(game_data->scene_names, "home_menu");
+    if (game_data->scene_list == NULL) {
+        my_putstr("Error while loading scene\n"); 
         return (84);
     }
-    printf("Loading scene sucess\n"); //TODO REMOVE
-    // open_window(1920, 1080, scene_list);
+    my_putstr("Loading scene sucess\n");
+    open_window(1920, 1080, game_data);
     return (0);
 }

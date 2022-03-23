@@ -5,11 +5,14 @@
 ** Source code to construct a button
 */
 #include "construct_button.h"
+#include "construct_callbacks.h"
 
 int construct_scale(button_t *button, char *value)
 {
-    button->scale.x = my_getnbr(value);
-    button->scale.y = my_getnbr(value);
+    sfVector2f scale = (sfVector2f) {my_getnbr(value), my_getnbr(value)};
+    button->scale = scale;
+    button->hitbox->width *= scale.x;
+    button->hitbox->height *= scale.y;
     return (0);
 }
 
@@ -17,8 +20,12 @@ int construct_texture(button_t *button, char *value)
 {
     button->sprite = sfSprite_create();
     button->texture = sfTexture_createFromFile(value, NULL);
-    if (button->texture == NULL)
+    if (button->texture == NULL) {
+        write_error("Enable to load texture:");
+        write_error(value);
+        write_error(".\n");
         return (-1);
+    }
     sfSprite_setTexture(button->sprite, button->texture, sfFalse);
     sfSprite_setScale(button->sprite, button->scale);
     sfSprite_setRotation(button->sprite, button->rotation);
@@ -30,8 +37,12 @@ int construct_ho_texture(button_t *button, char *value)
 {
     button->ho_sprite = sfSprite_create();
     button->ho_texture = sfTexture_createFromFile(value, NULL);
-    if (button->ho_texture == NULL)
+    if (button->ho_texture == NULL) {
+        write_error("Enable to load texture:\"");
+        write_error(value);
+        write_error("\".\n");
         return (-1);
+    }
     sfSprite_setTexture(button->ho_sprite, button->ho_texture, sfFalse);
     sfSprite_setScale(button->ho_sprite, button->scale);
     sfSprite_setRotation(button->ho_sprite, button->rotation);
@@ -44,8 +55,12 @@ int construct_sound(button_t *button, char *value)
     sfSoundBuffer *sound_buffer = sfSoundBuffer_createFromFile(value);
     sfSound *sound = sfSound_create();
 
-    if (sound_buffer == NULL)
+    if (sound_buffer == NULL) {
+        write_error("Enable to load sound:\"");
+        write_error(value);
+        write_error("\".\n");
         return (-1);
+    }
     sfSound_setBuffer(sound, sound_buffer);
     button->sound = sound;
     button->sound_buffer = sound_buffer;
@@ -60,8 +75,8 @@ int construct_callback(button_t *button, char *value)
             return (0);
         }
     }
-    write_error("Unable to find :");
+    write_error("Unable to find :\"");
     write_error(value);
-    write_error("\n");
+    write_error("\".\n");
     return (-1);
 }

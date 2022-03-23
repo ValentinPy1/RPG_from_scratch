@@ -14,41 +14,21 @@ void create_window(sfRenderWindow **window, int width, int height)
     sfRenderWindow_setFramerateLimit(*window, 60);
 }
 
-void event_handling(sfRenderWindow *window, scene_t **scene_list, int index)
+void scene_selector(sfRenderWindow *window, data_t *game_data)
 {
-    sfEvent event;
-    sfVector2i mouse_loc;
-
-    mouse_loc = sfMouse_getPositionRenderWindow(window);
-    //TO DO EVENT
-    while (sfRenderWindow_pollEvent(window, &event)) {
-        if (event.type == sfEvtClosed)
-            sfRenderWindow_close(window);
-        if (event.type == sfEvtMouseButtonReleased)
-            printf("Clic released at: (%i, %i)\n", mouse_loc.x, mouse_loc.y);
-    }
+    event_handling(window, game_data->scene_list[game_data->run_index]);
+    display_scene(window, game_data->scene_list[game_data->run_index]);
 }
 
-int scene_selector(sfRenderWindow *window, scene_t **scene_list)
-{
-    for (int index = 0; scene_list[index] != NULL; index++) {
-        if (scene_list[index]->is_running == 1) {
-            event_handling(window, scene_list, index);
-            display_scene(window, scene_list[index]);
-            return (0);
-        }
-    }
-    return (1);
-}
-
-void open_window(int width, int height, scene_t **scene_list)
+void open_window(int width, int height, data_t *game_data)
 {
     sfRenderWindow *window;
 
     create_window(&window, width, height);
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
-        if (scene_selector(window, scene_list) == 1) {
+        scene_selector(window, game_data);
+        if (game_data->run_index == -1) {
             sfRenderWindow_close(window);
             break;
         }

@@ -18,6 +18,8 @@ void constructor(scene_t *scene, char **content, int line)
     char *keyword = get_keyword(content[line]);
 
     //TO DO ADD TEXT
+    if (my_strcmp(keyword, "name") == 1)
+        construct_name(scene, content, line);
     if (my_strcmp(keyword, "buttons") == 1)
         construct_button(scene, content, line);
 }

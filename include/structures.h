@@ -9,60 +9,40 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
 
-typedef struct hitbox_data_s {
-    int height;
-    int width;
-    double rotation;
-    sfVector2f position;
-    sfVector2f center;
-    sfVector2f scale;
-} hitbox_data_t;
-
 typedef struct hitbox_s {
+    sfVector2f position;
+    sfVector2f center;
     int height;
     int width;
     double rotation;
-    sfVector2f position;
-    sfVector2f center;
     int is_hovered;
     sfVector2i **vertices;
     sfRectangleShape *rectangle;
 } hitbox_t;
 
-typedef struct scene_s;
-
 typedef struct button_s {
-    int height;
-    int width;
-    int posx;
-    int posy;
     sfVector2f position;
     sfVector2f center;
-    sfVector2f scale;
     double rotation;
+    sfVector2f scale;
     hitbox_t *hitbox;
     sfTexture *texture;
     sfTexture *ho_texture;
-    sfTexture *sel_texture;
     sfSprite *sprite;
     sfSprite *ho_sprite;
     sfSprite *sel_sprite;
     sfSound *sound;
     sfSoundBuffer *sound_buffer;
     int is_selected;
-    void (*callback)(struct button_s *button,
-                        struct scene_s **scene_list, int index);
+    int (*callback)(struct button_s *button, char **scenes_name, int *index_run);
 } button_t;
 
 typedef struct entity_s {
-    int height;
-    int width;
     int posx;
     int posy;
     sfVector2i center;
-    sfVector2f scale;
     double rotation;
-    sfVector2i **vertices;
+    sfVector2f scale;
     hitbox_t *hitbox;
     sfTexture *texture;
     sfSprite *sprite;
@@ -78,5 +58,12 @@ typedef struct scene_s {
     sfVector2i mouse_loc;
     int is_running;
 } scene_t;
+
+typedef struct data_s {
+    int run_index;
+    scene_t **scene_list;
+    char **scene_names;
+} data_t;
+
 
 #endif /*STRUCT_H_*/
