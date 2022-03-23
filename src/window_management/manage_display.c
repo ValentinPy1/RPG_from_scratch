@@ -8,5 +8,8 @@
 
 void display_scene(sfRenderWindow *window, scene_t *scene)
 {
-    return;
+    for (int index = 0; scene->buttons[index] != NULL; index++) {
+        sfRenderWindow_drawSprite(window,
+            scene->buttons[index]->sprite, NULL);
+    }
 }
