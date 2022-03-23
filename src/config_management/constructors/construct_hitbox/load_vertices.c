@@ -38,7 +38,7 @@ sfVector2f **get_rot_vertices_sq(sfVector2f center, double rotation,
     double origin_x;
     double origin_y;
 
-    rotation = (rotation * -1) * (M_PI / 180);
+    rotation = (rotation) * (M_PI / 180);
     for (int index = 0; vertices_list[index] != NULL; index++) {
         origin_x = vertices_list[index]->x - center.x;
         origin_y = vertices_list[index]->y - center.y;

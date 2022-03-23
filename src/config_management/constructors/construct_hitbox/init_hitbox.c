@@ -13,13 +13,13 @@ int init_hitbox(hitbox_t *hitbox)
     sfVector2f origin = (sfVector2f) {hitbox->width / 2,
                                         hitbox->height / 2};
 
+    sfRectangleShape_setOrigin(rectangle, origin);
     sfRectangleShape_setPosition(rectangle, hitbox->position);
     sfRectangleShape_setRotation(rectangle, hitbox->rotation);
-    sfRectangleShape_setFillColor(rectangle, sfTransparent);
     sfRectangleShape_setSize(rectangle, size);
+    sfRectangleShape_setFillColor(rectangle, sfTransparent);
     sfRectangleShape_setOutlineColor(rectangle, sfGreen);
     sfRectangleShape_setOutlineThickness(rectangle, 1);
-    sfRectangleShape_setOrigin(rectangle, origin);
     hitbox->rectangle = rectangle;
     load_vertices(hitbox);
     

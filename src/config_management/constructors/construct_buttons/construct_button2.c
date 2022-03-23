@@ -11,6 +11,8 @@ int construct_scale(button_t *button, char *value)
 {
     sfVector2f scale = (sfVector2f) {my_getnbr(value), my_getnbr(value)};
     button->scale = scale;
+    button->position.x += button->hitbox->width / 2 * (scale.x - 1); 
+    button->position.y += button->hitbox->height / 2 * (scale.y - 1); 
     button->hitbox->width *= scale.x;
     button->hitbox->height *= scale.y;
     return (0);
@@ -29,11 +31,11 @@ int construct_texture(button_t *button, char *value)
         write_error(".\n");
         return (-1);
     }
-    sfSprite_setTexture(button->sprite, button->texture, sfFalse);
-    sfSprite_setScale(button->sprite, button->scale);
-    sfSprite_setRotation(button->sprite, button->rotation);
-    sfSprite_setPosition(button->sprite, button->position);
     sfSprite_setOrigin(button->sprite, origin);
+    sfSprite_setPosition(button->sprite, button->position);
+    sfSprite_setRotation(button->sprite, button->rotation);
+    sfSprite_setScale(button->sprite, button->scale);
+    sfSprite_setTexture(button->sprite, button->texture, sfFalse);
     return (0);
 }
 
