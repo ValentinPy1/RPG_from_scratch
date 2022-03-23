@@ -7,6 +7,12 @@
 
 #ifndef MAIN_H_
     #define MAIN_H_
+    #include <stddef.h>
+    #include <unistd.h>
+    #include "structures.h"
 
-void my_putchar(char c);
+scene_t **get_scenes(void);
+
+void open_window(int width, int height, scene_t **scene_list);
+
 #endif /*MAIN_H_*/

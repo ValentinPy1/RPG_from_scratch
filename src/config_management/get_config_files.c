@@ -61,12 +61,12 @@ scene_t **create_scene_list(int nb_config_files, char **file_name)
 
 scene_t **get_scenes(void)
 {
-    DIR *d;
-    struct dirent *file;
-    int nb_config_files = count_files(d, file);
-    char **file_name = get_file_names(d, file, nb_config_files);
+    DIR *d = NULL;
+    struct dirent *file = NULL;
     scene_t **scene_list;
 
+    int nb_config_files = count_files(d, file);
+    char **file_name = get_file_names(d, file, nb_config_files);
     scene_list = create_scene_list(nb_config_files, file_name);
     return (scene_list);
 }

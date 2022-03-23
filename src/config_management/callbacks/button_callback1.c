@@ -4,7 +4,8 @@
 ** File description:
 ** Source code of every callback
 */
-#include "construct_button.h"
+
+#include "callbacks.h"
 
 void quit_game(button_t *button, scene_t **scene_list, int index)
 {

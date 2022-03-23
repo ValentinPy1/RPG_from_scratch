@@ -5,7 +5,18 @@
 ## Makefile to compile the lib
 ##
 
-SRC =	fonctions/my_putchar.c
+SRC =	fonctions/count_char.c		\
+		fonctions/get_content.c 	\
+		fonctions/my_split.c	 	\
+		fonctions/my_strlen.c 	 	\
+		fonctions/my_strncpy.c	 	\
+		fonctions/next_char.c		\
+		fonctions/my_strconc.c		\
+		fonctions/write_error.c		\
+		fonctions/add_char.c		\
+		fonctions/my_realloc.c		\
+		fonctions/my_strcmp.c
+		
 
 NAME =	libmy.a
 
