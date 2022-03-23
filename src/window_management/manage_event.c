@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** manage_display
+** manage_event
 ** File description:
-** Source code to manage display
+** Source code to manage event
 */
