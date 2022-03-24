@@ -10,22 +10,18 @@
 int construct_scale(button_t *button, char *value)
 {
     sfVector2f scale = (sfVector2f) {my_getnbr(value), my_getnbr(value)};
+
     button->scale = scale;
     button->hitbox->width *= scale.x;
     button->hitbox->height *= scale.y;
-    printf("pos x : %3f, y : %3f\n", button->position.x, button->position.y);
-    printf("hitbox x : %3f, y : %3f\n", button->hitbox->width, button->hitbox->height);
-    button->position.x += (button->hitbox->width / 2);
-    button->position.y += (button->hitbox->height / 2);
-    printf("after x : %3f, y : %3f\n",  button->position.x, button->position.y);
     return (0);
 }
 
 int construct_texture(button_t *button, char *value)
 {
-    sfVector2f origin = (sfVector2f) {button->hitbox->width / 2,
-                                        button->hitbox->height / 2};
-    printf("debug 3\n");
+    sfVector2f origin = (sfVector2f)
+    {button->hitbox->width / (2 * button->scale.x),
+    button->hitbox->height / (2 * button->scale.y)};
 
     button->sprite = sfSprite_create();
     button->texture = sfTexture_createFromFile(value, NULL);
@@ -35,12 +31,10 @@ int construct_texture(button_t *button, char *value)
         write_error(".\n");
         return (-1);
     }
-    // button->position.x += button->hitbox->width / 2;
-    // button->position.y += button->hitbox->height / 2;
-    sfSprite_setOrigin(button->sprite, origin);
-    sfSprite_setPosition(button->sprite, button->position);
     sfSprite_setRotation(button->sprite, button->rotation);
     sfSprite_setScale(button->sprite, button->scale);
+    sfSprite_setOrigin(button->sprite, origin);
+    sfSprite_setPosition(button->sprite, button->position);
     sfSprite_setTexture(button->sprite, button->texture, sfFalse);
     return (0);
 }

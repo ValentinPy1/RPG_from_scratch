@@ -39,7 +39,7 @@ void button_collision(sfVector2i mouse_loc, button_t **buttons)
     for (int index = 0; buttons[index] != NULL; index++) {
         if (point_in_rec(mouse_pos, buttons[index]->hitbox->vertices,
         buttons[index]->hitbox->width, buttons[index]->hitbox->height) == 1) {
-            printf("sa touche\n");
+            printf("ça touche\n");
         }
     }
 }
