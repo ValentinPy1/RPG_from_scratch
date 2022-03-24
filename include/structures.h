@@ -23,8 +23,8 @@ typedef struct vector_s {
 
 typedef struct hitbox_s {
     sfVector2f position;
-    int height;
-    int width;
+    float height;
+    float width;
     double rotation;
     int is_hovered;
     sfVector2f **vertices;

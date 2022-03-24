@@ -25,12 +25,25 @@ void open_window(int width, int height, data_t *game_data)
     sfRenderWindow *window;
 
     create_window(&window, width, height);
+        sfVector2f new = {0, game_data->scene_list[2]->buttons[0]->position.y};
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         scene_selector(window, game_data);
         if (game_data->run_index == -1) {
             sfRenderWindow_close(window);
             break;
+        }
+        if (sfKeyboard_isKeyPressed(sfKeyUp)) {
+            game_data->scene_list[2]->buttons[0]->hitbox->width += 0.5;
+            printf("scale.x : %3f\n", game_data->scene_list[2]->buttons[0]->hitbox->width);
+            new.x = game_data->scene_list[2]->buttons[0]->position.x + game_data->scene_list[2]->buttons[0]->hitbox->width / 2;
+            sfSprite_setPosition(game_data->scene_list[2]->buttons[0]->sprite, new);
+        }
+        if (sfKeyboard_isKeyPressed(sfKeyDown)) {
+            game_data->scene_list[2]->buttons[0]->hitbox->width -= 0.5;
+            printf("scale.x : %3f\n", game_data->scene_list[2]->buttons[0]->hitbox->width);
+            new.x = game_data->scene_list[2]->buttons[0]->position.x + game_data->scene_list[2]->buttons[0]->hitbox->width / 2;
+            sfSprite_setPosition(game_data->scene_list[2]->buttons[0]->sprite, new);
         }
         sfRenderWindow_display(window);
     }
