@@ -16,35 +16,36 @@ typedef struct ent_cons_s {
     int (*func)(entity_t *entity, char *value);
 } ent_cons_t;
 
-int sp_construct_posx(entity_t *entity, char *value);
+int en_construct_posx(entity_t *entity, char *value);
 
-int sp_construct_posy(entity_t *entity, char *value);
+int en_construct_posy(entity_t *entity, char *value);
 
-int sp_construct_width(entity_t *entity, char *value);
+int en_construct_width(entity_t *entity, char *value);
 
-int sp_construct_height(entity_t *entity, char *value);
+int en_construct_height(entity_t *entity, char *value);
 
-int sp_construct_rotation(entity_t *entity, char *value);
+int en_construct_scale(entity_t *entity, char *value);
 
-int sp_construct_scale(entity_t *entity, char *value);
+int en_construct_rotation(entity_t *entity, char *value);
 
-int sp_construct_texture(entity_t *entity, char *value);
+int en_construct_texture(entity_t *entity, char *value);
 
-int sp_construct_sound(entity_t *entity, char *value);
+int en_construct_sound(entity_t *entity, char *value);
+
+int en_construct_dialogue(entity_t *entity, char *value);
 
 static const ent_cons_t ENT_CONS[] = {
-    {"posx", sp_construct_posx},
-    {"posy", sp_construct_posy},
-    {"width", sp_construct_width},
-    {"height", sp_construct_height},
-    {"rotation", sp_construct_rotation},
-    {"scale", sp_construct_scale},
-    {"texture", sp_construct_texture},
-    {"sound", sp_construct_sound},
+    {"posx", en_construct_posx},
+    {"posy", en_construct_posy},
+    {"width", en_construct_width},
+    {"height", en_construct_height},
+    {"rotation", en_construct_rotation},
+    {"scale", en_construct_scale},
+    {"texture", en_construct_texture},
+    {"sound", en_construct_sound},
+    {"dialogue", en_construct_dialogue},
     {NULL, NULL}
 };
-
-hitbox_t *init_hitbox(hitbox_data_t *hitbox_data, int height, int width);
 
 int write_error(char const *str);
 

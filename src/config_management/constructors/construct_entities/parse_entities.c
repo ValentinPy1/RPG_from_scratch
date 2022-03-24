@@ -70,5 +70,4 @@ void construct_entity(scene_t *scene, char **content, int index)
     list_entities[entity_index] = NULL;
     scene->entities = list_entities;
     return;
-
 }

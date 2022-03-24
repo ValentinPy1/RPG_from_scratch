@@ -23,8 +23,8 @@ typedef struct vector_s {
 
 typedef struct hitbox_s {
     sfVector2f position;
-    float height;
-    float width;
+    double height;
+    double width;
     double rotation;
     int is_hovered;
     sfVector2f **vertices;
@@ -48,15 +48,15 @@ typedef struct button_s {
 } button_t;
 
 typedef struct entity_s {
-    int posx;
-    int posy;
-    sfVector2i center;
+    sfVector2f position;
     double rotation;
     sfVector2f scale;
     hitbox_t *hitbox;
     sfTexture *texture;
     sfSprite *sprite;
     sfSound *sound;
+    sfSoundBuffer *sound_buffer;
+    char **dialogue;
 } entity_t;
 
 typedef struct scene_s {

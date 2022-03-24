@@ -15,6 +15,9 @@ SRC = 	src/main.c														\
 		src/config_management/constructors/my_parser.c					\
 		src/config_management/constructors/error_handling.c				\
 		src/config_management/constructors/construct_scenes.c			\
+		src/config_management/constructors/construct_entities/parse_entities.c	\
+		src/config_management/constructors/construct_entities/construct_entities1.c	\
+		src/config_management/constructors/construct_entities/construct_entities2.c	\
 		src/config_management/constructors/construct_buttons/parse_buttons.c \
 		src/config_management/constructors/construct_buttons/construct_button1.c \
 		src/config_management/constructors/construct_buttons/construct_button2.c \
