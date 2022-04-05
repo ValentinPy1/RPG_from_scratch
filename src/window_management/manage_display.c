@@ -24,8 +24,6 @@ void display_scene(sfRenderWindow *window, scene_t *scene)
     for (int index = 0; scene->buttons[index] != NULL; index++) {
         sfRenderWindow_drawSprite(window,
             scene->buttons[index]->sprite, NULL);
-        sfRenderWindow_drawSprite(window,
-            scene->entities[index]->sprite, NULL);
         sfRenderWindow_drawRectangleShape(window, scene->buttons[index]->hitbox->rectangle, sfFalse);
         display_vertices(window, scene->buttons[index]->hitbox);
     }
