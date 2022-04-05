@@ -19,7 +19,7 @@ int main(int ac, char **av)
     game_data->scene_names = get_names_scene(game_data->scene_list);
     game_data->run_index = get_run_index(game_data->scene_names, "home_menu");
     if (game_data->scene_list == NULL) {
-        my_putstr("Error while loading scene\n"); 
+        my_putstr("Error while loading scene\n");
         return (84);
     }
     my_putstr("Loading scene sucess\n");

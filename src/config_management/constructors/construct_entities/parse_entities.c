@@ -54,7 +54,6 @@ void create_entity(entity_t *entity, char **content, int line)
 void construct_entity(scene_t *scene, char **content, int index)
 {
     int entities = index + 1;
-    int params = 0;
     int entity_index = 0;
     int nb_entities = get_nb_entities(content, entities);
     entity_t **list_entities = malloc((nb_entities + 1) * sizeof(entity_t));

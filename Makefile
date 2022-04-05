@@ -12,21 +12,22 @@ SRC = 	src/main.c														\
 		src/config_management/get_content_file.c						\
 		src/config_management/get_value.c								\
 		src/config_management/get_keyword.c								\
-		src/config_management/constructors/my_parser.c					\
-		src/config_management/constructors/error_handling.c				\
-		src/config_management/constructors/construct_scenes.c			\
-		src/config_management/constructors/construct_entities/parse_entities.c	\
-		src/config_management/constructors/construct_entities/construct_entities1.c	\
-		src/config_management/constructors/construct_entities/construct_entities2.c	\
-		src/config_management/constructors/construct_buttons/parse_buttons.c \
-		src/config_management/constructors/construct_buttons/construct_button1.c \
-		src/config_management/constructors/construct_buttons/construct_button2.c \
-		src/config_management/constructors/construct_buttons/construct_button3.c \
-		src/config_management/constructors/construct_hitbox/init_hitbox.c		\
-		src/config_management/constructors/construct_hitbox/load_vertices.c		\
-		src/config_management/callbacks/button_callback1.c	\
-		src/window_management/open_window.c	\
-		src/window_management/manage_display.c \
+		src/config_management/constructors/my_parser.c									\
+		src/config_management/constructors/error_handling.c								\
+		src/config_management/constructors/construct_scenes.c							\
+		src/config_management/constructors/construct_entities/parse_entities.c			\
+		src/config_management/constructors/construct_entities/construct_entities1.c		\
+		src/config_management/constructors/construct_entities/construct_entities2.c		\
+		src/config_management/constructors/construct_background/parse_background.c		\
+		src/config_management/constructors/construct_buttons/parse_buttons.c 			\
+		src/config_management/constructors/construct_buttons/construct_button1.c 		\
+		src/config_management/constructors/construct_buttons/construct_button2.c 		\
+		src/config_management/constructors/construct_buttons/construct_button3.c 		\
+		src/config_management/constructors/construct_hitbox/init_hitbox.c				\
+		src/config_management/constructors/construct_hitbox/load_vertices.c				\
+		src/config_management/callbacks/button_callback1.c								\
+		src/window_management/open_window.c												\
+		src/window_management/manage_display.c 											\
 		src/window_management/manage_events.c	\
 		src/window_management/manage_buttons.c	\
 		src/window_management/get_run_index.c \

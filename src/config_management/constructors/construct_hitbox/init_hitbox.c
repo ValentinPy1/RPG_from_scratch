@@ -22,6 +22,5 @@ int init_hitbox(hitbox_t *hitbox)
     sfRectangleShape_setOutlineThickness(rectangle, 1);
     hitbox->rectangle = rectangle;
     load_vertices(hitbox);
-    
     return (0);
 }
