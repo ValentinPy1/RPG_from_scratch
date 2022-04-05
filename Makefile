@@ -30,6 +30,7 @@ SRC = 	src/main.c														\
 		src/window_management/manage_events.c	\
 		src/window_management/manage_buttons.c	\
 		src/window_management/get_run_index.c \
+		src/random/random_generator.c	\
 
 NAME = my_rpg
 
