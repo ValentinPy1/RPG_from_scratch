@@ -6,14 +6,13 @@
 */
 #include "get_value.h"
 
-int get_starting_index(char **content, int line)
+int get_starting_index(char *str)
 {
     int counter = 0;
 
-    for (int index = 0; content[line][index] != ':'
-    && content[line][index] != '\0'; index++) {
-        if (content[line][index] == '\0') {
-            write_error(content[line]);
+    for (int index = 0; str[index] != ':' && str[index] != '\0'; index++) {
+        if (str[index] == '\0') {
+            write_error(str);
             write_error(" Haven't ':' to asign value\n");
             return (-1);
         }
@@ -22,19 +21,19 @@ int get_starting_index(char **content, int line)
     return (counter);
 }
 
-char *get_value(char **content, int line)
+char *get_value(char *str)
 {
     char *value;
     int counter = 0;
     int index2 = 0;
-    int st_index = get_starting_index(content, line);
+    int st_index = get_starting_index(str);
 
-    for (int index = st_index + 1; content[line][index] != '\0'; index++) {
+    for (int index = st_index + 1; str[index] != '\0'; index++) {
         counter++;
     }
     value = malloc((counter + 1) * sizeof(char));
-    for (int index = st_index + 1; content[line][index] != '\0'; index++) {
-        value[index2] = content[line][index];
+    for (int index = st_index + 1; str[index] != '\0'; index++) {
+        value[index2] = str[index];
         index2++;
     }
     value[index2] = '\0';

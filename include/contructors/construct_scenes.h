@@ -39,6 +39,6 @@ char *get_keyword(char *str);
 
 int write_error(char const *str);
 
-char *get_value(char **content, int line);
+char *get_value(char *str);
 
 #endif /*CONS_H_*/

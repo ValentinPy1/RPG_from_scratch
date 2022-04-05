@@ -22,4 +22,6 @@ char **get_names_scene(scene_t **scene_list);
 
 int get_run_index(char **scene_names, char *name);
 
+void free_data(data_t *game_data);
+
 #endif /*MAIN_H_*/

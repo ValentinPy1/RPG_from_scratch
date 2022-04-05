@@ -23,6 +23,7 @@ int main(int ac, char **av)
         return (84);
     }
     my_putstr("Loading scene sucess\n");
-    open_window(1920, 1080, game_data);
+    // open_window(1920, 1080, game_data);
+    free_data(game_data);
     return (0);
 }

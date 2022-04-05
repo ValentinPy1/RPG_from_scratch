@@ -36,10 +36,11 @@ int get_button_value(button_t *button, char **content, int line)
 
     for (int index = 0; BUT_CONS[index].name != NULL; index++) {
         keyword = get_keyword(content[line]);
-        value = get_value(content, line);
+        value = get_value(content[line]);
         if (assign_button_value(button, keyword, value, index) == -1)
             return (-1);
     }
+    free(value);
     return (0);
 }
 

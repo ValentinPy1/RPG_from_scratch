@@ -70,5 +70,6 @@ scene_t **get_scenes(void)
     int nb_config_files = count_files(d, file);
     char **file_name = get_file_names(d, file, nb_config_files);
     scene_list = create_scene_list(nb_config_files, file_name);
+    free(file_name);
     return (scene_list);
 }

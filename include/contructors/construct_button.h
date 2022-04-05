@@ -56,7 +56,7 @@ int nb_char_in_str(char *str, char c);
 
 char *get_keyword(char *str);
 
-char *get_value(char **content, int line);
+char *get_value(char *str);
 
 int my_strcmp(char *str1, char *str2);
 

@@ -6,6 +6,7 @@
 ##
 
 SRC = 	src/main.c														\
+		src/free_data.c 												\
 		src/collision/point_in_rect.c	\
 		src/config_management/get_names_scene.c \
 		src/config_management/get_config_files.c						\

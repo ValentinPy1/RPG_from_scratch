@@ -29,6 +29,7 @@ void get_background_type(char *str, scene_t *scene)
         if (my_strcmp(BACK_CONS[index].name, keyword) == 1)
             (*BACK_CONS[index].func)(scene, path);
     }
+    free(keyword);
 }
 
 void construct_background(scene_t *scene, char **content, int index)
