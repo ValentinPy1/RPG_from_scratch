@@ -12,12 +12,12 @@ char *get_keyword(char *str)
     char *keyword;
     int index2 = 0;
 
-    for (int index = 0; str[index] != ':'; index++) {
+    for (int index = 0; str[index] != ':' && str[index] != '\0'; index++) {
         if (str[index] != '\t')
             counter++;
     }
     keyword = malloc((counter + 1) * sizeof(char));
-    for (int index = 0; str[index] != ':'; index++) {
+    for (int index = 0; str[index] != ':' && str[index] != '\0'; index++) {
         if (str[index] != '\t') {
             keyword[index2] = str[index];
             index2++;
