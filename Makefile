@@ -50,7 +50,6 @@ all: built $(NAME)
 
 $(NAME): $(OBJ)
 	gcc -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS)
-	make clean
 
 clean:
 	rm -f $(OBJ)
@@ -69,6 +68,5 @@ re: fclean all
 
 built:
 	make -C lib/
-	make -C lib/ clean
 
 .PHONY: all clean fclean re built tests_run
