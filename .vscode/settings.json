@@ -9,7 +9,8 @@
         "string_view": "c",
         "initializer_list": "c",
         "utility": "c",
-        "init_hitbox.h": "c"
+        "init_hitbox.h": "c",
+        "particles.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
