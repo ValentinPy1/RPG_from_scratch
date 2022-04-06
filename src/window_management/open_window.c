@@ -25,7 +25,6 @@ void open_window(int width, int height, data_t *game_data)
     sfRenderWindow *window;
 
     create_window(&window, width, height);
-        sfVector2f new = {0, game_data->scene_list[2]->buttons[0]->position.y};
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         scene_selector(window, game_data);
