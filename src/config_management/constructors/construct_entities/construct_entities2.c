@@ -57,6 +57,6 @@ int en_construct_sound(entity_t *entity, char *value)
 
 int en_construct_dialogue(entity_t *entity, char *value)
 {
-    printf("DO dialogue:%s\n", value);
-    return;
+    entity->dialogue = my_strcpy(entity->dialogue, value);
+    return (0);
 }

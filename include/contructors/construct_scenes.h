@@ -19,15 +19,19 @@ typedef struct constructor_s {
 void construct_name(scene_t *scene, char **content, int index);
 
 void construct_button(scene_t *scene, char **content, int index);
-//TO DO:
-//void construct_background(scene_t *scene, char **content, int index);
+
+void construct_background(scene_t *scene, char **content, int index);
+
 void construct_entity(scene_t *scene, char **content, int index);
+
+void construct_text(scene_t *scene, char **content, int index);
 
 static const constructor_t CONSTRUCTORS[] = {
     {"name", construct_name},
     {"buttons", construct_button},
     {"entities", construct_entity},
-    // TO DO {"background", construct_background},
+    {"texts", construct_text},
+    {"background", construct_background},
     {NULL, NULL}
 };
 

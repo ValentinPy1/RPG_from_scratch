@@ -16,6 +16,10 @@ SRC = 	src/main.c														\
 		src/config_management/constructors/my_parser.c									\
 		src/config_management/constructors/error_handling.c								\
 		src/config_management/constructors/construct_scenes.c							\
+		src/config_management/constructors/construct_texts/parse_text.c					\
+		src/config_management/constructors/construct_texts/construct_text1.c			\
+		src/config_management/constructors/construct_texts/construct_text2.c			\
+		src/config_management/constructors/construct_texts/construct_text3.c			\
 		src/config_management/constructors/construct_entities/parse_entities.c			\
 		src/config_management/constructors/construct_entities/construct_entities1.c		\
 		src/config_management/constructors/construct_entities/construct_entities2.c		\

@@ -21,12 +21,14 @@ SRC =	fonctions/count_char.c		\
 		fonctions/my_putchar.c		\
 		fonctions/my_strcpy.c	\
 		fonctions/my_atof.c	\
+		fonctions/free_tab.c
+
 
 NAME =	libmy.a
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -g3
 
 all:	$(NAME)
 

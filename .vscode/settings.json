@@ -10,7 +10,12 @@
         "initializer_list": "c",
         "utility": "c",
         "init_hitbox.h": "c",
+<<<<<<< HEAD
         "particles.h": "c"
+=======
+        "construct_text.h": "c",
+        "sstream": "c"
+>>>>>>> 221c59f363a59f3cbb8cdb7833d19ca6d3e5ec9b
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

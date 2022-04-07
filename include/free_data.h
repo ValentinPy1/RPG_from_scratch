@@ -10,4 +10,6 @@
     #include "structures.h"
     #include <stdlib.h>
 
+void free_str_tab(char **tab);
+
 #endif

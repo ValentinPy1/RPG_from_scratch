@@ -6,7 +6,7 @@
 */
 #include "construct_button.h"
 
-int construct_posx(button_t *button, char *value)
+int but_construct_posx(button_t *button, char *value)
 {
     int coord_x = my_getnbr(value);
 
@@ -15,7 +15,7 @@ int construct_posx(button_t *button, char *value)
     return (0);
 }
 
-int construct_posy(button_t *button, char *value)
+int but_construct_posy(button_t *button, char *value)
 {
     int coord_y = my_getnbr(value);
 
@@ -24,7 +24,7 @@ int construct_posy(button_t *button, char *value)
     return (0);
 }
 
-int construct_width(button_t *button, char *value)
+int but_construct_width(button_t *button, char *value)
 {
     int width = my_getnbr(value);
 
@@ -32,7 +32,7 @@ int construct_width(button_t *button, char *value)
     return (0);
 }
 
-int construct_height(button_t *button, char *value)
+int but_construct_height(button_t *button, char *value)
 {
     int height = my_getnbr(value);
     
@@ -40,7 +40,7 @@ int construct_height(button_t *button, char *value)
     return (0);
 }
 
-int construct_rotation(button_t *button, char *value)
+int but_construct_rotation(button_t *button, char *value)
 {
     int rot = my_getnbr(value);
 

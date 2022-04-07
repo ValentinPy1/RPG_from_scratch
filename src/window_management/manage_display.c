@@ -8,6 +8,7 @@
 
 void display_vertices(sfRenderWindow *window, hitbox_t *hitbox)
 {
+    //TODO INIT SHAPE 1 fois
     for (int index = 0; index < 4; index++) {
         sfCircleShape *circle = sfCircleShape_create();
 
@@ -26,5 +27,8 @@ void display_scene(sfRenderWindow *window, scene_t *scene)
             scene->buttons[index]->sprite, NULL);
         sfRenderWindow_drawRectangleShape(window, scene->buttons[index]->hitbox->rectangle, sfFalse);
         display_vertices(window, scene->buttons[index]->hitbox);
+    }
+    for (int index = 0; scene->texts[index] != NULL; index++) {
+        sfRenderWindow_drawText(window, scene->texts[index], NULL);
     }
 }

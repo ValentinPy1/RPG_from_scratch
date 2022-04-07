@@ -12,13 +12,11 @@
 typedef struct coord_s {
     double x;
     double y;
-
 } coord_t;
 
 typedef struct vector_s {
     double x;
     double y;
-
 } vector_t;
 
 typedef struct hitbox_s {
@@ -40,7 +38,6 @@ typedef struct button_s {
     sfTexture *ho_texture;
     sfSprite *sprite;
     sfSprite *ho_sprite;
-    sfSprite *sel_sprite;
     sfSound *sound;
     sfSoundBuffer *sound_buffer;
     int is_selected;
@@ -63,6 +60,7 @@ typedef struct scene_s {
     char *name;
     button_t **buttons;
     entity_t **entities;
+    sfText **texts;
     sfTexture *background_texture;
     sfSprite *background_sprite;
     sfVector2i mouse_loc;
