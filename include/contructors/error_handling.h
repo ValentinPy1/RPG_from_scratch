@@ -20,10 +20,11 @@ static char *game_object_settings[4] = {
     "buttons",
     "background",
     "entities",
+    "texts",
     NULL
 };
 
-static char *object_settings[16] = {
+static char *object_settings[25] = {
     "posx",
     "posy",
     "width",
@@ -38,6 +39,15 @@ static char *object_settings[16] = {
     "sound",
     "dialogue",
     "callback",
+    "text",
+    "font",
+    "size",
+    "style",
+    "color",
+    "outline_color",
+    "outline_tickness",
+    "line_spacing",
+    "letter_spacing",
     NULL
 };
 

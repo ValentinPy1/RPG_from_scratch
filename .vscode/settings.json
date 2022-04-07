@@ -9,7 +9,9 @@
         "string_view": "c",
         "initializer_list": "c",
         "utility": "c",
-        "init_hitbox.h": "c"
+        "init_hitbox.h": "c",
+        "construct_text.h": "c",
+        "sstream": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

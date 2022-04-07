@@ -7,7 +7,7 @@
 #include "construct_button.h"
 #include "construct_callbacks.h"
 
-int construct_scale(button_t *button, char *value)
+int but_construct_scale(button_t *button, char *value)
 {
     sfVector2f scale = (sfVector2f) {my_getnbr(value), my_getnbr(value)};
 
@@ -17,7 +17,7 @@ int construct_scale(button_t *button, char *value)
     return (0);
 }
 
-int construct_texture(button_t *button, char *value)
+int but_construct_texture(button_t *button, char *value)
 {
     sfVector2f origin = (sfVector2f)
     {button->hitbox->width / (2 * button->scale.x),
@@ -39,7 +39,7 @@ int construct_texture(button_t *button, char *value)
     return (0);
 }
 
-int construct_ho_texture(button_t *button, char *value)
+int but_construct_ho_texture(button_t *button, char *value)
 {
     button->ho_sprite = sfSprite_create();
     button->ho_texture = sfTexture_createFromFile(value, NULL);
@@ -56,7 +56,7 @@ int construct_ho_texture(button_t *button, char *value)
     return (0);
 }
 
-int construct_sound(button_t *button, char *value)
+int but_construct_sound(button_t *button, char *value)
 {
     sfSoundBuffer *sound_buffer = sfSoundBuffer_createFromFile(value);
     sfSound *sound = sfSound_create();
@@ -73,7 +73,7 @@ int construct_sound(button_t *button, char *value)
     return (0);
 }
 
-int construct_callback(button_t *button, char *value)
+int but_construct_callback(button_t *button, char *value)
 {
     for (int index = 0; BUT_CALL[index].name != NULL; index++) {
         if (my_strcmp(BUT_CALL[index].name, value) == 1) {
