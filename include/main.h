@@ -24,4 +24,6 @@ int get_run_index(char **scene_names, char *name);
 
 void free_data(data_t *game_data);
 
+float my_atof(char *str);
+
 #endif /*MAIN_H_*/

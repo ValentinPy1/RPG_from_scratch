@@ -15,7 +15,7 @@ void display_vertices(sfRenderWindow *window, hitbox_t *hitbox)
         sfCircleShape_setRadius(circle, 3);
         sfCircleShape_setFillColor(circle, sfRed);
         sfCircleShape_setOutlineThickness(circle, 0);
-        sfRenderWindow_drawCircleShape(window, circle, sfFalse);       
+        sfRenderWindow_drawCircleShape(window, circle, sfFalse);
     }
 }
 
