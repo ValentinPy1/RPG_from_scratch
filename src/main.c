@@ -6,7 +6,6 @@
 */
 #include "main.h"
 
-/*
 int main(int ac, char **av)
 {
     data_t *game_data = malloc(sizeof(data_t));
@@ -26,12 +25,4 @@ int main(int ac, char **av)
     open_window(1920, 1080, game_data);
     free_data(game_data);
     return (0);
-}
-*/
-
-int main(int ac, char **av)
-{
-    float decimal = my_atof(av[1]);
-    printf("result : %f\n", decimal);
-    return 0;
 }
