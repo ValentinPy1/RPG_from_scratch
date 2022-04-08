@@ -1,0 +1,62 @@
+/*
+** EPITECH PROJECT, 2021
+** rpg
+** File description:
+** setup->c
+*/
+
+#include "random.h"
+#include <math.h>
+#include "particles.h"
+
+particle_param_t setup_default_param(void)
+{
+    particle_param_t param;
+    param.pos = (sfVector2f) {1700, 400};
+    param.spawn_radius = (sfVector2f) {0, 0};
+    param.rdm_vel = (sfVector2f) {10, 10};
+    param.init_vel = (sfVector2f) {0, 0};
+    param.color = (sfColor) {255, 255, 255, 255};
+    param.max_duration = 300;
+    param.size = 1;
+    param.gravity = (sfVector2f) {0, 0.5};
+    param.resistance = (sfVector2f) {0.01, 0.01};
+    return param;
+}
+
+particle_t setup_particle(particle_param_t *p)
+{
+    particle_t particle;
+    sfCircleShape *circle = sfCircleShape_create();
+    float angle_pos = get_rdm() * PI * 2;
+    float dist_pos = get_rdm();
+    float angle_vel = get_rdm() * PI * 2;
+    float dist_vel = rdm_exp(0.5);
+    particle.pos = (sfVector2f) {dist_pos * cos(angle_pos) *
+    p->spawn_radius.x + p->pos.x, dist_pos *
+    sin(angle_pos) * p->spawn_radius.y + p->pos.y};
+    particle.vel = (sfVector2f) {p->init_vel.x + dist_vel * cos(angle_vel) *
+    p->rdm_vel.x, p->init_vel.x + dist_vel * sin(angle_vel) *
+    p->rdm_vel.y};
+    particle.duration = p->max_duration;
+    sfCircleShape_setFillColor(circle, p->color);
+    sfCircleShape_setRadius(circle, p->size);
+    sfCircleShape_setOrigin(circle, (sfVector2f) {p->size, p->size});
+    sfCircleShape_setPosition(circle, particle.pos);
+    particle.circle = circle;
+    particle.res = (sfVector2f) {p->resistance.x * rdm_exp(0.5), p->resistance.y * rdm_exp(0.5)};
+    particle.grav = (sfVector2f) {p->gravity.x * rdm_exp(0.5), p->gravity.y * rdm_exp(0.5)};
+    return particle;
+}
+
+partic_arr_t setup_partic_arr(int count, particle_param_t *param)
+{
+    partic_arr_t particles;
+    int i;
+
+    particles.particles = malloc(count * sizeof(particle_t));
+    particles.count = count;
+    for (i = 0; i < count; i++)
+        particles.particles[i] = setup_particle(param);
+    return particles;
+}

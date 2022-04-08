@@ -38,6 +38,9 @@ SRC = 	src/main.c														\
 		src/window_management/manage_buttons.c	\
 		src/window_management/get_run_index.c \
 		src/random/random_generator.c	\
+		src/particles/setup.c	\
+		src/particles/update.c	\
+		src/particles/draw.c	\
 
 NAME = my_rpg
 
