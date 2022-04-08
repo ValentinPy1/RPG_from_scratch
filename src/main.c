@@ -17,8 +17,13 @@ int main(int ac, char **av)
 
     if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == 0) {
         usage();
+    if (ac == 2 && my_strcmp(av[1], "-h") == 1) {
+        my_putstr("HELP\n"); // TO DO: USAGE
         return (0);
     }
+    game_data->debug_mode = 0;
+    if (ac == 2 && my_strcmp(av[1], "-d") == 1)
+        game_data->debug_mode = 1;
     game_data->scene_list = get_scenes();
     game_data->scene_names = get_names_scene(game_data->scene_list);
     game_data->run_index = get_run_index(game_data->scene_names, "home_menu");
