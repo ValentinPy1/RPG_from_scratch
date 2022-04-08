@@ -48,5 +48,6 @@ char *get_value(char *str);
 int my_strcmp(char *str1, char *str2);
 int my_getnbr(char *str);
 int init_hitbox(hitbox_t *hitbox);
+float my_atof(char *str);
 
 #endif /*BUTT_H_*/

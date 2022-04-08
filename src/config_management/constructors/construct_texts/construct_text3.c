@@ -9,7 +9,7 @@
 
 int txt_construct_line_spacing(sfText *text, char *value)
 {
-    int spacing = my_getnbr(value);
+    float spacing = my_atof(value);
 
     sfText_setLineSpacing(text, spacing);
     return (0);
@@ -17,8 +17,10 @@ int txt_construct_line_spacing(sfText *text, char *value)
 
 int txt_construct_letter_spacing(sfText *text, char *value)
 {
-    int spacing = my_getnbr(value);
+    printf("Value=%s\n", value);
+    float spacing = my_atof(value);
 
+    printf("Spacing letter:%f\n", spacing);
     sfText_setLetterSpacing(text, spacing);
     return (0);
 }
