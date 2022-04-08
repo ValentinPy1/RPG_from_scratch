@@ -6,7 +6,6 @@
 */
 
 #include "open_window.h"
-#include "particles.h"
 
 void create_window(sfRenderWindow **window, int width, int height)
 {
@@ -25,7 +24,6 @@ void scene_selector(sfRenderWindow *window, data_t *game_data)
 void open_window(int width, int height, data_t *game_data)
 {
     sfRenderWindow *window;
-    partic_array_t particles = setup_particles_array(200, (sfVector2f) {1500, 400});
 
     create_window(&window, width, height);
     while (sfRenderWindow_isOpen(window)) {
@@ -35,9 +33,7 @@ void open_window(int width, int height, data_t *game_data)
             sfRenderWindow_close(window);
             break;
         }
-        draw_particles(window, particles);
         sfRenderWindow_display(window);
-        update_particles(particles);
     }
     sfRenderWindow_destroy(window);
 }
