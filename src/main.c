@@ -15,8 +15,6 @@ int main(int ac, char **av)
 {
     data_t *game_data = malloc(sizeof(data_t));
 
-    if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == 0) {
-        usage();
     if (ac == 2 && my_strcmp(av[1], "-h") == 1) {
         my_putstr("HELP\n"); // TO DO: USAGE
         return (0);

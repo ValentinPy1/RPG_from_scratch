@@ -62,6 +62,7 @@ typedef struct scene_s {
     button_t **buttons;
     entity_t **entities;
     sfText **texts;
+    int background_to_run;
     sfTexture *background_texture;
     sfSprite *background_sprite;
     sfVector2i mouse_loc;
