@@ -11,9 +11,11 @@ void free_hitbox(hitbox_t *hitbox)
 {
     for (int index = 0; hitbox->vertices[index] != NULL; index++) {
         free(hitbox->vertices[index]);
+        sfCircleShape_destroy(hitbox->circle[index]);
     }
     sfRectangleShape_destroy(hitbox->rectangle);
     free(hitbox->vertices);
+    free(hitbox->circle);
     free(hitbox);
 }
 

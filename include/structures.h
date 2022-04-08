@@ -27,6 +27,7 @@ typedef struct hitbox_s {
     int is_hovered;
     sfVector2f **vertices;
     sfRectangleShape *rectangle;
+    sfCircleShape **circle;
 } hitbox_t;
 
 typedef struct button_s {
@@ -69,6 +70,7 @@ typedef struct scene_s {
 
 typedef struct data_s {
     int run_index;
+    int debug_mode;
     scene_t **scene_list;
     char **scene_names;
 } data_t;

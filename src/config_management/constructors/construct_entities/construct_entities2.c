@@ -8,7 +8,7 @@
 
 int en_construct_scale(entity_t *entity, char *value)
 {
-    sfVector2f scale = (sfVector2f) {my_getnbr(value), my_getnbr(value)};
+    sfVector2f scale = (sfVector2f) {my_atof(value), my_atof(value)};
 
     entity->scale = scale;
     entity->hitbox->width *= scale.x;

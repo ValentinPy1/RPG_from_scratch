@@ -9,7 +9,7 @@
 
 int but_construct_scale(button_t *button, char *value)
 {
-    sfVector2f scale = (sfVector2f) {my_getnbr(value), my_getnbr(value)};
+    sfVector2f scale = (sfVector2f) {my_atof(value), my_atof(value)};
 
     button->scale = scale;
     button->hitbox->width *= scale.x;

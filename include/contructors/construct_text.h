@@ -52,5 +52,9 @@ char *get_value(char *str);
 int my_strcmp(char *str1, char *str2);
 char *my_strcpy(char *dest, char const *src);
 int my_getnbr(char *str);
+float my_atof(char *str);
+char **my_split(char *str, char splitter);
+void free_str_tab(char **tab);
+int count_line(char **tab);
 
 #endif /*BUTT_H_*/

@@ -42,7 +42,7 @@ int en_construct_height(entity_t *entity, char *value)
 
 int en_construct_rotation(entity_t *entity, char *value)
 {
-    int rot = my_getnbr(value);
+    float rot = my_atof(value);
 
     entity->rotation = rot;
     entity->hitbox->rotation = rot;
