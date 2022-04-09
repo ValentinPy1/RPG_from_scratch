@@ -11,12 +11,12 @@ int back_construct_map(scene_t *scene, char *path)
 {
     printf("TODO: Construct map\n");
     scene->background_to_run = 1;
+    scene->map = map_constructor();
     return (0);
 }
 
 int back_construct_img(scene_t *scene, char *path)
 {
-    printf("TODO: Construct img with path:%s\n", path);
     scene->background_to_run = 2;
     scene->background_sprite = sfSprite_create();
     scene->background_texture = sfTexture_createFromFile(path, NULL);

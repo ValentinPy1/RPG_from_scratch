@@ -5,14 +5,15 @@
 ## Makefile code source
 ##
 
-SRC = 	src/main.c														\
-		src/free_data.c 												\
-		src/collision/point_in_rect.c	\
-		src/config_management/get_names_scene.c \
-		src/config_management/get_config_files.c						\
-		src/config_management/get_content_file.c						\
-		src/config_management/get_value.c								\
-		src/config_management/get_keyword.c								\
+SRC = 	src/main.c																		\
+		src/free_data.c 																\
+		src/collision/point_in_rect.c													\
+		src/map_generator/map_parser.c													\
+		src/config_management/get_names_scene.c 										\
+		src/config_management/get_config_files.c										\
+		src/config_management/get_content_file.c										\
+		src/config_management/get_value.c												\
+		src/config_management/get_keyword.c												\
 		src/config_management/constructors/my_parser.c									\
 		src/config_management/constructors/error_handling.c								\
 		src/config_management/constructors/construct_scenes.c							\
@@ -39,6 +40,10 @@ SRC = 	src/main.c														\
 		src/window_management/get_run_index.c \
 		src/random/random_generator.c	\
 		src/movement_management/movement.c \
+		src/window_management/manage_events.c											\
+		src/window_management/manage_buttons.c											\
+		src/window_management/get_run_index.c 											\
+		src/random/random_generator.c													\
 
 NAME = my_rpg
 

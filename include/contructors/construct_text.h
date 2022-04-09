@@ -11,6 +11,20 @@
     #include <stddef.h>
     #include <stdlib.h>
 
+typedef struct style_s {
+    sfTextStyle style;
+    char *name;
+} style_t;
+
+static const style_t TEXT_STYLE[6] = {
+    {sfTextRegular, "regular"},
+    {sfTextBold, "bold"},
+    {sfTextItalic, "italic"},
+    {sfTextUnderlined, "underlined"},
+    {sfTextStrikeThrough, "strike_through"},
+    {sfTextRegular, NULL}
+};
+
 typedef struct text_cons_s {
     char *name;
     int (*func)(sfText *text, char *value);

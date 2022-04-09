@@ -57,6 +57,11 @@ typedef struct entity_s {
     char **dialogue;
 } entity_t;
 
+typedef struct map_s {
+    int **tiles;
+    sfSprite *tiles_sprite;
+} map_t;
+
 typedef struct scene_s {
     char *name;
     button_t **buttons;
@@ -66,6 +71,7 @@ typedef struct scene_s {
     sfTexture *background_texture;
     sfSprite *background_sprite;
     sfVector2i mouse_loc;
+    map_t *map;
     int is_running;
 } scene_t;
 

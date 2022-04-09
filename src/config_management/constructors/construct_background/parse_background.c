@@ -23,7 +23,7 @@ char *get_param(char *str)
 void get_background_type(char *str, scene_t *scene)
 {
     char *keyword = get_keyword(str);
-    char path[] = "TODO";
+    char *path = get_value(str);
     
     for (int index = 0; BACK_CONS[index].name != NULL; index++) {
         if (my_strcmp(BACK_CONS[index].name, keyword) == 1)
