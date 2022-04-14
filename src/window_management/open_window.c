@@ -28,10 +28,10 @@ void open_window(int width, int height, data_t *game_data)
     particle_param_t param = setup_default_param();
     partic_arr_t partic;
 
-    param.resistance = (sfVector2f) {0.01, 0.01};
-    param.rdm_vel = (sfVector2f) {10, 1};
-    param.gravity = (sfVector2f) {0, 0.5};
-    param.init_vel = (sfVector2f) {-10, -10};
+    // param.resistance = (sfVector2f) {0.01, 0.1};
+    // param.rdm_vel = (sfVector2f) {5, 1};
+    // param.gravity = (sfVector2f) {0, 0.5};
+    // param.init_vel = (sfVector2f) {-10, 0};
     partic = setup_partic_arr(500, &param);
 
     create_window(&window, width, height);
