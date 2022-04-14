@@ -5,6 +5,8 @@
 ## Makefile code source
 ##
 
+CON_PATH = src/config_management/constructors/
+
 SRC = 	src/main.c																		\
 		src/free_data.c 																\
 		src/collision/point_in_rect.c													\
@@ -14,24 +16,24 @@ SRC = 	src/main.c																		\
 		src/config_management/get_content_file.c										\
 		src/config_management/get_value.c												\
 		src/config_management/get_keyword.c												\
-		src/config_management/constructors/my_parser.c									\
-		src/config_management/constructors/error_handling.c								\
-		src/config_management/constructors/construct_scenes.c							\
-		src/config_management/constructors/construct_texts/parse_text.c					\
-		src/config_management/constructors/construct_texts/construct_text1.c			\
-		src/config_management/constructors/construct_texts/construct_text2.c			\
-		src/config_management/constructors/construct_texts/construct_text3.c			\
-		src/config_management/constructors/construct_entities/parse_entities.c			\
-		src/config_management/constructors/construct_entities/construct_entities1.c		\
-		src/config_management/constructors/construct_entities/construct_entities2.c		\
-		src/config_management/constructors/construct_background/parse_background.c		\
-		src/config_management/constructors/construct_background/construct_background.c	\
-		src/config_management/constructors/construct_buttons/parse_buttons.c 			\
-		src/config_management/constructors/construct_buttons/construct_button1.c 		\
-		src/config_management/constructors/construct_buttons/construct_button2.c 		\
-		src/config_management/constructors/construct_buttons/construct_button3.c 		\
-		src/config_management/constructors/construct_hitbox/init_hitbox.c				\
-		src/config_management/constructors/construct_hitbox/load_vertices.c				\
+		$(CON_PATH)my_parser.c									\
+		$(CON_PATH)error_handling.c								\
+		$(CON_PATH)construct_scenes.c							\
+		$(CON_PATH)construct_texts/parse_text.c					\
+		$(CON_PATH)construct_texts/construct_text1.c			\
+		$(CON_PATH)construct_texts/construct_text2.c			\
+		$(CON_PATH)construct_texts/construct_text3.c			\
+		$(CON_PATH)construct_entities/parse_entities.c			\
+		$(CON_PATH)construct_entities/construct_entities1.c		\
+		$(CON_PATH)construct_entities/construct_entities2.c		\
+		$(CON_PATH)construct_background/parse_background.c		\
+		$(CON_PATH)construct_background/construct_background.c	\
+		$(CON_PATH)construct_buttons/parse_buttons.c 			\
+		$(CON_PATH)construct_buttons/construct_button1.c 		\
+		$(CON_PATH)construct_buttons/construct_button2.c 		\
+		$(CON_PATH)construct_buttons/construct_button3.c 		\
+		$(CON_PATH)construct_hitbox/init_hitbox.c				\
+		$(CON_PATH)construct_hitbox/load_vertices.c				\
 		src/config_management/callbacks/button_callback1.c								\
 		src/window_management/open_window.c												\
 		src/window_management/manage_display.c 											\

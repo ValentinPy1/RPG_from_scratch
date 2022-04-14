@@ -6,6 +6,7 @@
 */
 
 #include "open_window.h"
+void display_map(sfRenderWindow *window, map_t *map_data);
 
 void create_window(sfRenderWindow **window, int width, int height)
 {

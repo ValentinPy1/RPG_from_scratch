@@ -14,6 +14,8 @@
     #include <fcntl.h>
     #include "structures.h"
 
+static const int TILE_SIZE = 32
+
 void constructor(scene_t *scene, char **content, int index);
 int is_in_list(char **list, char *str);
 char *get_keyword(char *str);

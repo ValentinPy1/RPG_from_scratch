@@ -29,7 +29,7 @@ int **tiles_parser(map_t *map_data)
 {
     int line;
     int number;
-    char **map = get_content_file("config_files/map_config/map.config");
+    char **map = get_content_file("config_files/map_config/map1.config");
     int width = count_char(map[0], ',') + 1;
     int height = get_nb_row(map);
     int **tiles = malloc_int(width, height);
@@ -70,14 +70,14 @@ map_t *map_constructor(void)
 
 void display_map(sfRenderWindow *window, map_t *map_data)
 {
-    sfIntRect limit = fill_int_rect(0, 0, 32, 32);
+    sfIntRect limit = fill_int_rect(0, 0, TILE_SIZE, TILE_SIZE);
     sfVector2f pos = {0, 0};
 
-    for (int i = 0; i < 34; i++) {
-        for (int j = 0; j < 60; j++) {
-            limit.left = map_data->tiles[i][j] * 32;
-            pos.x = j * 32;
-            pos.y = i * 32;
+    for (int i = 0; i < 68; i++) {
+        for (int j = 0; j < 120; j++) {
+            limit.left = map_data->tiles[i][j] * TILE_SIZE;
+            pos.x = j * TILE_SIZE;
+            pos.y = i * TILE_SIZE;
             sfSprite_setPosition(map_data->tiles_sprite, pos);
             sfSprite_setTextureRect(map_data->tiles_sprite, limit);
             sfRenderWindow_drawSprite(window, map_data->tiles_sprite, NULL);
