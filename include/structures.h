@@ -4,6 +4,7 @@
 ** File description:
 ** Header
 */
+
 #ifndef STRUCT_H_
     #define STRUCT_H_
     #include <SFML/Graphics.h>
@@ -60,6 +61,8 @@ typedef struct entity_s {
 typedef struct map_s {
     int **tiles;
     sfSprite *tiles_sprite;
+    int movement_x;
+    int movement_y;
 } map_t;
 
 typedef struct scene_s {
@@ -81,6 +84,5 @@ typedef struct data_s {
     scene_t **scene_list;
     char **scene_names;
 } data_t;
-
 
 #endif /*STRUCT_H_*/

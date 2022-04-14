@@ -14,7 +14,7 @@
     #include <fcntl.h>
     #include "structures.h"
 
-static const int TILE_SIZE = 32
+static const int TILE_SIZE = 32;
 
 void constructor(scene_t *scene, char **content, int index);
 int is_in_list(char **list, char *str);
@@ -31,4 +31,4 @@ int count_char(char *str, char c);
 int **tiles_parser(map_t *map_data);
 sfIntRect fill_int_rect(int left, int top, int width, int height);
 
-#endif 
+#endif

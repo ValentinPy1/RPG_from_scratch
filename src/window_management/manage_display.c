@@ -11,13 +11,14 @@ void display_hitbox(sfRenderWindow *window, hitbox_t *hitbox)
 {
     sfRenderWindow_drawRectangleShape(window, hitbox->rectangle, sfFalse);
     for (int index = 0; hitbox->circle[index] != NULL; index++) {
-        sfRenderWindow_drawCircleShape(window, hitbox->circle[index], sfFalse);       
+        sfRenderWindow_drawCircleShape(window, hitbox->circle[index], sfFalse);
     }
 }
 
 void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 {
     display_map(window, scene->map);
+    player_move(game_data);
     if (scene->background_to_run == 2)
         sfRenderWindow_drawSprite(window, scene->background_sprite, NULL);
     for (int index = 0; scene->buttons[index] != NULL; index++) {
