@@ -29,7 +29,7 @@ int **tiles_parser(map_t *map_data)
 {
     int line;
     int number;
-    char **map = get_content_file("config_files/map_config/map1.config");
+    char **map = get_content_file("config_files/map_config/map.config");
     int width = count_char(map[0], ',') + 1;
     int height = get_nb_row(map);
     int **tiles = malloc_int(width, height);
@@ -38,7 +38,7 @@ int **tiles_parser(map_t *map_data)
     for (line = 0; map[line] != NULL; line++) {
         temp = my_split(map[line], ',');
         for (number = 0; temp[number] != NULL; number++) {
-            tiles[line][number] = my_getnbr(temp[number]);
+            tiles[line][number] = (my_getnbr(temp[number]) - 10);
         }
         free(temp);
     }
@@ -75,8 +75,8 @@ void display_map(sfRenderWindow *window, map_t *map_data)
     sfIntRect limit = fill_int_rect(0, 0, TILE_SIZE, TILE_SIZE);
     sfVector2f pos = {0, 0};
 
-    for (int i = 0; i < 68; i++) {
-        for (int j = 0; j < 120; j++) {
+    for (int i = 0; i < 34; i++) {
+        for (int j = 0; j < 60; j++) {
             limit.left = map_data->tiles[i][j] * TILE_SIZE;
             pos.x = (j * TILE_SIZE) - map_data->movement_x;
             pos.y = (i * TILE_SIZE) - map_data->movement_y;
