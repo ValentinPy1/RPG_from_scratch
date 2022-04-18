@@ -11,6 +11,10 @@ void init_scene(scene_t *scene, char **content)
     int line;
     int nb_tab;
 
+    scene->buttons = NULL;
+    scene->entities = NULL;
+    scene->texts = NULL;
+    scene->background_to_run = 0;
     for (line = 0; content[line] != NULL; line++) {
         nb_tab = nb_char_in_str(content[line], '\t');
         if (nb_tab != 2)
