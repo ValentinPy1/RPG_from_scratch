@@ -26,6 +26,7 @@ SRC = 	src/main.c													\
 		$(CON_PATH)error_handling.c									\
 		$(CON_PATH)construct_scenes.c								\
 		$(CON_PATH)construct_map/map_parser.c						\
+		$(CON_PATH)construct_map/tools_parser.c						\
 		$(CON_PATH)construct_hitbox/init_hitbox.c					\
 		$(CON_PATH)construct_hitbox/load_vertices.c					\
 		$(CON_PATH)construct_texts/parse_text.c						\

@@ -4,6 +4,7 @@
 ** File description:
 ** Source code to know if a point is in a rectangle
 */
+
 #include "point_in_rec.h"
 
 int point_in_rec(sfVector2f point, sfVector2f **vertices, int width, int height)
@@ -39,7 +40,7 @@ void button_collision(sfVector2i mouse_loc, button_t **buttons)
     for (int index = 0; buttons[index] != NULL; index++) {
         if (point_in_rec(mouse_pos, buttons[index]->hitbox->vertices,
         buttons[index]->hitbox->width, buttons[index]->hitbox->height) == 1) {
-            printf("ça touche\n");
+            my_putstr("ça touche\n");
         }
     }
 }

@@ -4,6 +4,7 @@
 ** File description:
 ** Source code to construct a button
 */
+
 #include "construct_button.h"
 
 int get_nb_buttons(char **content, int buttons)

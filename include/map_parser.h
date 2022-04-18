@@ -30,5 +30,6 @@ int my_getnbr(char *str);
 int count_char(char *str, char c);
 int **tiles_parser(map_t *map_data);
 sfIntRect fill_int_rect(int left, int top, int width, int height);
+int get_nb_row(char **tab);
 
 #endif

@@ -17,7 +17,7 @@ int txt_construct_str(sfText *text, char *value)
 int txt_construct_font(sfText *text, char *value)
 {
     sfFont *font = sfFont_createFromFile(value);
-    
+
     if (text != NULL)
         sfText_setFont(text, font);
     return (0);
@@ -37,7 +37,7 @@ int txt_construct_posy(sfText *text, char *value)
 {
     int y = my_getnbr(value);
     sfVector2f pos = sfText_getPosition(text);
-    
+
     pos.y = y;
     if (text != NULL)
         sfText_setPosition(text, pos);

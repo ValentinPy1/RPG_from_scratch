@@ -7,14 +7,6 @@
 
 #include "map_parser.h"
 
-int get_nb_row(char **tab)
-{
-    int row;
-
-    for (row = 0; tab[row] != NULL; row ++);
-    return (row);
-}
-
 int **malloc_int(int width, int height)
 {
     int **map_int = malloc(height * sizeof(int *));

@@ -9,4 +9,6 @@
     #include "structures.h"
     #include <math.h>
 
+int my_putstr(char const *str);
+
 #endif /*POINT_H_*/

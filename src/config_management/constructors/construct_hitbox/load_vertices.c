@@ -64,7 +64,7 @@ void load_vertices(hitbox_t *hitbox)
         sfCircleShape_setFillColor(circle, sfRed);
         sfCircleShape_setOrigin(circle, (sfVector2f) {3, 3});
         sfCircleShape_setOutlineThickness(circle, 0);
-        hitbox->circle[index] = circle;   
+        hitbox->circle[index] = circle;
     }
     hitbox->circle[index] = NULL;
 }

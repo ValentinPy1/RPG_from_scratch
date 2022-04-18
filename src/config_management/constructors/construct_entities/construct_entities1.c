@@ -35,7 +35,7 @@ int en_construct_width(entity_t *entity, char *value)
 int en_construct_height(entity_t *entity, char *value)
 {
     int height = my_getnbr(value);
-    
+
     entity->hitbox->height = height;
     return (0);
 }

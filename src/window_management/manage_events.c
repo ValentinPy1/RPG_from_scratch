@@ -6,7 +6,8 @@
 */
 #include "event_management.h"
 
-void event_handling(sfRenderWindow *window, scene_t *scene, char **scene_name, int *index_run)
+void event_handling(sfRenderWindow *window, scene_t *scene, char **scene_name,
+int *index_run)
 {
     sfEvent event;
     sfVector2i mouse_loc;
