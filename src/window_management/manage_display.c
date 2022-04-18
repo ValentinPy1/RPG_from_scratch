@@ -15,19 +15,27 @@ void display_hitbox(sfRenderWindow *window, hitbox_t *hitbox)
     }
 }
 
-void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
+void draw_buttons(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 {
-    display_map(window, scene->map);
-    player_move(game_data);
-    if (scene->background_to_run == 2)
-        sfRenderWindow_drawSprite(window, scene->background_sprite, NULL);
     for (int index = 0; scene->buttons[index] != NULL; index++) {
         sfRenderWindow_drawSprite(window,
             scene->buttons[index]->sprite, NULL);
         if (game_data->debug_mode == 1)
             display_hitbox(window, scene->buttons[index]->hitbox);
     }
-    for (int index = 0; scene->texts[index] != NULL; index++) {
+}
+
+void draw_texts(sfRenderWindow *window, data_t *game_data, scene_t *scene) {
+    for (int index = 0; scene->texts[index] != NULL; index++)
         sfRenderWindow_drawText(window, scene->texts[index], NULL);
-    }
+}
+
+void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
+{
+    if (scene->background_to_run == 2)
+        sfRenderWindow_drawSprite(window, scene->background_sprite, NULL);
+    else if (scene->background_to_run == 1)
+        display_map(window, scene->map);
+    draw_buttons(window, game_data, scene);
+    draw_texts(window, game_data, scene);
 }

@@ -7,7 +7,7 @@
 
 #include "open_window.h"
 void display_map(sfRenderWindow *window, map_t *map_data);
-void player_move(data_t *game_data);
+void player_move(data_t *game_data, scene_t *scene);
 
 void create_window(sfRenderWindow **window, int width, int height)
 {
@@ -20,6 +20,7 @@ void create_window(sfRenderWindow **window, int width, int height)
 void scene_selector(sfRenderWindow *window, data_t *game_data)
 {
     event_handling(window, game_data->scene_list[game_data->run_index]);
+    player_move(game_data, game_data->scene_list[game_data->run_index]);
     display_scene(window, game_data, game_data->scene_list[game_data->run_index]);
 }
 
