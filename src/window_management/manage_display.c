@@ -5,7 +5,6 @@
 ** Source code to manage display
 */
 #include "manage_display.h"
-void display_map(sfRenderWindow *window, map_t *map_data);
 
 void display_hitbox(sfRenderWindow *window, hitbox_t *hitbox)
 {
@@ -18,8 +17,12 @@ void display_hitbox(sfRenderWindow *window, hitbox_t *hitbox)
 void draw_buttons(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 {
     for (int index = 0; scene->buttons[index] != NULL; index++) {
-        sfRenderWindow_drawSprite(window,
-            scene->buttons[index]->sprite, NULL);
+        if (scene->buttons[index]->is_selected = 0)
+            sfRenderWindow_drawSprite(window,
+                scene->buttons[index]->sprite, NULL);
+        else if (scene->buttons[index]->is_selected = 1)
+            sfRenderWindow_drawSprite(window,
+                scene->buttons[index]->ho_sprite, NULL);
         if (game_data->debug_mode == 1)
             display_hitbox(window, scene->buttons[index]->hitbox);
     }

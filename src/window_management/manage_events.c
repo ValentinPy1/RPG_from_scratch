@@ -6,8 +6,7 @@
 */
 #include "event_management.h"
 
-void event_handling(sfRenderWindow *window, scene_t *scene, char **scene_name,
-int *index_run)
+void event_handling(sfRenderWindow *window, scene_t *scene)
 {
     sfEvent event;
     sfVector2i mouse_loc;
@@ -18,7 +17,7 @@ int *index_run)
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         if (event.type == sfEvtMouseButtonReleased) {
-            button_collision(mouse_loc, scene->buttons);
+            manage_buttons(scene->buttons, mouse_loc);
         }
     }
 }

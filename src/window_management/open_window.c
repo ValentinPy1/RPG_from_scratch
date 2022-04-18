@@ -6,8 +6,6 @@
 */
 
 #include "open_window.h"
-void display_map(sfRenderWindow *window, map_t *map_data);
-void player_move(data_t *game_data, scene_t *scene);
 
 void create_window(sfRenderWindow **window, int width, int height)
 {

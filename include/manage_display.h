@@ -10,4 +10,5 @@
     #include <stddef.h>
     #include "structures.h"
 
+void display_map(sfRenderWindow *window, map_t *map_data);
 #endif /*MDIS_H_*/
