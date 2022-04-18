@@ -25,18 +25,19 @@ char **get_file_names(DIR *d, struct dirent *file, int nb_files)
     int index = 0;
     char **file_names = malloc((nb_files + 1) * sizeof(char *));
 
-    d = opendir("config_files/scene_config/");
     // TO DO ERROR HANDLING
-    for (int loop = 0; (file = readdir(d)) != NULL; loop ++) {
+    d = opendir("config_files/scene_config/");
+    for (int loop = 0; (file = readdir(d)) != NULL; loop++) {
         if (file->d_name[0] != '.') {
             file_names[index] = malloc((my_strlen(file->d_name) + 1) *
                                     sizeof(char));
-            file_names[index] = file->d_name;
+            file_names[index] = my_strcpy( file_names[index], file->d_name);
             file_names[index][my_strlen(file->d_name)] = '\0';
             index += 1;
         }
     }
     file_names[index] = NULL;
+    closedir(d);
     return (file_names);
 }
 
@@ -56,6 +57,8 @@ scene_t **create_scene_list(int nb_config_files, char **file_name)
         if (scene_list[index] == NULL)
             return (NULL);
         index++;
+        free(path_name);
+        free_str_tab(content);
     }
     scene_list[index] = NULL;
     return (scene_list);
@@ -66,10 +69,11 @@ scene_t **get_scenes(void)
     DIR *d = NULL;
     struct dirent *file = NULL;
     scene_t **scene_list;
-
     int nb_config_files = count_files(d, file);
     char **file_name = get_file_names(d, file, nb_config_files);
+
     scene_list = create_scene_list(nb_config_files, file_name);
-    free(file_name);
+    free_str_tab(file_name);
+
     return (scene_list);
 }
