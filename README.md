@@ -42,27 +42,69 @@ frgthyujiouyjhtrgfedfrgtyujkikjuhytgrftyu;k,jnhbgvf
 
 ## Features
 ---
-1. Config file to launch scene
+# 1. Config file to launch scene
 
 The config file work with keyword you need to know before use it.
-Tabs are mendatory to separate things.
+There is **only one** keyword per line.
 
 Thoses keywords are mendatory at the beggining of a config file.
 
-Keywords with 0 tab:
-`name:<name>
-game_object:
-`
-Keywords with 1 tab:
-`
-  buttons:
-  entities:
-	texts:
-	background:
-`
+`name:<char *name>`   Scene name\
+`game_object:`  List of the game object 
 
-For the moment we got this
-Keywords with 2 tabs:
+**game_object elements:**
+
+Those keywords need a tab for each element in there
+
+`buttons:`	- Set the button list bellow.\
+`entities:`	- Set the entity list bellow.\
+`texts:`	- Set the text list bellow.\
+`background:`	- Set the background type.\
+
+**buttons elements:**
+
+`posx:<int x position>`			- Set x position of the button.\
+`posy:<int y position>`			- Set y position of the button.\
+`width:<int width>`			- Set the width of the hitbox button.\
+`height:<int height>`			- Set the height of the hitbix button.\
+`scale:<float scale>`			- Set the scale of the button and his hitbox.\
+`rotation:<float rotation>`		- Set the rotation of the button and his hitbox.\
+`texture:<char *path>`			- Set the texture of the button.\
+`ho_texture:<char *path>`		- Set the hovered texture of the button.\
+`sound:<char *path>`			- Set the sound when you clicked on the button.\
+`callback:<char *function_name>`	- Set the function when you clicked on the button
+
+**entities elements:**
+
+`posx:<int x position>`		- Set x position of the button.\
+`posy:<int y position>`		- Set y position of the button.\
+`width:<int width>`		- Set the width of the hitbox button.\
+`height:<int height>`		- Set the height of the hitbix button.\
+`scale:<float scale>`		- Set the scale of the button and his hitbox.\
+`rotation:<float rotation>`	- Set the rotation of the button and his hitbox.\
+`texture:<char *path>`		- Set the texture of the button.\
+`sound:<char *path>`  		- Set the sound of the entity.\
+`dialogue:<char *str`		- Set the dialogue when you interact with an entity.\	
+
+**texts elements:**
+
+`posx:<int x position>`				- Set x position of the text.\
+`posy:<int y position>`				- Set y position of the text.\
+`text:<char *text>`	     			- Set the text to display.\
+`font:<char *font path>`			- Set the font of the text.\
+`size:<int size>`				-\
+`rotation:<float>`				-\
+`style:<sfStyle style>`				-\
+`color:<int r; int g; int b; int a>`		-\
+`outline_color:<int r; int g; int b; int a>`	-\
+`outline_tickness:<float tickness`		-\
+`letter_spacing:<float spacing>`		-\
+`line_spacing:<float spacing>`			-
+
+**background elements:**
+
+`map:`
+`path:<char *background path`
 
 2. Config file to create map
 
