@@ -20,6 +20,16 @@ typedef struct vector_s {
     double y;
 } vector_t;
 
+typedef struct image_s {
+    sfVector2f position;
+    int height;
+    int width;
+    double rotation;
+    sfVector2f scale;
+    sfTexture *texture;
+    sfSprite *sprite;
+} image_t;
+
 typedef struct hitbox_s {
     sfVector2f position;
     double height;
@@ -72,6 +82,7 @@ typedef struct scene_s {
     button_t **buttons;
     entity_t **entities;
     sfText **texts;
+    image_t **images;
     int background_to_run;
     sfTexture *background_texture;
     sfSprite *background_sprite;

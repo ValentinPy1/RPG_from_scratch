@@ -41,6 +41,10 @@ int but_construct_texture(button_t *button, char *value)
 
 int but_construct_ho_texture(button_t *button, char *value)
 {
+    sfVector2f origin = (sfVector2f)
+    {button->hitbox->width / (2 * button->scale.x),
+    button->hitbox->height / (2 * button->scale.y)};
+
     button->ho_sprite = sfSprite_create();
     button->ho_texture = sfTexture_createFromFile(value, NULL);
     if (button->ho_texture == NULL) {
@@ -51,6 +55,7 @@ int but_construct_ho_texture(button_t *button, char *value)
     }
     sfSprite_setTexture(button->ho_sprite, button->ho_texture, sfFalse);
     sfSprite_setScale(button->ho_sprite, button->scale);
+    sfSprite_setOrigin(button->ho_sprite, origin);
     sfSprite_setRotation(button->ho_sprite, button->rotation);
     sfSprite_setPosition(button->ho_sprite, button->position);
     return (0);

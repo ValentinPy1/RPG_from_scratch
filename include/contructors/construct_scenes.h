@@ -21,6 +21,7 @@ void construct_button(scene_t *scene, char **content, int index);
 void construct_background(scene_t *scene, char **content, int index);
 void construct_entity(scene_t *scene, char **content, int index);
 void construct_text(scene_t *scene, char **content, int index);
+void construct_image(scene_t *scene, char **content, int index);
 
 static const constructor_t CONSTRUCTORS[] = {
     {"name", construct_name},
@@ -28,6 +29,7 @@ static const constructor_t CONSTRUCTORS[] = {
     {"entities", construct_entity},
     {"texts", construct_text},
     {"background", construct_background},
+    {"images", construct_image},
     {NULL, NULL}
 };
 

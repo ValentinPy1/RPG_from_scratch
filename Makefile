@@ -33,6 +33,9 @@ SRC = 	src/main.c													\
 		$(CON_PATH)construct_texts/construct_text1.c				\
 		$(CON_PATH)construct_texts/construct_text2.c				\
 		$(CON_PATH)construct_texts/construct_text3.c				\
+		$(CON_PATH)construct_images/parse_images.c					\
+		$(CON_PATH)construct_images/construct_image1.c				\
+		$(CON_PATH)construct_images/construct_image2.c				\
 		$(CON_PATH)construct_buttons/parse_buttons.c 				\
 		$(CON_PATH)construct_buttons/construct_button1.c 			\
 		$(CON_PATH)construct_buttons/construct_button2.c 			\

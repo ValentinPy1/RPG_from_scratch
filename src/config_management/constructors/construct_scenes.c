@@ -27,6 +27,7 @@ void constructor(scene_t *scene, char **content, int line)
         construct_text(scene, content, line);
     if (my_strcmp(keyword, "background") == 1)
         construct_background(scene, content, line);
-
+    if (my_strcmp(keyword, "images") == 1)
+        construct_image(scene, content, line);
     free(keyword);
 }

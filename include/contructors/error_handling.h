@@ -16,11 +16,13 @@ static char *settings[3] = {
     NULL
 };
 
-static char *game_object_settings[5] = {
+static char *game_object_settings[7] = {
     "buttons",
     "background",
     "entities",
     "texts",
+    "images",
+    "sound",
     NULL
 };
 

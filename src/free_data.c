@@ -48,6 +48,16 @@ void free_entities(entity_t **entities)
     free(entities);
 }
 
+void free_images(image_t **images)
+{
+    for (int index = 0; images[index] != NULL; index++) {
+        sfTexture_destroy(images[index]->texture);
+        sfSprite_destroy(images[index]->sprite);
+        free(images[index]);
+    }
+    free(images);
+}
+
 void free_text(sfText **texts)
 {
     if (texts == NULL)
@@ -74,6 +84,7 @@ void free_scenes(scene_t **scene_list, char **scene_names)
         free_buttons(scene_list[index]->buttons);
         free_entities(scene_list[index]->entities);
         free_text(scene_list[index]->texts);
+        free_images(scene_list[index]->images);
         free_background(scene_list[index]);
         free(scene_list[index]->name);
         free(scene_names[index]);
