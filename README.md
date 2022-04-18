@@ -1,9 +1,9 @@
-# **Among us - The last crewmate**
+# **Among Us - The last crewmate**
 
 ## **Introduction**
 ---
 
-**Among us - The last crewmate** is a game created and developped by Gabriel Lepinay, Valentin Py, Paul Thiebault and Felix Stavonhagen.
+**Among Us - The last crewmate** is a game created and developped by Gabriel Lepinay, Valentin Py, Paul Thiebault and Felix Stavonhagen.
 
 This is the MyRpg Epitech's project.
 
@@ -12,7 +12,7 @@ This is the MyRpg Epitech's project.
 - Installation
   - Download
   - Compil an run the game
-- Synopsys
+- Synopsis
 - How to play
 - Features
   - Config file to launch scene
@@ -24,7 +24,7 @@ This is the MyRpg Epitech's project.
 
 blabalablabala
 
-2. Compil the game
+2. Compile the game
 
 Blablablbalbalbalbalballbalb
 
