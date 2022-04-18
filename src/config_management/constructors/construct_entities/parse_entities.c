@@ -40,6 +40,7 @@ int get_entity_value(entity_t *entity, char **content, int line)
         if (assign_entity_value(entity, keyword, value, index) == -1)
             return (-1);
     }
+    free(keyword);
     free(value);
     return (0);
 }

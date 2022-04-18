@@ -25,5 +25,6 @@ scene_t *my_parser(char **content)
     if (content == NULL || error_handling(content) == 1)
         return (NULL);
     init_scene(new_scene, content);
+    free_str_tab(content);
     return (new_scene);
 }

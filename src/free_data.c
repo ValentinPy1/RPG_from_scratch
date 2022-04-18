@@ -65,7 +65,7 @@ void free_scenes(scene_t **scene_list, char **scene_names)
     for (int index = 0; scene_list[index] != NULL; index++) {
         free_buttons(scene_list[index]->buttons);
         free_entities(scene_list[index]->entities);
-        // free_text(scene_list[index]->texts);
+        free_text(scene_list[index]->texts);
         free(scene_list[index]->name);
         free(scene_names[index]);
         free(scene_list[index]);

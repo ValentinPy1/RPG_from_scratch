@@ -40,6 +40,7 @@ int get_button_value(button_t *button, char **content, int line)
         if (assign_button_value(button, keyword, value, index) == -1)
             return (-1);
     }
+    free(keyword);
     free(value);
     return (0);
 }
