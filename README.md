@@ -32,11 +32,9 @@ Blablablbalbalbalbalballbalb
 
 Blabalbalbalablabalbalbl
 
-## Synopsys
+## Synopsis
 ---
-basbasoxhqdscscqsbdcqsbdcmoqsdbmob
-
-Blabalbalbalbalbalbalbalbalalalalbalbalbalbalbalbalbalb
+In a final attempt to kill the last crewmate, the imposters crashed the ship. Now sole survivor of his team, RED has to find the lost artefact located in the planet's core in a deperate attempt to repear the ship and return home.
 
 ## How to play
 ---
