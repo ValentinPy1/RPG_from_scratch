@@ -46,7 +46,25 @@ frgthyujiouyjhtrgfedfrgtyujkikjuhytgrftyu;k,jnhbgvf
 ---
 1. Config file to launch scene
 
-gvbhd,krlptyobkgiudxyszghb,rktgbovicudxhszbed
+The config file work with keyword you need to know before use it.
+Tabs are mendatory to separate things.
+
+Thoses keywords are mendatory at the beggining of a config file.
+
+Keywords with 0 tab:
+`name:<name>
+game_object:
+`
+Keywords with 1 tab:
+`
+  buttons:
+  entities:
+	texts:
+	background:
+`
+
+For the moment we got this
+Keywords with 2 tabs:
 
 2. Config file to create map
 
