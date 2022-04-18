@@ -11,6 +11,7 @@
     #include <SFML/Graphics.h>
     #include <SFML/System.h>
     #include <SFML/Window.h>
+    #include <stdlib.h>
 
 void check_button_state(button_t **buttons, sfVector2i mouse_loc);
 

@@ -9,7 +9,6 @@
 
 int back_construct_map(scene_t *scene, char *path)
 {
-    printf("TODO: Construct map\n");
     scene->background_to_run = 1;
     scene->map = map_constructor();
     return (0);
@@ -27,7 +26,7 @@ int back_construct_img(scene_t *scene, char *path)
 
 int back_construct_proc(scene_t *scene, char *path)
 {
-    printf("TODO: Construct proc\n");
+    //TODO: Construct proc
     scene->background_to_run = 3;
     return (0);
 }

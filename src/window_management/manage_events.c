@@ -18,7 +18,6 @@ int *index_run)
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         if (event.type == sfEvtMouseButtonReleased) {
-            printf("Clic released at: (%i, %i)\n", mouse_loc.x, mouse_loc.y);
             button_collision(mouse_loc, scene->buttons);
         }
     }

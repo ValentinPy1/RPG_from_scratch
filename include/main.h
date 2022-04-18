@@ -26,4 +26,6 @@ void free_data(data_t *game_data);
 
 float my_atof(char *str);
 
+int my_strcmp(char *str1, char *str2);
+
 #endif /*MAIN_H_*/

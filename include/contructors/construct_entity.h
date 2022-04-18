@@ -46,5 +46,6 @@ char *get_value(char *str);
 int my_strcmp(char *str1, char *str2);
 int my_getnbr(char *str);
 float my_atof(char *str);
+char *my_strcpy(char *dest, char const *src);
 
 #endif /*ENT_H_*/

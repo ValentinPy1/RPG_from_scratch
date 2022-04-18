@@ -22,4 +22,8 @@ char **get_content_file(char *pathname);
 
 scene_t *my_parser(char **content);
 
+char *my_strcpy(char *dest, char const *src);
+
+void free_str_tab(char **tab);
+
 #endif /*CONF_H_*/

@@ -42,7 +42,7 @@ void free_entities(entity_t **entities)
         sfSprite_destroy(entities[index]->sprite);
         sfSound_destroy(entities[index]->sound);
         sfSoundBuffer_destroy(entities[index]->sound_buffer);
-        free_str_tab(entities[index]->dialogue);
+        free(entities[index]->dialogue);
         free(entities[index]);
     }
     free(entities);

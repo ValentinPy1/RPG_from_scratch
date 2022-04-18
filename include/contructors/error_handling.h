@@ -16,7 +16,7 @@ static char *settings[3] = {
     NULL
 };
 
-static char *game_object_settings[4] = {
+static char *game_object_settings[5] = {
     "buttons",
     "background",
     "entities",
@@ -56,4 +56,5 @@ int write_error(char const *str);
 int my_strcmp(char *str1, char *str2);
 
 char *get_keyword(char *str);
+
 #endif /*ERR_H_*/

@@ -55,7 +55,7 @@ typedef struct entity_s {
     sfSprite *sprite;
     sfSound *sound;
     sfSoundBuffer *sound_buffer;
-    char **dialogue;
+    char *dialogue;
 } entity_t;
 
 typedef struct map_s {

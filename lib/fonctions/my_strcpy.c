@@ -12,7 +12,7 @@ int my_strlen(char const *);
 char *my_strcpy(char *dest, char const *src)
 {
     int len = my_strlen(src);
-    
+
     for (int counter = 0; counter <= len; counter++) {
         dest[counter] = src[counter];
     }
