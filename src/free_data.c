@@ -51,13 +51,26 @@ void free_entities(entity_t **entities)
 void free_text(sfText **texts)
 {
     printf("DEBUG\n");
-    if (texts == NULL)
+    if (texts == NULL) {
         printf("LIST NULL\n");
-    else 
+        return;
+    } else {
         printf("LIST PAS NULL\n");
-    for (int index = 0; texts[index] != NULL; index++) {
-        sfText_destroy(texts[index]);
-    } 
+        for (int index = 0; texts[index] != NULL; index++) {
+            sfText_destroy(texts[index]);
+        } 
+    }
+}
+
+void free_background(scene_t *scene)
+{
+    if (scene->background_to_run == 1) {
+        // TO DO free map
+    }
+    if (scene->background_to_run == 2) {
+        sfTexture_destroy(scene->background_texture);
+        sfSprite_destroy(scene->background_sprite);
+    }
 }
 
 void free_scenes(scene_t **scene_list, char **scene_names)
@@ -65,7 +78,8 @@ void free_scenes(scene_t **scene_list, char **scene_names)
     for (int index = 0; scene_list[index] != NULL; index++) {
         free_buttons(scene_list[index]->buttons);
         free_entities(scene_list[index]->entities);
-        free_text(scene_list[index]->texts);
+        // free_text(scene_list[index]->texts);
+        // free_background(scene_list[index]);
         free(scene_list[index]->name);
         free(scene_names[index]);
         free(scene_list[index]);
