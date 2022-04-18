@@ -20,5 +20,6 @@ char **get_content_file(char *pathname)
     }
     buff = get_content(fd);
     content = my_split(buff, '\n');
+    free(buff);
     return (content);
 }

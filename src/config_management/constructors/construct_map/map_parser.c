@@ -34,6 +34,7 @@ int **tiles_parser(map_t *map_data)
         }
         free(temp);
     }
+    free_str_tab(map);
     return (tiles);
 }
 
