@@ -22,9 +22,9 @@ int **tiles_parser(map_t *map_data)
     int line;
     int number;
     char **map = get_content_file("config_files/map_config/map.config");
-    int width = count_char(map[0], ',') + 1;
-    int height = get_nb_row(map);
-    int **tiles = malloc_int(width, height);
+    map_data->size_x = count_char(map[0], ',') + 1;
+    map_data->size_y = get_nb_row(map);
+    int **tiles = malloc_int(map_data->size_x, map_data->size_y);
     char **temp;
 
     for (line = 0; map[line] != NULL; line++) {

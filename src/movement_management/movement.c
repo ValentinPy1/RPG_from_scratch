@@ -9,7 +9,7 @@
 
 void move_up(data_t *game_data, int walk)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyUp)) {
+    if (sfKeyboard_isKeyPressed(sfKeyUp) && OOB_UP) {
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
             game_data->scene_list[0]->map->movement_y -= 2;
         game_data->scene_list[0]->map->movement_y -= walk;
@@ -18,7 +18,7 @@ void move_up(data_t *game_data, int walk)
 
 void move_down(data_t *game_data, int walk)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyDown)) {
+    if (sfKeyboard_isKeyPressed(sfKeyDown) && OOB_DOWN) {
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
             game_data->scene_list[0]->map->movement_y += 2;
         game_data->scene_list[0]->map->movement_y += walk;
@@ -27,7 +27,7 @@ void move_down(data_t *game_data, int walk)
 
 void move_left(data_t *game_data, int walk)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyLeft)) {
+    if (sfKeyboard_isKeyPressed(sfKeyLeft) && OOB_LEFT) {
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
             game_data->scene_list[0]->map->movement_x -= 2;
         game_data->scene_list[0]->map->movement_x -= walk;
@@ -36,7 +36,7 @@ void move_left(data_t *game_data, int walk)
 
 void move_right(data_t *game_data, int walk)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyRight)) {
+    if (sfKeyboard_isKeyPressed(sfKeyRight) && OOB_RIGHT) {
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
             game_data->scene_list[0]->map->movement_x += 2;
         game_data->scene_list[0]->map->movement_x += walk;

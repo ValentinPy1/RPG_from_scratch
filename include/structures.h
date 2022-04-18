@@ -63,6 +63,8 @@ typedef struct map_s {
     sfSprite *tiles_sprite;
     int movement_x;
     int movement_y;
+    int size_x;
+    int size_y;
 } map_t;
 
 typedef struct scene_s {
@@ -78,7 +80,13 @@ typedef struct scene_s {
     int is_running;
 } scene_t;
 
+typedef struct set_s {
+    int window_x;
+    int window_y;
+} set_t;
+
 typedef struct data_s {
+    set_t *settings;
     int run_index;
     int debug_mode;
     scene_t **scene_list;

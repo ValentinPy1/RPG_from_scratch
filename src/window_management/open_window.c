@@ -29,6 +29,9 @@ void open_window(int width, int height, data_t *game_data)
 {
     sfRenderWindow *window;
 
+    game_data->settings = malloc(sizeof(set_t));
+    game_data->settings->window_x = width;
+    game_data->settings->window_y = height;
     create_window(&window, width, height);
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
