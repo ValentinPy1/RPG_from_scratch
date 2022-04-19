@@ -14,6 +14,7 @@ SRC = 	src/main.c													\
 		src/window_management/manage_display.c 						\
 		src/window_management/manage_events.c						\
 		src/window_management/manage_buttons.c						\
+		src/collision_management/map_collision.c					\
 		src/window_management/get_run_index.c 						\
 		src/config_management/get_value.c							\
 		src/config_management/get_keyword.c							\
