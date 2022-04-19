@@ -90,6 +90,8 @@ typedef struct scene_s {
     sfTexture *background_texture;
     sfSprite *background_sprite;
     sfVector2i mouse_loc;
+    sfSound *music;
+    sfSoundBuffer *sound_buffer;
     map_t *map;
     int is_running;
 } scene_t;

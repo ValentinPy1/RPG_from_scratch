@@ -31,6 +31,7 @@ void open_window(int width, int height, data_t *game_data)
     game_data->settings->window_x = width * 3;
     game_data->settings->window_y = height * 3;
     create_window(&window, width, height);
+    sfSound_play(game_data->scene_list[game_data->run_index]->music);
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         scene_selector(window, game_data);

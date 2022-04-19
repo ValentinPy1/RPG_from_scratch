@@ -11,11 +11,11 @@
 
 typedef struct but_call_s {
     char *name;
-    int (*func)(struct button_s *button, char **scenes_name, int *index_run);
+    int (*func)(data_t *game_data, button_t *button, char **scenes_name);
 } but_call_t;
 
-int nothing(struct button_t *button, char **scenes_name, int *index_run);
-int play(struct button_s *button, char **scenes_name, int *index_run);
+int nothing(data_t *game_data, button_t *button, char **scenes_name);
+int play(data_t *game_data, button_t *button, char **scenes_name);
 
 static const but_call_t BUT_CALL[3] = {
     {"no", nothing},
