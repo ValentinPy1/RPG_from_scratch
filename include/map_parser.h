@@ -15,6 +15,7 @@
     #include "structures.h"
 
 static const int TILE_SIZE = 32;
+static const int SPRITE_SCALE = 3;
 
 void constructor(scene_t *scene, char **content, int index);
 int is_in_list(char **list, char *str);

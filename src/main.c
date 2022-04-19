@@ -25,7 +25,6 @@ int main(int ac, char **av)
     game_data->scene_list = get_scenes();
     game_data->scene_names = get_names_scene(game_data->scene_list);
     game_data->run_index = get_run_index(game_data->scene_names, "home_menu");
-    printf("INDEX:%i is %s\n", game_data->run_index, game_data->scene_names[game_data->run_index]);
     if (game_data->scene_list == NULL) {
         my_putstr("Error while loading scene\n");
         return (84);
