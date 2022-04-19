@@ -39,11 +39,13 @@ typedef struct particle_s {
 typedef struct partic_arr_s {
     particle_t *particles;
     int count;
+    int duration;
 } partic_arr_t;
 
-partic_arr_t setup_partic_arr(int count, particle_param_t *param);
-void update_partic_arr(partic_arr_t partic);
-void draw_partic_arr(sfRenderWindow *win, partic_arr_t partic);
+partic_arr_t *setup_partic_arr(int count, particle_param_t *param);
+void update_partic_arr(partic_arr_t *partic);
+void draw_partic_arr(sfRenderWindow *win, partic_arr_t *partic);
 particle_param_t setup_default_param(void);
+void destroy_partic_arr(partic_arr_t *partic_arr);
 
 #endif

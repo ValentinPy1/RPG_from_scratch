@@ -22,10 +22,13 @@ void update_particle(particle_t *p)
     sfCircleShape_setPosition(p->circle, p->pos);
 }
 
-void update_partic_arr(partic_arr_t partic)
+void update_partic_arr(partic_arr_t *partic)
 {
     int i;
 
-    for (i = 0; i < partic.count; i++)
-        update_particle(&partic.particles[i]);
+    for (i = 0; i < partic->count; i++)
+        update_particle(&partic->particles[i]);
+    partic->duration -= 1;
+    if (partic->duration <= 0)
+        destroy_partic_arr(partic);
 }

@@ -38,7 +38,7 @@ particle_t setup_particle(particle_param_t *p)
     particle.vel = (sfVector2f) {p->init_vel.x + dist_vel * cos(angle_vel) *
     p->rdm_vel.x, p->init_vel.x + dist_vel * sin(angle_vel) *
     p->rdm_vel.y};
-    particle.duration = p->max_duration;
+    particle.duration = p->max_duration * get_rdm();
     sfCircleShape_setFillColor(circle, p->color);
     sfCircleShape_setRadius(circle, p->size);
     sfCircleShape_setOrigin(circle, (sfVector2f) {p->size, p->size});
@@ -49,14 +49,15 @@ particle_t setup_particle(particle_param_t *p)
     return particle;
 }
 
-partic_arr_t setup_partic_arr(int count, particle_param_t *param)
+partic_arr_t *setup_partic_arr(int count, particle_param_t *param)
 {
-    partic_arr_t particles;
+    partic_arr_t *particles = malloc(sizeof(partic_arr_t));
     int i;
 
-    particles.particles = malloc(count * sizeof(particle_t));
-    particles.count = count;
+    particles->particles = malloc(count * sizeof(particle_t));
+    particles->count = count;
+    particles->duration = param->max_duration;
     for (i = 0; i < count; i++)
-        particles.particles[i] = setup_particle(param);
+        particles->particles[i] = setup_particle(param);
     return particles;
 }
