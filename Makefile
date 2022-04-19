@@ -10,7 +10,6 @@ CON_PATH = src/config_management/constructors/
 SRC = 	src/main.c													\
 		src/free_data.c 											\
 		src/collision/point_in_rect.c								\
-		src/movement_management/movement.c 							\
 		src/window_management/open_window.c							\
 		src/window_management/manage_display.c 						\
 		src/window_management/manage_events.c						\
@@ -46,6 +45,7 @@ SRC = 	src/main.c													\
 		$(CON_PATH)construct_background/parse_background.c			\
 		$(CON_PATH)construct_background/construct_background.c		\
 		src/random/random_generator.c
+		# src/movement_management/movement.c 							\
 
 NAME = my_rpg
 

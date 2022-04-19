@@ -74,8 +74,6 @@ typedef struct entity_s {
 typedef struct map_s {
     int **tiles;
     sfSprite *tiles_sprite;
-    int movement_x;
-    int movement_y;
     int size_x;
     int size_y;
 } map_t;
