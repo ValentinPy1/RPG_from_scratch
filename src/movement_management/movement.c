@@ -45,7 +45,7 @@ void move_right(data_t *game_data, int walk)
 
 void init_view(sfRenderWindow *window, data_t *game_data)
 {
-    sfFloatRect view_rect = {0, 0, 640, 400};
+    sfFloatRect view_rect = {0, 0, 600, 400};
     sfVector2f center_player_cam = {45, 45};
 
     sfView_reset(game_data->red->view, view_rect);
