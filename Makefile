@@ -33,6 +33,8 @@ SRC = 	src/main.c													\
 		$(CON_PATH)construct_texts/construct_text1.c				\
 		$(CON_PATH)construct_texts/construct_text2.c				\
 		$(CON_PATH)construct_texts/construct_text3.c				\
+		$(CON_PATH)construct_sounds/parse_sound.c					\
+		$(CON_PATH)construct_sounds/construct_sound.c				\
 		$(CON_PATH)construct_images/parse_images.c					\
 		$(CON_PATH)construct_images/construct_image1.c				\
 		$(CON_PATH)construct_images/construct_image2.c				\

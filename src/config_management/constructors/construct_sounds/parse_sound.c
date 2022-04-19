@@ -7,19 +7,6 @@
 
 #include "construct_sound.h"
 
-char *get_param(char *str)
-{
-    int index = 0;
-    char *params = NULL;
-
-    for (index = 0; str[index] != '\0' && str[index] == '\t'; index++);
-    params = malloc(sizeof(char) * ((my_strlen(str) - index) + 1));
-    for (index = index; str[index] != '\0'; index++)
-        params[index] = str[index];
-    free(str);
-    return(params);
-}
-
 void get_sound_params(char *str, scene_t *scene)
 {
     char *keyword = get_keyword(str);
@@ -35,7 +22,9 @@ void get_sound_params(char *str, scene_t *scene)
 
 void construct_sound(scene_t *scene, char **content, int index)
 {
-    for (index += 1; content[index] != NULL; index++) {
+    scene->music = sfSound_create();
+    for (index += 1; content[index] != NULL && 
+        nb_char_in_str(content[index], '\t') != 1; index++) {
         if (nb_char_in_str(content[index], '\t') == 2) {
             get_sound_params(content[index], scene);
         }
