@@ -71,7 +71,7 @@ void free_text(sfText **texts)
 void free_background(scene_t *scene)
 {
     if (scene->background_to_run == 1) {
-        free_int_tab(scene->map->tiles);
+        // free_int_tab(scene->map->tiles);
     }
     if (scene->background_to_run == 2) {
         sfTexture_destroy(scene->background_texture);

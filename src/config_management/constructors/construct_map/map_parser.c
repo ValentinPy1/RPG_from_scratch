@@ -58,8 +58,6 @@ map_t *map_constructor(void)
     sfSprite_setTexture(tile_sprite, tile_texture, sfFalse);
     map_data->tiles_sprite = tile_sprite;
     map_data->tiles = tiles_parser(map_data);
-    map_data->movement_x = 160;
-    map_data->movement_y = 160;
     return (map_data);
 }
 
@@ -67,16 +65,14 @@ void display_map(sfRenderWindow *window, map_t *map_data)
 {
     sfIntRect limit = fill_int_rect(0, 0, TILE_SIZE, TILE_SIZE);
     sfVector2f pos = {0, 0};
-    sfVector2f scale = {3, 3};
 
     for (int i = 0; i < 34; i++) {
         for (int j = 0; j < 60; j++) {
             limit.left = map_data->tiles[i][j] * TILE_SIZE;
-            pos.x = (j * TILE_SIZE * SPRITE_SCALE) - map_data->movement_x;
-            pos.y = (i * TILE_SIZE * SPRITE_SCALE) - map_data->movement_y;
+            pos.x = (j * TILE_SIZE);
+            pos.y = (i * TILE_SIZE);
             sfSprite_setPosition(map_data->tiles_sprite, pos);
             sfSprite_setTextureRect(map_data->tiles_sprite, limit);
-            sfSprite_setScale(map_data->tiles_sprite, scale);
             sfRenderWindow_drawSprite(window, map_data->tiles_sprite, NULL);
         }
     }
