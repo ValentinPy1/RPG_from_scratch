@@ -9,38 +9,49 @@
 
 void move_up(data_t *game_data, int walk)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyUp) && OOB_UP) {
+    if (sfKeyboard_isKeyPressed(sfKeyUp)) {
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
-            game_data->scene_list[0]->map->movement_y -= 2;
-        game_data->scene_list[0]->map->movement_y -= walk;
+            game_data->red->pos.y -= 2;
+        game_data->red->pos.y -= walk;
     }
 }
 
 void move_down(data_t *game_data, int walk)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyDown) && OOB_DOWN) {
+    if (sfKeyboard_isKeyPressed(sfKeyDown)) {
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
-            game_data->scene_list[0]->map->movement_y += 2;
-        game_data->scene_list[0]->map->movement_y += walk;
+            game_data->red->pos.y += 2;
+        game_data->red->pos.y += walk;
     }
 }
 
 void move_left(data_t *game_data, int walk)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyLeft) && OOB_LEFT) {
+    if (sfKeyboard_isKeyPressed(sfKeyLeft)) {
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
-            game_data->scene_list[0]->map->movement_x -= 2;
-        game_data->scene_list[0]->map->movement_x -= walk;
+            game_data->red->pos.x -= 2;
+        game_data->red->pos.x -= walk;
     }
 }
 
 void move_right(data_t *game_data, int walk)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyRight) && OOB_RIGHT) {
+    if (sfKeyboard_isKeyPressed(sfKeyRight)) {
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
-            game_data->scene_list[0]->map->movement_x += 2;
-        game_data->scene_list[0]->map->movement_x += walk;
+            game_data->red->pos.x += 2;
+        game_data->red->pos.x += walk;
     }
+}
+
+void init_view(sfRenderWindow *window, data_t *game_data)
+{
+    sfFloatRect view_rect = {0, 0, 640, 400};
+    sfVector2f center_player_cam = {45, 45};
+
+    sfView_reset(game_data->red->view, view_rect);
+    sfView_setCenter(game_data->red->view, game_data->red->pos);
+    sfView_move(game_data->red->view, center_player_cam);
+    sfRenderWindow_setView(window, game_data->red->view);
 }
 
 void player_move(data_t *game_data, scene_t *scene)
@@ -52,5 +63,6 @@ void player_move(data_t *game_data, scene_t *scene)
         move_left(game_data, walk);
         move_down(game_data, walk);
         move_up(game_data, walk);
+        set_position(game_data->red->player_sprite, game_data->red->pos.x, game_data->red->pos.y);
     }
 }
