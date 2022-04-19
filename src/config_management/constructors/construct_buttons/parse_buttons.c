@@ -4,6 +4,7 @@
 ** File description:
 ** Source code to construct a button
 */
+
 #include "construct_button.h"
 
 int get_nb_buttons(char **content, int buttons)
@@ -34,12 +35,13 @@ int get_button_value(button_t *button, char **content, int line)
     char *keyword;
     char *value;
 
+    keyword = get_keyword(content[line]);
+    value = get_value(content[line]);
     for (int index = 0; BUT_CONS[index].name != NULL; index++) {
-        keyword = get_keyword(content[line]);
-        value = get_value(content[line]);
         if (assign_button_value(button, keyword, value, index) == -1)
             return (-1);
     }
+    free(keyword);
     free(value);
     return (0);
 }

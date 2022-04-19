@@ -16,15 +16,17 @@ static char *settings[3] = {
     NULL
 };
 
-static char *game_object_settings[4] = {
+static char *game_object_settings[7] = {
     "buttons",
     "background",
     "entities",
     "texts",
+    "images",
+    "sound",
     NULL
 };
 
-static char *object_settings[25] = {
+static char *object_settings[26] = {
     "posx",
     "posy",
     "width",
@@ -34,6 +36,7 @@ static char *object_settings[25] = {
     "shape",
     "texture",
     "ho_texture",
+    "sel_texture",
     "animation",
     "speed",
     "sound",
@@ -56,4 +59,5 @@ int write_error(char const *str);
 int my_strcmp(char *str1, char *str2);
 
 char *get_keyword(char *str);
+
 #endif /*ERR_H_*/

@@ -52,6 +52,19 @@ sfVector2f **get_rot_vertices_sq(sfVector2f center, double rotation,
 
 void load_vertices(hitbox_t *hitbox)
 {
+    int index = 0;
     hitbox->vertices = get_rot_vertices_sq(hitbox->position, hitbox->rotation,
             get_vertices_sq(hitbox->position, hitbox->width, hitbox->height));
+    hitbox->circle = malloc(sizeof(sfCircleShape *) * (4 + 1));
+    for (index = 0; index < 4; index++) {
+        sfCircleShape *circle = sfCircleShape_create();
+
+        sfCircleShape_setPosition(circle, *hitbox->vertices[index]);
+        sfCircleShape_setRadius(circle, 3);
+        sfCircleShape_setFillColor(circle, sfRed);
+        sfCircleShape_setOrigin(circle, (sfVector2f) {3, 3});
+        sfCircleShape_setOutlineThickness(circle, 0);
+        hitbox->circle[index] = circle;
+    }
+    hitbox->circle[index] = NULL;
 }

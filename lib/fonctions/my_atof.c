@@ -8,6 +8,7 @@
 #include <stdlib.h>
 
 int count_char(char *str, char c);
+int my_getnbr(char *str);
 
 void destroy_strlist(char **strlist)
 {

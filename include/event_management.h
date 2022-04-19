@@ -11,4 +11,6 @@
     #include <unistd.h>
     #include "structures.h"
 
+void button_collision(sfVector2i mouse_loc, button_t **buttons);
+
 #endif /*MAIN_H_*/

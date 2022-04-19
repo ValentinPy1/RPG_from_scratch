@@ -12,12 +12,12 @@
 particle_param_t setup_default_param(void)
 {
     particle_param_t param;
-    param.pos = (sfVector2f) {1700, 400};
+    param.pos = (sfVector2f) {1000, 400};
     param.spawn_radius = (sfVector2f) {0, 0};
     param.rdm_vel = (sfVector2f) {10, 10};
     param.init_vel = (sfVector2f) {0, 0};
     param.color = (sfColor) {255, 255, 255, 255};
-    param.max_duration = 300;
+    param.max_duration = 40;
     param.size = 1;
     param.gravity = (sfVector2f) {0, 0.5};
     param.resistance = (sfVector2f) {0.01, 0.01};

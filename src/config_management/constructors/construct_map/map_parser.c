@@ -7,14 +7,6 @@
 
 #include "map_parser.h"
 
-int get_nb_row(char **tab)
-{
-    int row;
-
-    for (row = 0; tab[row] != NULL; row ++);
-    return (row);
-}
-
 int **malloc_int(int width, int height)
 {
     int **map_int = malloc(height * sizeof(int *));
@@ -30,18 +22,19 @@ int **tiles_parser(map_t *map_data)
     int line;
     int number;
     char **map = get_content_file("config_files/map_config/map.config");
-    int width = count_char(map[0], ',') + 1;
-    int height = get_nb_row(map);
-    int **tiles = malloc_int(width, height);
+    map_data->size_x = count_char(map[0], ',') + 1;
+    map_data->size_y = get_nb_row(map);
+    int **tiles = malloc_int(map_data->size_x, map_data->size_y);
     char **temp;
 
     for (line = 0; map[line] != NULL; line++) {
         temp = my_split(map[line], ',');
         for (number = 0; temp[number] != NULL; number++) {
-            tiles[line][number] = my_getnbr(temp[number]);
+            tiles[line][number] = (my_getnbr(temp[number]) - 10);
         }
         free(temp);
     }
+    free_str_tab(map);
     return (tiles);
 }
 
@@ -65,19 +58,21 @@ map_t *map_constructor(void)
     sfSprite_setTexture(tile_sprite, tile_texture, sfFalse);
     map_data->tiles_sprite = tile_sprite;
     map_data->tiles = tiles_parser(map_data);
+    map_data->movement_x = 160;
+    map_data->movement_y = 160;
     return (map_data);
 }
 
 void display_map(sfRenderWindow *window, map_t *map_data)
 {
-    sfIntRect limit = fill_int_rect(0, 0, 32, 32);
+    sfIntRect limit = fill_int_rect(0, 0, TILE_SIZE, TILE_SIZE);
     sfVector2f pos = {0, 0};
 
     for (int i = 0; i < 34; i++) {
         for (int j = 0; j < 60; j++) {
-            limit.left = map_data->tiles[i][j] * 32;
-            pos.x = j * 32;
-            pos.y = i * 32;
+            limit.left = map_data->tiles[i][j] * TILE_SIZE;
+            pos.x = (j * TILE_SIZE) - map_data->movement_x;
+            pos.y = (i * TILE_SIZE) - map_data->movement_y;
             sfSprite_setPosition(map_data->tiles_sprite, pos);
             sfSprite_setTextureRect(map_data->tiles_sprite, limit);
             sfRenderWindow_drawSprite(window, map_data->tiles_sprite, NULL);

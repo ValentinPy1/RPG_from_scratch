@@ -24,7 +24,8 @@ char **get_names_scene(scene_t **scene_list)
     for (index = 0; scene_list[index] != NULL; index++) {
         len = my_strlen(scene_list[index]->name);
         names_scene[index] = malloc((len + 1) * sizeof(char));
-        names_scene[index] = my_strcpy(names_scene[index], scene_list[index]->name);
+        names_scene[index] = my_strcpy(names_scene[index],
+        scene_list[index]->name);
         names_scene[index][len] = '\0';
     }
     names_scene[index] = NULL;

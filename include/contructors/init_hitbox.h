@@ -11,4 +11,4 @@
 
 void load_vertices(hitbox_t *hitbox);
 
-#endif /*MAIN_H_*/
+#endif

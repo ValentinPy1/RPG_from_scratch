@@ -19,5 +19,4 @@ void destroy_partic_arr(partic_arr_t *partic_arr)
         destroy_particle(&partic_arr->particles[i]);
     }
     free(partic_arr->particles);
-    free(partic_arr);
 }

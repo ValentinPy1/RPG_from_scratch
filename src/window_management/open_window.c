@@ -18,8 +18,10 @@ void create_window(sfRenderWindow **window, int width, int height)
 
 void scene_selector(sfRenderWindow *window, data_t *game_data)
 {
-    event_handling(window, game_data->scene_list[game_data->run_index]);
-    display_scene(window, game_data->scene_list[game_data->run_index]);
+    event_handling(window, game_data, game_data->scene_list[game_data->run_index]);
+    player_move(game_data, game_data->scene_list[game_data->run_index]);
+    display_scene(window, game_data,
+    game_data->scene_list[game_data->run_index]);
 }
 
 void open_window(int width, int height, data_t *game_data)
@@ -32,7 +34,10 @@ void open_window(int width, int height, data_t *game_data)
     // param.rdm_vel = (sfVector2f) {5, 1};
     // param.gravity = (sfVector2f) {0, 0.5};
     // param.init_vel = (sfVector2f) {-10, 0};
-    partic = setup_partic_arr(500, &param);
+    partic = setup_partic_arr(1500, &param);
+    game_data->settings = malloc(sizeof(set_t));
+    game_data->settings->window_x = width;
+    game_data->settings->window_y = height;
     create_window(&window, width, height);
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);

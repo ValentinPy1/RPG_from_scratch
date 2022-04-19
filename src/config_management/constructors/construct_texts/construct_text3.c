@@ -9,16 +9,18 @@
 
 int txt_construct_line_spacing(sfText *text, char *value)
 {
-    int spacing = my_getnbr(value);
+    float spacing = my_atof(value);
 
-    sfText_setLineSpacing(text, spacing);
+    if (text != NULL)
+        sfText_setLineSpacing(text, spacing);
     return (0);
 }
 
 int txt_construct_letter_spacing(sfText *text, char *value)
 {
-    int spacing = my_getnbr(value);
+    float spacing = my_atof(value);
 
-    sfText_setLetterSpacing(text, spacing);
+    if (text != NULL)
+        sfText_setLetterSpacing(text, spacing);
     return (0);
 }

@@ -8,28 +8,29 @@
 #include "construct_background.h"
 
 char *get_param(char *str)
-{   
+{
     int index = 0;
     char *params = NULL;
 
-    for (index = 0; str[index] != '\0' && str[index] == '\t'; index++); 
+    for (index = 0; str[index] != '\0' && str[index] == '\t'; index++);
     params = malloc(sizeof(char) * ((my_strlen(str) - index) + 1));
     for (index = index; str[index] != '\0'; index++)
         params[index] = str[index];
     free(str);
-    return(params); 
+    return(params);
 }
 
 void get_background_type(char *str, scene_t *scene)
 {
     char *keyword = get_keyword(str);
-    char path[] = "TODO";
-    
+    char *path = get_value(str);
+
     for (int index = 0; BACK_CONS[index].name != NULL; index++) {
         if (my_strcmp(BACK_CONS[index].name, keyword) == 1)
             (*BACK_CONS[index].func)(scene, path);
     }
     free(keyword);
+    free(path);
 }
 
 void construct_background(scene_t *scene, char **content, int index)

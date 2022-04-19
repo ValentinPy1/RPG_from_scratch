@@ -42,6 +42,7 @@ int get_text_value(sfText *text, char **content, int line)
             return (-1);
     }
     free(value);
+    free(keyword);
     return (0);
 }
 

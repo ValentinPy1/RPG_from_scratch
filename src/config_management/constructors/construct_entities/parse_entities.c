@@ -34,12 +34,13 @@ int get_entity_value(entity_t *entity, char **content, int line)
     char *keyword;
     char *value;
 
+    keyword = get_keyword(content[line]);
+    value = get_value(content[line]);
     for (int index = 0; ENT_CONS[index].name != NULL; index++) {
-        keyword = get_keyword(content[line]);
-        value = get_value(content[line]);
         if (assign_entity_value(entity, keyword, value, index) == -1)
             return (-1);
     }
+    free(keyword);
     free(value);
     return (0);
 }

@@ -16,9 +16,7 @@ typedef struct back_cons_s {
 } back_cons_t;
 
 int back_construct_map(scene_t *scene, char *path);
-
 int back_construct_proc(scene_t *scene, char *path);
-
 int back_construct_img(scene_t *scene, char *path);
 
 static const back_cons_t BACK_CONS[] = {
@@ -29,13 +27,10 @@ static const back_cons_t BACK_CONS[] = {
 };
 
 int my_strlen(char const *str);
-
 int nb_char_in_str(char *str, char c);
-
 char *get_keyword(char *str);
-
 char *get_value(char *str);
-
 int my_strcmp(char *str1, char *str2);
+map_t *map_constructor(void);
 
 #endif /*BACK_H_*/

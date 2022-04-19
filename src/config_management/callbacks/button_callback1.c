@@ -7,8 +7,16 @@
 
 #include "callbacks.h"
 
-int temporary_func(struct button_s *button, char **scenes_name, int *index_run)
+int nothing(struct button_t *button, char **scenes_name, int *index_run)
 {
-    my_putstr("TEPORARY CLICKED!\n");
+    return (0);
+}
+
+int play(struct button_t *button, char **scenes_name, int *index_run)
+{
+    for (int index = 0; scenes_name[index] != NULL; index++) {
+        if (my_strcmp(scenes_name[index], "game_menu") == 1)
+            *index_run = index;
+    }
     return (0);
 }

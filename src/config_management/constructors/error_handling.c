@@ -20,19 +20,20 @@ int nb_char_in_str(char *str, char c)
 int is_in_list(char **list, char *str)
 {
     char *keyword;
+    int flag = 0;
 
+    keyword = get_keyword(str);
     for (int index = 0; list[index] != NULL; index++) {
-        keyword = get_keyword(str);
-        if (my_strcmp(list[index], keyword) == 1) {
-            free(keyword);
-            return (1);
-        }
+        if (my_strcmp(list[index], keyword) == 1)
+            flag = 1;
     }
-    write_error("[");
-    write_error(keyword);
-    write_error("] Is not a valid parameter.\n");
+    if (flag == 0) {
+        write_error("[");
+        write_error(keyword);
+        write_error("] Is not a valid parameter.\n");
+    }
     free(keyword);
-    return (0);
+    return (flag);
 }
 
 int is_invalid_line(char **content, int line)

@@ -11,6 +11,20 @@
     #include <stddef.h>
     #include <stdlib.h>
 
+typedef struct style_s {
+    sfTextStyle style;
+    char *name;
+} style_t;
+
+static const style_t TEXT_STYLE[6] = {
+    {sfTextRegular, "regular"},
+    {sfTextBold, "bold"},
+    {sfTextItalic, "italic"},
+    {sfTextUnderlined, "underlined"},
+    {sfTextStrikeThrough, "strike_through"},
+    {sfTextRegular, NULL}
+};
+
 typedef struct text_cons_s {
     char *name;
     int (*func)(sfText *text, char *value);
@@ -52,5 +66,9 @@ char *get_value(char *str);
 int my_strcmp(char *str1, char *str2);
 char *my_strcpy(char *dest, char const *src);
 int my_getnbr(char *str);
+float my_atof(char *str);
+char **my_split(char *str, char splitter);
+void free_str_tab(char **tab);
+int count_line(char **tab);
 
 #endif /*BUTT_H_*/

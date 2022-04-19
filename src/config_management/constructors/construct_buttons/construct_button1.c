@@ -35,14 +35,14 @@ int but_construct_width(button_t *button, char *value)
 int but_construct_height(button_t *button, char *value)
 {
     int height = my_getnbr(value);
-    
+
     button->hitbox->height = height;
     return (0);
 }
 
 int but_construct_rotation(button_t *button, char *value)
 {
-    int rot = my_getnbr(value);
+    float rot = my_atof(value);
 
     button->rotation = rot;
     button->hitbox->rotation = rot;

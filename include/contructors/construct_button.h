@@ -24,6 +24,7 @@ int but_construct_rotation(button_t *button, char *value);
 int but_construct_scale(button_t *button, char *value);
 int but_construct_texture(button_t *button, char *value);
 int but_construct_ho_texture(button_t *button, char *value);
+int but_construct_sel_texture(button_t *button, char *value);
 int but_construct_sound(button_t *button, char *value);
 int but_construct_callback(button_t *button, char *value);
 
@@ -36,6 +37,7 @@ static const but_cons_t BUT_CONS[] = {
     {"scale", but_construct_scale},
     {"texture", but_construct_texture},
     {"ho_texture", but_construct_ho_texture},
+    {"sel_texture", but_construct_sel_texture},
     {"sound", but_construct_sound},
     {"callback", but_construct_callback},
     {NULL, NULL}
@@ -48,5 +50,6 @@ char *get_value(char *str);
 int my_strcmp(char *str1, char *str2);
 int my_getnbr(char *str);
 int init_hitbox(hitbox_t *hitbox);
+float my_atof(char *str);
 
 #endif /*BUTT_H_*/
