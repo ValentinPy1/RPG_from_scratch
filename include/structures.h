@@ -99,10 +99,17 @@ typedef struct set_s {
     int window_y;
 } set_t;
 
+typedef struct player_s {
+    sfVector2f pos;
+    sfSprite *player_sprite;
+    sfIntRect *player_rect;
+} player_t;
+
 typedef struct data_s {
     set_t *settings;
     int run_index;
     int debug_mode;
+    player_t *red;
     scene_t **scene_list;
     char **scene_names;
 } data_t;
