@@ -25,10 +25,12 @@ void update_particle(particle_t *p)
 void update_partic_arr(partic_arr_t *partic)
 {
     int i;
-
-    for (i = 0; i < partic->count; i++)
-        update_particle(&partic->particles[i]);
     partic->duration -= 1;
-    if (partic->duration <= 0)
+    if (partic->duration > 0) {
+        for (i = 0; i < partic->count; i++)
+            update_particle(&partic->particles[i]);
+    }
+    if (partic->duration == 0) {
         destroy_partic_arr(partic);
+    }
 }
