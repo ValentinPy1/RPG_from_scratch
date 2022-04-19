@@ -5,7 +5,6 @@
 ** Source code to construct a button
 */
 #include "construct_button.h"
-#include "construct_callbacks.h"
 
 int but_construct_scale(button_t *button, char *value)
 {
@@ -48,7 +47,7 @@ int but_construct_ho_texture(button_t *button, char *value)
     button->ho_sprite = sfSprite_create();
     button->ho_texture = sfTexture_createFromFile(value, NULL);
     if (button->ho_texture == NULL) {
-        write_error("Enable to load texture:\"");
+        write_error("Enable to load hovered texture:\"");
         write_error(value);
         write_error("\".\n");
         return (-1);
@@ -78,16 +77,24 @@ int but_construct_sound(button_t *button, char *value)
     return (0);
 }
 
-int but_construct_callback(button_t *button, char *value)
+int but_construct_sel_texture(button_t *button, char *value)
 {
-    for (int index = 0; BUT_CALL[index].name != NULL; index++) {
-        if (my_strcmp(BUT_CALL[index].name, value) == 1) {
-            button->callback = BUT_CALL[index].func;
-            return (0);
-        }
+    sfVector2f origin = (sfVector2f)
+    {button->hitbox->width / (2 * button->scale.x),
+    button->hitbox->height / (2 * button->scale.y)};
+
+    button->sel_sprite = sfSprite_create();
+    button->sel_texture = sfTexture_createFromFile(value, NULL);
+    if (button->sel_texture == NULL) {
+        write_error("Enable to load selected texture:\"");
+        write_error(value);
+        write_error("\".\n");
+        return (-1);
     }
-    write_error("Unable to find :\"");
-    write_error(value);
-    write_error("\".\n");
-    return (-1);
+    sfSprite_setTexture(button->sel_sprite, button->sel_texture, sfFalse);
+    sfSprite_setScale(button->sel_sprite, button->scale);
+    sfSprite_setOrigin(button->sel_sprite, origin);
+    sfSprite_setRotation(button->sel_sprite, button->rotation);
+    sfSprite_setPosition(button->sel_sprite, button->position);
+    return (0);
 }

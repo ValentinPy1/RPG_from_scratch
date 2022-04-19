@@ -48,11 +48,14 @@ typedef struct button_s {
     hitbox_t *hitbox;
     sfTexture *texture;
     sfTexture *ho_texture;
+    sfTexture *sel_texture;
     sfSprite *sprite;
     sfSprite *ho_sprite;
+    sfSprite *sel_sprite;
     sfSound *sound;
     sfSoundBuffer *sound_buffer;
     int is_selected;
+    int is_hovered;
     int (*callback)(struct button_s *button, char **scenes_name, int *index_run);
 } button_t;
 

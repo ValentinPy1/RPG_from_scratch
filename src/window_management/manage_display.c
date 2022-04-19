@@ -17,10 +17,10 @@ void display_hitbox(sfRenderWindow *window, hitbox_t *hitbox)
 void draw_buttons(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 {
     for (int index = 0; scene->buttons[index] != NULL; index++) {
-        if (scene->buttons[index]->is_selected == 0) {
+        if (scene->buttons[index]->is_hovered == 0) {
             sfRenderWindow_drawSprite(window,
                 scene->buttons[index]->sprite, NULL);
-        } else if (scene->buttons[index]->is_selected == 1) {
+        } else if (scene->buttons[index]->is_hovered == 1) {
             sfRenderWindow_drawSprite(window,
                 scene->buttons[index]->ho_sprite, NULL);
         }

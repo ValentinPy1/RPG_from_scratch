@@ -17,8 +17,8 @@ void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
-        if (event.type == sfEvtMouseButtonReleased) {
-            manage_buttons(game_data, scene->buttons, mouse_loc);
-        }
+        manage_hover_buttons(game_data, scene->buttons, mouse_loc);
+        if (event.type == sfEvtMouseButtonReleased)
+            manage_clic_buttons(game_data, scene->buttons, mouse_loc);
     }
 }
