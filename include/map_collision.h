@@ -8,5 +8,6 @@
 #ifndef MCOL
     #define MCOL
     #include "structures.h"
-
+    #include <math.h>
+    
 #endif /* !MCOL */

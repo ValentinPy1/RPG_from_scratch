@@ -16,6 +16,7 @@ void init_scene(scene_t *scene, char **content)
     scene->texts = NULL;
     scene->background_to_run = 0;
     scene->music = NULL;
+    scene->map = NULL;
     for (line = 0; content[line] != NULL; line++) {
         nb_tab = nb_char_in_str(content[line], '\t');
         if (nb_tab != 2)

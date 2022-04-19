@@ -9,7 +9,11 @@
 
 void move_up(data_t *game_data, int walk)
 {
+    sfVector2f temp_pos = (sfVector2f) {game_data->red->pos.x, game_data->red->pos.y - walk};
+
     if (sfKeyboard_isKeyPressed(sfKeyUp)) {
+        if (is_blocking_tile(game_data->scene_list[game_data->run_index]->map, temp_pos) == 1)
+            return;
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
             game_data->red->pos.y -= 2;
         game_data->red->pos.y -= walk;
@@ -18,7 +22,10 @@ void move_up(data_t *game_data, int walk)
 
 void move_down(data_t *game_data, int walk)
 {
+    sfVector2f temp_pos = (sfVector2f) {game_data->red->pos.x, game_data->red->pos.y + walk};
     if (sfKeyboard_isKeyPressed(sfKeyDown)) {
+        if (is_blocking_tile(game_data->scene_list[game_data->run_index]->map, temp_pos) == 1)
+            return;
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
             game_data->red->pos.y += 2;
         game_data->red->pos.y += walk;
@@ -27,7 +34,11 @@ void move_down(data_t *game_data, int walk)
 
 void move_left(data_t *game_data, int walk)
 {
+    sfVector2f temp_pos = (sfVector2f) {game_data->red->pos.x - walk, game_data->red->pos.y};
+
     if (sfKeyboard_isKeyPressed(sfKeyLeft)) {
+        if (is_blocking_tile(game_data->scene_list[game_data->run_index]->map, temp_pos) == 1)
+            return;
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
             game_data->red->pos.x -= 2;
         game_data->red->pos.x -= walk;
@@ -36,7 +47,11 @@ void move_left(data_t *game_data, int walk)
 
 void move_right(data_t *game_data, int walk)
 {
+    sfVector2f temp_pos = (sfVector2f) {game_data->red->pos.x + walk, game_data->red->pos.y};
+
     if (sfKeyboard_isKeyPressed(sfKeyRight)) {
+        if (is_blocking_tile(game_data->scene_list[game_data->run_index]->map, temp_pos) == 1)
+            return;
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
             game_data->red->pos.x += 2;
         game_data->red->pos.x += walk;
