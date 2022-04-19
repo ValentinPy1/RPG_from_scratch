@@ -47,10 +47,13 @@ int get_entity_value(entity_t *entity, char **content, int line)
 
 void create_entity(entity_t *entity, char **content, int line)
 {
+    entity->hitbox = malloc(sizeof(hitbox_t));
     for (line += 1; nb_char_in_str(content[line], '\t') == 3; line++) {
         if (get_entity_value(entity, content, line) == -1)
             entity = NULL;
     }
+    if (entity != NULL)
+        init_hitbox(entity->hitbox);
 }
 
 void construct_entity(scene_t *scene, char **content, int index)
