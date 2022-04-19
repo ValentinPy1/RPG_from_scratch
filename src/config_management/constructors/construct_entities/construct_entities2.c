@@ -57,6 +57,8 @@ int en_construct_sound(entity_t *entity, char *value)
 
 int en_construct_dialogue(entity_t *entity, char *value)
 {
+    printf("VALUE:%s\n", value);
+    entity->dialogue = malloc(sizeof(char) * (my_strlen(value)+ 1));
     entity->dialogue = my_strcpy(entity->dialogue, value);
     return (0);
 }
