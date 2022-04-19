@@ -7,7 +7,7 @@
 
 #include "manage_buttons.h"
 
-void manage_buttons(data_t *game_data, button_t **buttons, sfVector2i mouse_loc)
+void manage_clic_buttons(data_t *game_data, button_t **buttons, sfVector2i mouse_loc)
 {
     for (int index = 0; buttons[index] != NULL; index++) {
         if (button_collision(mouse_loc, buttons[index]) == 1) {
@@ -19,5 +19,15 @@ void manage_buttons(data_t *game_data, button_t **buttons, sfVector2i mouse_loc)
             (*buttons[index]->callback)(buttons[index], 
                     game_data->scene_names, &(game_data->run_index));
         }
+    }
+}
+
+void manage_hover_buttons(data_t *game_data, button_t **buttons, sfVector2i mouse_loc)
+{
+    for (int index = 0; buttons[index] != NULL; index++) {
+        if (button_collision(mouse_loc, buttons[index]) == 1)
+            buttons[index]->is_hovered = 1;
+        else
+            buttons[index]->is_hovered = 0;
     }
 }

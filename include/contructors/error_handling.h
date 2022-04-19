@@ -26,7 +26,7 @@ static char *game_object_settings[7] = {
     NULL
 };
 
-static char *object_settings[25] = {
+static char *object_settings[26] = {
     "posx",
     "posy",
     "width",
@@ -36,6 +36,7 @@ static char *object_settings[25] = {
     "shape",
     "texture",
     "ho_texture",
+    "sel_texture",
     "animation",
     "speed",
     "sound",
