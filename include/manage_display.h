@@ -11,4 +11,6 @@
     #include "structures.h"
 
 void display_map(sfRenderWindow *window, map_t *map_data);
+void set_position(sfSprite *sprite, float x, float y);
+
 #endif /*MDIS_H_*/

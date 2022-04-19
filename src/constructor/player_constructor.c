@@ -8,6 +8,12 @@
 #include "structures.h"
 #include <stdlib.h>
 
+void set_position(sfSprite *sprite, float x, float y)
+{
+    sfVector2f position = {x, y};
+    sfSprite_setPosition(sprite, position);
+}
+
 sfSprite *create_sprite(char const *filepath, float x, float y)
 {
     sfTexture *texture = sfTexture_createFromFile(filepath, NULL);
