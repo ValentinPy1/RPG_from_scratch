@@ -11,5 +11,6 @@
     #include <stdlib.h>
 
 void free_str_tab(char **tab);
+void free_int_tab(int **tab);
 
 #endif
