@@ -30,5 +30,6 @@ player_t *player_constructor(void)
     player->pos.x = 500;
     player->pos.y = 300;
     player->player_sprite = create_sprite("img/RED.png", 0.5, 0.5);
+    player->view = sfView_create();
     return player;
 }

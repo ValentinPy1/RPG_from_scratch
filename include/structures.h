@@ -103,6 +103,7 @@ typedef struct player_s {
     sfVector2f pos;
     sfSprite *player_sprite;
     sfIntRect *player_rect;
+    sfView *view;
 } player_t;
 
 typedef struct data_s {
