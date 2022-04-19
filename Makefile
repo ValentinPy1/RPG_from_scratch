@@ -44,7 +44,8 @@ SRC = 	src/main.c													\
 		$(CON_PATH)construct_entities/construct_entities2.c			\
 		$(CON_PATH)construct_background/parse_background.c			\
 		$(CON_PATH)construct_background/construct_background.c		\
-		src/random/random_generator.c
+		src/random/random_generator.c 								\
+		src/constructor/player_constructor.c 						\
 		# src/movement_management/movement.c 							\
 
 NAME = my_rpg
