@@ -52,7 +52,7 @@ map_t *map_constructor(void)
 {
     map_t *map_data = malloc(sizeof(map_t));
     sfTexture *tile_texture = sfTexture_createFromFile(
-                                "img/map/map_ss.png", NULL);
+                                "asset/img/map/map_ss.png", NULL);
     sfSprite *tile_sprite = sfSprite_create();
 
     sfSprite_setTexture(tile_sprite, tile_texture, sfFalse);
