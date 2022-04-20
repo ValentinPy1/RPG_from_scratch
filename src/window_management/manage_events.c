@@ -12,7 +12,7 @@ void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
     sfVector2i mouse_loc;
 
     mouse_loc = sfMouse_getPositionRenderWindow(window);
-    
+
     //TO DO EVENT
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed)

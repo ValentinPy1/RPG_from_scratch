@@ -12,6 +12,7 @@
     #include <SFML/System.h>
     #include <SFML/Window.h>
     #include <stdlib.h>
+    #include "map_collision.h"
 
 void check_button_state(button_t **buttons, sfVector2i mouse_loc);
 void check_button_clicked(scene_t **scene_list, sfVector2i mouse_loc, int index);

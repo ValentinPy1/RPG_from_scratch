@@ -9,5 +9,7 @@
     #define MCOL
     #include "structures.h"
     #include <math.h>
-    
+
+    int is_blocking_tile(map_t *map, sfVector2f pos);
+
 #endif /* !MCOL */

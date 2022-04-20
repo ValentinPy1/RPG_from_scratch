@@ -23,7 +23,7 @@ void get_sound_params(char *str, scene_t *scene)
 void construct_sound(scene_t *scene, char **content, int index)
 {
     scene->music = sfSound_create();
-    for (index += 1; content[index] != NULL && 
+    for (index += 1; content[index] != NULL &&
         nb_char_in_str(content[index], '\t') != 1; index++) {
         if (nb_char_in_str(content[index], '\t') == 2) {
             get_sound_params(content[index], scene);

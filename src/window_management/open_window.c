@@ -22,10 +22,8 @@ void scene_selector(sfRenderWindow *window, data_t *game_data)
     display_scene(window, game_data,
     game_data->scene_list[game_data->run_index]);
 
-
     // DEBUG TO DO DELETE
     int bool = is_blocking_tile(game_data->scene_list[game_data->run_index]->map,  game_data->red->pos);
-    
 }
 
 void open_window(int width, int height, data_t *game_data)

@@ -20,7 +20,7 @@ int sound_construct_path(scene_t *scene, char *path)
 int sound_construct_volume(scene_t *scene, char *path)
 {
     float volume = my_atof(path);
-    
+
     sfSound_setVolume(scene->music, volume);
     return (0);
 }

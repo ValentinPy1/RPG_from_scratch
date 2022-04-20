@@ -14,5 +14,6 @@
     #include "structures.h"
 
 void set_position(sfSprite *sprite, float x, float y);
+int is_blocking_tile(map_t *map, sfVector2f pos);
 
 #endif

@@ -13,6 +13,7 @@ int parse_tile(map_t *map)
 
     for (row = 0; row < map->size_y; row++);
     for (col = 0; col < map->size_x; col++);
+    return 0;
 }
 
 int is_blocking_tile(map_t *map, sfVector2f pos)
