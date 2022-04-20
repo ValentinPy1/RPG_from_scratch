@@ -47,5 +47,6 @@ int my_strcmp(char *str1, char *str2);
 int my_getnbr(char *str);
 float my_atof(char *str);
 char *my_strcpy(char *dest, char const *src);
-
+int init_hitbox(hitbox_t *hitbox);
+int my_strlen(char const *str);
 #endif /*ENT_H_*/
