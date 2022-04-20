@@ -29,9 +29,9 @@ sfSprite *create_sprite(char const *filepath, float x, float y)
 player_t *player_constructor(void)
 {
     player_t *player = malloc(sizeof(player_t));
-    
-    player->pos.x = 500;
-    player->pos.y = 500;
+
+    player->pos.x = 13 * 32;
+    player->pos.y = 6 * 32;
     player->player_sprite = create_sprite("asset/img/RED.png", 0.5, 0.5);
     player->view = sfView_create();
     return player;
