@@ -67,6 +67,6 @@ void player_move(data_t *game_data, scene_t *scene)
         move_left(game_data, walk);
         move_down(game_data, walk);
         move_up(game_data, walk);
-        set_position(game_data->red->player_sprite, game_data->red->pos.x, game_data->red->pos.y);
+        set_position(game_data->red->player_sprite, game_data->red->pos.x - 16, game_data->red->pos.y - 26);
     }
 }

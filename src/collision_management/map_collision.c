@@ -23,11 +23,7 @@ int is_blocking_tile(map_t *map, sfVector2f pos)
 
     if (map == NULL || x < 0 || y < 0) // TO DO better error handling
         return (1);
-    // printf("P pos:(%i, %i)\n", x, y);
-    // parse_tile(map);
-    // printf("P relative pos:(%i, %i)\n", x / 32, y / 32);
-    // printf("Current tile value:%i\n", map->tiles[y / 32][x / 32]);
-    if (map->tiles[y / 32][x / 32] == 7) {
+    if (map->tiles[y / 32][x / 32] == 7 || (map->tiles[y / 32][x / 32] >= 20 && map->tiles[y / 32][x / 32] <= 35)) {
         return (1);
     } else {
         return (0);
