@@ -27,6 +27,7 @@ void free_buttons(button_t **buttons)
         sfTexture_destroy(buttons[index]->ho_texture);
         sfSprite_destroy(buttons[index]->sprite);
         sfSprite_destroy(buttons[index]->ho_sprite);
+        sfSound_stop(buttons[index]->sound);
         sfSound_destroy(buttons[index]->sound);
         sfSoundBuffer_destroy(buttons[index]->sound_buffer);
         free(buttons[index]);
@@ -70,7 +71,7 @@ void free_text(sfText **texts)
 void free_background(scene_t *scene)
 {
     if (scene->background_to_run == 1) {
-        // TO DO free map
+        // free_int_tab(scene->map->tiles);
     }
     if (scene->background_to_run == 2) {
         sfTexture_destroy(scene->background_texture);
@@ -86,6 +87,11 @@ void free_scenes(scene_t **scene_list, char **scene_names)
         free_text(scene_list[index]->texts);
         free_images(scene_list[index]->images);
         free_background(scene_list[index]);
+        if (scene_list[index]->music != NULL) {
+            sfSound_stop(scene_list[index]->music);
+            sfSound_destroy(scene_list[index]->music);
+            sfSoundBuffer_destroy(scene_list[index]->sound_buffer);
+        }
         free(scene_list[index]->name);
         free(scene_names[index]);
         free(scene_list[index]);

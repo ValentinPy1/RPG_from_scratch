@@ -14,3 +14,10 @@ void free_str_tab(char **tab)
         free(tab[index]);
     free(tab);
 }
+
+void free_int_tab(int **tab)
+{
+    for (int index = 0; tab[index] != NULL; index++)
+        free(tab[index]);
+    free(tab);
+}

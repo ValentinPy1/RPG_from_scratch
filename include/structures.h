@@ -55,7 +55,6 @@ typedef struct button_s {
     sfSprite *sel_sprite;
     sfSound *sound;
     sfSoundBuffer *sound_buffer;
-    int is_selected;
     int is_hovered;
     int (*callback)(struct button_s *button, char **scenes_name, int *index_run);
 } button_t;
@@ -75,8 +74,6 @@ typedef struct entity_s {
 typedef struct map_s {
     int **tiles;
     sfSprite *tiles_sprite;
-    int movement_x;
-    int movement_y;
     int size_x;
     int size_y;
 } map_t;
@@ -91,6 +88,8 @@ typedef struct scene_s {
     sfTexture *background_texture;
     sfSprite *background_sprite;
     sfVector2i mouse_loc;
+    sfSound *music;
+    sfSoundBuffer *sound_buffer;
     map_t *map;
     int is_running;
 } scene_t;
@@ -100,10 +99,18 @@ typedef struct set_s {
     int window_y;
 } set_t;
 
+typedef struct player_s {
+    sfVector2f pos;
+    sfSprite *player_sprite;
+    sfIntRect *player_rect;
+    sfView *view;
+} player_t;
+
 typedef struct data_s {
     set_t *settings;
     int run_index;
     int debug_mode;
+    player_t *red;
     scene_t **scene_list;
     char **scene_names;
     partic_ll_t *partic;

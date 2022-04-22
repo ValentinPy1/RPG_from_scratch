@@ -9,12 +9,12 @@ CON_PATH = src/config_management/constructors/
 
 SRC = 	src/main.c													\
 		src/free_data.c 											\
-		src/collision/point_in_rect.c								\
-		src/movement_management/movement.c 							\
+		src/collision_algorithm/point_in_rect.c						\
 		src/window_management/open_window.c							\
 		src/window_management/manage_display.c 						\
 		src/window_management/manage_events.c						\
 		src/window_management/manage_buttons.c						\
+		src/collision_management/map_collision.c					\
 		src/window_management/get_run_index.c 						\
 		src/config_management/get_value.c							\
 		src/config_management/get_keyword.c							\
@@ -33,6 +33,8 @@ SRC = 	src/main.c													\
 		$(CON_PATH)construct_texts/construct_text1.c				\
 		$(CON_PATH)construct_texts/construct_text2.c				\
 		$(CON_PATH)construct_texts/construct_text3.c				\
+		$(CON_PATH)construct_sounds/parse_sound.c					\
+		$(CON_PATH)construct_sounds/construct_sound.c				\
 		$(CON_PATH)construct_images/parse_images.c					\
 		$(CON_PATH)construct_images/construct_image1.c				\
 		$(CON_PATH)construct_images/construct_image2.c				\
@@ -52,6 +54,10 @@ SRC = 	src/main.c													\
 		src/particles/destroy.c	\
 		src/particles/manage_partic_ll.c	\
 		src/particles/type.c	\
+		src/constructor/player_constructor.c 						\
+		src/movement_management/movement.c 							\
+		src/movement_management/view.c 								\
+		src/movement_management/animations.c 								\
 
 NAME = my_rpg
 

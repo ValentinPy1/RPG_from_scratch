@@ -22,6 +22,7 @@ void construct_background(scene_t *scene, char **content, int index);
 void construct_entity(scene_t *scene, char **content, int index);
 void construct_text(scene_t *scene, char **content, int index);
 void construct_image(scene_t *scene, char **content, int index);
+void construct_sound(scene_t *scene, char **content, int index);
 
 static const constructor_t CONSTRUCTORS[] = {
     {"name", construct_name},

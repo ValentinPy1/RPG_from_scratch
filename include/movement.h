@@ -13,9 +13,15 @@
     #include <SFML/Window.h>
     #include "structures.h"
 
-    #define OOB_UP game_data->scene_list[0]->map->movement_y > (game_data->settings->window_y / 2) * -1
-    #define OOB_RIGHT game_data->scene_list[0]->map->movement_x < game_data->settings->window_x / 2
-    #define OOB_DOWN game_data->scene_list[0]->map->movement_y < game_data->settings->window_y / 2
-    #define OOB_LEFT game_data->scene_list[0]->map->movement_x > (game_data->settings->window_x / 2) * -1
+typedef struct anim_s {
+    sfClock *clock;
+    sfTime time;
+    sfIntRect *rect;
+    float seconds;
+} anim_t;
+
+void set_position(sfSprite *sprite, float x, float y);
+int is_blocking_tile(map_t *map, sfVector2f pos);
+void init_view(sfRenderWindow *window, data_t *game_data);
 
 #endif

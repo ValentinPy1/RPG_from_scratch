@@ -5,6 +5,7 @@
 ** Source code to manage display
 */
 #include "manage_display.h"
+void init_view(sfRenderWindow *window, data_t *game_data);
 
 void display_hitbox(sfRenderWindow *window, hitbox_t *hitbox)
 {
@@ -45,8 +46,12 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 {
     if (scene->background_to_run == 2)
         sfRenderWindow_drawSprite(window, scene->background_sprite, NULL);
-    else if (scene->background_to_run == 1)
+    else if (scene->background_to_run == 1) {
         display_map(window, scene->map);
+        init_view(window, game_data);
+        sfSprite_setTextureRect(game_data->red->player_sprite, *game_data->red->player_rect);
+        sfRenderWindow_drawSprite(window, game_data->red->player_sprite, NULL);
+    }
     draw_images(window, scene);
     draw_texts(window, game_data, scene);
     draw_buttons(window, game_data, scene);
