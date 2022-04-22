@@ -17,20 +17,24 @@ void update_particle(particle_t *p)
     p->pos = (sfVector2f) {newposx, newposy};
     p->vel = (sfVector2f) {newvelx, newvely};
     p->duration -= 1;
-    if (p->duration < 0)
-        sfCircleShape_setFillColor(p->circle, sfBlack);
     sfCircleShape_setPosition(p->circle, p->pos);
 }
 
 void update_partic_arr(partic_arr_t *partic)
 {
     int i;
+
     partic->duration -= 1;
-    if (partic->duration > 0) {
-        for (i = 0; i < partic->count; i++)
+    for (i = 0; i < partic->count; i++) {
+        if (partic->particles[i].duration > 0)
             update_particle(&partic->particles[i]);
     }
-    if (partic->duration == 0) {
-        destroy_partic_arr(partic);
-    }
+}
+
+void update_groups(partic_ll_t *groups)
+{
+    if (groups == NULL)
+        return;
+    update_partic_arr(groups->partic_arr);
+    update_groups(groups->next);
 }

@@ -9,6 +9,7 @@
     #define STRUCT_H_
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
+    #include "particles.h"
 
 typedef struct coord_s {
     double x;
@@ -105,6 +106,7 @@ typedef struct data_s {
     int debug_mode;
     scene_t **scene_list;
     char **scene_names;
+    partic_ll_t *partic;
 } data_t;
 
 #endif /*STRUCT_H_*/

@@ -49,7 +49,8 @@ SRC = 	src/main.c													\
 		src/particles/setup.c	\
 		src/particles/update.c	\
 		src/particles/draw.c	\
-		src/particles/destroy.c
+		src/particles/destroy.c	\
+		src/particles/manage_partic_ll.c	\
 
 NAME = my_rpg
 
