@@ -30,9 +30,11 @@ sfSprite *create_sprite(char const *filepath, float x, float y)
     sfTexture *texture = sfTexture_createFromFile(filepath, NULL);
     sfSprite *sprite = sfSprite_create();
     sfVector2f scale = {x, y};
+    sfVector2f origin = {8, 16};
 
     sfSprite_setTexture(sprite, texture, sfFalse);
     sfSprite_setScale(sprite, scale);
+    sfSprite_setOrigin(sprite, origin);
     return (sprite);
 }
 
