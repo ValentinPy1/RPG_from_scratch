@@ -16,10 +16,12 @@ typedef struct but_call_s {
 
 int nothing(button_t *button, char **scenes_name, int *index_run);
 int play(button_t *button, char **scenes_name, int *index_run);
+int quit(button_t *button, char **scenes_name, int *index_run);
 
-static const but_call_t BUT_CALL[3] = {
+static const but_call_t BUT_CALL[4] = {
     {"no", nothing},
     {"play", play},
+    {"quit", quit},
     {NULL, NULL}
 };
 

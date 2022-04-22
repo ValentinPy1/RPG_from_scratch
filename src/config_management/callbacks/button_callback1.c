@@ -20,3 +20,9 @@ int play(button_t *button, char **scenes_name, int *index_run)
     }
     return (0);
 }
+
+int quit(button_t *button, char **scenes_name, int *index_run)
+{
+    *index_run = -1;
+    return 0;
+}
