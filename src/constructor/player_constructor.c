@@ -39,11 +39,16 @@ sfSprite *create_sprite(char const *filepath, float x, float y)
 player_t *player_constructor(void)
 {
     player_t *player = malloc(sizeof(player_t));
+    sfClock *clk = sfClock_create();
+    sfTime tm;
 
     player->pos.x = 13 * 32;
     player->pos.y = 6 * 32;
-    player->player_sprite = create_sprite("asset/img/player/walk_down.png", 2, 2);
+    player->player_sprite =
+    create_sprite("asset/img/player/walk_down.png", 2, 2);
     player->player_rect = set_player_rect();
     player->view = sfView_create();
+    player->clock = clk;
+    player->time = tm;
     return player;
 }

@@ -4,6 +4,7 @@
 ** File description:
 ** SOurce code of the collision of the map
 */
+
 #include "map_collision.h"
 
 int parse_tile(map_t *map)

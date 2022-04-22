@@ -7,22 +7,18 @@
 
 #include "movement.h"
 
-// void player_move()
-// {
-//     if ()
-// }
+void move_rect(sfIntRect *rect, int offset, int max_value)
+{
+    rect->top += offset;
+    if (rect->top >= max_value) {
+        rect->top = 0;
+    }
+}
 
-
-
-// anim_t *anim_constructor(void)
-// {
-//     chrono_t *anim = malloc(sizeof(anim_t));
-//     sfTime tm = NULL;
-//     sfIntRect *rectangle = set_player_rect();
-//     sfClock *clck = sfClock_create();
-//     anim->clock = clck;
-//     anim->time = tm;
-//     anim->rect = rectangle;
-//     anim->seconds = tm.microseconds / 1000000.0;
-//     return anim;
-// }
+void player_walk(data_t *game_data, sfIntRect *rect, int offset, int max_value)
+{
+    if (game_data->red->seconds > 0.15) {
+        move_rect(game_data->red->player_rect, 16, 64);
+        sfClock_restart(game_data->red->clock);
+    }
+}

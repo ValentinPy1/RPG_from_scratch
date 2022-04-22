@@ -103,6 +103,9 @@ typedef struct player_s {
     sfSprite *player_sprite;
     sfIntRect *player_rect;
     sfView *view;
+    sfClock *clock;
+    sfTime time;
+    float seconds;
 } player_t;
 
 typedef struct data_s {
