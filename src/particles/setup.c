@@ -22,6 +22,7 @@ particle_param_t setup_default_param(void)
     param.size = 1;
     param.gravity = (sfVector2f) {0, 0.5};
     param.resistance = (sfVector2f) {0.01, 0.01};
+    param.count = 1000;
     return param;
 }
 
@@ -32,7 +33,7 @@ particle_t setup_particle(particle_param_t *p)
     float angle_pos = get_rdm() * PI * 2;
     float dist_pos = get_rdm();
     float angle_vel = get_rdm() * PI * 2;
-    float dist_vel = rdm_exp(0.5);
+    float dist_vel = rdm_exp(0.2) + 0.1;
     particle.pos = (sfVector2f) {dist_pos * cos(angle_pos) *
     p->spawn_radius.x + p->pos.x, dist_pos *
     sin(angle_pos) * p->spawn_radius.y + p->pos.y};
@@ -50,23 +51,23 @@ particle_t setup_particle(particle_param_t *p)
     return particle;
 }
 
-partic_arr_t *setup_partic_arr(int count, particle_param_t *param)
+partic_arr_t *setup_partic_arr(particle_param_t *param)
 {
     partic_arr_t *particles = malloc(sizeof(partic_arr_t));
     int i;
 
-    particles->particles = malloc(count * sizeof(particle_t));
-    particles->count = count;
+    particles->particles = malloc(param->count * sizeof(particle_t));
+    particles->count = param->count;
     particles->duration = param->max_duration;
-    for (i = 0; i < count; i++)
+    for (i = 0; i < param->count; i++)
         particles->particles[i] = setup_particle(param);
     return particles;
 }
 
-partic_ll_t *setup_partic_node(int count, particle_param_t *p)
+partic_ll_t *setup_partic_node(particle_param_t *p)
 {
     partic_ll_t *node = malloc(sizeof(partic_ll_t));
-    node->partic_arr = setup_partic_arr(count, p);;
+    node->partic_arr = setup_partic_arr(p);;
     node->next = NULL;
     return node;
 }
