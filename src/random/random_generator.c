@@ -6,6 +6,7 @@
 */
 
 #include "random.h"
+#include <math.h>
 
 double get_rdm(void)
 {
@@ -19,4 +20,9 @@ float rdm_float(float min, float max)
     num *= range;
     num += min;
     return num;
+}
+
+float rdm_exp(float dispersion)
+{
+    return pow((-1 / ((get_rdm() * 0.999) - 1)), dispersion) - 1;
 }

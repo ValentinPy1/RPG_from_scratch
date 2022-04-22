@@ -6,6 +6,7 @@
 */
 
 #include "open_window.h"
+#include "particles.h"
 
 void create_window(sfRenderWindow **window, int width, int height)
 {
@@ -17,6 +18,10 @@ void create_window(sfRenderWindow **window, int width, int height)
 
 void scene_selector(sfRenderWindow *window, data_t *game_data)
 {
+    event_handling(window, game_data, game_data->scene_list[game_data->run_index]);
+    player_move(game_data, game_data->scene_list[game_data->run_index]);
+    display_scene(window, game_data,
+    game_data->scene_list[game_data->run_index]);
     event_handling(window, game_data,
     game_data->scene_list[game_data->run_index]);
     if (game_data->run_index == -1)
@@ -34,9 +39,6 @@ void open_window(int width, int height, data_t *game_data)
 {
     sfRenderWindow *window;
 
-    game_data->settings = malloc(sizeof(set_t));
-    game_data->settings->window_x = width;
-    game_data->settings->window_y = height;
     create_window(&window, width, height);
     sfSound_play(game_data->scene_list[game_data->run_index]->music);
     while (sfRenderWindow_isOpen(window)) {
@@ -46,6 +48,9 @@ void open_window(int width, int height, data_t *game_data)
             sfRenderWindow_close(window);
             break;
         }
+        update_groups(game_data->partic->next);
+        sup_partic_groups(game_data->partic->next);
+        draw_groups(window, game_data->partic->next);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
