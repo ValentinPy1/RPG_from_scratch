@@ -47,3 +47,5 @@ player_t *player_constructor(void)
     player->view = sfView_create();
     return player;
 }
+
+newbranch
