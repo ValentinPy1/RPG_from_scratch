@@ -18,7 +18,7 @@ void move_up(data_t *game_data, int walk)
         temp_pos) == 1)
             return;
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
-            game_data->red->pos.y -= 2;
+            game_data->red->pos.y -= 1;
         game_data->red->pos.y -= walk;
         player_walk(game_data, game_data->red->player_rect, 16, 64);
     }
@@ -35,7 +35,7 @@ void move_down(data_t *game_data, int walk)
         temp_pos) == 1)
             return;
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
-            game_data->red->pos.y += 2;
+            game_data->red->pos.y += 1;
         game_data->red->pos.y += walk;
         player_walk(game_data, game_data->red->player_rect, 16, 64);
     }
@@ -52,7 +52,7 @@ void move_left(data_t *game_data, int walk)
         temp_pos) == 1)
             return;
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
-            game_data->red->pos.x -= 2;
+            game_data->red->pos.x -= 1;
         game_data->red->pos.x -= walk;
         player_walk(game_data, game_data->red->player_rect, 16, 64);
     }
@@ -69,7 +69,7 @@ void move_right(data_t *game_data, int walk)
         temp_pos) == 1)
             return;
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
-            game_data->red->pos.x += 2;
+            game_data->red->pos.x += 1;
         game_data->red->pos.x += walk;
         player_walk(game_data, game_data->red->player_rect, 16, 64);
     }
@@ -77,7 +77,7 @@ void move_right(data_t *game_data, int walk)
 
 void player_move(data_t *game_data, scene_t *scene)
 {
-    int walk = 5;
+    int walk = 2;
     game_data->red->time = sfClock_getElapsedTime(game_data->red->clock);
     game_data->red->seconds = game_data->red->time.microseconds / 1000000.0;
 
