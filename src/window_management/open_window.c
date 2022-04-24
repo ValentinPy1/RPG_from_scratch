@@ -6,7 +6,6 @@
 */
 
 #include "open_window.h"
-#include "particles.h"
 
 void create_window(sfRenderWindow **window, int width, int height)
 {
@@ -48,9 +47,6 @@ void open_window(int width, int height, data_t *game_data)
             sfRenderWindow_close(window);
             break;
         }
-        update_groups(game_data->partic->next);
-        sup_partic_groups(game_data->partic->next);
-        draw_groups(window, game_data->partic->next);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);

@@ -60,5 +60,6 @@ void update_groups(partic_ll_t *groups);
 void add_partic_group(partic_ll_t *groups, partic_ll_t *node);
 particle_param_t setup_blood_param(void);
 particle_param_t setup_fire_param(void);
+particle_param_t setup_lava_param(void);
 
 #endif

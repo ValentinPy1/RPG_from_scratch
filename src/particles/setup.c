@@ -38,7 +38,7 @@ particle_t setup_particle(particle_param_t *p)
     p->spawn_radius.x + p->pos.x, dist_pos *
     sin(angle_pos) * p->spawn_radius.y + p->pos.y};
     particle.vel = (sfVector2f) {p->init_vel.x + dist_vel * cos(angle_vel) *
-    p->rdm_vel.x, p->init_vel.x + dist_vel * sin(angle_vel) *
+    p->rdm_vel.x, p->init_vel.y + dist_vel * sin(angle_vel) *
     p->rdm_vel.y};
     particle.duration = p->max_duration * get_rdm();
     sfCircleShape_setFillColor(circle, p->color);
