@@ -18,18 +18,11 @@ void create_window(sfRenderWindow **window, int width, int height)
 void scene_selector(sfRenderWindow *window, data_t *game_data)
 {
     event_handling(window, game_data, game_data->scene_list[game_data->run_index]);
-    player_move(game_data, game_data->scene_list[game_data->run_index]);
-    display_scene(window, game_data,
-    game_data->scene_list[game_data->run_index]);
-    event_handling(window, game_data,
-    game_data->scene_list[game_data->run_index]);
     if (game_data->run_index == -1)
         return;
     player_move(game_data, game_data->scene_list[game_data->run_index]);
     display_scene(window, game_data,
     game_data->scene_list[game_data->run_index]);
-
-    // DEBUG TO DO DELETE
     int bool = is_blocking_tile(
     game_data->scene_list[game_data->run_index]->map,  game_data->red->pos);
 }

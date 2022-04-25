@@ -103,6 +103,6 @@ void free_scenes(scene_t **scene_list, char **scene_names)
 void free_data(data_t *game_data)
 {
     free_scenes(game_data->scene_list, game_data->scene_names);
-    free(game_data->settings);
+    // free(game_data->settings);
     free(game_data);
 }
