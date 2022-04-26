@@ -62,5 +62,6 @@ particle_param_t setup_blood_param(void);
 particle_param_t setup_fire_param(void);
 particle_param_t setup_lava_param(void);
 particle_param_t setup_sperm_param(void);
+particle_param_t setup_step_param(void);
 
 #endif
