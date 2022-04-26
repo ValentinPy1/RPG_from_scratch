@@ -47,17 +47,17 @@ SRC = 	src/main.c													\
 		$(CON_PATH)construct_entities/construct_entities2.c			\
 		$(CON_PATH)construct_background/parse_background.c			\
 		$(CON_PATH)construct_background/construct_background.c		\
-		src/random/random_generator.c	\
-		src/particles/setup.c	\
-		src/particles/update.c	\
-		src/particles/draw.c	\
-		src/particles/destroy.c	\
-		src/particles/manage_partic_ll.c	\
-		src/particles/type.c	\
+		src/random/random_generator.c								\
+		src/particles/setup.c										\
+		src/particles/update.c										\
+		src/particles/draw.c										\
+		src/particles/destroy.c										\
+		src/particles/manage_partic_ll.c							\
+		src/particles/type.c										\
 		src/constructor/player_constructor.c 						\
 		src/movement_management/movement.c 							\
-		src/movement_management/view.c 								\
-		src/movement_management/animations.c 								\
+		src/movement_management/view.c								\
+		src/movement_management/animations.c						\
 
 NAME = my_rpg
 

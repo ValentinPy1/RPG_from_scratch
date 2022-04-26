@@ -47,9 +47,6 @@ void draw_texts(sfRenderWindow *window, data_t *game_data, scene_t *scene) {
 
 void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 {
-    particle_param_t param = setup_lava_param();
-    partic_ll_t *node;
-
     if (scene->background_to_run == 2)
         sfRenderWindow_drawSprite(window, scene->background_sprite, NULL);
     else if (scene->background_to_run == 1) {
@@ -57,15 +54,8 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         init_view(window, game_data);
         sfSprite_setTextureRect(game_data->red->player_sprite, *game_data->red->player_rect);
         sfRenderWindow_drawSprite(window, game_data->red->player_sprite, NULL);
-        if (get_rdm() > 0.9) {
-            param.pos = (sfVector2f) {get_rdm() * 1920, get_rdm() * 1080};
-            node = setup_partic_node(&param);
-            add_partic_group(game_data->partic, node);
-        }
-        update_groups(game_data->partic->next);
-        sup_partic_groups(game_data->partic->next);
-        draw_groups(window, game_data->partic->next);
     }
+    handle_particles(window, game_data, scene);
     draw_images(window, scene);
     draw_texts(window, game_data, scene);
     draw_buttons(window, game_data, scene);

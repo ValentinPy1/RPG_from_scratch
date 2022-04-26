@@ -22,7 +22,9 @@ void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         if (event.type == sfEvtMouseButtonReleased) {
             manage_clic_buttons(game_data, scene->buttons, mouse_loc);
             param.pos = (sfVector2f) {game_data->red->pos.x,
-            game_data->red->pos.y};
+            game_data->red->pos.y - 10};
+            param.init_vel.x = (mouse_loc.x - 980) / 50;
+            param.init_vel.y = (mouse_loc.y - 540) / 50;
             node = setup_partic_node(&param);
             add_partic_group(game_data->partic, node);
         }
