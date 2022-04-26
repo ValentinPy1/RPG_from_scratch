@@ -18,7 +18,7 @@ void move_rect(sfIntRect *rect, int offset, int max_value)
 void player_walk(data_t *game_data, sfIntRect *rect, int offset, int max_value)
 {
     if (game_data->red->seconds > 0.15) {
-        move_rect(game_data->red->player_rect, 16, 64);
+        move_rect(game_data->red->player_rect, offset, max_value);
         sfClock_restart(game_data->red->clock);
     }
 }
