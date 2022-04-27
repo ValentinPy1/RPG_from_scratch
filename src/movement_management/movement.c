@@ -8,7 +8,6 @@
 #include "movement.h"
 #include "particles.h"
 
-
 void move_dir(data_t *game_data, sfVector2f dir, int key, int sprite)
 {
     float walk = 2;
