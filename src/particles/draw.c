@@ -39,14 +39,17 @@ data_t *game_data, scene_t *scene)
     update_groups(game_data->partic->next);
     sup_partic_groups(game_data->partic->next);
     draw_groups(win, game_data->partic->next);
-    if (my_strcmp(scene->name, "game_menu") && get_rdm() > 0.5) {
-        lava.pos = (sfVector2f) {get_rdm() * 1920, get_rdm() * 1080};
+    lava.pos = (sfVector2f) {get_rdm() * 1920, get_rdm() * 1080};
+    if (is_in_screen(game_data, lava.pos) &&
+    my_strcmp(scene->name, "game_menu") && get_rdm() > 0.5) {
         node_lava = setup_partic_node(&lava);
         add_partic_group(game_data->partic, node_lava);
     }
     fire.pos = (sfVector2f) {560, 400};
-    node_fire = setup_partic_node(&fire);
-    add_partic_group(game_data->partic, node_fire);
+    if (is_in_screen(game_data, fire.pos)) {
+        node_fire = setup_partic_node(&fire);
+        add_partic_group(game_data->partic, node_fire);
+    }
 }
 
 void spawn_blood(data_t *game_data, sfVector2i mouse_loc)
