@@ -73,15 +73,10 @@ CFLAGS = -Wall -Wextra -g3
 all: built $(NAME)
 
 $(NAME): $(OBJ)
-	gcc -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS)
+	gcc -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS)
 
 clean:
 	rm -f $(OBJ)
-	rm -f vgcore*
-	rm -f *.gcda
-	rm -f *.gcno
-	rm -f src/*.gcda
-	rm -f src/*.gcno
 	make -C lib/ clean
 
 fclean: clean
