@@ -43,7 +43,7 @@ int main(int ac, char **av)
         return (84);
     }
     my_putstr("Loading scene sucess\n");
-    int index = get_run_index(game_data->scene_names, "game_menu");
+    int index = get_run_index(game_data->scene_names, "main_scene");
     // parse_tile(game_data->scene_list[index]->map);
     open_window(1920, 1080, game_data);
     free_data(game_data);
