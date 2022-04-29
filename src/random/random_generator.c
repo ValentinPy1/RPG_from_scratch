@@ -13,6 +13,12 @@ double get_rdm(void)
     return (double)rand() / (double)RAND_MAX;
 }
 
+int rdm_int(int min, int max)
+{
+    int num = (rand() % (max - min + 1)) + min;
+    return (num);
+}
+
 float rdm_float(float min, float max)
 {
     float range = max - min;

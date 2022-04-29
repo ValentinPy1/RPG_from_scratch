@@ -17,6 +17,8 @@ void move_up(data_t *game_data, int walk)
         if (is_blocking_tile(game_data->scene_list[game_data->run_index]->map,
         temp_pos) == 1)
             return;
+        if (sfKeyboard_isKeyPressed(sfKeyRight) || sfKeyboard_isKeyPressed(sfKeyLeft))
+            return;
         if (sfKeyboard_isKeyPressed(sfKeyLShift))
             game_data->red->pos.y -= 1;
         game_data->red->pos.y -= walk;

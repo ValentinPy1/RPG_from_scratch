@@ -6,7 +6,7 @@
 */
 
 #include "map_parser.h"
-float rdm_float(float min, float max);
+#include "random.h"
 
 int **malloc_int(int width, int height)
 {
@@ -69,8 +69,10 @@ void display_map(sfRenderWindow *window, map_t *map_data)
 
     for (int i = 0; i < 34; i++) {
         for (int j = 0; j < 60; j++) {
-            if (map_data->tiles[i][j] == 59)
-                map_data->tiles[i][j] = (int)rdm_float(4, 8);
+            if (map_data->tiles[i][j] == 4)
+                map_data->tiles[i][j] = rdm_int(4, 7);
+            if (map_data->tiles[i][j] == 0)
+                map_data->tiles[i][j] = rdm_int(0, 3);
             limit.left = map_data->tiles[i][j] * TILE_SIZE;
             pos.x = (j * TILE_SIZE);
             pos.y = (i * TILE_SIZE);

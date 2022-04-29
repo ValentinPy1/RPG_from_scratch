@@ -12,5 +12,6 @@
 double get_rdm(void);
 float rdm_float(float min, float max);
 float rdm_exp(float dispersion);
+int rdm_int(int min, int max);
 
 #endif
