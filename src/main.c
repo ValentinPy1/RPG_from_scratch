@@ -21,6 +21,8 @@ void data_constructor(data_t *game_data)
     game_data->partic = malloc(sizeof(partic_ll_t));
     game_data->partic->partic_arr = NULL;
     game_data->partic->next = NULL;
+    game_data->ennemies = malloc(sizeof(ennemies_t));
+    game_data->ennemies->next = NULL;
 }
 
 int main(int ac, char **av)

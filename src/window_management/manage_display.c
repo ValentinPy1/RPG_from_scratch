@@ -56,6 +56,7 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         sfRenderWindow_drawSprite(window, game_data->red->player_sprite, NULL);
     }
     handle_particles(window, game_data, scene);
+    draw_ennemies(window, game_data->ennemies->next);
     draw_images(window, scene);
     draw_texts(window, game_data, scene);
     draw_buttons(window, game_data, scene);

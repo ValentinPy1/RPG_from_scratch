@@ -5,6 +5,7 @@
 ** Source code to manage event
 */
 #include "event_management.h"
+#include "movement.h"
 
 void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 {
@@ -21,6 +22,11 @@ void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         }
         if (event.type == sfEvtMouseButtonPressed) {
             spawn_blood(game_data, mouse_loc);
+        }
+        if (event.type == sfEvtKeyPressed && event.key.code == sfKeyY) {
+            add_ennem(game_data->ennemies, (sfVector2f)
+            {(float) mouse_loc.x / 1920 * VIEW_WIDTH + game_data->red->pos.x - VIEW_WIDTH / 2,
+            (float) mouse_loc.y / 1080 * VIEW_HEIGHT + game_data->red->pos.y - VIEW_HEIGHT / 2});
         }
     }
 }

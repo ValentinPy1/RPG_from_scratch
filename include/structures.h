@@ -10,6 +10,7 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include "particles.h"
+    #include "ennemies.h"
 
 typedef struct coord_s {
     double x;
@@ -117,6 +118,7 @@ typedef struct data_s {
     scene_t **scene_list;
     char **scene_names;
     partic_ll_t *partic;
+    ennemies_t *ennemies;
 } data_t;
 
 #endif /*STRUCT_H_*/
