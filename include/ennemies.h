@@ -13,7 +13,8 @@
     #include <SFML/Window.h>
 
 typedef struct ennem_s {
-    sfVector2f speed;
+    float speed;
+    float direction;
     float damage;
     sfVector2f pos;
     float life;

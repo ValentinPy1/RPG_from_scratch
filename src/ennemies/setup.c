@@ -13,8 +13,10 @@ static ennem_t setup_ennem(sfVector2f pos)
     sfCircleShape *circle = sfCircleShape_create();
 
     ennem.damage = 0;
-    ennem.speed = (sfVector2f) {0, 0};
+    ennem.speed = 1;
+    ennem.direction = 0;
     ennem.life = 100;
+    ennem.pos = pos;
     sfCircleShape_setFillColor(circle, (sfColor) {200, 0, 200, 255});
     sfCircleShape_setRadius(circle, 10);
     sfCircleShape_setOrigin(circle, (sfVector2f) {10, 10});
