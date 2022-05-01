@@ -8,7 +8,8 @@
 CON_PATH = src/config_management/constructors/
 
 SRC = 	src/main.c													\
-		src/free_data.c 											\
+		src/free/free_data.c 										\
+		src/free/free_obj.c 										\
 		src/collision_algorithm/point_in_rect.c						\
 		src/window_management/open_window.c							\
 		src/window_management/manage_display.c 						\
