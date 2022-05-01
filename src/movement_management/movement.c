@@ -35,10 +35,10 @@ void player_move(data_t *game_data, scene_t *scene)
     game_data->red->seconds = game_data->red->time.microseconds / 1000000.0;
 
     if (scene->background_to_run == 1) {
-        move_dir(game_data, (sfVector2f) {0, -1}, sfKeyUp, 3);
-        move_dir(game_data, (sfVector2f) {0, 1}, sfKeyDown, 0);
-        move_dir(game_data, (sfVector2f) {-1, 0}, sfKeyLeft, 1);
-        move_dir(game_data, (sfVector2f) {1, 0}, sfKeyRight, 2);
+        move_dir(game_data, (sfVector2f) {0, -1}, game_data->keys->up, 3);
+        move_dir(game_data, (sfVector2f) {0, 1}, game_data->keys->down, 0);
+        move_dir(game_data, (sfVector2f) {-1, 0}, game_data->keys->left, 1);
+        move_dir(game_data, (sfVector2f) {1, 0}, game_data->keys->right, 2);
         set_position(game_data->red->player_sprite,
         game_data->red->pos.x, game_data->red->pos.y);
     }

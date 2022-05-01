@@ -109,6 +109,13 @@ typedef struct player_s {
     float seconds;
 } player_t;
 
+typedef struct key_s {
+    int up;
+    int right;
+    int down;
+    int left;
+} keys_t;
+
 typedef struct data_s {
     set_t *settings;
     int run_index;
@@ -117,6 +124,7 @@ typedef struct data_s {
     scene_t **scene_list;
     char **scene_names;
     partic_ll_t *partic;
+    keys_t *keys;
 } data_t;
 
 #endif /*STRUCT_H_*/
