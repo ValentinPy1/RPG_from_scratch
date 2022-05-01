@@ -23,6 +23,7 @@ keys_t *get_keys(void)
 
 void data_constructor(data_t *game_data)
 {
+    game_data->debug_mode = 0;
     game_data->keys = get_keys();
     game_data->scene_list = get_scenes();
     game_data->scene_names = get_names_scene(game_data->scene_list);
@@ -41,10 +42,9 @@ int main(int ac, char **av)
         usage();
         return (0);
     }
-    game_data->debug_mode = 0;
+    data_constructor(game_data);
     if (ac == 2 && my_strcmp(av[1], "-d") == 1)
         game_data->debug_mode = 1;
-    data_constructor(game_data);
     if (game_data->scene_list == NULL) {
         my_putstr("Error while loading scene\n");
         return (84);
