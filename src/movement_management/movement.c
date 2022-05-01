@@ -31,7 +31,6 @@ void move_dir(data_t *game_data, sfVector2f dir, int key, int sprite)
 
 void player_move(data_t *game_data, scene_t *scene)
 {
-    int walk = 2;
     game_data->red->time = sfClock_getElapsedTime(game_data->red->clock);
     game_data->red->seconds = game_data->red->time.microseconds / 1000000.0;
 

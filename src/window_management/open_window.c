@@ -23,7 +23,7 @@ void scene_selector(sfRenderWindow *window, data_t *game_data)
     player_move(game_data, game_data->scene_list[game_data->run_index]);
     display_scene(window, game_data,
     game_data->scene_list[game_data->run_index]);
-    int bool = is_blocking_tile(
+    int block = is_blocking_tile(
     game_data->scene_list[game_data->run_index]->map,  game_data->red->pos);
 }
 

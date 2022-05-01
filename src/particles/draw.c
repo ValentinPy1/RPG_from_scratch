@@ -9,6 +9,9 @@
 #include "callbacks.h"
 #include "structures.h"
 #include "random.h"
+#include <stdbool.h>
+
+bool is_in_screen(data_t *gd, sfVector2f pos);
 
 void draw_partic_arr(sfRenderWindow *win, partic_arr_t *partic)
 {

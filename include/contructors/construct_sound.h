@@ -34,4 +34,6 @@ char *get_keyword(char *str);
 char *get_value(char *str);
 int my_strcmp(char *str1, char *str2);
 float my_atof(char *str);
+int write_error(char const *str);
+
 #endif /*SOUND_H_*/
