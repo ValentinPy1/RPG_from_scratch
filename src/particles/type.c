@@ -15,7 +15,8 @@ particle_param_t setup_lava_param(void)
     param.spawn_radius = (sfVector2f) {0, 0};
     param.rdm_vel = (sfVector2f) {2, 0.5};
     param.init_vel = (sfVector2f) {0, -2};
-    param.color = (sfColor) {234 + 20 * get_rdm(), 98 + 20 * get_rdm(), 0, 255};
+    param.color = (sfColor) {234 + 20 *
+    get_rdm(), 98 + 20 * get_rdm(), 0, 255};
     param.max_duration = 100;
     param.size = 2;
     param.gravity = (sfVector2f) {0, 0.1};

@@ -17,7 +17,7 @@ char *get_param(char *str)
     for (index = index; str[index] != '\0'; index++)
         params[index] = str[index];
     free(str);
-    return(params);
+    return (params);
 }
 
 void get_background_type(char *str, scene_t *scene)

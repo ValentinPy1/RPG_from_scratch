@@ -16,10 +16,10 @@ void free_text(sfText **texts)
     free(texts);
 }
 
+// free_int_tab(scene->map->tiles);
 void free_background(scene_t *scene)
 {
     if (scene->background_to_run == 1) {
-        // free_int_tab(scene->map->tiles);
     }
     if (scene->background_to_run == 2) {
         sfTexture_destroy(scene->background_texture);
@@ -48,10 +48,10 @@ void free_scenes(scene_t **scene_list, char **scene_names)
     free(scene_list);
 }
 
+    // free(game_data->settings);
 void free_data(data_t *game_data)
 {
     free_scenes(game_data->scene_list, game_data->scene_names);
     free(game_data->keys);
-    // free(game_data->settings);
     free(game_data);
 }
