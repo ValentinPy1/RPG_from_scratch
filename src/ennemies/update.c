@@ -7,6 +7,7 @@
 
 #include "ennemies.h"
 #include "structures.h"
+#include "random.h"
 #include <math.h>
 #include <stdio.h>
 
@@ -17,16 +18,25 @@ float normalize(float dist, float max_speed)
     return dist;
 }
 
+float distance(sfVector2f p1, sfVector2f p2)
+{
+    return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
+}
+
 sfVector2f calculate_intent(data_t *gd, ennemies_t *node)
 {
-    sfVector2f intent = {gd->red->pos.x - node->ennem.pos.x,
-    gd->red->pos.y - node->ennem.pos.y};
-
+    sfVector2f intent = {1000 * (gd->red->pos.x - node->ennem.pos.x),
+    1000 * (gd->red->pos.y - node->ennem.pos.y)};
+    float dist;
     for (ennemies_t *temp = gd->ennemies->next; temp != NULL;
     temp = temp->next) {
-        intent = (sfVector2f)
-        {intent.x - 1 / (1 + pow((temp->ennem.pos.x - node->ennem.pos.x) / 11, 3)),
-        intent.y - 1 / (1 + pow((temp->ennem.pos.y - node->ennem.pos.y) / 11, 3))};
+        dist = distance(temp->ennem.pos, node->ennem.pos);
+        (sfVector2f) {temp->ennem.pos.x - node->ennem.pos.x,
+        temp->ennem.pos.y - node->ennem.pos.y};
+        if (dist != 0)
+            intent = (sfVector2f)
+            {intent.x - (temp->ennem.pos.x - node->ennem.pos.x) / pow(dist / WIN_DIAG, 3) / WIN_DIAG,
+            intent.y - (temp->ennem.pos.y - node->ennem.pos.y) / pow(dist / WIN_DIAG, 3) / WIN_DIAG};
     }
     return intent;
 }

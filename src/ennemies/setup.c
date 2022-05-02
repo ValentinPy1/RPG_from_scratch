@@ -17,7 +17,9 @@ static ennem_t setup_ennem(sfVector2f pos)
     ennem.direction = 0;
     ennem.life = 100;
     ennem.pos = pos;
-    sfCircleShape_setFillColor(circle, (sfColor) {200, 0, 200, 255});
+    sfCircleShape_setFillColor(circle, (sfColor) {150, 0, 150, 255});
+    sfCircleShape_setOutlineColor(circle, (sfColor) {0, 0, 0, 255});
+    sfCircleShape_setOutlineThickness(circle, 1);
     sfCircleShape_setRadius(circle, 10);
     sfCircleShape_setOrigin(circle, (sfVector2f) {10, 10});
     sfCircleShape_setPosition(circle, pos);
