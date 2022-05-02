@@ -11,7 +11,7 @@ void create_window(sfRenderWindow **window, int width, int height)
 {
     sfVideoMode mode = {width, height, 32};
 
-    *window = sfRenderWindow_create(mode, "MyRpg", sfDefaultStyle | sfFullscreen, NULL);
+    *window = sfRenderWindow_create(mode, "MyRpg", sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(*window, 60);
 }
 

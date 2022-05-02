@@ -6,6 +6,7 @@
 */
 
 #include "ennemies.h"
+#include <stdlib.h>
 
 static ennem_t setup_ennem(sfVector2f pos)
 {

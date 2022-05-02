@@ -25,25 +25,21 @@ float distance(sfVector2f p1, sfVector2f p2)
 
 sfVector2f calculate_intent(data_t *gd, ennemies_t *node)
 {
-    sfVector2f intent = {1000 * (gd->red->pos.x - node->ennem.pos.x),
-    1000 * (gd->red->pos.y - node->ennem.pos.y)};
+    sfVector2f intent = {(gd->red->pos.x - node->ennem.pos.x), (gd->red->pos.y - node->ennem.pos.y)};
     float dist;
     for (ennemies_t *temp = gd->ennemies->next; temp != NULL;
     temp = temp->next) {
         dist = distance(temp->ennem.pos, node->ennem.pos);
-        (sfVector2f) {temp->ennem.pos.x - node->ennem.pos.x,
-        temp->ennem.pos.y - node->ennem.pos.y};
         if (dist != 0)
             intent = (sfVector2f)
-            {intent.x - (temp->ennem.pos.x - node->ennem.pos.x) / pow(dist / WIN_DIAG, 3) / WIN_DIAG,
-            intent.y - (temp->ennem.pos.y - node->ennem.pos.y) / pow(dist / WIN_DIAG, 3) / WIN_DIAG};
+            {intent.x - (temp->ennem.pos.x - node->ennem.pos.x) / pow(dist, 3) * 4000,
+            intent.y - (temp->ennem.pos.y - node->ennem.pos.y) / pow(dist, 3) * 4000};
     }
     return intent;
 }
 
 void update_ennem_node(data_t *gd, ennemies_t *node)
 {
-    sfVector2f r_pos = {gd->red->pos.x, gd->red->pos.y};
     sfVector2f ennem = {node->ennem.pos.x, node->ennem.pos.y};
     sfVector2f intent = calculate_intent(gd, node);
     float angle = atan(intent.y / intent.x);
