@@ -100,7 +100,14 @@ typedef struct set_s {
     int window_y;
 } set_t;
 
+typedef struct stats_s {
+    int att;
+    int def;
+    int spd;
+} stats_t;
+
 typedef struct player_s {
+    stats_t *stats;
     sfVector2f pos;
     sfSprite *player_sprite;
     sfIntRect *player_rect;

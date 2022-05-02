@@ -10,9 +10,9 @@
 
 void move_dir(data_t *game_data, sfVector2f dir, int key, int sprite)
 {
-    float walk = 2;
-    sfVector2f temp_pos = (sfVector2f) {game_data->red->pos.x + walk * dir.x,
-    game_data->red->pos.y + walk * dir.y};
+    sfVector2f temp_pos = (sfVector2f) {game_data->red->pos.x +
+    game_data->red->stats->spd * dir.x, game_data->red->pos.y +
+    game_data->red->stats->spd * dir.y};
 
     if (sfKeyboard_isKeyPressed(key)) {
         game_data->red->player_rect->left = sprite * 16;
@@ -20,11 +20,11 @@ void move_dir(data_t *game_data, sfVector2f dir, int key, int sprite)
         temp_pos) == 1)
             return;
         if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
-            game_data->red->pos.x += walk * dir.x * 0.5;
-            game_data->red->pos.y += walk * dir.y * 0.5;
+            game_data->red->pos.x += game_data->red->stats->spd * dir.x * 0.5;
+            game_data->red->pos.y += game_data->red->stats->spd * dir.y * 0.5;
         }
-        game_data->red->pos.x += walk * dir.x;
-        game_data->red->pos.y += walk * dir.y;
+        game_data->red->pos.x += game_data->red->stats->spd * dir.x;
+        game_data->red->pos.y += game_data->red->stats->spd * dir.y;
         player_walk(game_data, game_data->red->player_rect, 16, 64);
     }
 }
