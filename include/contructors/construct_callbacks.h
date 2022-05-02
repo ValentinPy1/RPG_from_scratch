@@ -20,14 +20,21 @@ int quit(data_t *game_data, char **scenes_name, int *index_run);
 int options(data_t *game_data, char **scenes_name, int *index_run);
 int arrows(data_t *game_data, char **scenes_name, int *index_run);
 int zqsd(data_t *game_data, char **scenes_name, int *index_run);
+int thirty_fps(data_t *game_data, char **scenes_name, int *index_run);
+int sixty_fps(data_t *game_data, char **scenes_name, int *index_run);
+int hundred_and_twenty_fps(data_t *game_data,
+char **scenes_name, int *index_run);
 
-static const but_call_t BUT_CALL[7] = {
+static const but_call_t BUT_CALL[10] = {
     {"no", nothing},
     {"play", play},
     {"quit", quit},
     {"options", options},
     {"arrows", arrows},
     {"zqsd", zqsd},
+    {"thirty_fps", thirty_fps},
+    {"sixty_fps", sixty_fps},
+    {"hundred_and_twenty_fps", hundred_and_twenty_fps},
     {NULL, NULL}
 };
 

@@ -29,3 +29,22 @@ int zqsd(data_t *game_data, char **scenes_name, int *index_run)
     game_data->keys = new_keys;
     return 0;
 }
+
+int thirty_fps(data_t *game_data, char **scenes_name, int *index_run)
+{
+    game_data->framerate = 30;
+    return 0;
+}
+
+int sixty_fps(data_t *game_data, char **scenes_name, int *index_run)
+{
+    game_data->framerate = 60;
+    return 0;
+}
+
+int hundred_and_twenty_fps(data_t *game_data,
+char **scenes_name, int *index_run)
+{
+    game_data->framerate = 120;
+    return 0;
+}

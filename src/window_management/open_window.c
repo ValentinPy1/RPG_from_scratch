@@ -7,13 +7,14 @@
 
 #include "open_window.h"
 
-void create_window(sfRenderWindow **window, int width, int height)
+void create_window(sfRenderWindow **window, int width, int height,
+data_t *game_data)
 {
     sfVideoMode mode = {width, height, 32};
 
     *window = sfRenderWindow_create(mode, "MyRpg",
     sfDefaultStyle | sfFullscreen, NULL);
-    sfRenderWindow_setFramerateLimit(*window, 60);
+    sfRenderWindow_setFramerateLimit(*window, game_data->framerate);
 }
 
 void scene_selector(sfRenderWindow *window, data_t *game_data)
@@ -33,7 +34,7 @@ void open_window(int width, int height, data_t *game_data)
 {
     sfRenderWindow *window;
 
-    create_window(&window, width, height);
+    create_window(&window, width, height, game_data);
     sfSound_play(game_data->scene_list[game_data->run_index]->music);
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);

@@ -126,6 +126,7 @@ typedef struct data_s {
     char **scene_names;
     partic_ll_t *partic;
     keys_t *keys;
+    int framerate;
 } data_t;
 
 #endif /*STRUCT_H_*/

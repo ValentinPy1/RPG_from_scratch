@@ -23,6 +23,7 @@ keys_t *get_keys(void)
 
 void data_constructor(data_t *game_data)
 {
+    game_data->framerate = 60;
     game_data->debug_mode = 0;
     game_data->keys = get_keys();
     game_data->scene_list = get_scenes();
