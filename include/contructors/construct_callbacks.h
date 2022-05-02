@@ -32,9 +32,9 @@ static const but_call_t BUT_CALL[10] = {
     {"options", options},
     {"arrows", arrows},
     {"zqsd", zqsd},
-    {"thirty_fps", thirty_fps},
-    {"sixty_fps", sixty_fps},
-    {"hundred_and_twenty_fps", hundred_and_twenty_fps},
+    {"30", thirty_fps},
+    {"60", sixty_fps},
+    {"120", hundred_and_twenty_fps},
     {NULL, NULL}
 };
 

@@ -33,12 +33,14 @@ int zqsd(data_t *game_data, char **scenes_name, int *index_run)
 int thirty_fps(data_t *game_data, char **scenes_name, int *index_run)
 {
     game_data->framerate = 30;
+    sfRenderWindow_setFramerateLimit(game_data->window, game_data->framerate);
     return 0;
 }
 
 int sixty_fps(data_t *game_data, char **scenes_name, int *index_run)
 {
     game_data->framerate = 60;
+    sfRenderWindow_setFramerateLimit(game_data->window, game_data->framerate);
     return 0;
 }
 
@@ -46,5 +48,6 @@ int hundred_and_twenty_fps(data_t *game_data,
 char **scenes_name, int *index_run)
 {
     game_data->framerate = 120;
+    sfRenderWindow_setFramerateLimit(game_data->window, game_data->framerate);
     return 0;
 }

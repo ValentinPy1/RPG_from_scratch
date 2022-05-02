@@ -35,15 +35,16 @@ void open_window(int width, int height, data_t *game_data)
     sfRenderWindow *window;
 
     create_window(&window, width, height, game_data);
+    game_data->window = window;
     sfSound_play(game_data->scene_list[game_data->run_index]->music);
-    while (sfRenderWindow_isOpen(window)) {
-        sfRenderWindow_clear(window, sfBlack);
-        scene_selector(window, game_data);
+    while (sfRenderWindow_isOpen(game_data->window)) {
+        sfRenderWindow_clear(game_data->window, sfBlack);
+        scene_selector(game_data->window, game_data);
         if (game_data->run_index == -1) {
-            sfRenderWindow_close(window);
+            sfRenderWindow_close(game_data->window);
             break;
         }
-        sfRenderWindow_display(window);
+        sfRenderWindow_display(game_data->window);
     }
-    sfRenderWindow_destroy(window);
+    sfRenderWindow_destroy(game_data->window);
 }
