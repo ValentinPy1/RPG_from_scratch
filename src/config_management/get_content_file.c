@@ -19,6 +19,9 @@ char **get_content_file(char *pathname)
         return (NULL);
     }
     buff = get_content(fd);
+    printf("[BUFF]\n%s\n\n", buff);
+    if (count_char(buff, '\n') < 1)
+        return (NULL);
     content = my_split(buff, '\n');
     free(buff);
     return (content);

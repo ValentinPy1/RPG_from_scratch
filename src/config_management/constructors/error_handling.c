@@ -39,15 +39,6 @@ int is_in_list(char **list, char *str)
 int is_invalid_line(char **content, int line)
 {
     int nb_tab = nb_char_in_str(content[line], '\t');
-
-    if (nb_tab > 3)
-        return (1);
-    if (nb_tab == 0 && is_in_list(settings, content[line]) == 0)
-        return (1);
-    if (nb_tab == 1 && is_in_list(game_object_settings, content[line]) == 0)
-        return (1);
-    if (nb_tab == 3 && is_in_list(object_settings, content[line]) == 0)
-        return (1);
     return (0);
 }
 
