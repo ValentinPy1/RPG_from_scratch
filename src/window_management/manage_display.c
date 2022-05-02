@@ -52,7 +52,8 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
     else if (scene->background_to_run == 1) {
         display_map(window, scene->map);
         init_view(window, game_data);
-        sfSprite_setTextureRect(game_data->red->player_sprite, *game_data->red->player_rect);
+        sfSprite_setTextureRect(game_data->red->player_sprite,
+        *game_data->red->player_rect);
         sfRenderWindow_drawSprite(window, game_data->red->player_sprite, NULL);
     }
     handle_particles(window, game_data, scene);

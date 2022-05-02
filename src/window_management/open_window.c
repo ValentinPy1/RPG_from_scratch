@@ -11,13 +11,15 @@ void create_window(sfRenderWindow **window, int width, int height)
 {
     sfVideoMode mode = {width, height, 32};
 
-    *window = sfRenderWindow_create(mode, "MyRpg", sfDefaultStyle | sfFullscreen, NULL);
+    *window = sfRenderWindow_create(mode, "MyRpg",
+    sfDefaultStyle | sfFullscreen, NULL);
     sfRenderWindow_setFramerateLimit(*window, 60);
 }
 
 void scene_selector(sfRenderWindow *window, data_t *game_data)
 {
-    event_handling(window, game_data, game_data->scene_list[game_data->run_index]);
+    event_handling(window, game_data,
+    game_data->scene_list[game_data->run_index]);
     if (game_data->run_index == -1)
         return;
     player_move(game_data, game_data->scene_list[game_data->run_index]);

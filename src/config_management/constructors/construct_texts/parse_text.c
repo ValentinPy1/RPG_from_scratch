@@ -37,7 +37,8 @@ int get_text_value(sfText *text, char **content, int line)
 
     for (int index = 0; TEXT_CONS[index].name != NULL; index++) {
         keyword = get_keyword(content[line]);
-        value = get_value(content[line]);value = get_value(content[line]);
+        value = get_value(content[line]);
+        value = get_value(content[line]);
         if (assign_text_value(text, keyword, value, index) == -1)
             return (-1);
     }

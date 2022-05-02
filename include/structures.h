@@ -56,7 +56,8 @@ typedef struct button_s {
     sfSound *sound;
     sfSoundBuffer *sound_buffer;
     int is_hovered;
-    int (*callback)(struct button_s *button, char **scenes_name, int *index_run);
+    int (*callback)(struct button_s *button, char **scenes_name,
+                    int *index_run);
 } button_t;
 
 typedef struct entity_s {
