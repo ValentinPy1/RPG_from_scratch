@@ -9,11 +9,15 @@
 
 int nothing(data_t *game_data, char **scenes_name, int *index_run)
 {
+    (void)game_data;
+    (void)scenes_name;
+    (void)index_run;
     return (0);
 }
 
 int play(data_t *game_data, char **scenes_name, int *index_run)
 {
+    (void)game_data;
     for (int index = 0; scenes_name[index] != NULL; index++) {
         if (my_strcmp(scenes_name[index], "main_scene") == 1)
             *index_run = index;
@@ -23,12 +27,15 @@ int play(data_t *game_data, char **scenes_name, int *index_run)
 
 int quit(data_t *game_data, char **scenes_name, int *index_run)
 {
+    (void)game_data;
+    (void)scenes_name;
     *index_run = -1;
     return 0;
 }
 
 int options(data_t *game_data, char **scenes_name, int *index_run)
 {
+    (void)game_data;
     for (int index = 0; scenes_name[index] != NULL; index++) {
         if (my_strcmp(scenes_name[index], "options") == 1)
             *index_run = index;
