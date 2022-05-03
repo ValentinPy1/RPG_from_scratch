@@ -62,6 +62,7 @@ SRC = 	src/main.c													\
 		src/ennemies/draw.c	\
 		src/ennemies/update.c	\
 		src/ennemies/destroy.c	\
+		src/ennemies/ai.c	\
 
 NAME = my_rpg
 

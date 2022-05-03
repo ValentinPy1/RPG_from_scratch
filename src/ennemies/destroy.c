@@ -5,3 +5,5 @@
 ** destroy.c
 */
 
+#include "ennemies.h"
+

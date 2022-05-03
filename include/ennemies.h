@@ -29,5 +29,6 @@ typedef struct ennemies_s {
 ennemies_t *setup_ennemies_nodes(sfVector2f pos);
 void add_ennem(ennemies_t *ennemies, sfVector2f pos);
 void draw_ennemies(sfRenderWindow *win, ennemies_t *ennemies);
+float normalize(float dist, float max_speed);
 
 #endif
