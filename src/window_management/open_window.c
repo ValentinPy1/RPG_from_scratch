@@ -12,9 +12,8 @@ data_t *game_data)
 {
     sfVideoMode mode = {width, height, 32};
 
-    *window = sfRenderWindow_create(mode, "MyRpg",
-    sfDefaultStyle | sfFullscreen, NULL);
-    sfRenderWindow_setFramerateLimit(*window, game_data->framerate);
+    *window = sfRenderWindow_create(mode, "MyRpg", sfDefaultStyle, NULL);
+    sfRenderWindow_setFramerateLimit(*window, 60);
 }
 
 void scene_selector(sfRenderWindow *window, data_t *game_data)

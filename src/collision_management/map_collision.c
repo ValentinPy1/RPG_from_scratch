@@ -20,7 +20,7 @@ int parse_tile(map_t *map)
 int is_blocking_tile(map_t *map, sfVector2f pos)
 {
     int x = floor(pos.x);
-    int y = floor(pos.y);
+    int y = floor(pos.y + 14);
 
     if (map == NULL || x < 0 || y < 0) // TO DO better error handling
         return (1);

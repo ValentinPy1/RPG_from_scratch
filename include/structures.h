@@ -10,6 +10,11 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include "particles.h"
+    #include "ennemies.h"
+
+static const int WIN_WIDTH = 1920;
+static const int WIN_HEIGHT = 1080;
+static const int WIN_DIAG = 2203;
 
 typedef struct coord_s {
     double x;
@@ -132,6 +137,7 @@ typedef struct data_s {
     scene_t **scene_list;
     char **scene_names;
     partic_ll_t *partic;
+    ennemies_t *ennemies;
     keys_t *keys;
     unsigned int framerate;
     sfRenderWindow *window;
