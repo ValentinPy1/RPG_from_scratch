@@ -25,9 +25,9 @@ int is_blocking_tile(map_t *map, sfVector2f pos)
     if (map == NULL || x < 0 || y < 0) // TO DO better error handling
         return (1);
     if ((map->tiles[y / 32][x / 32] >= 4 && map->tiles[y / 32][x / 32] <= 7) ||
-    (map->tiles[y / 32][x / 32] >= 20 && map->tiles[y / 32][x / 32] <= 35)) {
+    (map->tiles[y / 32][x / 32] >= 36 && map->tiles[y / 32][x / 32] <= 43)) {
         return (1);
     } else {
         return (0);
-    // }
+    }
 }
