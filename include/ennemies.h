@@ -21,6 +21,7 @@ typedef struct ennem_s {
     sfCircleShape *circle;
     float kb_speed;
     float kb_dir;
+    sfVector2f destination;
 } ennem_t;
 
 typedef struct ennemies_s {
@@ -32,5 +33,9 @@ ennemies_t *setup_ennemies_nodes(sfVector2f pos);
 void add_ennem(ennemies_t *ennemies, sfVector2f pos);
 void draw_ennemies(sfRenderWindow *win, ennemies_t *ennemies);
 float normalize(float dist, float max_speed);
+void destroy_next_ennemies(ennemies_t *node);
+int ennem_count(ennemies_t *node);
+sfVector2f get_direction(sfVector2f p1, sfVector2f p2);
+float get_distance(sfVector2f p1, sfVector2f p2);
 
 #endif

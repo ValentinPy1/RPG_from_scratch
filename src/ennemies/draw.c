@@ -14,8 +14,8 @@ void draw_ennem(sfRenderWindow *win, ennem_t ennem)
 
 void draw_ennemies(sfRenderWindow *win, ennemies_t *ennemies)
 {
-    if (ennemies == NULL)
+    if (ennemies == NULL || ennemies->next == NULL)
         return;
-    draw_ennem(win, ennemies->ennem);
+    draw_ennem(win, ennemies->next->ennem);
     draw_ennemies(win, ennemies->next);
 }

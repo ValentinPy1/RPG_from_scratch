@@ -58,11 +58,12 @@ SRC = 	src/main.c													\
 		src/movement_management/movement.c 							\
 		src/movement_management/view.c								\
 		src/movement_management/animations.c						\
-		src/ennemies/setup.c	\
-		src/ennemies/draw.c	\
-		src/ennemies/update.c	\
-		src/ennemies/destroy.c	\
-		src/ennemies/ai.c	\
+		src/ennemies/setup.c										\
+		src/ennemies/draw.c											\
+		src/ennemies/update.c										\
+		src/ennemies/destroy.c										\
+		src/ennemies/ai.c											\
+		src/ennemies/tools.c										\
 
 NAME = my_rpg
 

@@ -32,8 +32,11 @@ void update_ennem_node(data_t *gd, ennemies_t *node)
 
 void update_ennemies(data_t *gd, ennemies_t *ennemies)
 {
-    if (ennemies == NULL)
+    if (ennemies == NULL || ennemies->next == NULL)
         return;
-    update_ennem_node(gd, ennemies);
+    update_ennem_node(gd, ennemies->next);
+    if (ennemies->next->ennem.life <= 0 ||
+    get_distance(ennemies->next->ennem.pos, gd->red->pos) > 1500)
+        destroy_next_ennemies(ennemies);
     update_ennemies(gd, ennemies->next);
 }

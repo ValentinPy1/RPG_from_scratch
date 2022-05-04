@@ -14,16 +14,15 @@ float get_distance(sfVector2f p1, sfVector2f p2);
 
 void kbd_input(data_t *gd, scene_t *scene, sfEvent event, sfVector2i mouse_loc)
 {
-    ennemies_t *tmp = gd->ennemies->next;
+    ennemies_t *tmp;
 
     if (event.key.code == sfKeyY)
         add_ennem(gd->ennemies, (sfVector2f) {(float) mouse_loc.x / 1920 *
         VIEW_WIDTH + gd->red->pos.x - VIEW_WIDTH / 2, (float) mouse_loc.y /
         1080 * VIEW_HEIGHT + gd->red->pos.y - VIEW_HEIGHT / 2});
     if (event.key.code == sfKeyK) {
-        if (tmp != NULL) {
-            gd->ennemies->next = gd->ennemies->next->next;
-            free(tmp);
+        if (gd->ennemies->next != NULL) {
+            destroy_next_ennemies(gd->ennemies);
         }
     }
     if (event.key.code == sfKeyB) {
@@ -34,6 +33,7 @@ void kbd_input(data_t *gd, scene_t *scene, sfEvent event, sfVector2i mouse_loc)
             if (get_distance(epos, ppos) < 50) {
                 tmp->ennem.kb_speed = 10;
                 tmp->ennem.kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + PI;
+                tmp->ennem.life -= 34; // TODO stat player
             }
             tmp = tmp->next;
         }

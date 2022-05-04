@@ -11,27 +11,18 @@
 #include <math.h>
 #include <stdio.h>
 
-float normalize(float dist, float max_speed)
+sfVector2f handle_dest(ennemies_t *node)
 {
-    if (dist >= max_speed)
-        return max_speed;
-    return dist;
-}
+    float angle = rdm_float(0, 2 * PI);
+    float dist = rdm_float(100, 200);
 
-float get_distance(sfVector2f p1, sfVector2f p2)
-{
-    float distx = p2.x - p1.x;
-    float disty = p2.y - p1.y;
-
-    return sqrt(pow(distx, 2) + pow(disty, 2));
-}
-
-sfVector2f get_direction(sfVector2f p1, sfVector2f p2)
-{
-    int x = p2.x - p1.x;
-    int y = p2.y - p1.y;
-
-    return (sfVector2f) {x, y};
+    if (get_distance(node->ennem.pos, node->ennem.destination) < 1) {
+        node->ennem.destination = (sfVector2f) {node->ennem.pos.x +
+        cos(angle) * dist, node->ennem.pos.y + sin(angle) * dist};
+        return (sfVector2f) {0, 0};
+    }
+    return (sfVector2f) {node->ennem.destination.x - node->ennem.pos.x,
+    node->ennem.destination.y - node->ennem.pos.y};
 }
 
 sfVector2f calculate_intent(data_t *gd, ennemies_t *node)
@@ -45,6 +36,10 @@ sfVector2f calculate_intent(data_t *gd, ennemies_t *node)
     sfVector2f intent = {dir.x * spring, dir.y * spring};
     sfVector2f tmpos;
 
+    dir = handle_dest(node);
+    dist = get_distance(dir, (sfVector2f) {0, 0});
+    spring = dist / 100;
+    intent = (sfVector2f) {intent.x + dir.x * spring, intent.y + dir.y * spring};
     target = 100;
     for (ennemies_t *temp = gd->ennemies->next; temp != NULL;
     temp = temp->next) {
