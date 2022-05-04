@@ -19,6 +19,11 @@ void move_dir(data_t *game_data, sfVector2f dir, int key, int sprite)
         if (is_blocking_tile(game_data->scene_list[game_data->run_index]->map,
         temp_pos) == 1)
             return;
+        if (is_blocking_tile(game_data->scene_list[game_data->run_index]->map,
+        temp_pos) == 2) {
+            game_data->red->pos.x = 1000;
+            game_data->red->pos.y = 800;
+        }
         if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
             game_data->red->pos.x += game_data->red->stats->spd * dir.x * 0.5;
             game_data->red->pos.y += game_data->red->stats->spd * dir.y * 0.5;

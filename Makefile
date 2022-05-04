@@ -24,6 +24,7 @@ SRC = 	src/main.c													\
 		src/config_management/get_content_file.c					\
 		src/config_management/callbacks/button_callback1.c			\
 		src/config_management/callbacks/button_callback2.c			\
+		src/config_management/callbacks/button_callback3.c			\
 		$(CON_PATH)my_parser.c										\
 		$(CON_PATH)error_handling.c									\
 		$(CON_PATH)construct_scenes.c								\

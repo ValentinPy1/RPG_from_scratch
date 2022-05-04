@@ -54,7 +54,7 @@ player_t *player_constructor(void)
     sfTime tm;
 
     player->pos.x = 13 * 32;
-    player->pos.y = 6 * 32;
+    player->pos.y = 9 * 32;
     player->player_sprite =
     create_sprite("assets/img/player/player_ss.png", 2, 2);
     player->player_rect = set_player_rect();
