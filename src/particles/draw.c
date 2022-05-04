@@ -9,6 +9,9 @@
 #include "callbacks.h"
 #include "structures.h"
 #include "random.h"
+#include <stdbool.h>
+
+bool is_in_screen(data_t *gd, sfVector2f pos);
 
 void draw_partic_arr(sfRenderWindow *win, partic_arr_t *partic)
 {
@@ -41,7 +44,7 @@ data_t *game_data, scene_t *scene)
     draw_groups(win, game_data->partic->next);
     lava.pos = (sfVector2f) {get_rdm() * 1920, get_rdm() * 1080};
     if (is_in_screen(game_data, lava.pos) &&
-    my_strcmp(scene->name, "game_menu") && get_rdm() > 0.5) {
+    my_strcmp(scene->name, "main_scene") && get_rdm() > 0.5) {
         node_lava = setup_partic_node(&lava);
         add_partic_group(game_data->partic, node_lava);
     }

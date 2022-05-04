@@ -24,9 +24,9 @@ int back_construct_img(scene_t *scene, char *path)
     return (0);
 }
 
+    //TODO: Construct proc
 int back_construct_proc(scene_t *scene, char *path)
 {
-    //TODO: Construct proc
     scene->background_to_run = 3;
     return (0);
 }

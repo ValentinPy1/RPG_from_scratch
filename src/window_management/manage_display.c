@@ -54,7 +54,8 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         spawn_ennem(game_data);
         display_map(window, scene->map);
         init_view(window, game_data);
-        sfSprite_setTextureRect(game_data->red->player_sprite, *game_data->red->player_rect);
+        sfSprite_setTextureRect(game_data->red->player_sprite,
+        *game_data->red->player_rect);
         sfRenderWindow_drawSprite(window, game_data->red->player_sprite, NULL);
     }
     draw_ennemies(window, game_data->ennemies);

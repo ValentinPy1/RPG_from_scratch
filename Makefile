@@ -8,7 +8,8 @@
 CON_PATH = src/config_management/constructors/
 
 SRC = 	src/main.c													\
-		src/free_data.c 											\
+		src/free/free_data.c 										\
+		src/free/free_obj.c 										\
 		src/collision_algorithm/point_in_rect.c						\
 		src/window_management/open_window.c							\
 		src/window_management/manage_display.c 						\
@@ -22,6 +23,7 @@ SRC = 	src/main.c													\
 		src/config_management/get_config_files.c					\
 		src/config_management/get_content_file.c					\
 		src/config_management/callbacks/button_callback1.c			\
+		src/config_management/callbacks/button_callback2.c			\
 		$(CON_PATH)my_parser.c										\
 		$(CON_PATH)error_handling.c									\
 		$(CON_PATH)construct_scenes.c								\
@@ -79,15 +81,10 @@ CFLAGS = -Wall -Wextra -g3
 all: built $(NAME)
 
 $(NAME): $(OBJ)
-	gcc -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS)
+	gcc -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS)
 
 clean:
 	rm -f $(OBJ)
-	rm -f vgcore*
-	rm -f *.gcda
-	rm -f *.gcno
-	rm -f src/*.gcda
-	rm -f src/*.gcno
 	make -C lib/ clean
 
 fclean: clean

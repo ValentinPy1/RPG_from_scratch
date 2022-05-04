@@ -61,7 +61,8 @@ typedef struct button_s {
     sfSound *sound;
     sfSoundBuffer *sound_buffer;
     int is_hovered;
-    int (*callback)(struct button_s *button, char **scenes_name, int *index_run);
+    int (*callback)(struct button_s *button, char **scenes_name,
+                    int *index_run);
 } button_t;
 
 typedef struct entity_s {
@@ -104,7 +105,14 @@ typedef struct set_s {
     int window_y;
 } set_t;
 
+typedef struct stats_s {
+    int att;
+    int def;
+    int spd;
+} stats_t;
+
 typedef struct player_s {
+    stats_t *stats;
     sfVector2f pos;
     sfSprite *player_sprite;
     sfIntRect *player_rect;
@@ -113,6 +121,13 @@ typedef struct player_s {
     sfTime time;
     float seconds;
 } player_t;
+
+typedef struct key_s {
+    int up;
+    int right;
+    int down;
+    int left;
+} keys_t;
 
 typedef struct data_s {
     set_t *settings;
@@ -123,6 +138,9 @@ typedef struct data_s {
     char **scene_names;
     partic_ll_t *partic;
     ennemies_t *ennemies;
+    keys_t *keys;
+    unsigned int framerate;
+    sfRenderWindow *window;
 } data_t;
 
 #endif /*STRUCT_H_*/

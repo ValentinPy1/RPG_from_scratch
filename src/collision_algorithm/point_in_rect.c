@@ -7,30 +7,27 @@
 
 #include "point_in_rec.h"
 
-int point_in_rec(sfVector2f point, sfVector2f **vertices, int width, int height)
+int point_in_rec(sfVector2f point, sfVector2f **verts, int width, int height)
 {
-    double area1 = fabs((vertices[1]->x * vertices[0]->y - vertices[0]->x * vertices[1]->y)
-                        + (point.x * vertices[1]->y - vertices[1]->x * point.y)
-                        + (vertices[0]->x * point.y - point.x * vertices[0]->y)) / 2;
-
-    double area2 = fabs((vertices[2]->x * vertices[1]->y - vertices[1]->x * vertices[2]->y)
-                        + (point.x * vertices[2]->y - vertices[2]->x * point.y)
-                        + (vertices[1]->x * point.y - point.x * vertices[1]->y)) / 2;
-
-    double area3 = fabs((vertices[3]->x * vertices[2]->y - vertices[2]->x * vertices[3]->y)
-                        + (point.x * vertices[3]->y - vertices[3]->x * point.y)
-                        + (vertices[2]->x * point.y - point.x * vertices[2]->y)) / 2;
-
-    double area4 = fabs((vertices[3]->x * vertices[0]->y - vertices[0]->x * vertices[3]->y)
-                        + (point.x * vertices[3]->y - vertices[3]->x * point.y)
-                        + (vertices[0]->x * point.y - point.x * vertices[0]->y)) / 2;
-
+    double area1 = fabs((verts[1]->x * verts[0]->y -
+        verts[0]->x * verts[1]->y) + (point.x * verts[1]->y -
+        verts[1]->x * point.y) + (verts[0]->x * point.y -
+        point.x * verts[0]->y)) / 2;
+    double area2 = fabs((verts[2]->x * verts[1]->y -
+        verts[1]->x * verts[2]->y) + (point.x * verts[2]->y -
+        verts[2]->x * point.y) + (verts[1]->x * point.y -
+        point.x * verts[1]->y)) / 2;
+    double area3 = fabs((verts[3]->x * verts[2]->y - verts[2]->x
+        * verts[3]->y) + (point.x * verts[3]->y - verts[3]->x *
+        point.y) + (verts[2]->x * point.y - point.x * verts[2]->y)) / 2;
+    double area4 = fabs((verts[3]->x * verts[0]->y - verts[0]->x
+        * verts[3]->y) + (point.x * verts[3]->y - verts[3]->x * point.y)
+        + (verts[0]->x * point.y - point.x * verts[0]->y)) / 2;
     int rec_area = width * height;
     int total_area = area1 + area2 + area3 + area4;
-
     if (total_area > rec_area)
-        return(0);
-    return(1);
+        return (0);
+    return (1);
 }
 
 int button_collision(sfVector2i mouse_loc, button_t *button)
