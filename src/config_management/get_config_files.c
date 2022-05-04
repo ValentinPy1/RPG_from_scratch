@@ -45,22 +45,17 @@ char **get_file_names(DIR *d, struct dirent *file, int nb_files)
 
 scene_t **create_scene_list(int nb_config_files, char **file_name)
 {
-    char **content;
-    char *path_name;
+    char **content = NULL;
+    char *path_name = NULL;
     int index = 0;
     scene_t **scene_list = malloc((nb_config_files + 1) * sizeof(scene_t));
 
     for (int files = 0; file_name[files] != NULL; files++) {
         path_name = my_strconc("config_files/scene_config/", file_name[files]);
         content = get_content_file(path_name);
-        if (content == NULL)
-            return (NULL);
-        scene_list[index] = build_scene(content);
-        if (scene_list[index] == NULL)
-            return (NULL);
-        index++;
         free(path_name);
-        free_str_tab(content);
+        scene_list[index] = build_scene(content);
+        index++;
     }
     scene_list[index] = NULL;
     return (scene_list);
@@ -70,13 +65,13 @@ scene_t **get_scenes(void)
 {
     DIR *d = NULL;
     struct dirent *file = NULL;
-    scene_t **scene_list;
+    scene_t **scene_list = NULL;
     char **file_name = NULL;
     int nb_config_files = count_files(d, file);
 
     if (nb_config_files == 0 || nb_config_files == -1) {
         my_putstr("No scene was found in config_file/scene_config/\n");
-        return (NULL);
+        return (scene_list);
     }
     file_name = get_file_names(d, file, nb_config_files);
     for (int index = 0; file_name[index] != NULL; index++)

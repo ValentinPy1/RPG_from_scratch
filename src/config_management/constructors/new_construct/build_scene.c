@@ -11,8 +11,9 @@ int parse_line(scene_t *scene, char **content, int *line)
     char *id = NULL;
     int return_value = 0;
 
-    if ((id = is_a_scene_opt(content, line)) != NULL)
-        if (find_scene_opt(id, content, line) == -1)
+    id = is_a_scene_opt(content, line);
+    if (id != NULL)
+        if (find_scene_opt(scene, id, content, line) == -1)
             return_value = -1;
     free(id);
     return (return_value);
@@ -23,12 +24,12 @@ scene_t *build_scene(char **content)
     scene_t *new_scene = malloc(sizeof(scene_t));
 
     if (content == NULL)
-        return (NULL);
-    
+        return (new_scene);
     for (int lines = 0; content[lines] != NULL; lines++) {
         if (parse_line(new_scene, content, &lines) == -1) {
             my_printf("Unable to load %s\n", content[lines]);
         }
     }
+    free_str_tab(content);
     return (new_scene);
 }

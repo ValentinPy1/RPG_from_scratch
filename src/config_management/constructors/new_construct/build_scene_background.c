@@ -6,12 +6,11 @@
 */
 #include "build_scene_background.h"
 
-int build_scene_background(char **content, int *line)
+int build_scene_background(scene_t *scene, char **content, int *line)
 {
     char *opt = NULL;
     char *value = NULL;
 
-    printf("[DEBUG][START]%s\n", content[*line]);   
     for (int index = 0; content[*line][index] != '>' && content[*line] != NULL; index++)
     {
         if (content[*line][index] == '\0' && content[*line + 1] != NULL) {
@@ -20,8 +19,11 @@ int build_scene_background(char **content, int *line)
         }
         opt = get_obj_opt(content, line, &index);
         value = get_opt_value(content, line, &index);
-        if (opt != NULL && value != NULL)
-            printf("[OPT]:%s\n[VAL]:%s\n", opt, value);
+        if (opt != NULL && value != NULL) {
+            printf("[Background]:%s->%s\n", opt, value);
+            free(opt);
+            free(value);
+        }
         else
             break;
     }

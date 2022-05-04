@@ -9,19 +9,20 @@
     #define SOURCE_OPTION_H_
     #include "stddef.h"
     #include <stdlib.h>
+    #include "structures.h"
 
 typedef struct game_func_s {
     char *name;
-    int (*func)(char **content, int *line);
+    int (*func)(scene_t *scene, char **content, int *line);
 } game_func_t;
 
-int build_scene_name(char **content, int *line);
-int build_scene_background(char **content, int *line);
-int build_scene_buttons(char **content, int *line);
-int build_scene_entities(char **content, int *line);
-int build_scene_texts(char **content, int *line);
-int build_scene_images(char **content, int *line);
-int build_scene_sounds(char **content, int *line);
+int build_scene_name(scene_t *scene, char **content, int *line);
+int build_scene_background(scene_t *scene, char **content, int *line);
+int build_scene_buttons(scene_t *scene, char **content, int *line);
+int build_scene_entities(scene_t *scene, char **content, int *line);
+int build_scene_texts(scene_t *scene, char **content, int *line);
+int build_scene_images(scene_t *scene, char **content, int *line);
+int build_scene_sounds(scene_t *scene, char **content, int *line);
 
 static const game_func_t TAB_SOPT[] = {
     {"scene_name", build_scene_name},
@@ -30,7 +31,7 @@ static const game_func_t TAB_SOPT[] = {
     {"entities", build_scene_entities},
     {"texts", build_scene_texts},
     {"images", build_scene_images},
-    {"sound", build_scene_sounds},
+    {"sounds", build_scene_sounds},
     {NULL, NULL}
 };
 
