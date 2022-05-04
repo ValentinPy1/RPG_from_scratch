@@ -18,4 +18,6 @@ void manage_clic_buttons(data_t *game_data, button_t **buttons,
 sfVector2i mouse_loc);
 void spawn_blood(data_t *game_data, sfVector2i mouse_loc);
 
+int options(data_t *game_data, char **scenes_name, int *index_run);
+
 #endif /*MAIN_H_*/
