@@ -14,7 +14,7 @@ static ennem_t setup_ennem(sfVector2f pos)
     sfCircleShape *circle = sfCircleShape_create();
 
     ennem.damage = 0;
-    ennem.speed = 1;
+    ennem.speed = 2;
     ennem.direction = 0;
     ennem.life = 100;
     ennem.pos = pos;

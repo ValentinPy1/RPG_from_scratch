@@ -19,6 +19,8 @@ typedef struct ennem_s {
     sfVector2f pos;
     float life;
     sfCircleShape *circle;
+    float kb_speed;
+    float kb_dir;
 } ennem_t;
 
 typedef struct ennemies_s {

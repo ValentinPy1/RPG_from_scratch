@@ -8,6 +8,9 @@
 #include "event_management.h"
 #include "movement.h"
 #include <stdlib.h>
+#include <math.h>
+
+float get_distance(sfVector2f p1, sfVector2f p2);
 
 void kbd_input(data_t *gd, scene_t *scene, sfEvent event, sfVector2i mouse_loc)
 {
@@ -21,6 +24,18 @@ void kbd_input(data_t *gd, scene_t *scene, sfEvent event, sfVector2i mouse_loc)
         if (tmp != NULL) {
             gd->ennemies->next = gd->ennemies->next->next;
             free(tmp);
+        }
+    }
+    if (event.key.code == sfKeyB) {
+        sfVector2f ppos = gd->red->pos;
+        tmp = gd->ennemies->next;
+        while (tmp != NULL) {
+            sfVector2f epos = tmp->ennem.pos;
+            if (get_distance(epos, ppos) < 50) {
+                tmp->ennem.kb_speed = 10;
+                tmp->ennem.kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + PI;
+            }
+            tmp = tmp->next;
         }
     }
 }
