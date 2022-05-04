@@ -15,7 +15,6 @@ double get_rdm(void)
 
 int rdm_int(int min, int max)
 {
-    // srand(time(NULL));
     int num = (rand() % (max - min + 1)) + min;
     return (num);
 }
