@@ -19,15 +19,15 @@ int parse_tile(map_t *map)
 
 int is_blocking_tile(map_t *map, sfVector2f pos)
 {
-    // int x = floor(pos.x);
-    // int y = floor(pos.y);
+    int x = floor(pos.x);
+    int y = floor(pos.y);
 
-    // if (map == NULL || x < 0 || y < 0) // TO DO better error handling
-    //     return (1);
-    // if (map->tiles[y / 32][x / 32] >= 4 && map->tiles[y / 32][x / 32] <= 7 ||
-    //         (map->tiles[y / 32][x / 32] >= 20 && map->tiles[y / 32][x / 32] <= 35)) {
-    //     return (1);
-    // } else {
+    if (map == NULL || x < 0 || y < 0) // TO DO better error handling
+        return (1);
+    if ((map->tiles[y / 32][x / 32] >= 4 && map->tiles[y / 32][x / 32] <= 7) ||
+    (map->tiles[y / 32][x / 32] >= 20 && map->tiles[y / 32][x / 32] <= 35)) {
+        return (1);
+    } else {
         return (0);
     // }
 }

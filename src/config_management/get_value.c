@@ -28,7 +28,7 @@ char *get_value(char *str)
     int index2 = 0;
     int st_index = get_starting_index(str);
 
-    if(str[st_index] == '\0')
+    if (str[st_index] == '\0')
         return (NULL);
     for (int index = st_index + 1; str[index] != '\0'; index++) {
         counter++;

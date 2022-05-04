@@ -19,7 +19,7 @@ int img_construct_texture(image_t *image, char *value)
 {
     sfVector2f origin = (sfVector2f) {image->width / (2 * image->scale.x),
     image->height / (2 * image->scale.y)};
- 
+
     image->sprite = sfSprite_create();
     image->texture = sfTexture_createFromFile(value, NULL);
     if (image->texture == NULL) {
@@ -33,5 +33,5 @@ int img_construct_texture(image_t *image, char *value)
     sfSprite_setOrigin(image->sprite, origin);
     sfSprite_setPosition(image->sprite, image->position);
     sfSprite_setTexture(image->sprite, image->texture, sfFalse);
-    return (0);   
+    return (0);
 }

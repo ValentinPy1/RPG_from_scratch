@@ -11,6 +11,7 @@
     #include <SFML/Graphics.h>
     #include <SFML/System.h>
     #include <SFML/Window.h>
+    #include <stdbool.h>
 
     #define PI 3.14159265359
 
@@ -61,5 +62,7 @@ void add_partic_group(partic_ll_t *groups, partic_ll_t *node);
 particle_param_t setup_blood_param(void);
 particle_param_t setup_fire_param(void);
 particle_param_t setup_lava_param(void);
+particle_param_t setup_sperm_param(void);
+particle_param_t setup_step_param(void);
 
 #endif

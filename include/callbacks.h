@@ -13,4 +13,5 @@
 
 int my_putstr(char *str);
 int my_strcmp(char *str1, char *str2);
+
 #endif /*CALLB_H_*/
