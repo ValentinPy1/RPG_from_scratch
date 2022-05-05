@@ -5,7 +5,7 @@
 ** draw.c
 */
 
-#include "ennemies.h"
+#include "enemies.h"
 #include "particles.h"
 #include "structures.h"
 

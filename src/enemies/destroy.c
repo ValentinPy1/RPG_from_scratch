@@ -5,7 +5,7 @@
 ** destroy.c
 */
 
-#include "ennemies.h"
+#include "enemies.h"
 #include <stdlib.h>
 #include "structures.h"
 

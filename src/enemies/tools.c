@@ -5,7 +5,7 @@
 ** tools.c
 */
 
-#include "ennemies.h"
+#include "enemies.h"
 #include <math.h>
 
 float normalize(float dist, float max_speed)

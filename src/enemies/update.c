@@ -5,7 +5,7 @@
 ** update.c
 */
 
-#include "ennemies.h"
+#include "enemies.h"
 #include "structures.h"
 #include "random.h"
 #include <math.h>

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** rpg
 ** File description:
-** ennemies.h
+** enemies.h
 */
 
 #ifndef __ENNEMIES__

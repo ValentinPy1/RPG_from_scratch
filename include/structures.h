@@ -10,7 +10,7 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include "particles.h"
-    #include "ennemies.h"
+    #include "enemies.h"
 
 static const int WIN_WIDTH = 1920;
 static const int WIN_HEIGHT = 1080;
