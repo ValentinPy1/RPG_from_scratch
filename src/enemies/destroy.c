@@ -5,13 +5,13 @@
 ** destroy.c
 */
 
-#include "ennemies.h"
+#include "enemies.h"
 #include <stdlib.h>
 
-void destroy_next_ennemies(ennemies_t *node)
+void destroy_next_enemies(enemies_t *node)
 {
-    ennemies_t *tmp = node->next;
+    enemies_t *tmp = node->next;
     node->next = node->next->next;
-    sfCircleShape_destroy(tmp->ennem.circle);
+    sfSprite_destroy(tmp->enem->sprite);
     free(tmp);
 }
