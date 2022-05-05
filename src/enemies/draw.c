@@ -11,7 +11,7 @@
 
 void draw_enem(sfRenderWindow *win, enem_t enem)
 {
-    sfRenderWindow_drawCircleShape(win, enem.circle, NULL);
+    sfRenderWindow_drawCircleShape(win, enem->circle, NULL);
 }
 
 void draw_enemies(sfRenderWindow *win, enemies_t *enemies)

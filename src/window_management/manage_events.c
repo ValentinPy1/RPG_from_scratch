@@ -42,12 +42,12 @@ static void push_enemies(data_t *gd)
         tmp = gd->enemies->next;
         ppos = gd->red->pos;
         while (tmp != NULL) {
-            epos = tmp->enem.pos;
+            epos = tmp->enem->pos;
             if (get_distance(epos, ppos) < 60) {
-                tmp->enem.kb_speed = 10;
-                tmp->enem.kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + PI;
-                tmp->enem.life -= 34; // TODO stat player
-                spawn_enem_blood(gd, tmp->enem.pos);
+                tmp->enem->kb_speed = 10;
+                tmp->enem->kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + PI;
+                tmp->enem->life -= 34; // TODO stat player
+                spawn_enem_blood(gd, tmp->enem->pos);
             }
             tmp = tmp->next;
         }

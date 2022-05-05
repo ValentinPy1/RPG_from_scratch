@@ -17,21 +17,21 @@ static enem_t setup_enem(sfVector2f pos)
     enem_t enem;
     sfCircleShape *circle = sfCircleShape_create();
 
-    enem.damage = 0;
-    enem.speed = 1.2;
-    enem.direction = 0;
-    enem.life = 100;
-    enem.pos = pos;
-    enem.destination = pos;
-    enem.kb_dir = 0;
-    enem.kb_speed = 0;
+    enem->damage = 0;
+    enem->speed = 1.2;
+    enem->direction = 0;
+    enem->life = 100;
+    enem->pos = pos;
+    enem->destination = pos;
+    enem->kb_dir = 0;
+    enem->kb_speed = 0;
     sfCircleShape_setFillColor(circle, (sfColor) {150, 0, 150, 255});
     sfCircleShape_setOutlineColor(circle, (sfColor) {0, 0, 0, 255});
     sfCircleShape_setOutlineThickness(circle, 1);
     sfCircleShape_setRadius(circle, 10);
     sfCircleShape_setOrigin(circle, (sfVector2f) {10, 10});
     sfCircleShape_setPosition(circle, pos);
-    enem.circle = circle;
+    enem->circle = circle;
     return enem;
 }
 
