@@ -32,7 +32,7 @@ int build_scene_name(scene_t *scene, char **content, int *line)
         }
         opt = get_obj_opt(content, line, &index);
         value = get_opt_value(content, line, &index);
-        if (build_back_opt(scene, opt, value) == 0)
+        if (build_name_opt(scene, opt, value) == 0)
             break;
     }
     return (0);

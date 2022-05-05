@@ -8,6 +8,6 @@
 
 int build_name_name(scene_t *scene, char *value)
 {
-    printf("Build name scene...\n");
+    printf("build name scene...\n");
     return (0);
 }
