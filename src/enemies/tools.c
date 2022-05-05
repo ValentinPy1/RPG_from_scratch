@@ -5,7 +5,7 @@
 ** tools.c
 */
 
-#include "ennemies.h"
+#include "enemies.h"
 #include <math.h>
 
 float normalize(float dist, float max_speed)
@@ -31,9 +31,9 @@ sfVector2f get_direction(sfVector2f p1, sfVector2f p2)
     return (sfVector2f) {x, y};
 }
 
-int ennem_count(ennemies_t *node)
+int enem_count(enemies_t *node)
 {
     if (node == NULL)
         return 0;
-    return ennem_count(node->next) + 1;
+    return enem_count(node->next) + 1;
 }

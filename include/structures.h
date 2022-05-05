@@ -10,7 +10,7 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include "particles.h"
-    #include "ennemies.h"
+    #include "enemies.h"
 
 static const int WIN_WIDTH = 1920;
 static const int WIN_HEIGHT = 1080;
@@ -140,7 +140,7 @@ typedef struct data_s {
     keys_t *keys;
     unsigned int framerate;
     sfRenderWindow *window;
-    ennemies_t *ennemies;
+    enemies_t *enemies;
 } data_t;
 
 #endif /*STRUCT_H_*/
