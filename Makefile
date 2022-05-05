@@ -55,13 +55,14 @@ SRC = 	src/main.c													\
 		src/particles/update.c										\
 		src/particles/draw.c										\
 		src/particles/destroy.c										\
-		src/particles/manage_partic_ll.c							\
+		src/particles/manage_particules.c							\
 		src/particles/type.c										\
 		src/constructor/player_constructor.c 						\
 		src/movement_management/movement.c 							\
 		src/movement_management/view.c								\
 		src/movement_management/animations.c						\
 		src/enemies/setup.c											\
+		src/enemies/setup_tools.c									\
 		src/enemies/draw.c											\
 		src/enemies/update.c										\
 		src/enemies/destroy.c										\

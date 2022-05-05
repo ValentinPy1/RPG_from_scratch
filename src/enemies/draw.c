@@ -9,9 +9,10 @@
 #include "particles.h"
 #include "structures.h"
 
-void draw_enem(sfRenderWindow *win, enem_t enem)
+
+void draw_enem(sfRenderWindow *win, enem_t *enem)
 {
-    sfRenderWindow_drawCircleShape(win, enem->circle, NULL);
+    sfRenderWindow_drawSprite(win, enem->sprite, NULL);
 }
 
 void draw_enemies(sfRenderWindow *win, enemies_t *enemies)

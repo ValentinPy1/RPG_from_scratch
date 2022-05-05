@@ -12,26 +12,25 @@
 #include "math.h"
 #include <stdio.h>
 
-static enem_t setup_enem(sfVector2f pos)
+static enem_t *setup_enem(sfVector2f pos)
 {
-    enem_t enem;
-    sfCircleShape *circle = sfCircleShape_create();
+    enem_t *enem = malloc(sizeof(enem_t));
+    sfClock *clk = sfClock_create();
+    sfTime tm;
 
-    enem->damage = 0;
-    enem->speed = 1.2;
-    enem->direction = 0;
-    enem->life = 100;
+    setup_values_enem(enem);
+    enem->time = tm;
+    enem->clock = clk;
     enem->pos = pos;
+    sfSprite *sprite = sfSprite_create();
+    sfTexture *texture = random_enemy_texture();
+    enem->rect = set_enemy_rect();
+    sfSprite_setTexture(sprite, texture, sfFalse);
+    sfSprite_setScale(sprite, (sfVector2f) { 1.25, 1.25 });
+    sfSprite_setOrigin(sprite, (sfVector2f) { 16, 16 });
+    sfSprite_setTextureRect(sprite, *enem->rect);
+    enem->sprite = sprite;
     enem->destination = pos;
-    enem->kb_dir = 0;
-    enem->kb_speed = 0;
-    sfCircleShape_setFillColor(circle, (sfColor) {150, 0, 150, 255});
-    sfCircleShape_setOutlineColor(circle, (sfColor) {0, 0, 0, 255});
-    sfCircleShape_setOutlineThickness(circle, 1);
-    sfCircleShape_setRadius(circle, 10);
-    sfCircleShape_setOrigin(circle, (sfVector2f) {10, 10});
-    sfCircleShape_setPosition(circle, pos);
-    enem->circle = circle;
     return enem;
 }
 
@@ -66,5 +65,6 @@ void spawn_enem(data_t *gd)
     float dist = rdm_float(500, 1000);
     if (enem_count(gd->enemies) < 50)
         add_enem(gd->enemies, (sfVector2f)
-        {gd->red->pos.x + cos(angle) * dist, gd->red->pos.y + sin(angle) * dist});
+        {gd->red->pos.x + cos(angle) *
+        dist, gd->red->pos.y + sin(angle) * dist});
 }
