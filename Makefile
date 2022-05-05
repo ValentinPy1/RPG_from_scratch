@@ -82,7 +82,7 @@ CFLAGS = -Wall -Wextra -g3
 all: built $(NAME)
 
 $(NAME): $(OBJ)
-	gcc -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS)
+	gcc -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS)
 
 clean:
 	rm -f $(OBJ)

@@ -22,6 +22,9 @@ static ennem_t setup_ennem(sfVector2f pos)
     ennem.direction = 0;
     ennem.life = 100;
     ennem.pos = pos;
+    ennem.destination = pos;
+    ennem.kb_dir = 0;
+    ennem.kb_speed = 0;
     sfCircleShape_setFillColor(circle, (sfColor) {150, 0, 150, 255});
     sfCircleShape_setOutlineColor(circle, (sfColor) {0, 0, 0, 255});
     sfCircleShape_setOutlineThickness(circle, 1);
@@ -29,7 +32,6 @@ static ennem_t setup_ennem(sfVector2f pos)
     sfCircleShape_setOrigin(circle, (sfVector2f) {10, 10});
     sfCircleShape_setPosition(circle, pos);
     ennem.circle = circle;
-    ennem.destination = pos;
     return ennem;
 }
 
