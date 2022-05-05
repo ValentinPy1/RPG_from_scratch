@@ -48,6 +48,7 @@ static void push_enemies(data_t *gd)
             }
             tmp = tmp->next;
         }
+        gd->red->attack_state = 1;
     }
 }
 

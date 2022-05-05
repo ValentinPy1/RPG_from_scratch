@@ -8,20 +8,13 @@
 #include "structures.h"
 #include <stdlib.h>
 
-void set_position(sfSprite *sprite, float x, float y)
-{
-    sfVector2f position = {x, y};
-
-    sfSprite_setPosition(sprite, position);
-}
-
-sfIntRect *set_player_rect(void)
+sfIntRect *set_rect(int size)
 {
     sfIntRect *rectangle = malloc(sizeof(sfIntRect));
     rectangle->top = 0;
     rectangle->left = 0;
-    rectangle->width = 16;
-    rectangle->height = 16;
+    rectangle->width = size;
+    rectangle->height = size;
     return rectangle;
 }
 
@@ -47,20 +40,33 @@ static stats_t *setup_stats(void)
     return stats;
 }
 
+static void set_player_values(player_t *player)
+{
+    player->pos.x = 13 * 32;
+    player->pos.y = 9 * 32;
+    player->attack_state = 0;
+    player->stats = setup_stats();
+}
+
 player_t *player_constructor(void)
 {
     player_t *player = malloc(sizeof(player_t));
     sfClock *clk = sfClock_create();
+    sfClock *att_clk = sfClock_create();
     sfTime tm;
+    sfTime att_tm;
 
-    player->pos.x = 13 * 32;
-    player->pos.y = 9 * 32;
+    set_player_values(player);
     player->player_sprite =
     create_sprite("assets/img/player/player_ss.png", 2, 2);
-    player->player_rect = set_player_rect();
+    player->player_rect = set_rect(16);
+    player->attack_sprite =
+    create_sprite("assets/img/player/attack_ss.png", 2, 2);
+    player->attack_rect = set_rect(32);
+    player->attack_clock = att_clk;
+    player->attack_time = att_tm;
     player->view = sfView_create();
     player->clock = clk;
     player->time = tm;
-    player->stats = setup_stats();
     return player;
 }
