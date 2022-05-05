@@ -42,7 +42,9 @@ int enem_count(enemies_t *node);
 sfVector2f get_direction(sfVector2f p1, sfVector2f p2);
 float get_distance(sfVector2f p1, sfVector2f p2);
 
+void setup_values_enem(enem_t *enem);
 sfIntRect *set_enemy_rect(void);
 void move_rect(sfIntRect *rect, int offset, int max_value);
+sfTexture *random_enemy_texture(void);
 
 #endif

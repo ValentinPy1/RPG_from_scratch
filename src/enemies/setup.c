@@ -18,16 +18,12 @@ static enem_t *setup_enem(sfVector2f pos)
     sfClock *clk = sfClock_create();
     sfTime tm;
 
+    setup_values_enem(enem);
     enem->time = tm;
     enem->clock = clk;
-    enem->damage = 0;
-    enem->speed = 1.2;
-    enem->direction = 0;
-    enem->life = 100;
     enem->pos = pos;
     sfSprite *sprite = sfSprite_create();
-    sfTexture *texture =
-    sfTexture_createFromFile("assets/img/enemies/enemy1_walk_left.png", NULL);
+    sfTexture *texture = random_enemy_texture();
     enem->rect = set_enemy_rect();
     sfSprite_setTexture(sprite, texture, sfFalse);
     sfSprite_setScale(sprite, (sfVector2f) { 1.25, 1.25 });
@@ -35,8 +31,6 @@ static enem_t *setup_enem(sfVector2f pos)
     sfSprite_setTextureRect(sprite, *enem->rect);
     enem->sprite = sprite;
     enem->destination = pos;
-    enem->kb_speed = 0;
-    enem->kb_dir = 0;
     return enem;
 }
 

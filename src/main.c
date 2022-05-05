@@ -39,6 +39,7 @@ void data_constructor(data_t *game_data)
 int main(int ac, char **av)
 {
     data_t *game_data = malloc(sizeof(data_t));
+    srand(time(NULL));
 
     if (ac == 2 && my_strcmp(av[1], "-h") == 1) {
         usage();
