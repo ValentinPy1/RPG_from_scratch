@@ -5,7 +5,8 @@
 ** setup_tools.c
 */
 
-#include "ennemies.h"
+#include "enemies.h"
+#include <stdlib.h>
 
 sfIntRect *set_enemy_rect(void)
 {

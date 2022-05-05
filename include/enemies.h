@@ -2,17 +2,17 @@
 ** EPITECH PROJECT, 2021
 ** rpg
 ** File description:
-** ennemies.h
+** enemies.h
 */
 
-#ifndef __ENNEMIES__
-    #define __ENNEMIES__
+#ifndef __ENEMIES__
+    #define __ENEMIES__
 
     #include <SFML/Graphics.h>
     #include <SFML/System.h>
     #include <SFML/Window.h>
 
-typedef struct ennem_s {
+typedef struct enem_s {
     float speed;
     float direction;
     float damage;
@@ -20,25 +20,29 @@ typedef struct ennem_s {
     float life;
     sfSprite *sprite;
     sfIntRect *rect;
+    sfClock *clock;
+    sfTime time;
+    float seconds;
     float kb_speed;
     float kb_dir;
     sfVector2f destination;
-} ennem_t;
+} enem_t;
 
-typedef struct ennemies_s {
-    ennem_t ennem;
-    struct ennemies_s *next;
-} ennemies_t;
+typedef struct enemies_s {
+    enem_t *enem;
+    struct enemies_s *next;
+} enemies_t;
 
-ennemies_t *setup_ennemies_nodes(sfVector2f pos);
-void add_ennem(ennemies_t *ennemies, sfVector2f pos);
-void draw_ennemies(sfRenderWindow *win, ennemies_t *ennemies);
+enemies_t *setup_enemies_nodes(sfVector2f pos);
+void add_enem(enemies_t *enemies, sfVector2f pos);
+void draw_enemies(sfRenderWindow *win, enemies_t *enemies);
 float normalize(float dist, float max_speed);
-void destroy_next_ennemies(ennemies_t *node);
-int ennem_count(ennemies_t *node);
+void destroy_next_enemies(enemies_t *node);
+int enem_count(enemies_t *node);
 sfVector2f get_direction(sfVector2f p1, sfVector2f p2);
 float get_distance(sfVector2f p1, sfVector2f p2);
 
 sfIntRect *set_enemy_rect(void);
+void move_rect(sfIntRect *rect, int offset, int max_value);
 
 #endif
