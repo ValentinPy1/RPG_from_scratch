@@ -14,8 +14,13 @@
 sfVector2f calculate_intent(data_t *gd, enemies_t *node);
 float get_distance(sfVector2f p1, sfVector2f p2);
 
-void enemy_hover(enem_t *enem)
+void enemy_hover(enem_t *enem, sfVector2f intent)
 {
+    if (intent.x <= 0) {
+        sfSprite_setScale(enem->sprite, (sfVector2f) { 1, 1 });
+    } else {
+        sfSprite_setScale(enem->sprite, (sfVector2f) { -1, 1 });
+    }
     if (enem->seconds > 0.20) {
         move_rect(enem->rect, 32, 128);
         sfClock_restart(enem->clock);
@@ -39,7 +44,7 @@ void update_enem_node(data_t *gd, enemies_t *node)
     sfSprite_setPosition(node->enem->sprite, node->enem->pos);
     node->enem->time = sfClock_getElapsedTime(node->enem->clock);
     node->enem->seconds = node->enem->time.microseconds / 1000000.0;
-    enemy_hover(node->enem);
+    enemy_hover(node->enem, intent);
 }
 
 void update_enemies(data_t *gd, enemies_t *enemies)
