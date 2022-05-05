@@ -50,26 +50,35 @@ static void push_enemies(data_t *gd)
     }
 }
 
+static void events_conditions(sfEvent event, data_t *game_data,
+scene_t *scene, sfVector2i mouse_loc)
+{
+    if (event.type == sfEvtClosed || event.key.code == sfKeyEscape) {
+        options(game_data, game_data->scene_names, &game_data->run_index);
+        init_hud(game_data->window, game_data);
+    }
+    if (event.type == sfEvtClosed) {
+        sfRenderWindow_close(game_data->window);
+    }
+    manage_hover_buttons(game_data, scene->buttons, mouse_loc);
+    if (event.type == sfEvtMouseButtonReleased) {
+        manage_clic_buttons(game_data, scene->buttons, mouse_loc);
+    }
+    if (event.type == sfEvtMouseButtonPressed) {
+        spawn_blood(game_data, scene, mouse_loc);
+        push_enemies(game_data);
+    }
+    if (event.type == sfEvtKeyPressed) {
+        kbd_input(game_data, scene, event, mouse_loc);
+    }
+}
+
 void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 {
     sfEvent event;
     sfVector2i mouse_loc = sfMouse_getPositionRenderWindow(window);
 
     while (sfRenderWindow_pollEvent(window, &event)) {
-        if (event.type == sfEvtClosed || event.key.code == sfKeyEscape) {
-            options(game_data, game_data->scene_names, &game_data->run_index);
-            init_hud(game_data->window, game_data);
-        }
-        manage_hover_buttons(game_data, scene->buttons, mouse_loc);
-        if (event.type == sfEvtMouseButtonReleased) {
-            manage_clic_buttons(game_data, scene->buttons, mouse_loc);
-        }
-        if (event.type == sfEvtMouseButtonPressed) {
-            spawn_blood(game_data, scene, mouse_loc);
-            push_enemies(game_data);
-        }
-        if (event.type == sfEvtKeyPressed) {
-            kbd_input(game_data, scene, event, mouse_loc);
-        }
+        events_conditions(event, game_data, scene, mouse_loc);
     }
 }

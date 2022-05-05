@@ -55,7 +55,7 @@ SRC = 	src/main.c													\
 		src/particles/update.c										\
 		src/particles/draw.c										\
 		src/particles/destroy.c										\
-		src/particles/manage_partic_ll.c							\
+		src/particles/manage_particules.c							\
 		src/particles/type.c										\
 		src/constructor/player_constructor.c 						\
 		src/movement_management/movement.c 							\

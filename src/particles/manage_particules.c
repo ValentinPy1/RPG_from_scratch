@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** rpg
 ** File description:
-** manage_partic_ll.c
+** manage_particules.c
 */
 
 #include "particles.h"
