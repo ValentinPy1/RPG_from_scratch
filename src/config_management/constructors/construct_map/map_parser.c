@@ -67,7 +67,7 @@ void display_map(sfRenderWindow *window, map_t *map_data)
     sfIntRect limit = fill_int_rect(0, 0, TILE_SIZE, TILE_SIZE);
     sfVector2f pos = {0, 0};
 
-    for (int i = 0; i < 44; i++) {
+    for (int i = 0; i < 40; i++) {
         for (int j = 0; j < 87; j++) {
             if (map_data->tiles[i][j] == 4)
                 map_data->tiles[i][j] = rdm_int(4, 7);
