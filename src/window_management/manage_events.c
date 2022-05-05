@@ -42,7 +42,8 @@ static void push_enemies(data_t *gd)
             sfVector2f epos = tmp->enem->pos;
             if (get_distance(epos, ppos) < 50) {
                 tmp->enem->kb_speed = 10;
-                tmp->enem->kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + PI;
+                tmp->enem->kb_dir = atan2((ppos.y - epos.y),
+                (ppos.x - epos.x)) + PI;
                 tmp->enem->life -= 34; // TODO stat player
             }
             tmp = tmp->next;
