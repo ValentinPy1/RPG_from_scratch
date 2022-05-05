@@ -35,15 +35,19 @@ static void init_hud(sfRenderWindow *window, data_t *game_data)
 static void push_ennemies(data_t *gd)
 {
     ennemies_t *tmp;
+    sfVector2f ppos;
+    sfVector2f epos;
+
     if (sfMouse_isButtonPressed(sfMouseRight)) {
-        sfVector2f ppos = gd->red->pos;
         tmp = gd->ennemies->next;
+        ppos = gd->red->pos;
         while (tmp != NULL) {
-            sfVector2f epos = tmp->ennem.pos;
-            if (get_distance(epos, ppos) < 50) {
+            epos = tmp->ennem.pos;
+            if (get_distance(epos, ppos) < 60) {
                 tmp->ennem.kb_speed = 10;
                 tmp->ennem.kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + PI;
                 tmp->ennem.life -= 34; // TODO stat player
+                spawn_ennem_blood(gd, tmp->ennem.pos);
             }
             tmp = tmp->next;
         }
@@ -65,7 +69,6 @@ void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
             manage_clic_buttons(game_data, scene->buttons, mouse_loc);
         }
         if (event.type == sfEvtMouseButtonPressed) {
-            spawn_blood(game_data, scene, mouse_loc);
             push_ennemies(game_data);
         }
         if (event.type == sfEvtKeyPressed) {

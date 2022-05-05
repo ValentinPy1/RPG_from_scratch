@@ -121,6 +121,8 @@ typedef struct player_s {
     sfClock *clock;
     sfTime time;
     float seconds;
+    float kb_dir;
+    float kb_speed;
 } player_t;
 
 typedef struct key_s {

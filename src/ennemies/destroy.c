@@ -7,6 +7,7 @@
 
 #include "ennemies.h"
 #include <stdlib.h>
+#include "structures.h"
 
 void destroy_next_ennemies(ennemies_t *node)
 {

@@ -62,5 +62,7 @@ player_t *player_constructor(void)
     player->clock = clk;
     player->time = tm;
     player->stats = setup_stats();
+    player->kb_dir = 0;
+    player->kb_speed = 0;
     return player;
 }

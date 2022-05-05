@@ -66,18 +66,14 @@ data_t *game_data, scene_t *scene)
     spawn_fire(game_data);
 }
 
-void spawn_blood(data_t *game_data, scene_t *scene, sfVector2i mouse_loc)
+void spawn_blood(data_t *game_data)
 {
     partic_ll_t *node;
     particle_param_t param;
 
-    if (sfMouse_isButtonPressed(sfMouseLeft) && scene->background_to_run == 1) {
-        param = setup_blood_param();
-        param.pos = (sfVector2f) {game_data->red->pos.x,
-        game_data->red->pos.y - 10};
-        param.init_vel.x = (mouse_loc.x - 980) / 50;
-        param.init_vel.y = (mouse_loc.y - 540) / 50;
-        node = setup_partic_node(&param);
-        add_partic_group(game_data->scene_list[1]->partic, node);
-    }
+    param = setup_blood_param();
+    param.pos = (sfVector2f) {game_data->red->pos.x,
+    game_data->red->pos.y};
+    node = setup_partic_node(&param);
+    add_partic_group(game_data->scene_list[1]->partic, node);
 }

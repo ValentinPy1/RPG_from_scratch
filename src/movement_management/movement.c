@@ -7,6 +7,7 @@
 
 #include "movement.h"
 #include "particles.h"
+#include "math.h"
 
 void move_dir(data_t *game_data, sfVector2f dir, int key, int sprite)
 {
@@ -34,6 +35,18 @@ void move_dir(data_t *game_data, sfVector2f dir, int key, int sprite)
     }
 }
 
+void player_knockback(data_t *gd, scene_t *scene)
+{
+    player_t *red = gd->red;
+    float newx = red->pos.x + red->kb_speed * cos(red->kb_dir);
+    float newy = red->pos.y + red->kb_speed * sin(red->kb_dir);
+
+    red->pos = (sfVector2f) {newx, newy};
+    if (!(scene->map->tiles[(int) newy / 32][(int) newx / 32] >= 36
+    && scene->map->tiles[(int) newy / 32][(int) newx / 32] <= 43))
+        red->kb_speed *= 0.9;
+}
+
 void player_move(data_t *game_data, scene_t *scene)
 {
     game_data->red->time = sfClock_getElapsedTime(game_data->red->clock);
@@ -46,5 +59,6 @@ void player_move(data_t *game_data, scene_t *scene)
         move_dir(game_data, (sfVector2f) {1, 0}, game_data->keys->right, 2);
         set_position(game_data->red->player_sprite,
         game_data->red->pos.x, game_data->red->pos.y);
+        player_knockback(game_data, scene);
     }
 }

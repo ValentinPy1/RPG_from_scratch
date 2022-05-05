@@ -12,6 +12,8 @@
     #include <SFML/System.h>
     #include <SFML/Window.h>
 
+    #define AGGRO_DIST 150
+
 typedef struct ennem_s {
     float speed;
     float direction;
