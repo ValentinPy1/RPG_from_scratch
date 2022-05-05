@@ -27,7 +27,7 @@ void update_ennem_node(data_t *gd, ennemies_t *node)
     ennem.y += node->ennem.kb_speed * sin(node->ennem.kb_dir);
     node->ennem.kb_speed *= 0.9;
     node->ennem.pos = (sfVector2f) {ennem.x + move.x, ennem.y + move.y};
-    sfCircleShape_setPosition(node->ennem.circle, node->ennem.pos);
+    sfSprite_setPosition(node->ennem.sprite, node->ennem.pos);
 }
 
 void update_ennemies(data_t *gd, ennemies_t *ennemies)

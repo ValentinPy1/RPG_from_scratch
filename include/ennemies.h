@@ -18,7 +18,8 @@ typedef struct ennem_s {
     float damage;
     sfVector2f pos;
     float life;
-    sfCircleShape *circle;
+    sfSprite *sprite;
+    sfIntRect *rect;
     float kb_speed;
     float kb_dir;
     sfVector2f destination;
@@ -37,5 +38,7 @@ void destroy_next_ennemies(ennemies_t *node);
 int ennem_count(ennemies_t *node);
 sfVector2f get_direction(sfVector2f p1, sfVector2f p2);
 float get_distance(sfVector2f p1, sfVector2f p2);
+
+sfIntRect *set_enemy_rect(void);
 
 #endif

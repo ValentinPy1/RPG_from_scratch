@@ -22,13 +22,14 @@ static ennem_t setup_ennem(sfVector2f pos)
     ennem.direction = 0;
     ennem.life = 100;
     ennem.pos = pos;
-    sfCircleShape_setFillColor(circle, (sfColor) {150, 0, 150, 255});
-    sfCircleShape_setOutlineColor(circle, (sfColor) {0, 0, 0, 255});
-    sfCircleShape_setOutlineThickness(circle, 1);
-    sfCircleShape_setRadius(circle, 10);
-    sfCircleShape_setOrigin(circle, (sfVector2f) {10, 10});
-    sfCircleShape_setPosition(circle, pos);
-    ennem.circle = circle;
+    sfSprite *sprite = sfSprite_create();
+    sfTexture *texture = sfTexture_createFromFile("assets/img/enemies/ennemy1_walk_left.png", NULL);
+    ennem.rect = set_enemy_rect();
+    sfSprite_setTexture(sprite, texture, sfFalse);
+    sfSprite_setScale(sprite, (sfVector2f) { 1.25, 1.25 });
+    sfSprite_setOrigin(sprite, (sfVector2f) { 16, 16 });
+    sfSprite_setTextureRect(sprite, *(ennem.rect));
+    ennem.sprite = sprite;
     ennem.destination = pos;
     return ennem;
 }

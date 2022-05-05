@@ -12,6 +12,6 @@ void destroy_next_ennemies(ennemies_t *node)
 {
     ennemies_t *tmp = node->next;
     node->next = node->next->next;
-    sfCircleShape_destroy(tmp->ennem.circle);
+    sfSprite_destroy(tmp->ennem.sprite);
     free(tmp);
 }

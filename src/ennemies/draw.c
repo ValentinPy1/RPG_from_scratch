@@ -9,7 +9,7 @@
 
 void draw_ennem(sfRenderWindow *win, ennem_t ennem)
 {
-    sfRenderWindow_drawCircleShape(win, ennem.circle, NULL);
+    sfRenderWindow_drawSprite(win, ennem.sprite, NULL);
 }
 
 void draw_ennemies(sfRenderWindow *win, ennemies_t *ennemies)
