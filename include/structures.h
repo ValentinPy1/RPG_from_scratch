@@ -142,7 +142,7 @@ typedef struct data_s {
     keys_t *keys;
     unsigned int framerate;
     sfRenderWindow *window;
-    ennemies_t *ennemies;
+    enemies_t *enemies;
 } data_t;
 
 #endif /*STRUCT_H_*/

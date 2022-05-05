@@ -12,59 +12,59 @@
 #include "math.h"
 #include <stdio.h>
 
-static ennem_t setup_ennem(sfVector2f pos)
+static enem_t setup_enem(sfVector2f pos)
 {
-    ennem_t ennem;
+    enem_t enem;
     sfCircleShape *circle = sfCircleShape_create();
 
-    ennem.damage = 0;
-    ennem.speed = 1.2;
-    ennem.direction = 0;
-    ennem.life = 100;
-    ennem.pos = pos;
-    ennem.destination = pos;
-    ennem.kb_dir = 0;
-    ennem.kb_speed = 0;
+    enem.damage = 0;
+    enem.speed = 1.2;
+    enem.direction = 0;
+    enem.life = 100;
+    enem.pos = pos;
+    enem.destination = pos;
+    enem.kb_dir = 0;
+    enem.kb_speed = 0;
     sfCircleShape_setFillColor(circle, (sfColor) {150, 0, 150, 255});
     sfCircleShape_setOutlineColor(circle, (sfColor) {0, 0, 0, 255});
     sfCircleShape_setOutlineThickness(circle, 1);
     sfCircleShape_setRadius(circle, 10);
     sfCircleShape_setOrigin(circle, (sfVector2f) {10, 10});
     sfCircleShape_setPosition(circle, pos);
-    ennem.circle = circle;
-    return ennem;
+    enem.circle = circle;
+    return enem;
 }
 
-ennemies_t *setup_ennemies_node(sfVector2f pos)
+enemies_t *setup_enemies_node(sfVector2f pos)
 {
-    ennemies_t *ennemies = malloc(sizeof(ennemies_t));
+    enemies_t *enemies = malloc(sizeof(enemies_t));
 
-    ennemies->ennem = setup_ennem(pos);
-    ennemies->next = NULL;
-    return ennemies;
+    enemies->enem = setup_enem(pos);
+    enemies->next = NULL;
+    return enemies;
 }
 
-static void add_ennemies_node(ennemies_t *ennemies, ennemies_t *node)
+static void add_enemies_node(enemies_t *enemies, enemies_t *node)
 {
-    if (ennemies->next == NULL) {
-        ennemies->next = node;
+    if (enemies->next == NULL) {
+        enemies->next = node;
         return;
     }
-    add_ennemies_node(ennemies->next, node);
+    add_enemies_node(enemies->next, node);
 }
 
-void add_ennem(ennemies_t *ennemies, sfVector2f pos)
+void add_enem(enemies_t *enemies, sfVector2f pos)
 {
-    ennemies_t *node = setup_ennemies_node(pos);
+    enemies_t *node = setup_enemies_node(pos);
 
-    add_ennemies_node(ennemies, node);
+    add_enemies_node(enemies, node);
 }
 
-void spawn_ennem(data_t *gd)
+void spawn_enem(data_t *gd)
 {
     float angle = rdm_float(0, 2 * PI);
     float dist = rdm_float(500, 1000);
-    if (ennem_count(gd->ennemies) < 50)
-        add_ennem(gd->ennemies, (sfVector2f)
+    if (enem_count(gd->enemies) < 50)
+        add_enem(gd->enemies, (sfVector2f)
         {gd->red->pos.x + cos(angle) * dist, gd->red->pos.y + sin(angle) * dist});
 }

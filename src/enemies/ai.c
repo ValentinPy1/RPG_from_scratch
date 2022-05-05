@@ -11,26 +11,26 @@
 #include <math.h>
 #include <stdio.h>
 
-sfVector2f handle_dest(data_t *gd, ennemies_t *node)
+sfVector2f handle_dest(data_t *gd, enemies_t *node)
 {
     float angle = rdm_float(0, 2 * PI);
     float dist = rdm_float(100, 200);
 
-    if (get_distance(node->ennem.pos, node->ennem.destination) < 1) {
-        node->ennem.destination = (sfVector2f) {node->ennem.pos.x +
-        cos(angle) * dist, node->ennem.pos.y + sin(angle) * dist};
+    if (get_distance(node->enem.pos, node->enem.destination) < 1) {
+        node->enem.destination = (sfVector2f) {node->enem.pos.x +
+        cos(angle) * dist, node->enem.pos.y + sin(angle) * dist};
         return (sfVector2f) {0, 0};
     }
-    if (get_distance(gd->red->pos, node->ennem.pos) < AGGRO_DIST) {
-        node->ennem.destination = node->ennem.pos;
+    if (get_distance(gd->red->pos, node->enem.pos) < AGGRO_DIST) {
+        node->enem.destination = node->enem.pos;
     }
-    return (sfVector2f) {node->ennem.destination.x - node->ennem.pos.x,
-    node->ennem.destination.y - node->ennem.pos.y};
+    return (sfVector2f) {node->enem.destination.x - node->enem.pos.x,
+    node->enem.destination.y - node->enem.pos.y};
 }
 
-sfVector2f calculate_intent(data_t *gd, ennemies_t *node)
+sfVector2f calculate_intent(data_t *gd, enemies_t *node)
 {
-    sfVector2f epos = node->ennem.pos;
+    sfVector2f epos = node->enem.pos;
     sfVector2f ppos = {gd->red->pos.x, gd->red->pos.y};
     sfVector2f dir = get_direction(epos, ppos);
     float dist = get_distance(epos, ppos);
@@ -44,9 +44,9 @@ sfVector2f calculate_intent(data_t *gd, ennemies_t *node)
     spring = dist / 100;
     intent = (sfVector2f) {intent.x + dir.x * spring, intent.y + dir.y * spring};
     target = 100;
-    for (ennemies_t *temp = gd->ennemies->next; temp != NULL;
+    for (enemies_t *temp = gd->enemies->next; temp != NULL;
     temp = temp->next) {
-        tmpos = temp->ennem.pos;
+        tmpos = temp->enem.pos;
         dist = get_distance(epos, tmpos);
         if (dist != 0 && dist < 20) {
             dir = get_direction(epos, tmpos);

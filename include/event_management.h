@@ -17,6 +17,6 @@ sfVector2i mouse_loc);
 void manage_clic_buttons(data_t *game_data, button_t **buttons,
 sfVector2i mouse_loc);
 int options(data_t *game_data, char **scenes_name, int *index_run);
-void spawn_ennem_blood(data_t *gd, sfVector2f pos);
+void spawn_enem_blood(data_t *gd, sfVector2f pos);
 
 #endif /*MAIN_H_*/

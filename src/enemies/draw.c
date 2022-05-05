@@ -9,20 +9,20 @@
 #include "particles.h"
 #include "structures.h"
 
-void draw_ennem(sfRenderWindow *win, ennem_t ennem)
+void draw_enem(sfRenderWindow *win, enem_t enem)
 {
-    sfRenderWindow_drawCircleShape(win, ennem.circle, NULL);
+    sfRenderWindow_drawCircleShape(win, enem.circle, NULL);
 }
 
-void draw_ennemies(sfRenderWindow *win, ennemies_t *ennemies)
+void draw_enemies(sfRenderWindow *win, enemies_t *enemies)
 {
-    if (ennemies == NULL || ennemies->next == NULL)
+    if (enemies == NULL || enemies->next == NULL)
         return;
-    draw_ennem(win, ennemies->next->ennem);
-    draw_ennemies(win, ennemies->next);
+    draw_enem(win, enemies->next->enem);
+    draw_enemies(win, enemies->next);
 }
 
-void spawn_ennem_blood(data_t *gd, sfVector2f pos)
+void spawn_enem_blood(data_t *gd, sfVector2f pos)
 {
     partic_ll_t *node;
     particle_param_t param;

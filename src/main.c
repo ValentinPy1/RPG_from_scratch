@@ -32,8 +32,8 @@ void data_constructor(data_t *game_data)
     game_data->red = player_constructor();
     game_data->scene_list[1]->partic = malloc(sizeof(partic_ll_t));
     game_data->scene_list[1]->partic->next = NULL;
-    game_data->ennemies = malloc(sizeof(ennemies_t));
-    game_data->ennemies->next = NULL;
+    game_data->enemies = malloc(sizeof(enemies_t));
+    game_data->enemies->next = NULL;
 }
 
 int main(int ac, char **av)

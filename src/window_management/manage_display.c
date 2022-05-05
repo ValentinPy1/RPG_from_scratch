@@ -9,7 +9,7 @@
 #include "random.h"
 
 void init_view(sfRenderWindow *window, data_t *game_data);
-void spawn_ennem(data_t *gd);
+void spawn_enem(data_t *gd);
 
 void display_hitbox(sfRenderWindow *window, hitbox_t *hitbox)
 {
@@ -56,9 +56,9 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         sfSprite_setTextureRect(game_data->red->player_sprite,
         *game_data->red->player_rect);
         sfRenderWindow_drawSprite(window, game_data->red->player_sprite, NULL);
-        spawn_ennem(game_data);
-        update_ennemies(game_data, game_data->ennemies);
-        draw_ennemies(window, game_data->ennemies);
+        spawn_enem(game_data);
+        update_enemies(game_data, game_data->enemies);
+        draw_enemies(window, game_data->enemies);
         handle_particles(window, game_data, scene);
     }
     draw_images(window, scene);

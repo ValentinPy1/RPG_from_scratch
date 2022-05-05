@@ -15,12 +15,12 @@ float get_distance(sfVector2f p1, sfVector2f p2);
 void kbd_input(data_t *gd, scene_t *scene, sfEvent event, sfVector2i mouse_loc)
 {
     if (event.key.code == sfKeyY)
-        add_ennem(gd->ennemies, (sfVector2f) {(float) mouse_loc.x / 1920 *
+        add_enem(gd->enemies, (sfVector2f) {(float) mouse_loc.x / 1920 *
         VIEW_WIDTH + gd->red->pos.x - VIEW_WIDTH / 2, (float) mouse_loc.y /
         1080 * VIEW_HEIGHT + gd->red->pos.y - VIEW_HEIGHT / 2});
     if (event.key.code == sfKeyK)
-        if (gd->ennemies->next != NULL)
-            destroy_next_ennemies(gd->ennemies);
+        if (gd->enemies->next != NULL)
+            destroy_next_enemies(gd->enemies);
 }
 
 static void init_hud(sfRenderWindow *window, data_t *game_data)
@@ -32,22 +32,22 @@ static void init_hud(sfRenderWindow *window, data_t *game_data)
     sfRenderWindow_setView(window, game_data->red->view);
 }
 
-static void push_ennemies(data_t *gd)
+static void push_enemies(data_t *gd)
 {
-    ennemies_t *tmp;
+    enemies_t *tmp;
     sfVector2f ppos;
     sfVector2f epos;
 
     if (sfMouse_isButtonPressed(sfMouseRight)) {
-        tmp = gd->ennemies->next;
+        tmp = gd->enemies->next;
         ppos = gd->red->pos;
         while (tmp != NULL) {
-            epos = tmp->ennem.pos;
+            epos = tmp->enem.pos;
             if (get_distance(epos, ppos) < 60) {
-                tmp->ennem.kb_speed = 10;
-                tmp->ennem.kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + PI;
-                tmp->ennem.life -= 34; // TODO stat player
-                spawn_ennem_blood(gd, tmp->ennem.pos);
+                tmp->enem.kb_speed = 10;
+                tmp->enem.kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + PI;
+                tmp->enem.life -= 34; // TODO stat player
+                spawn_enem_blood(gd, tmp->enem.pos);
             }
             tmp = tmp->next;
         }
@@ -69,7 +69,7 @@ void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
             manage_clic_buttons(game_data, scene->buttons, mouse_loc);
         }
         if (event.type == sfEvtMouseButtonPressed) {
-            push_ennemies(game_data);
+            push_enemies(game_data);
         }
         if (event.type == sfEvtKeyPressed) {
             kbd_input(game_data, scene, event, mouse_loc);
