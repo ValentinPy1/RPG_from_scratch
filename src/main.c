@@ -14,10 +14,10 @@ static void usage(void)
 keys_t *get_keys(void)
 {
     keys_t *keys = malloc(sizeof(keys_t));
-    keys->up = sfKeyUp;
-    keys->right = sfKeyRight;
-    keys->down = sfKeyDown;
-    keys->left = sfKeyLeft;
+    keys->up = sfKeyZ;
+    keys->right = sfKeyD;
+    keys->down = sfKeyS;
+    keys->left = sfKeyQ;
     return keys;
 }
 
