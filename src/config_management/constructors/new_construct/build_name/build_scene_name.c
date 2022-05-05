@@ -6,6 +6,19 @@
 */
 #include "build_scene_name.h"
 
+int build_name_opt(scene_t *scene, char *opt, char *value)
+{
+    if (opt == NULL || value == NULL)
+        return (0);
+    for (int index = 0; NAME_OPT_TAB[index].name != NULL; index++) {
+        if (my_strcmp(opt, NAME_OPT_TAB[index].name) == 1)
+            (*NAME_OPT_TAB[index].func)(scene, value);
+    }
+    free(opt);
+    free(value);
+    return (1);
+}
+
 int build_scene_name(scene_t *scene, char **content, int *line)
 {
     char *opt = NULL;
@@ -19,15 +32,8 @@ int build_scene_name(scene_t *scene, char **content, int *line)
         }
         opt = get_obj_opt(content, line, &index);
         value = get_opt_value(content, line, &index);
-        if (opt != NULL && value != NULL) {
-            printf("[NAME]:%s->%s\n", opt, value);
-            free(opt);
-            free(value);
-        }
-        else {
-            printf("Error a \" or a \' is missing line %i\n", *line);
+        if (build_back_opt(scene, opt, value) == 0)
             break;
-        }
     }
     return (0);
 }

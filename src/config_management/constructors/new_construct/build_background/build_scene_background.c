@@ -6,6 +6,19 @@
 */
 #include "build_scene_background.h"
 
+int build_back_opt(scene_t *scene, char *opt, char *value)
+{
+    if (opt == NULL || value == NULL)
+        return (0);
+    for (int index = 0; BACK_OPT_TAB[index].name != NULL; index++) {
+        if (my_strcmp(opt, BACK_OPT_TAB[index].name) == 1)
+            (*BACK_OPT_TAB[index].func)(scene, value);
+    }
+    free(opt);
+    free(value);
+    return (1);
+}
+
 int build_scene_background(scene_t *scene, char **content, int *line)
 {
     char *opt = NULL;
@@ -19,12 +32,7 @@ int build_scene_background(scene_t *scene, char **content, int *line)
         }
         opt = get_obj_opt(content, line, &index);
         value = get_opt_value(content, line, &index);
-        if (opt != NULL && value != NULL) {
-            printf("[Background]:%s->%s\n", opt, value);
-            free(opt);
-            free(value);
-        }
-        else
+        if (build_back_opt(scene, opt, value) == 0)
             break;
     }
     return (0);

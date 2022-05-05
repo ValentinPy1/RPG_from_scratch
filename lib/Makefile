@@ -24,7 +24,8 @@ SRC =	fonctions/count_char.c		\
 		fonctions/free_tab.c 	\
 		fonctions/count_line.c	\
 		fonctions/my_printf.c 	\
-		fonctions/my_putnbr.c
+		fonctions/my_putnbr.c	\
+		fonctions/my_strdup.c
 
 
 NAME =	libmy.a

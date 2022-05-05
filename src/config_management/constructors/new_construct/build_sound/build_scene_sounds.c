@@ -6,23 +6,30 @@
 */
 #include "build_scene_sounds.h"
 
+int build_music_opt(scene_t *scene, char *opt, char *value)
+{
+    if (opt == NULL || value == NULL)
+        return (0);
+    for (int index = 0; SOUND_OPT_TAB[index].name != NULL; index++) {
+        if (my_strcmp(opt, SOUND_OPT_TAB[index].name) == 1)
+            (*SOUND_OPT_TAB[index].func)(scene, value);
+    }
+    free(opt);
+    free(value);
+    return (1);
+}
+
 int build_scene_sounds(scene_t *scene, char **content, int *line)
 {
     char *opt = NULL;
     char *value = NULL;
 
-    printf("DEBUG Sound\n");
     *line += 1;
-    char *test = NULL;
-    while (content[*line] != NULL && (test = is_a_scene_opt(content, line)) == NULL) {
+    while (content[*line] != NULL && is_a_scene_opt(content, line) == NULL) {
         for (int index = 0; content[*line][index] != '\0'; index++) {
             opt = get_obj_opt(content, line, &index);
             value = get_opt_value(content, line, &index);
-            if (opt != NULL && value != NULL) {
-                printf("[Sound]:%s->%s\n", opt, value);
-                free(opt);
-                free(value);
-            }
+            build_music_opt(scene, opt, value);
         }
         if (is_a_scene_opt(content, line) == NULL)
             break;

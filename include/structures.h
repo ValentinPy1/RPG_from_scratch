@@ -21,14 +21,20 @@ typedef struct vector_s {
     double y;
 } vector_t;
 
+typedef struct text_s {
+    struct text_s *next;
+    char *name;
+    int posx;
+    int posy;
+} text_t;
+
 typedef struct image_s {
-    sfVector2f position;
-    int height;
+    struct image_s *next;
+    char *name;
+    int posx;
+    int posy;
     int width;
-    double rotation;
-    sfVector2f scale;
-    sfTexture *texture;
-    sfSprite *sprite;
+    int height;
 } image_t;
 
 typedef struct hitbox_s {
@@ -43,32 +49,21 @@ typedef struct hitbox_s {
 } hitbox_t;
 
 typedef struct button_s {
-    sfVector2f position;
-    double rotation;
-    sfVector2f scale;
-    hitbox_t *hitbox;
-    sfTexture *texture;
-    sfTexture *ho_texture;
-    sfTexture *sel_texture;
-    sfSprite *sprite;
-    sfSprite *ho_sprite;
-    sfSprite *sel_sprite;
-    sfSound *sound;
-    sfSoundBuffer *sound_buffer;
-    int is_hovered;
-    int (*callback)(struct button_s *button, char **scenes_name, int *index_run);
+    struct button_s *next;
+    char *name;
+    int posx;
+    int posy;
+    int width;
+    int height;
 } button_t;
 
 typedef struct entity_s {
-    sfVector2f position;
-    double rotation;
-    sfVector2f scale;
-    hitbox_t *hitbox;
-    sfTexture *texture;
-    sfSprite *sprite;
-    sfSound *sound;
-    sfSoundBuffer *sound_buffer;
-    char *dialogue;
+    struct entity_s *next;
+    char *name;
+    int posx;
+    int posy;
+    int width;
+    int weight;
 } entity_t;
 
 typedef struct map_s {
@@ -80,18 +75,12 @@ typedef struct map_s {
 
 typedef struct scene_s {
     char *name;
-    button_t **buttons;
-    entity_t **entities;
-    sfText **texts;
-    image_t **images;
-    int background_to_run;
-    sfTexture *background_texture;
-    sfSprite *background_sprite;
-    sfVector2i mouse_loc;
+    button_t *buttons;
+    entity_t *entities;
+    image_t *images;
+    text_t *texts;
     sfSound *music;
-    sfSoundBuffer *sound_buffer;
-    map_t *map;
-    int is_running;
+    sfSoundBuffer *music_buffer;
 } scene_t;
 
 typedef struct set_s {

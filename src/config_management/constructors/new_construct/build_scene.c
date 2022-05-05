@@ -19,10 +19,23 @@ int parse_line(scene_t *scene, char **content, int *line)
     return (return_value);
 }
 
+void init_default_scene(scene_t *new_scene)
+{
+    new_scene->name = NULL;
+    new_scene->buttons = NULL;
+    new_scene->entities = NULL;
+    new_scene->images = NULL;
+    new_scene->texts = NULL;
+    new_scene->music = NULL;
+    new_scene->music_buffer = NULL;
+}
+
+
 scene_t *build_scene(char **content)
 {
     scene_t *new_scene = malloc(sizeof(scene_t));
 
+    init_default_scene(new_scene);
     if (content == NULL)
         return (new_scene);
     for (int lines = 0; content[lines] != NULL; lines++) {
