@@ -30,9 +30,8 @@ void data_constructor(data_t *game_data)
     game_data->scene_names = get_names_scene(game_data->scene_list);
     game_data->run_index = get_run_index(game_data->scene_names, "home_menu");
     game_data->red = player_constructor();
-    game_data->partic = malloc(sizeof(partic_ll_t));
-    game_data->partic->partic_arr = NULL;
-    game_data->partic->next = NULL;
+    game_data->scene_list[1]->partic = malloc(sizeof(partic_ll_t));
+    game_data->scene_list[1]->partic->next = NULL;
     game_data->ennemies = malloc(sizeof(ennemies_t));
     game_data->ennemies->next = NULL;
 }

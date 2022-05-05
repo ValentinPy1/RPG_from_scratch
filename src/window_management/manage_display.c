@@ -52,15 +52,15 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         sfRenderWindow_drawSprite(window, scene->background_sprite, NULL);
     else if (scene->background_to_run == 1) {
         spawn_ennem(game_data);
+        update_ennemies(game_data, game_data->ennemies);
         display_map(window, scene->map);
         init_view(window, game_data);
         sfSprite_setTextureRect(game_data->red->player_sprite,
         *game_data->red->player_rect);
         sfRenderWindow_drawSprite(window, game_data->red->player_sprite, NULL);
+        handle_particles(window, game_data, scene);
+        draw_ennemies(window, game_data->ennemies);
     }
-    draw_ennemies(window, game_data->ennemies);
-    update_ennemies(game_data, game_data->ennemies);
-    handle_particles(window, game_data, scene);
     draw_images(window, scene);
     draw_texts(window, game_data, scene);
     draw_buttons(window, game_data, scene);

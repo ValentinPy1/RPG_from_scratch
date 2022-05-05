@@ -88,6 +88,7 @@ typedef struct scene_s {
     char *name;
     button_t **buttons;
     entity_t **entities;
+    partic_ll_t *partic;
     sfText **texts;
     image_t **images;
     int background_to_run;
@@ -136,11 +137,10 @@ typedef struct data_s {
     player_t *red;
     scene_t **scene_list;
     char **scene_names;
-    partic_ll_t *partic;
-    ennemies_t *ennemies;
     keys_t *keys;
     unsigned int framerate;
     sfRenderWindow *window;
+    ennemies_t *ennemies;
 } data_t;
 
 #endif /*STRUCT_H_*/
