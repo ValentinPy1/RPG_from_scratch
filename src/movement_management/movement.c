@@ -16,7 +16,9 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
     float delta = 60.0 / gd->framerate;
     if (!sfKeyboard_isKeyPressed(key))
         return;
+    gd->red->facing = sprite;
     gd->red->player_rect->left = sprite * 16;
+    gd->red->attack_rect->left = sprite * 32;
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 1)
         return;
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 2) {
@@ -55,6 +57,8 @@ void player_move(data_t *gd, scene_t *scene)
         move_dir(gd, (sfVector2f) {-1, 0}, gd->keys->left, 1);
         move_dir(gd, (sfVector2f) {1, 0}, gd->keys->right, 2);
         set_position(gd->red->player_sprite,
+        gd->red->pos.x, gd->red->pos.y);
+        set_position(gd->red->attack_sprite,
         gd->red->pos.x, gd->red->pos.y);
         player_knockback(gd, scene);
     }

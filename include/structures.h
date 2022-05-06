@@ -118,10 +118,17 @@ typedef struct player_s {
     sfVector2f pos;
     sfSprite *player_sprite;
     sfIntRect *player_rect;
-    sfView *view;
     sfClock *clock;
     sfTime time;
     float seconds;
+    sfSprite *attack_sprite;
+    sfIntRect *attack_rect;
+    sfClock *attack_clock;
+    sfTime attack_time;
+    float attack_seconds;
+    int attack_state;
+    int facing;
+    sfView *view;
     float kb_dir;
     float kb_speed;
     float percentage;
