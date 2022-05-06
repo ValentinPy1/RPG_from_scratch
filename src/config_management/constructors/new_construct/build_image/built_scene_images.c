@@ -6,10 +6,23 @@
 */
 #include "build_scene_images.h"
 
+void init_default_image(image_t *image)
+{
+    image->name = NULL;
+    image->position = (sfVector2f) {150, 150};
+    image->width = 50;
+    image->height = 50;
+    image->scale = (sfVector2f) {1, 1};
+    image->rotation = 0;
+    image->sprite = NULL;
+    image->texture = NULL;
+}
+
 int build_images_opt(image_t *image, char *opt, char *value)
 {
     if (opt == NULL || value == NULL)
         return (0);
+    init_default_image(image);
     for (int index = 0; IMG_OPT_TAB[index].name != NULL; index++) {
         if (my_strcmp(opt, IMG_OPT_TAB[index].name) == 1)
             (*IMG_OPT_TAB[index].func)(image, value);
@@ -37,6 +50,7 @@ int build_images(image_t **head_ref, char **content, int *line)
         new_image->next = *head_ref;
         *head_ref = new_image;
     }
+    return (0);
 }
 
 int build_scene_images(scene_t *scene, char **content, int *line)

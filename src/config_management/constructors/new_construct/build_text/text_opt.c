@@ -8,30 +8,43 @@
 
 int build_text_name(text_t *text, char *value)
 {
-    printf("build text name...\n");
+    text->name = my_strdup(value);
     return (0);
 }
 
 int build_text_posx(text_t *text, char *value)
 {
-    printf("build text posx...\n");
+    int coord_x = my_getnbr(value);
+
+    text->position.x = coord_x;
     return (0);
 }
 
 int build_text_posy(text_t *text, char *value)
 {
-    printf("build text posy...\n");
+    int coord_y = my_getnbr(value);
+
+    text->position.y = coord_y;
+    sfText_setPosition(text->text, text->position);
     return (0);
 }
 
 int build_text_text(text_t *text, char *value)
 {
-    printf("build text text...\n");
+    text->str = my_strdup(value);
+    sfText_setString(text->text, text->str);
     return (0);
 }
 
 int build_text_font(text_t *text, char *value)
 {
-    printf("build text font...\n");
+    sfFont *font = sfFont_createFromFile(value);
+
+    if (font == NULL) {
+        write_error("Error while loading font\n");
+        return (-1);
+    }
+    text->font = font;
+    sfText_setFont(text->text, font);
     return (0);
 }

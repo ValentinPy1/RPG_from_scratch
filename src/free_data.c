@@ -43,9 +43,9 @@ void free_buttons(button_t *buttons)
     }
 }
 
-void free_entities(button_t *entities)
+void free_entities(entity_t *entities)
 {
-    button_t *next_entity = NULL;
+    entity_t *next_entity = NULL;
 
     while (entities != NULL) {
         next_entity = entities->next;

@@ -8,6 +8,6 @@
 
 int build_name_name(scene_t *scene, char *value)
 {
-    printf("build name scene...\n");
+    scene->name = my_strdup(value);
     return (0);
 }

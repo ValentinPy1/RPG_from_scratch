@@ -10,8 +10,10 @@ CON_PATH = src/config_management/constructors/
 SRC = 	src/main.c																					\
 		src/init_game.c																				\
 		src/free_data.c																				\
+		src/config_management/get_names_scene.c														\
 		src/config_management/get_config_files.c													\
 		src/config_management/get_content_file.c													\
+		src/config_management/constructors/construct_map/map_parser.c								\
 		src/config_management/constructors/new_construct/build_background/build_scene_background.c	\
 		src/config_management/constructors/new_construct/build_background/back_opt.c				\
 		src/config_management/constructors/new_construct/build_name/build_scene_name.c 				\
@@ -35,6 +37,7 @@ SRC = 	src/main.c																					\
 		src/config_management/constructors/new_construct/build_scene.c								\
 		src/config_management/constructors/new_construct/scene_option.c								\
 		src/config_management/constructors/new_construct/construct_tools.c							\
+		src/config_management/callbacks/button_callback1.c											\
 
 NAME = my_rpg
 

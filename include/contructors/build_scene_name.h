@@ -9,6 +9,7 @@
     #define BUILD_SCENE_NAME_H_
     #include "stddef.h"
     #include "structures.h"
+    #include <stdlib.h>
 
 typedef struct name_opt_s {
     char *name;
@@ -17,7 +18,7 @@ typedef struct name_opt_s {
 
 int build_name_name(scene_t *scene, char *value);
 
-static name_opt_t NAME_OPT_TAB[] = {
+__attribute__((unused)) static name_opt_t NAME_OPT_TAB[] = {
     {"name", build_name_name},
     {NULL, NULL}
 };
@@ -25,4 +26,5 @@ static name_opt_t NAME_OPT_TAB[] = {
 char *get_obj_opt(char **content, int *line, int *index);
 char *get_opt_value(char **content, int *line, int *index);
 int my_strcmp(char *str1, char *str2);
+char *my_strdup(char const *src);
 #endif /* !BUILD_SCENE_NAME_H_ */

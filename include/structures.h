@@ -11,31 +11,7 @@
     #include <SFML/Audio.h>
     #include "particles.h"
 
-typedef struct coord_s {
-    double x;
-    double y;
-} coord_t;
-
-typedef struct vector_s {
-    double x;
-    double y;
-} vector_t;
-
-typedef struct text_s {
-    struct text_s *next;
-    char *name;
-    int posx;
-    int posy;
-} text_t;
-
-typedef struct image_s {
-    struct image_s *next;
-    char *name;
-    int posx;
-    int posy;
-    int width;
-    int height;
-} image_t;
+typedef struct data_s data_t;
 
 typedef struct hitbox_s {
     sfVector2f position;
@@ -48,22 +24,65 @@ typedef struct hitbox_s {
     sfCircleShape **circle;
 } hitbox_t;
 
+typedef struct text_s {
+    struct text_s *next;
+    sfText *text;
+    char *name;
+    sfVector2f position;
+    char *str;
+    sfFont *font;
+    int size;
+    sfTextStyle style;
+    float rotation;
+    sfColor color;
+    sfColor outline_color;
+    float outline_tickness;
+    float line_spacing;
+    float letter_spacing;
+} text_t;
+
+typedef struct image_s {
+    struct image_s *next;
+    char *name;
+    sfVector2f position;
+    int width;
+    int height;
+    sfVector2f scale;
+    float rotation;
+    sfSprite *sprite;
+    sfTexture *texture;
+} image_t;
+
 typedef struct button_s {
     struct button_s *next;
     char *name;
-    int posx;
-    int posy;
+    sfVector2f position;
     int width;
     int height;
+    sfVector2f scale;
+    float rotation;
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfSprite *ho_sprite;
+    sfTexture *ho_texture;
+    sfSound *clic_sound;
+    sfSoundBuffer *sound_buffer;
+    int (*callback)(data_t *game_data, char **scenes_name, int *index_run);
 } button_t;
 
 typedef struct entity_s {
     struct entity_s *next;
     char *name;
-    int posx;
-    int posy;
+    sfVector2f position;
     int width;
-    int weight;
+    int height;
+    sfVector2f scale;
+    float rotation;
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfSound *action_sound;
+    sfSoundBuffer *sound_buffer;
+    char *dialogue;
 } entity_t;
 
 typedef struct map_s {
@@ -81,6 +100,9 @@ typedef struct scene_s {
     text_t *texts;
     sfSound *music;
     sfSoundBuffer *music_buffer;
+    map_t *map;
+    sfSprite *background_sprite;
+    sfTexture *background_texture;
 } scene_t;
 
 typedef struct set_s {
@@ -98,7 +120,7 @@ typedef struct player_s {
     float seconds;
 } player_t;
 
-typedef struct data_s {
+struct data_s {
     set_t *settings;
     int run_index;
     int debug_mode;
@@ -106,6 +128,6 @@ typedef struct data_s {
     scene_t **scene_list;
     char **scene_names;
     partic_ll_t *partic;
-} data_t;
+};
 
 #endif /*STRUCT_H_*/

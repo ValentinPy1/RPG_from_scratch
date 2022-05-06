@@ -9,6 +9,7 @@
     #define BUILD_SCENE_ENTITIES_H_
     #include "stddef.h"
     #include "structures.h"
+    #include <stdlib.h>
 
 typedef struct ent_opt_s {
     char *name;
@@ -26,7 +27,7 @@ int build_ent_texture(entity_t *entity, char *value);
 int build_ent_action_sound(entity_t *entity, char *value);
 int build_ent_dialogue(entity_t *entity, char *value);
 
-static ent_opt_t ENT_OPT_TAB[] = {
+__attribute__((unused)) static ent_opt_t ENT_OPT_TAB[] = {
     {"name", build_ent_name},
     {"posx", build_ent_posx},
     {"posy", build_ent_posy},
@@ -40,8 +41,12 @@ static ent_opt_t ENT_OPT_TAB[] = {
     {NULL, NULL}
 };
 
+float my_atof(char *str);
+char *is_a_scene_opt(char **content, int *line);
 char *get_obj_opt(char **content, int *line, int *index);
 char *get_opt_value(char **content, int *line, int *index);
 int my_getnbr(char *str);
 char *my_strdup(char const *src);
+int my_strcmp(char *str1, char *str2);
+int write_error(char const *str);
 #endif /* !BUILD_SCENE_ENTITIES_H_ */

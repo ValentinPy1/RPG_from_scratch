@@ -6,18 +6,30 @@
 */
 #include "build_scene_background.h"
 
+int build_back_map(scene_t *scene)
+{
+    scene->map = map_constructor();
+    return (0);
+}
+
+int build_back_img(scene_t *scene, char *path)
+{
+    scene->background_sprite = sfSprite_create();
+    scene->background_texture = sfTexture_createFromFile(path, NULL);
+    sfSprite_setTexture(scene->background_sprite,
+                            scene->background_texture, sfFalse);
+    return (0);
+}
+
 int build_back_type(scene_t *scene, char *value)
 {
-    printf("Building scene background type\n");
-    if (my_strcmp(value, "img") == 1)
-        return (0);
     if (my_strcmp(value, "map") == 1)
-        return (0);
+        build_back_map(scene);
     return (0);
 }
 
 int build_back_path(scene_t *scene, char *value)
 {
-    printf("Building scene background path\n");
+    build_back_img(scene, value);
     return (0);
 }

@@ -18,4 +18,5 @@ void my_printf(char *str, ...);
 int find_scene_opt(scene_t *scene, char *id, char **content, int *line);
 char *is_a_scene_opt(char **content, int *line);
 void free_str_tab(char **tab);
+char *my_strdup(char const *src);
 #endif /*ERR_H_*/

@@ -25,6 +25,7 @@ int my_rpg(int ac, char *av[])
         // open_window(1920, 1080, game_data);
     }
     free_data(game_data);
+    return (flag);
 }
 
 int main(int ac, char *av[])
@@ -34,6 +35,5 @@ int main(int ac, char *av[])
         return (0);
     }
     my_rpg(ac, av);
-    
     return (0);
 }

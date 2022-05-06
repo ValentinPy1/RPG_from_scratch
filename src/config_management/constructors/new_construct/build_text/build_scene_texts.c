@@ -6,10 +6,28 @@
 */
 #include "build_scene_texts.h"
 
+void init_default_text(text_t *text)
+{
+    text->name = NULL;
+    text->text = NULL;
+    text->position = (sfVector2f) {150, 150};
+    text->str = my_strdup("Insert text");
+    text->font = sfFont_createFromFile("asset/font/DeterminationMono.ttf");
+    text->size = 10;
+    text->style = sfTextRegular;
+    text->rotation = 0;
+    text->color = (sfColor) {255, 255, 255, 255};
+    text->outline_color = (sfColor) {0, 0, 0, 255};
+    text->outline_tickness = 1.5;
+    text->line_spacing = 1.5;
+    text->letter_spacing = 1.5;
+}
+
 int build_texts_opt(text_t *text, char *opt, char *value)
 {
     if (opt == NULL || value == NULL)
         return (0);
+    init_default_text(text);
     for (int index = 0; TEXT_OPT_TAB[index].name != NULL; index++) {
         if (my_strcmp(opt, TEXT_OPT_TAB[index].name) == 1)
             (*TEXT_OPT_TAB[index].func)(text, value);
@@ -37,6 +55,7 @@ int build_texts(text_t **head_ref, char **content, int *line)
         new_text->next = *head_ref;
         *head_ref = new_text;
     }
+    return (0);
 }
 
 int build_scene_texts(scene_t *scene, char **content, int *line)

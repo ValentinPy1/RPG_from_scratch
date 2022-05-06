@@ -6,10 +6,26 @@
 */
 #include "build_scene_entities.h"
 
+void init_default_entity(entity_t *entity)
+{
+    entity->name = NULL;
+    entity->position = (sfVector2f) {100, 100};
+    entity->width = 50;
+    entity->height = 50;
+    entity->scale = (sfVector2f) {1, 1};
+    entity->rotation = 0;
+    entity->sprite = NULL;
+    entity->texture = NULL;
+    entity->action_sound = NULL;
+    entity->sound_buffer = NULL;
+    entity->dialogue = NULL;
+}
+
 int build_entities_opt(entity_t *entity, char *opt, char *value)
 {
     if (opt == NULL || value == NULL)
         return (0);
+    init_default_entity(entity);
     for (int index = 0; ENT_OPT_TAB[index].name != NULL; index++) {
         if (my_strcmp(opt, ENT_OPT_TAB[index].name) == 1)
             (*ENT_OPT_TAB[index].func)(entity, value);
@@ -37,6 +53,7 @@ int build_entities(entity_t **head_ref, char **content, int *line)
         new_entity->next = *head_ref;
         *head_ref = new_entity;
     }
+    return (0);
 }
 
 int build_scene_entities(scene_t *scene, char **content, int *line)

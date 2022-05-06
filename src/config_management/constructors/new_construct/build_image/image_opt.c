@@ -6,33 +6,40 @@
 */
 #include "build_scene_images.h"
 
-int build_img_name(entity_t *entity, char *value)
+int build_img_name(image_t *image, char *value)
 {
-    printf("build image name...\n");
-    entity->name = my_strdup(value);
+    image->name = my_strdup(value);
     return (0);
 }
 
-int build_img_posx(entity_t *entity, char *value)
+int build_img_posx(image_t *image, char *value)
 {
-    printf("build image posx...\n");
+    int coord_x = my_getnbr(value);
+
+    image->position.x = coord_x;
     return (0);
 }
 
-int build_img_posy(entity_t *entity, char *value)
+int build_img_posy(image_t *image, char *value)
 {
-    printf("build image posy...\n");
+    int coord_x = my_getnbr(value);
+
+    image->position.x = coord_x;
     return (0);
 }
 
-int build_img_width(entity_t *entity, char *value)
+int build_img_width(image_t *image, char *value)
 {
-    printf("build image width...\n");
+    int width = my_getnbr(value);
+    
+    image->width = width;
     return (0);
 }
 
-int build_img_height(entity_t *entity, char *value)
+int build_img_height(image_t *image, char *value)
 {
-    printf("build image height...\n");
+    int height = my_getnbr(value);
+    
+    image->height = height;
     return (0);
 }

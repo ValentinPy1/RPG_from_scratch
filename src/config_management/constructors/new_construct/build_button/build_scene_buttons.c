@@ -6,10 +6,26 @@
 */
 #include "build_scene_buttons.h"
 
+void init_default_button(button_t *button)
+{
+    button->name = NULL;
+    button->position = (sfVector2f) {50, 50};
+    button->width = 50;
+    button->height = 50;
+    button->scale = (sfVector2f) {1, 1};
+    button->rotation = 0;
+    button->sprite = NULL;
+    button->texture = NULL;
+    button->ho_sprite = NULL;
+    button->ho_texture = NULL;
+    button->callback = NULL;
+}
+
 int build_buttons_opt(button_t *button, char *opt, char *value)
 {
     if (opt == NULL || value == NULL)
         return (0);
+    init_default_button(button);
     for (int index = 0; BUTT_OPT_TAB[index].name != NULL; index++) {
         if (my_strcmp(opt, BUTT_OPT_TAB[index].name) == 1)
             (*BUTT_OPT_TAB[index].func)(button, value);
@@ -37,6 +53,7 @@ int build_buttons(button_t **head_ref, char **content, int *line)
         new_button->next = *head_ref;
         *head_ref = new_button;
     }
+    return (0);
 }
 
 int build_scene_buttons(scene_t *scene, char **content, int *line)
