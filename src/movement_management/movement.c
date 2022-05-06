@@ -21,8 +21,8 @@ void move_dir(data_t *game_data, sfVector2f dir, int key, int sprite)
             return;
         if (is_blocking_tile(game_data->scene_list[game_data->run_index]->map,
         temp_pos) == 2) {
-            game_data->red->pos.x = 1000;
-            game_data->red->pos.y = 800;
+            game_data->red->pos.x = 2260;
+            game_data->red->pos.y = 620;
         }
         if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
             game_data->red->pos.x += game_data->red->stats->spd * dir.x * 0.5;
@@ -46,5 +46,6 @@ void player_move(data_t *game_data, scene_t *scene)
         move_dir(game_data, (sfVector2f) {1, 0}, game_data->keys->right, 2);
         set_position(game_data->red->player_sprite,
         game_data->red->pos.x, game_data->red->pos.y);
+        printf("%.2f %.2f\n", game_data->red->pos.x, game_data->red->pos.y);
     }
 }
