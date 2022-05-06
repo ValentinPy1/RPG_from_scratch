@@ -7,7 +7,8 @@
 
 #include "movement.h"
 #include "particles.h"
-#include "math.h"
+#include <math.h>
+#include <stdlib.h>
 
 void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
 {
@@ -44,11 +45,22 @@ void player_knockback(data_t *gd, scene_t *scene)
         red->kb_speed *= 0.9;
 }
 
+void handle_percentage(data_t *gd, scene_t *scene)
+{
+    char *str = my_getstr(gd->red->percentage);
+    if (gd->frame_count % (gd->framerate * REGEN_DELAY) == 0 &&
+    gd->red->percentage > 0) {
+        gd->red->percentage -= 1;
+    }
+    sfText_setPosition(scene->texts[0], (sfVector2f) {gd->red->pos.x - 290, gd->red->pos.y - 200});
+    sfText_setString(scene->texts[0], str);
+    free(str);
+}
+
 void player_move(data_t *gd, scene_t *scene)
 {
     gd->red->time = sfClock_getElapsedTime(gd->red->clock);
     gd->red->seconds = gd->red->time.microseconds / 1000000.0;
-
     if (scene->background_to_run == 1) {
         move_dir(gd, (sfVector2f) {0, -1}, gd->keys->up, 3);
         move_dir(gd, (sfVector2f) {0, 1}, gd->keys->down, 0);
@@ -57,5 +69,6 @@ void player_move(data_t *gd, scene_t *scene)
         set_position(gd->red->player_sprite,
         gd->red->pos.x, gd->red->pos.y);
         player_knockback(gd, scene);
+        handle_percentage(gd, scene);
     }
 }
