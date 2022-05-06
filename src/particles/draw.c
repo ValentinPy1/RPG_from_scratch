@@ -10,6 +10,7 @@
 #include "structures.h"
 #include "random.h"
 #include <stdbool.h>
+#include "manage_display.h"
 
 bool is_in_screen(data_t *gd, sfVector2f pos);
 
@@ -54,7 +55,7 @@ data_t *game_data, scene_t *scene)
     particle_param_t lava = setup_lava_param();
     partic_ll_t *node_lava;
 
-    update_groups(game_data->scene_list[1]->partic->next);
+    update_groups(game_data, game_data->scene_list[1]->partic->next);
     sup_partic_groups(game_data->scene_list[1]->partic->next);
     draw_groups(win, game_data->scene_list[1]->partic->next);
     lava.pos = (sfVector2f) {get_rdm() * 1920, get_rdm() * 1080};

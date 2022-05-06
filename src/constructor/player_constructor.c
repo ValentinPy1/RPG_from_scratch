@@ -41,7 +41,7 @@ sfSprite *create_sprite(char const *filepath, float x, float y)
 static stats_t *setup_stats(void)
 {
     stats_t *stats = malloc(sizeof(stats_t));
-    stats->att = 5;
+    stats->att = 25;
     stats->def = 5;
     stats->spd = 2;
     return stats;

@@ -19,7 +19,7 @@ void enemy_hover(enem_t *enem, sfVector2f intent)
 {
     enem->time = sfClock_getElapsedTime(enem->anim);
     enem->seconds = enem->time.microseconds / MSEC;
-    if (abs(intent.x) > 20)
+    if (fabs(intent.x) > 20)
         if (intent.x < 0)
             sfSprite_setScale(enem->sprite, (sfVector2f) {1, 1});
         else
