@@ -58,7 +58,7 @@ void enemy_attack(data_t *gd, enemies_t *node)
     if (node->enem->last_attack < gd->frame_count -
     ENEM_ATTACK_DELAY * gd->framerate &&
     get_distance(node->enem->pos, gd->red->pos) < ENEM_ATTACK_DIST) {
-        gd->red->kb_speed = 1 + gd->red->percentage / 10;
+        gd->red->kb_speed = 5 + gd->red->percentage / 10;
         gd->red->kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x));
         spawn_blood(gd);
         gd->red->percentage += 5;
