@@ -51,7 +51,7 @@ void kbd_input(data_t *gd, scene_t *scene, sfEvent event, sfVector2i mouse_loc)
 
 static void init_hud(sfRenderWindow *window, data_t *game_data)
 {
-    sfFloatRect view_rect = {0, 0, 1920, 1080};
+    sfFloatRect view_rect = {0, 0, WINDOW_WIDTH, WINDOW_HEIGHT};
     sfVector2f center_player_cam = {0, 0};
 
     sfView_reset(game_data->red->view, view_rect);

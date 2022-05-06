@@ -53,9 +53,10 @@ void game_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 
 void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 {
-    if (scene->background_to_run == 2)
+    if (scene->background_to_run == 2) {
         sfRenderWindow_drawSprite(window, scene->background_sprite, NULL);
-    else if (scene->background_to_run == 1) {
+        update_stats(game_data);
+    } else if (scene->background_to_run == 1) {
         game_scene(window, game_data, scene);
     }
     draw_images(window, scene);
