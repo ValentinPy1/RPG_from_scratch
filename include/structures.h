@@ -10,6 +10,11 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include "particles.h"
+    #include "enemies.h"
+
+static const int WIN_WIDTH = 1920;
+static const int WIN_HEIGHT = 1080;
+static const int WIN_DIAG = 2203;
 
 typedef struct data_s data_t;
 
@@ -110,7 +115,14 @@ typedef struct set_s {
     int window_y;
 } set_t;
 
+typedef struct stats_s {
+    int att;
+    int def;
+    int spd;
+} stats_t;
+
 typedef struct player_s {
+    stats_t *stats;
     sfVector2f pos;
     sfSprite *player_sprite;
     sfIntRect *player_rect;
@@ -118,7 +130,17 @@ typedef struct player_s {
     sfClock *clock;
     sfTime time;
     float seconds;
+    float kb_dir;
+    float kb_speed;
+    float percentage;
 } player_t;
+
+typedef struct key_s {
+    int up;
+    int right;
+    int down;
+    int left;
+} keys_t;
 
 struct data_s {
     set_t *settings;
@@ -128,6 +150,10 @@ struct data_s {
     scene_t **scene_list;
     char **scene_names;
     partic_ll_t *partic;
+    keys_t *keys;
+    unsigned int framerate;
+    sfRenderWindow *window;
+    enemies_t *enemies;
 };
 
 #endif /*STRUCT_H_*/

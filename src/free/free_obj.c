@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2022
-** free_data
+** EPITECH PROJECT, 2021
+** MyRPG
 ** File description:
-** Source code to free all data
+** free_obj.c
 */
 
 #include "free_data.h"

@@ -13,4 +13,6 @@
 
 int my_putstr(char *str);
 int my_strcmp(char *str1, char *str2);
+void load_vertices(hitbox_t *hitbox);
+
 #endif /*CALLB_H_*/

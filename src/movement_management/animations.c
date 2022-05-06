@@ -14,9 +14,9 @@ void step_particles(data_t *game_data)
 
     param = setup_step_param();
     param.pos = (sfVector2f) {game_data->red->pos.x,
-    game_data->red->pos.y};
+    game_data->red->pos.y + 14};
     node = setup_partic_node(&param);
-    add_partic_group(game_data->partic, node);
+    add_partic_group(game_data->scene_list[1]->partic, node);
 }
 
 void move_rect(sfIntRect *rect, int offset, int max_value)

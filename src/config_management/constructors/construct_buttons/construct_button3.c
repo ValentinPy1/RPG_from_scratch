@@ -21,6 +21,4 @@ int but_construct_callback(button_t *button, char *value)
     write_error("\".\n");
     return (-1);
 }
-
 // TO DO CLICKED TEXTURE
-

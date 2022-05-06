@@ -9,6 +9,9 @@
 #include "callbacks.h"
 #include "structures.h"
 #include "random.h"
+#include <stdbool.h>
+
+bool is_in_screen(data_t *gd, sfVector2f pos);
 
 void draw_partic_arr(sfRenderWindow *win, partic_arr_t *partic)
 {
@@ -28,50 +31,49 @@ void draw_groups(sfRenderWindow *win, partic_ll_t *groups)
     draw_groups(win, groups->next);
 }
 
+static void spawn_fire(data_t *game_data)
+{
+    particle_param_t fire = setup_fire_param();
+    partic_ll_t *node_fire;
+
+    fire.pos = (sfVector2f) {560, 495};
+    if (is_in_screen(game_data, fire.pos)) {
+        node_fire = setup_partic_node(&fire);
+        add_partic_group(game_data->scene_list[1]->partic, node_fire);
+    }
+    fire.pos = (sfVector2f) {1810, 720};
+    if (is_in_screen(game_data, fire.pos)) {
+        node_fire = setup_partic_node(&fire);
+        add_partic_group(game_data->scene_list[1]->partic, node_fire);
+    }
+}
+
 void handle_particles(sfRenderWindow *win,
 data_t *game_data, scene_t *scene)
 {
     particle_param_t lava = setup_lava_param();
-    particle_param_t fire = setup_fire_param();
     partic_ll_t *node_lava;
-    partic_ll_t *node_fire;
 
-    update_groups(game_data->partic->next);
-    sup_partic_groups(game_data->partic->next);
-    draw_groups(win, game_data->partic->next);
+    update_groups(game_data->scene_list[1]->partic->next);
+    sup_partic_groups(game_data->scene_list[1]->partic->next);
+    draw_groups(win, game_data->scene_list[1]->partic->next);
     lava.pos = (sfVector2f) {get_rdm() * 1920, get_rdm() * 1080};
     if (is_in_screen(game_data, lava.pos) &&
-    my_strcmp(scene->name, "game_menu") && get_rdm() > 0.5) {
+    my_strcmp(scene->name, "main_scene") && get_rdm() > 0.5) {
         node_lava = setup_partic_node(&lava);
-        add_partic_group(game_data->partic, node_lava);
+        add_partic_group(game_data->scene_list[1]->partic, node_lava);
     }
-    fire.pos = (sfVector2f) {560, 400};
-    if (is_in_screen(game_data, fire.pos)) {
-        node_fire = setup_partic_node(&fire);
-        add_partic_group(game_data->partic, node_fire);
-    }
+    spawn_fire(game_data);
 }
 
-void spawn_blood(data_t *game_data, sfVector2i mouse_loc)
+void spawn_blood(data_t *game_data)
 {
     partic_ll_t *node;
     particle_param_t param;
 
-    if (sfMouse_isButtonPressed(sfMouseLeft)) {
-        param = setup_blood_param();
-        param.pos = (sfVector2f) {game_data->red->pos.x,
-        game_data->red->pos.y - 10};
-        param.init_vel.x = (mouse_loc.x - 980) / 50;
-        param.init_vel.y = (mouse_loc.y - 540) / 50;
-        node = setup_partic_node(&param);
-        add_partic_group(game_data->partic, node);
-    } else if (sfMouse_isButtonPressed(sfMouseRight)) {
-        param = setup_sperm_param();
-        param.pos = (sfVector2f) {game_data->red->pos.x,
-        game_data->red->pos.y - 10};
-        param.init_vel.x = (mouse_loc.x - 980) / 50;
-        param.init_vel.y = (mouse_loc.y - 540) / 50;
-        node = setup_partic_node(&param);
-        add_partic_group(game_data->partic, node);
-    }
+    param = setup_blood_param();
+    param.pos = (sfVector2f) {game_data->red->pos.x,
+    game_data->red->pos.y};
+    node = setup_partic_node(&param);
+    add_partic_group(game_data->scene_list[1]->partic, node);
 }

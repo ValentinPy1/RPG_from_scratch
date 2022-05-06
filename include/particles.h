@@ -11,6 +11,7 @@
     #include <SFML/Graphics.h>
     #include <SFML/System.h>
     #include <SFML/Window.h>
+    #include <stdbool.h>
 
     #define PI 3.14159265359
 

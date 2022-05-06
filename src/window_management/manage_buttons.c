@@ -12,7 +12,7 @@ void exec_button_clicked(data_t *game_data, button_t **buttons, int index)
     if (game_data->scene_list[game_data->run_index]->music != NULL)
         sfSound_stop(game_data->scene_list[game_data->run_index]->music);
     sfSound_play(buttons[index]->sound);
-    (*buttons[index]->callback)(buttons[index], game_data->scene_names,
+    (*buttons[index]->callback)(game_data, game_data->scene_names,
     &(game_data->run_index));
     if (game_data->run_index == -1) {
         return;

@@ -30,12 +30,21 @@ sfSprite *create_sprite(char const *filepath, float x, float y)
     sfTexture *texture = sfTexture_createFromFile(filepath, NULL);
     sfSprite *sprite = sfSprite_create();
     sfVector2f scale = {x, y};
-    sfVector2f origin = {8, 16};
+    sfVector2f origin = {8, 8};
 
     sfSprite_setTexture(sprite, texture, sfFalse);
     sfSprite_setScale(sprite, scale);
     sfSprite_setOrigin(sprite, origin);
     return (sprite);
+}
+
+static stats_t *setup_stats(void)
+{
+    stats_t *stats = malloc(sizeof(stats_t));
+    stats->att = 5;
+    stats->def = 5;
+    stats->spd = 2;
+    return stats;
 }
 
 player_t *player_constructor(void)
@@ -45,12 +54,16 @@ player_t *player_constructor(void)
     sfTime tm;
 
     player->pos.x = 13 * 32;
-    player->pos.y = 6 * 32;
+    player->pos.y = 9 * 32;
     player->player_sprite =
-    create_sprite("asset/img/player/player_ss.png", 2, 2);
+    create_sprite("assets/img/player/player_ss.png", 2, 2);
     player->player_rect = set_player_rect();
     player->view = sfView_create();
     player->clock = clk;
     player->time = tm;
+    player->stats = setup_stats();
+    player->kb_dir = 0;
+    player->kb_speed = 0;
+    player->percentage = 0;
     return player;
 }
