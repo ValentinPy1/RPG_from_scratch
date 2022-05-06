@@ -21,9 +21,8 @@ sfVector2f handle_dest(data_t *gd, enemies_t *node)
         cos(angle) * dist, node->enem->pos.y + sin(angle) * dist};
         return (sfVector2f) {0, 0};
     }
-    if (get_distance(gd->red->pos, node->enem->pos) < AGGRO_DIST) {
+    if (get_distance(gd->red->pos, node->enem->pos) < AGGRO_DIST)
         node->enem->destination = node->enem->pos;
-    }
     return (sfVector2f) {node->enem->destination.x - node->enem->pos.x,
     node->enem->destination.y - node->enem->pos.y};
 }
