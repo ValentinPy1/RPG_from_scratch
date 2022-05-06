@@ -14,18 +14,19 @@ void spawn_enem(data_t *gd);
 
 void knife(data_t *game_data)
 {
-    int frame = 0;
     set_position(game_data->red->attack_sprite,
     game_data->red->pos.x + OFFSET[game_data->red->facing].x,
     game_data->red->pos.y + OFFSET[game_data->red->facing].y);
-    sfRenderWindow_drawSprite(game_data->window,
-    game_data->red->attack_sprite, NULL);
+    if (game_data->red->attack_state != 5) {
+        sfRenderWindow_drawSprite(game_data->window,
+        game_data->red->attack_sprite, NULL);
+    }
     game_data->red->attack_time =
     sfClock_getElapsedTime(game_data->red->attack_clock);
     game_data->red->attack_seconds =
     game_data->red->attack_time.microseconds / 1000000.0;
     if (game_data->red->attack_seconds > 0.10) {
-        if (game_data->red->attack_state <= 4) {
+        if (game_data->red->attack_state !=  5) {
             move_rect(game_data->red->attack_rect, 32, 160);
             sfClock_restart(game_data->red->attack_clock);
             game_data->red->attack_state++;

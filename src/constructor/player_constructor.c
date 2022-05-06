@@ -34,7 +34,7 @@ sfSprite *create_sprite(char const *filepath, float x, float y)
 static stats_t *setup_stats(void)
 {
     stats_t *stats = malloc(sizeof(stats_t));
-    stats->att = 5;
+    stats->att = 25;
     stats->def = 5;
     stats->spd = 2;
     return stats;
@@ -69,5 +69,9 @@ player_t *player_constructor(void)
     player->view = sfView_create();
     player->clock = clk;
     player->time = tm;
+    player->stats = setup_stats();
+    player->kb_dir = 0;
+    player->kb_speed = 0;
+    player->percentage = 0;
     return player;
 }
