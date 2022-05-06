@@ -126,6 +126,7 @@ typedef struct player_s {
     sfTime attack_time;
     float attack_seconds;
     int attack_state;
+    int facing;
     sfView *view;
 } player_t;
 

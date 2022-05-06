@@ -10,6 +10,9 @@
     #include <stddef.h>
     #include "structures.h"
 
+static const sfVector2f OFFSET[4] =
+{{-16, 0}, {-32, -32}, {0, -32}, {-16, -35}};
+
 void display_map(sfRenderWindow *window, map_t *map_data);
 void set_position(sfSprite *sprite, float x, float y);
 void handle_particles(sfRenderWindow *win, data_t *game_data, scene_t *scene);

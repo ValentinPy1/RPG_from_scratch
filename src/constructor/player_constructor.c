@@ -46,6 +46,7 @@ static void set_player_values(player_t *player)
     player->pos.y = 9 * 32;
     player->attack_state = 0;
     player->stats = setup_stats();
+    player->facing = 0;
 }
 
 player_t *player_constructor(void)

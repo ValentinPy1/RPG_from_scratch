@@ -11,6 +11,7 @@
 static void when_key_pressed(data_t *game_data,
 sfVector2f dir, int sprite, sfVector2f temp_pos)
 {
+    game_data->red->facing = sprite;
     game_data->red->player_rect->left = sprite * 16;
     game_data->red->attack_rect->left = sprite * 32;
     if (is_blocking_tile(game_data->scene_list[game_data->run_index]->map,

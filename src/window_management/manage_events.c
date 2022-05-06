@@ -69,6 +69,7 @@ scene_t *scene, sfVector2i mouse_loc)
     if (event.type == sfEvtMouseButtonPressed) {
         spawn_blood(game_data, scene, mouse_loc);
         push_enemies(game_data);
+        game_data->red->attack_state = 0;
     }
     if (event.type == sfEvtKeyPressed) {
         kbd_input(game_data, scene, event, mouse_loc);
