@@ -26,8 +26,9 @@ int is_blocking_tile(map_t *map, sfVector2f pos)
         return (1);
     if ((map->tiles[y / 32][x / 32] == 38)) {
         return (2);
-    } else if (map->tiles[y / 32][x / 32] >= 4 && map->tiles[y / 32][x / 32] <= 7 ||
-    (map->tiles[y / 32][x / 32] >= 36 && map->tiles[y / 32][x / 32] <= 43)) {
+    } else if (map->tiles[y / 32][x / 32] >= 4 &&
+    map->tiles[y / 32][x / 32] <= 7 || (map->tiles[y / 32][x / 32] >= 36 &&
+    map->tiles[y / 32][x / 32] <= 43)) {
         return (1);
     } else {
         return (0);

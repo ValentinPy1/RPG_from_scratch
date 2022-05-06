@@ -39,8 +39,9 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
 bool is_all_lava(scene_t *scene, int x, int y)
 {
     for (int i = 0; i < 9; ++i) {
-        if (!(scene->map->tiles[y / 32 + (i / 3 - 1)][x / 32 + (i % 3 - 1)] >= 4 &&
-            scene->map->tiles[y / 32 + (i / 3 - 1)][x / 32 + (i % 3 - 1)] <= 7)) {
+        if (!(scene->map->tiles[y / 32 +
+        (i / 3 - 1)][x / 32 + (i % 3 - 1)] >= 4 && scene->map->tiles[y / 32 +
+        (i / 3 - 1)][x / 32 + (i % 3 - 1)] <= 7)) {
             return false;
         }
     }
@@ -74,7 +75,8 @@ void handle_percentage(data_t *gd, scene_t *scene)
     gd->red->percentage > 0) {
         gd->red->percentage -= 1;
     }
-    sfText_setPosition(scene->texts[0], (sfVector2f) {gd->red->pos.x - 290, gd->red->pos.y - 200});
+    sfText_setPosition(scene->texts[0],
+    (sfVector2f) {gd->red->pos.x - 290, gd->red->pos.y - 200});
     sfText_setString(scene->texts[0], str);
     free(str);
 }
