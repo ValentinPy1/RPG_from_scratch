@@ -5,31 +5,8 @@
 ** player_constructor.c
 */
 
-#include "structures.h"
+#include "player.h"
 #include <stdlib.h>
-
-sfIntRect *set_rect(int size)
-{
-    sfIntRect *rectangle = malloc(sizeof(sfIntRect));
-    rectangle->top = 0;
-    rectangle->left = 0;
-    rectangle->width = size;
-    rectangle->height = size;
-    return rectangle;
-}
-
-sfSprite *create_sprite(char const *filepath, float x, float y)
-{
-    sfTexture *texture = sfTexture_createFromFile(filepath, NULL);
-    sfSprite *sprite = sfSprite_create();
-    sfVector2f scale = {x, y};
-    sfVector2f origin = {8, 8};
-
-    sfSprite_setTexture(sprite, texture, sfFalse);
-    sfSprite_setScale(sprite, scale);
-    sfSprite_setOrigin(sprite, origin);
-    return (sprite);
-}
 
 static stats_t *setup_stats(void)
 {
@@ -47,6 +24,21 @@ static void set_player_values(player_t *player)
     player->attack_state = 0;
     player->stats = setup_stats();
     player->facing = 0;
+    player->kb_dir = 0;
+    player->kb_speed = 0;
+    player->percentage = 0;
+    player->view = sfView_create();
+}
+
+static void get_sound(player_t *player)
+{
+    sfSoundBuffer *kill_buffer =
+    sfSoundBuffer_createFromFile("assets/snd/kill.ogg");
+    sfSound *kill = sfSound_create();
+
+    sfSound_setBuffer(kill, kill_buffer);
+    player->kill = kill;
+    player->kill_buffer = kill_buffer;
 }
 
 player_t *player_constructor(void)
@@ -66,12 +58,9 @@ player_t *player_constructor(void)
     player->attack_rect = set_rect(32);
     player->attack_clock = att_clk;
     player->attack_time = att_tm;
-    player->view = sfView_create();
     player->clock = clk;
     player->time = tm;
     player->stats = setup_stats();
-    player->kb_dir = 0;
-    player->kb_speed = 0;
-    player->percentage = 0;
+    get_sound(player);
     return player;
 }

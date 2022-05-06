@@ -132,6 +132,8 @@ typedef struct player_s {
     float kb_dir;
     float kb_speed;
     float percentage;
+    sfSound *kill;
+    sfSoundBuffer *kill_buffer;
 } player_t;
 
 typedef struct key_s {
