@@ -32,6 +32,7 @@ static void push_enemies(data_t *gd)
         }
         tmp = tmp->next;
     }
+    gd->red->attack_state = 1;
 }
 
 void kbd_input(data_t *gd, scene_t *scene, sfEvent event, sfVector2i mouse_loc)
@@ -92,6 +93,7 @@ void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         }
         if (event.type == sfEvtMouseButtonPressed) {
             push_enemies(game_data);
+            game_data->red->attack_state = 0;
         }
         if (event.type == sfEvtKeyPressed) {
             kbd_input(game_data, scene, event, mouse_loc);
