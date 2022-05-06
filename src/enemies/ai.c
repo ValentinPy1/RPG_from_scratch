@@ -34,7 +34,7 @@ sfVector2f calculate_intent(data_t *gd, enemies_t *node)
     sfVector2f ppos = {gd->red->pos.x, gd->red->pos.y};
     sfVector2f dir = get_direction(epos, ppos);
     float dist = get_distance(epos, ppos);
-    float target = 10;
+    float target = ENEM_COLLIDE_DIST;
     float spring = dist < AGGRO_DIST ? (dist - target) : 0;
     sfVector2f intent = {dir.x * spring, dir.y * spring};
     sfVector2f tmpos;

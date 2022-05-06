@@ -37,7 +37,7 @@ particle_param_t setup_blood_param(void)
     param.size = 1.5;
     param.gravity = (sfVector2f) {0, 0.3};
     param.resistance = (sfVector2f) {0, 0.01};
-    param.count = 100;
+    param.count = 50;
     return param;
 }
 

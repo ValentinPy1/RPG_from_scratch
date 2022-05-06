@@ -15,6 +15,7 @@
 static const int WIN_WIDTH = 1920;
 static const int WIN_HEIGHT = 1080;
 static const int WIN_DIAG = 2203;
+static const int MSEC = 1000000;
 
 typedef struct coord_s {
     double x;
@@ -144,6 +145,7 @@ typedef struct data_s {
     unsigned int framerate;
     sfRenderWindow *window;
     enemies_t *enemies;
+    unsigned long long int frame_count;
 } data_t;
 
 #endif /*STRUCT_H_*/

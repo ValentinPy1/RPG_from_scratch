@@ -44,6 +44,7 @@ void open_window(int width, int height, data_t *game_data)
             break;
         }
         sfRenderWindow_display(game_data->window);
+        game_data->frame_count += 1;
     }
     sfRenderWindow_destroy(game_data->window);
 }
