@@ -45,7 +45,6 @@ void update_enem_node(data_t *gd, enemies_t *node)
         gd->red->kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x));
         spawn_blood(gd);
         gd->red->percentage += 5;
-        my_printf("percentage : %d\n", gd->red->percentage);
     }
     enem_pos.x += node->enem->kb_speed * cos(node->enem->kb_dir);
     enem_pos.y += node->enem->kb_speed * sin(node->enem->kb_dir);
