@@ -25,54 +25,29 @@ SRC = 	src/main.c													\
 		src/config_management/callbacks/button_callback1.c			\
 		src/config_management/callbacks/button_callback2.c			\
 		src/config_management/callbacks/button_callback3.c			\
-		$(CON_PATH)my_parser.c										\
-		$(CON_PATH)error_handling.c									\
-		$(CON_PATH)construct_scenes.c								\
-		$(CON_PATH)construct_map/map_parser.c						\
-		$(CON_PATH)construct_map/tools_parser.c						\
-		$(CON_PATH)construct_hitbox/init_hitbox.c					\
-		$(CON_PATH)construct_hitbox/load_vertices.c					\
-		$(CON_PATH)construct_texts/parse_text.c						\
-		$(CON_PATH)construct_texts/construct_text1.c				\
-		$(CON_PATH)construct_texts/construct_text2.c				\
-		$(CON_PATH)construct_texts/construct_text3.c				\
-		$(CON_PATH)construct_sounds/parse_sound.c					\
-		$(CON_PATH)construct_sounds/construct_sound.c				\
-		$(CON_PATH)construct_images/parse_images.c					\
-		$(CON_PATH)construct_images/construct_image1.c				\
-		$(CON_PATH)construct_images/construct_image2.c				\
-		$(CON_PATH)construct_buttons/parse_buttons.c 				\
-		$(CON_PATH)construct_buttons/construct_button1.c 			\
-		$(CON_PATH)construct_buttons/construct_button2.c 			\
-		$(CON_PATH)construct_buttons/construct_button3.c 			\
-		$(CON_PATH)construct_entities/parse_entities.c				\
-		$(CON_PATH)construct_entities/construct_entities1.c			\
-		$(CON_PATH)construct_entities/construct_entities2.c			\
-		$(CON_PATH)construct_background/parse_background.c			\
-		$(CON_PATH)construct_background/construct_background.c		\
-		src/config_management/constructors/new_construct/build_background/build_scene_background.c	\
-		src/config_management/constructors/new_construct/build_background/back_opt.c				\
-		src/config_management/constructors/new_construct/build_name/build_scene_name.c 				\
-		src/config_management/constructors/new_construct/build_name/name_opt.c						\
-		src/config_management/constructors/new_construct/build_button/build_scene_buttons.c			\
-		src/config_management/constructors/new_construct/build_button/button_opt.c					\
-		src/config_management/constructors/new_construct/build_button/button_opt2.c					\
-		src/config_management/constructors/new_construct/build_button/button_opt3.c					\
-		src/config_management/constructors/new_construct/build_entity/build_scene_entities.c		\
-		src/config_management/constructors/new_construct/build_entity/entity_opt.c					\
-		src/config_management/constructors/new_construct/build_entity/entity_opt2.c					\
-		src/config_management/constructors/new_construct/build_sound/build_scene_sounds.c			\
-		src/config_management/constructors/new_construct/build_sound/sound_opt.c					\
-		src/config_management/constructors/new_construct/build_text/build_scene_texts.c				\
-		src/config_management/constructors/new_construct/build_text/text_opt.c						\
-		src/config_management/constructors/new_construct/build_text/text_opt2.c						\
-		src/config_management/constructors/new_construct/build_text/text_opt3.c						\
-		src/config_management/constructors/new_construct/build_image/built_scene_images.c			\
-		src/config_management/constructors/new_construct/build_image/image_opt.c					\
-		src/config_management/constructors/new_construct/build_image/image_opt2.c					\
-		src/config_management/constructors/new_construct/build_scene.c								\
-		src/config_management/constructors/new_construct/scene_option.c								\
-		src/config_management/constructors/new_construct/construct_tools.c							\
+		$(CON_PATH)build_scene.c									\
+		$(CON_PATH)construct_tools.c								\
+		$(CON_PATH)scene_option.c									\
+		$(CON_PATH)build_background/build_scene_background.c		\
+		$(CON_PATH)build_background/back_opt.c						\
+		$(CON_PATH)build_name/build_scene_name.c 					\
+		$(CON_PATH)build_name/name_opt.c							\
+		$(CON_PATH)build_button/build_scene_buttons.c				\
+		$(CON_PATH)build_button/button_opt.c						\
+		$(CON_PATH)build_button/button_opt2.c						\
+		$(CON_PATH)build_button/button_opt3.c						\
+		$(CON_PATH)build_entity/build_scene_entities.c				\
+		$(CON_PATH)build_entity/entity_opt.c						\
+		$(CON_PATH)build_entity/entity_opt2.c						\
+		$(CON_PATH)build_sound/build_scene_sounds.c					\
+		$(CON_PATH)build_sound/sound_opt.c							\
+		$(CON_PATH)build_text/build_scene_texts.c					\
+		$(CON_PATH)build_text/text_opt.c							\
+		$(CON_PATH)build_text/text_opt2.c							\
+		$(CON_PATH)build_text/text_opt3.c							\
+		$(CON_PATH)build_image/built_scene_images.c					\
+		$(CON_PATH)build_image/image_opt.c							\
+		$(CON_PATH)build_image/image_opt2.c							\
 		src/random/random_generator.c								\
 		src/particles/setup.c										\
 		src/particles/update.c										\

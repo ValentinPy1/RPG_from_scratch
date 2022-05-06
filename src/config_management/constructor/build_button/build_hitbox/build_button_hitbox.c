@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** load_vertices
+** build_button_hitbox
 ** File description:
-** Program to get vertices of a square
+** Source code to build hitbox of a button
 */
 #include "load_vertices.h"
 
@@ -68,3 +68,24 @@ void load_vertices(hitbox_t *hitbox)
     }
     hitbox->circle[index] = NULL;
 }
+
+hitbox_t *init_hitbox(button_t *button)
+{
+    hitbox_t *hitbox = malloc(sizeof(hitbox_t));
+    sfRectangleShape *rectangle = sfRectangleShape_create();
+    sfVector2f size = {button->width, button->height};
+    sfVector2f origin = (sfVector2f) {button->width / 2,
+                                        button->height / 2};
+
+    sfRectangleShape_setOrigin(rectangle, origin);
+    sfRectangleShape_setPosition(rectangle, button->position);
+    sfRectangleShape_setRotation(rectangle, button->rotation);
+    sfRectangleShape_setSize(rectangle, size);
+    sfRectangleShape_setFillColor(rectangle, sfTransparent);
+    sfRectangleShape_setOutlineColor(rectangle, sfGreen);
+    sfRectangleShape_setOutlineThickness(rectangle, 1);
+    hitbox->rectangle = rectangle;
+    load_vertices(hitbox);
+    return (hitbox);
+}
+

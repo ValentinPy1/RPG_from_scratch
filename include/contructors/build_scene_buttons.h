@@ -51,4 +51,5 @@ int my_strcmp(char *str1, char *str2);
 char *my_strdup(char const *src);
 int write_error(char const *str);
 float my_atof(char *str);
+hitbox_t *init_hitbox(button_t *button);
 #endif /* !BUILD_SCENE_BUTTONS_H_ */

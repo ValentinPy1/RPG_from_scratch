@@ -30,6 +30,8 @@ int build_buttons_opt(button_t *button, char *opt, char *value)
         if (my_strcmp(opt, BUTT_OPT_TAB[index].name) == 1)
             (*BUTT_OPT_TAB[index].func)(button, value);
     }
+    button->hitbox = init_hitbox(button);
+
     free(opt);
     free(value);
     return (1);

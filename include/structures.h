@@ -72,6 +72,7 @@ typedef struct button_s {
     sfTexture *ho_texture;
     sfSound *clic_sound;
     sfSoundBuffer *sound_buffer;
+    hitbox_t *hitbox;
     int (*callback)(data_t *game_data, char **scenes_name, int *index_run);
 } button_t;
 
@@ -108,6 +109,7 @@ typedef struct scene_s {
     map_t *map;
     sfSprite *background_sprite;
     sfTexture *background_texture;
+    partic_ll_t *partic;
 } scene_t;
 
 typedef struct set_s {
@@ -149,7 +151,6 @@ struct data_s {
     player_t *red;
     scene_t **scene_list;
     char **scene_names;
-    partic_ll_t *partic;
     keys_t *keys;
     unsigned int framerate;
     sfRenderWindow *window;
