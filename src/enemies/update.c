@@ -41,9 +41,11 @@ void update_enem_node(data_t *gd, enemies_t *node)
     sfVector2f epos = node->enem->pos;
 
     if (get_distance(node->enem->pos, gd->red->pos) < 30) {
-        gd->red->kb_speed = 10;
+        gd->red->kb_speed = 1 + gd->red->percentage / 10;
         gd->red->kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x));
         spawn_blood(gd);
+        gd->red->percentage += 5;
+        my_printf("percentage : %d\n", gd->red->percentage);
     }
     enem_pos.x += node->enem->kb_speed * cos(node->enem->kb_dir);
     enem_pos.y += node->enem->kb_speed * sin(node->enem->kb_dir);
@@ -63,7 +65,7 @@ void update_enemies(data_t *gd, enemies_t *enemies)
         return;
     next = enemies->next;
     update_enem_node(gd, next);
-    if (next->enem->life <= 0 
+    if (next->enem->life <= 0
     || get_distance(next->enem->pos, gd->red->pos) > 800) {
         destroy_next_enemies(enemies);
         return;

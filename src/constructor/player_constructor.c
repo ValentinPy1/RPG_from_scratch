@@ -64,5 +64,6 @@ player_t *player_constructor(void)
     player->stats = setup_stats();
     player->kb_dir = 0;
     player->kb_speed = 0;
+    player->percentage = 0;
     return player;
 }

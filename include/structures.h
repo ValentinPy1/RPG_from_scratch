@@ -123,6 +123,7 @@ typedef struct player_s {
     float seconds;
     float kb_dir;
     float kb_speed;
+    float percentage;
 } player_t;
 
 typedef struct key_s {
