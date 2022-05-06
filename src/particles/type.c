@@ -53,7 +53,7 @@ particle_param_t setup_fire_param(void)
     param.size = 1.5;
     param.gravity = (sfVector2f) {0, -0.1};
     param.resistance = (sfVector2f) {0, 0.1};
-    param.count = 8;
+    param.count = 16;
     return param;
 }
 
