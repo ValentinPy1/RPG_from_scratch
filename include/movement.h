@@ -14,8 +14,10 @@
     #include <stdbool.h>
     #include "structures.h"
 
-    #define VIEW_WIDTH 600
-    #define VIEW_HEIGHT 400
+static const int VIEW_WIDTH  = 600;
+static const int VIEW_HEIGHT  = 400;
+static const int WINDOW_WIDTH = 1920;
+static const int WINDOW_HEIGHT = 1008;
 
 void set_position(sfSprite *sprite, float x, float y);
 int is_blocking_tile(map_t *map, sfVector2f pos);
