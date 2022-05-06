@@ -8,6 +8,7 @@
 
 int build_music_opt(scene_t *scene, char *opt, char *value)
 {
+    scene->music = sfSound_create();
     if (opt == NULL || value == NULL)
         return (0);
     for (int index = 0; SOUND_OPT_TAB[index].name != NULL; index++) {

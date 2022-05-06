@@ -46,10 +46,8 @@ int my_rpg(int ac, char *av[])
 
     if (init_game(ac, av, game_data) == -1)
         flag = 1;
-    if (flag == 0) {
-        // parse_tile(game_data->scene_list[index]->map);
-        // open_window(1920, 1080, game_data);
-    }
+    if (flag == 0)
+        open_window(1920, 1080, game_data);
     free_data(game_data);
     return (flag);
 }

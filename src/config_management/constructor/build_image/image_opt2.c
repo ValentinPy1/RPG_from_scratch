@@ -35,10 +35,11 @@ int build_img_texture(image_t *image, char *value)
         write_error(".\n");
         return (-1);
     }
+    printf("[IMAGE]pos:%f, %f\n", image->position.x, image->position.y);
+    sfSprite_setPosition(image->sprite, image->position);
     sfSprite_setRotation(image->sprite, image->rotation);
     sfSprite_setScale(image->sprite, image->scale);
     sfSprite_setOrigin(image->sprite, origin);
-    sfSprite_setPosition(image->sprite, image->position);
     sfSprite_setTexture(image->sprite, image->texture, sfFalse);
     return (0);
 }

@@ -24,7 +24,7 @@ int thirty_fps(data_t *game_data, char **scenes_name, int *index_run);
 int sixty_fps(data_t *game_data, char **scenes_name, int *index_run);
 int hundred_and_twenty_fps(data_t *game_data,
 char **scenes_name, int *index_run);
-int bar(data_t *game_data, char **scenes_name, int *index_run);
+int volume_bar(data_t *game_data, char **scenes_name, int *index_run);
 
 static const but_call_t BUT_CALL[11] = {
     {"no", nothing},
@@ -36,7 +36,7 @@ static const but_call_t BUT_CALL[11] = {
     {"30", thirty_fps},
     {"60", sixty_fps},
     {"120", hundred_and_twenty_fps},
-    {"bar", bar},
+    {"volume_bar", volume_bar},
     {NULL, NULL}
 };
 

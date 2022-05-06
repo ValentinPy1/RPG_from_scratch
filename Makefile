@@ -5,10 +5,10 @@
 ## Makefile code source
 ##
 
-CON_PATH = src/config_management/constructors/
+CON_PATH = src/config_management/constructor/
 
 SRC = 	src/main.c													\
-		src/free/free_data.c 										\
+		src/init_game.c												\
 		src/free/free_obj.c 										\
 		src/collision_algorithm/point_in_rect.c						\
 		src/window_management/open_window.c							\
@@ -17,14 +17,13 @@ SRC = 	src/main.c													\
 		src/window_management/manage_buttons.c						\
 		src/collision_management/map_collision.c					\
 		src/window_management/get_run_index.c 						\
-		src/config_management/get_value.c							\
-		src/config_management/get_keyword.c							\
 		src/config_management/get_names_scene.c 					\
 		src/config_management/get_config_files.c					\
 		src/config_management/get_content_file.c					\
 		src/config_management/callbacks/button_callback1.c			\
 		src/config_management/callbacks/button_callback2.c			\
 		src/config_management/callbacks/button_callback3.c			\
+		$(CON_PATH)build_map/map_parser.c							\
 		$(CON_PATH)build_scene.c									\
 		$(CON_PATH)construct_tools.c								\
 		$(CON_PATH)scene_option.c									\
@@ -36,6 +35,7 @@ SRC = 	src/main.c													\
 		$(CON_PATH)build_button/button_opt.c						\
 		$(CON_PATH)build_button/button_opt2.c						\
 		$(CON_PATH)build_button/button_opt3.c						\
+		$(CON_PATH)build_button/build_hitbox/build_button_hitbox.c	\
 		$(CON_PATH)build_entity/build_scene_entities.c				\
 		$(CON_PATH)build_entity/entity_opt.c						\
 		$(CON_PATH)build_entity/entity_opt2.c						\
@@ -48,6 +48,7 @@ SRC = 	src/main.c													\
 		$(CON_PATH)build_image/built_scene_images.c					\
 		$(CON_PATH)build_image/image_opt.c							\
 		$(CON_PATH)build_image/image_opt2.c							\
+		src/linked_list_tools/get_button.c							\
 		src/random/random_generator.c								\
 		src/particles/setup.c										\
 		src/particles/update.c										\

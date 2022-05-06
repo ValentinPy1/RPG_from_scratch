@@ -51,7 +51,7 @@ player_t *player_constructor(void)
 {
     player_t *player = malloc(sizeof(player_t));
     sfClock *clk = sfClock_create();
-    sfTime tm;
+    sfTime tm = sfClock_getElapsedTime(clk);
 
     player->pos.x = 13 * 32;
     player->pos.y = 9 * 32;

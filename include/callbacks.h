@@ -14,5 +14,5 @@
 int my_putstr(char *str);
 int my_strcmp(char *str1, char *str2);
 void load_vertices(hitbox_t *hitbox);
-
+button_t *get_button(button_t *buttons, char *name);
 #endif /*CALLB_H_*/

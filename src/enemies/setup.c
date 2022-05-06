@@ -16,7 +16,7 @@ static enem_t *setup_enem(sfVector2f pos)
 {
     enem_t *enem = malloc(sizeof(enem_t));
     sfClock *clk = sfClock_create();
-    sfTime tm;
+    sfTime tm = sfClock_getElapsedTime(clk);
 
     setup_values_enem(enem);
     enem->time = tm;

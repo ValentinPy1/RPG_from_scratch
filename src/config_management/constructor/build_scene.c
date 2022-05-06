@@ -28,8 +28,12 @@ void init_default_scene(scene_t *new_scene)
     new_scene->texts = NULL;
     new_scene->music = NULL;
     new_scene->music_buffer = NULL;
+    new_scene->map = NULL;
     new_scene->background_sprite = NULL;
     new_scene->background_texture = NULL;
+    new_scene->partic = malloc(sizeof(partic_ll_t));
+    new_scene->partic->partic_arr = NULL;
+    new_scene->partic->next = NULL;
 }
 
 scene_t *build_scene(char **content)

@@ -14,7 +14,7 @@ int build_img_name(image_t *image, char *value)
 
 int build_img_posx(image_t *image, char *value)
 {
-    int coord_x = my_getnbr(value);
+    int coord_x = my_atof(value);
 
     image->position.x = coord_x;
     return (0);
@@ -22,9 +22,9 @@ int build_img_posx(image_t *image, char *value)
 
 int build_img_posy(image_t *image, char *value)
 {
-    int coord_x = my_getnbr(value);
+    int coord_y = my_atof(value);
 
-    image->position.x = coord_x;
+    image->position.y = coord_y;
     return (0);
 }
 

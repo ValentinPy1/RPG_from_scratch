@@ -21,37 +21,47 @@ void display_hitbox(sfRenderWindow *window, hitbox_t *hitbox)
 
 void draw_buttons(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 {
-    for (int index = 0; scene->buttons[index] != NULL; index++) {
-        if (scene->buttons[index]->is_hovered == 0) {
+    button_t *head_ref_but = scene->buttons;
+
+    while (head_ref_but != NULL) {
+        if (head_ref_but->is_hovered == 0) {
             sfRenderWindow_drawSprite(window,
-                scene->buttons[index]->sprite, NULL);
-        } else if (scene->buttons[index]->is_hovered == 1) {
+                head_ref_but->sprite, NULL);
+        } else if (head_ref_but->is_hovered == 1) {
             sfRenderWindow_drawSprite(window,
-                scene->buttons[index]->ho_sprite, NULL);
+                head_ref_but->ho_sprite, NULL);
         }
         if (game_data->debug_mode == 1)
-            display_hitbox(window, scene->buttons[index]->hitbox);
+            display_hitbox(window, head_ref_but->hitbox);
+        head_ref_but = head_ref_but->next;
     }
 }
 
 void draw_images(sfRenderWindow *window, scene_t *scene)
 {
-    for (int index = 0; scene->images[index] != NULL; index++) {
-        sfRenderWindow_drawSprite(window, scene->images[index]->sprite, NULL);
+    image_t *head_ref_img = scene->images;
+
+    while (head_ref_img != NULL) {
+        sfRenderWindow_drawSprite(window, head_ref_img->sprite, NULL);
+        head_ref_img = head_ref_img->next;
     }
 }
 
-void draw_texts(sfRenderWindow *window, data_t *game_data, scene_t *scene) {
-    for (int index = 0; scene->texts[index] != NULL; index++)
-        sfRenderWindow_drawText(window, scene->texts[index], NULL);
+void draw_texts(sfRenderWindow *window, scene_t *scene) {
+    
+    text_t *head_ref_txt = scene->texts;
+
+    while (head_ref_txt != NULL) {
+        sfRenderWindow_drawText(window, head_ref_txt->text, NULL);
+        head_ref_txt = head_ref_txt->next;
+    }
 }
 
 void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 {
-    if (scene->background_to_run == 2)
+    if (scene->background_sprite != NULL)
         sfRenderWindow_drawSprite(window, scene->background_sprite, NULL);
-    else if (scene->background_to_run == 1) {
-        display_map(window, scene->map);
+    else if (scene->map != NULL) {
         init_view(window, game_data);
         sfSprite_setTextureRect(game_data->red->player_sprite,
         *game_data->red->player_rect);
@@ -62,6 +72,6 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         handle_particles(window, game_data, scene);
     }
     draw_images(window, scene);
-    draw_texts(window, game_data, scene);
+    draw_texts(window, scene);
     draw_buttons(window, game_data, scene);
 }

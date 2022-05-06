@@ -17,11 +17,13 @@ typedef struct but_call_s {
 int nothing(data_t *game_data, char **scenes_name, int *index_run);
 int play(data_t *game_data, char **scenes_name, int *index_run);
 int quit(data_t *game_data, char **scenes_name, int *index_run);
+int options(data_t *game_data, char **scenes_name, int *index_run);
 
 static const but_call_t BUT_CALL[11] = {
     {"no", nothing},
     {"play", play},
     {"quit", quit},
+    {"option", options},
     {NULL, NULL}
 };
 

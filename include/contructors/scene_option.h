@@ -27,11 +27,11 @@ int build_scene_sounds(scene_t *scene, char **content, int *line);
 static const game_func_t TAB_SOPT[] = {
     {"scene_name", build_scene_name},
     {"background", build_scene_background},
-    {"buttons", build_scene_buttons},
-    {"entities", build_scene_entities},
-    {"texts", build_scene_texts},
-    {"images", build_scene_images},
-    {"sounds", build_scene_sounds},
+    {"button", build_scene_buttons},
+    {"entity", build_scene_entities},
+    {"text", build_scene_texts},
+    {"image", build_scene_images},
+    {"sound", build_scene_sounds},
     {NULL, NULL}
 };
 

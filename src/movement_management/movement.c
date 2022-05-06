@@ -52,7 +52,7 @@ void player_move(data_t *game_data, scene_t *scene)
     game_data->red->time = sfClock_getElapsedTime(game_data->red->clock);
     game_data->red->seconds = game_data->red->time.microseconds / 1000000.0;
 
-    if (scene->background_to_run == 1) {
+    if (scene->map != NULL) {
         move_dir(game_data, (sfVector2f) {0, -1}, game_data->keys->up, 3);
         move_dir(game_data, (sfVector2f) {0, 1}, game_data->keys->down, 0);
         move_dir(game_data, (sfVector2f) {-1, 0}, game_data->keys->left, 1);

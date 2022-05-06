@@ -22,7 +22,6 @@ int build_images_opt(image_t *image, char *opt, char *value)
 {
     if (opt == NULL || value == NULL)
         return (0);
-    init_default_image(image);
     for (int index = 0; IMG_OPT_TAB[index].name != NULL; index++) {
         if (my_strcmp(opt, IMG_OPT_TAB[index].name) == 1)
             (*IMG_OPT_TAB[index].func)(image, value);
@@ -38,6 +37,7 @@ int build_images(image_t **head_ref, char **content, int *line)
     char *value = NULL;
     image_t *new_image = malloc(sizeof(image_t));
         
+    init_default_image(new_image);
     for (int index = 0; content[*line][index] != '\0'; index++) {
         opt = get_obj_opt(content, line, &index);
         value = get_opt_value(content, line, &index);

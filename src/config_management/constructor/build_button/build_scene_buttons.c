@@ -25,13 +25,10 @@ int build_buttons_opt(button_t *button, char *opt, char *value)
 {
     if (opt == NULL || value == NULL)
         return (0);
-    init_default_button(button);
     for (int index = 0; BUTT_OPT_TAB[index].name != NULL; index++) {
         if (my_strcmp(opt, BUTT_OPT_TAB[index].name) == 1)
             (*BUTT_OPT_TAB[index].func)(button, value);
     }
-    button->hitbox = init_hitbox(button);
-
     free(opt);
     free(value);
     return (1);
@@ -42,12 +39,14 @@ int build_buttons(button_t **head_ref, char **content, int *line)
     char *opt = NULL;
     char *value = NULL;
     button_t *new_button = malloc(sizeof(button_t));
-        
+
+    init_default_button(new_button);
     for (int index = 0; content[*line][index] != '\0'; index++) {
         opt = get_obj_opt(content, line, &index);
         value = get_opt_value(content, line, &index);
         build_buttons_opt(new_button, opt, value);
     }
+    new_button->hitbox = init_hitbox(new_button);
     if ((*head_ref) == NULL) {
         new_button->next = NULL;
         *head_ref = new_button;

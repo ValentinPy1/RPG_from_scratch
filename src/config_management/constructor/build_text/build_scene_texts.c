@@ -27,7 +27,6 @@ int build_texts_opt(text_t *text, char *opt, char *value)
 {
     if (opt == NULL || value == NULL)
         return (0);
-    init_default_text(text);
     for (int index = 0; TEXT_OPT_TAB[index].name != NULL; index++) {
         if (my_strcmp(opt, TEXT_OPT_TAB[index].name) == 1)
             (*TEXT_OPT_TAB[index].func)(text, value);
@@ -43,6 +42,7 @@ int build_texts(text_t **head_ref, char **content, int *line)
     char *value = NULL;
     text_t *new_text = malloc(sizeof(text_t));
         
+    init_default_text(new_text);
     for (int index = 0; content[*line][index] != '\0'; index++) {
         opt = get_obj_opt(content, line, &index);
         value = get_opt_value(content, line, &index);

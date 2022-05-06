@@ -25,7 +25,6 @@ int build_entities_opt(entity_t *entity, char *opt, char *value)
 {
     if (opt == NULL || value == NULL)
         return (0);
-    init_default_entity(entity);
     for (int index = 0; ENT_OPT_TAB[index].name != NULL; index++) {
         if (my_strcmp(opt, ENT_OPT_TAB[index].name) == 1)
             (*ENT_OPT_TAB[index].func)(entity, value);
@@ -41,6 +40,7 @@ int build_entities(entity_t **head_ref, char **content, int *line)
     char *value = NULL;
     entity_t *new_entity = malloc(sizeof(entity_t));
         
+    init_default_entity(new_entity);
     for (int index = 0; content[*line][index] != '\0'; index++) {
         opt = get_obj_opt(content, line, &index);
         value = get_opt_value(content, line, &index);

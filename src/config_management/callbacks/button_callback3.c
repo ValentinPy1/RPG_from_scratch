@@ -16,17 +16,21 @@ static void set_volumes(data_t *game_data, sfVector2i mouse_pos)
     sfSound_setVolume(game_data->scene_list[2]->music, ratio);
 }
 
-int bar(data_t *game_data, char **scenes_name, int *index_run)
+int volume_bar(data_t *game_data, char **scenes_name, int *index_run)
 {
-    sfVector2i mouse_pos = sfMouse_getPosition(game_data->window);
-    game_data->scene_list[2]->buttons[8]->position.x = mouse_pos.x;
-    game_data->scene_list[2]->buttons[8]->hitbox->position.x = mouse_pos.x;
-    sfSprite_setPosition(game_data->scene_list[2]->buttons[8]->ho_sprite,
-    game_data->scene_list[2]->buttons[8]->position);
-    sfSprite_setPosition(game_data->scene_list[2]->buttons[8]->sprite,
-    game_data->scene_list[2]->buttons[8]->position);
-    sfRectangleShape_setPosition(game_data->scene_list[2]->buttons[8]
-    ->hitbox->rectangle, game_data->scene_list[2]->buttons[8]->position);
-    load_vertices(game_data->scene_list[2]->buttons[8]->hitbox);
+    (void) scenes_name;
+    (void) index_run;
+    sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(game_data->window);
+
+    button_t *volume_bar = get_button(game_data->scene_list[2]->buttons, "volume_bar");
+    
+    volume_bar->position.x = mouse_pos.x;
+    volume_bar->hitbox->position.x = mouse_pos.x;
+    sfSprite_setPosition(volume_bar->ho_sprite, volume_bar->position);
+    sfSprite_setPosition(volume_bar->sprite, volume_bar->position);
+    sfRectangleShape_setPosition(volume_bar->hitbox->rectangle,
+                                    volume_bar->position);
+    load_vertices(volume_bar->hitbox);
     set_volumes(game_data, mouse_pos);
+    return (0);
 }

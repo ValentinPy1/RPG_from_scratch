@@ -10,6 +10,7 @@
     #include <stddef.h>
     #include <unistd.h>
     #include <stdlib.h>
+    #include <time.h>
     #include "structures.h"
 
 scene_t **get_scenes(void);

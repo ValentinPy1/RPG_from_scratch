@@ -73,6 +73,7 @@ typedef struct button_s {
     sfSound *clic_sound;
     sfSoundBuffer *sound_buffer;
     hitbox_t *hitbox;
+    int is_hovered;
     int (*callback)(data_t *game_data, char **scenes_name, int *index_run);
 } button_t;
 
