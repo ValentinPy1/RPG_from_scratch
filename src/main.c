@@ -26,7 +26,7 @@ int my_rpg(int ac, char *av[])
 }
 
 int main(int ac, char *av[])
-{   
+{
     if (ac == 2 && my_strcmp(av[1], "-h") == 1) {
         usage();
         return (0);

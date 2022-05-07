@@ -22,8 +22,14 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 1)
         return;
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 2) {
-        gd->red->pos.x = 2260;
-        gd->red->pos.y = 620;
+        gd->red->pos.x = 2320;
+        gd->red->pos.y = 592;
+        return;
+    } else if (is_blocking_tile(gd->scene_list[gd->run_index]->map,
+                temp_pos) == 3) {
+        gd->red->pos.x = 1070;
+        gd->red->pos.y = 670;
+        return;
     }
     if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
         gd->red->pos.x += gd->red->stats->spd * dir.x * 0.6 * delta;
@@ -67,6 +73,19 @@ void player_knockback(data_t *gd, scene_t *scene)
     }
 }
 
+// void handle_percentage(data_t *gd, scene_t *scene)
+// {
+//     char *str = my_getstr(gd->red->percentage);
+//     if (gd->frame_count % (gd->framerate * REGEN_DELAY) == 0 &&
+//     gd->red->percentage > 0) {
+//         gd->red->percentage -= 1;
+//     }
+//     sfText_setPosition(scene->texts[0],
+//     (sfVector2f) {gd->red->pos.x - 290, gd->red->pos.y - 200});
+//     sfText_setString(scene->texts[0], str);
+//     free(str);
+// }
+
 void player_move(data_t *game_data, scene_t *scene)
 {
     game_data->red->time = sfClock_getElapsedTime(game_data->red->clock);
@@ -81,4 +100,5 @@ void player_move(data_t *game_data, scene_t *scene)
         game_data->red->pos.x, game_data->red->pos.y);
         player_knockback(game_data, scene);
     }
+    // handle_percentage(game_data, scene);
 }

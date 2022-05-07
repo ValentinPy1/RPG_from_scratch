@@ -35,4 +35,6 @@ char *my_strconc(char *str1, char *str2);
 particle_param_t setup_step_param(void);
 partic_ll_t *setup_partic_node(particle_param_t *p);
 void add_partic_group(partic_ll_t *groups, partic_ll_t *node);
+scene_t *get_scene(scene_t **scene_list, char *name);
+
 #endif

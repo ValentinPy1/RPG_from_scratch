@@ -23,15 +23,16 @@ void draw_enemies(sfRenderWindow *win, enemies_t *enemies)
     draw_enemies(win, enemies->next);
 }
 
-void spawn_enem_blood(data_t *gd, sfVector2f pos)
+void spawn_enem_blood(data_t *game_data, sfVector2f pos)
 {
     partic_ll_t *node;
     particle_param_t param;
+    scene_t *game_scene = get_scene(game_data->scene_list, "game_scene");
 
-        param = setup_blood_param();
-        param.pos = (sfVector2f) pos;
-        param.color = (sfColor) {150, 0, 150, 255};
-        param.count = 10;
-        node = setup_partic_node(&param);
-        add_partic_group(gd->scene_list[1]->partic, node);
+    param = setup_blood_param();
+    param.pos = (sfVector2f) pos;
+    param.color = (sfColor) {150, 0, 150, 255};
+    param.count = 10;
+    node = setup_partic_node(&param);
+    add_partic_group(game_scene->partic, node);
 }
