@@ -27,6 +27,7 @@ static void set_player_values(player_t *player)
     player->kb_speed = 0;
     player->percentage = 0;
     player->view = sfView_create();
+    player->is_in_house = false;
 }
 
 static sounds_t *get_sound(void)
