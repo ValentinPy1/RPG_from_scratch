@@ -74,8 +74,6 @@ scene_t **get_scene_list(void)
         return (scene_list);
     }
     file_name = get_file_names(d, file, nb_config_files);
-    for (int index = 0; file_name[index] != NULL; index++)
-        printf("%s\n", file_name[index]);
     scene_list = create_scene_list(nb_config_files, file_name);
     free_str_tab(file_name);
     return (scene_list);

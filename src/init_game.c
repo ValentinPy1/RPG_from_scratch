@@ -16,7 +16,8 @@ int init_game(int ac, char **av, data_t *game_data)
         my_putstr("Unable to load one or many scene\n");
         return (-1);
     }
-    data_constructor(game_data);
+    if (data_constructor(game_data) == -1)
+        return (-1);
     my_putstr("Loading scene sucess\n");
     return (0);
 }

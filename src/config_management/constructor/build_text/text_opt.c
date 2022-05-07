@@ -14,7 +14,7 @@ int build_text_name(text_t *text, char *value)
 
 int build_text_posx(text_t *text, char *value)
 {
-    int coord_x = my_getnbr(value);
+    float coord_x = my_atof(value);
 
     text->position.x = coord_x;
     return (0);
@@ -22,8 +22,8 @@ int build_text_posx(text_t *text, char *value)
 
 int build_text_posy(text_t *text, char *value)
 {
-    int coord_y = my_getnbr(value);
-
+    float coord_y = my_atof(value);
+    
     text->position.y = coord_y;
     sfText_setPosition(text->text, text->position);
     return (0);

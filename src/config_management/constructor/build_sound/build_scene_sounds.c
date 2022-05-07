@@ -8,7 +8,6 @@
 
 int build_music_opt(scene_t *scene, char *opt, char *value)
 {
-    scene->music = sfSound_create();
     if (opt == NULL || value == NULL)
         return (0);
     for (int index = 0; SOUND_OPT_TAB[index].name != NULL; index++) {
@@ -26,6 +25,7 @@ int build_scene_sounds(scene_t *scene, char **content, int *line)
     char *value = NULL;
 
     *line += 1;
+    scene->music = sfSound_create();
     while (content[*line] != NULL && is_a_scene_opt(content, line) == NULL) {
         for (int index = 0; content[*line][index] != '\0'; index++) {
             opt = get_obj_opt(content, line, &index);

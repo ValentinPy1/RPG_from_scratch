@@ -9,10 +9,10 @@
 void init_default_text(text_t *text)
 {
     text->name = NULL;
-    text->text = NULL;
+    text->text = sfText_create();
     text->position = (sfVector2f) {150, 150};
     text->str = my_strdup("Insert text");
-    text->font = sfFont_createFromFile("asset/font/DeterminationMono.ttf");
+    text->font = sfFont_createFromFile("assets/font/DeterminationMono.ttf");
     text->size = 10;
     text->style = sfTextRegular;
     text->rotation = 0;
