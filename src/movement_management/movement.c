@@ -63,10 +63,9 @@ void player_knockback(data_t *gd, scene_t *scene)
     int y = floor(newy);
 
     red->pos = (sfVector2f) {newx, newy};
-    if (!(scene->map->tiles[(int) newy / 32][(int) newx / 32] >= 36 && scene->
-    map->tiles[(int) newy / 32][(int) newx / 32] <= 43) && !(scene->map->tiles
-    [y / 32][x / 32] >= 4 && scene->map->tiles[y / 32][x / 32] <= 7))
+    if (!(is_blocking_tile(scene->map, gd->red->pos))) {
         red->kb_speed *= 0.9;
+    }
     if (is_all_lava(scene, x, y)) {
         sfSound_play(gd->red->effects->fall);
         gd->red->pos.x = 13 * 32;
