@@ -65,10 +65,6 @@ void player_knockback(data_t *gd, scene_t *scene)
         gd->red->pos.x = 13 * 32;
         gd->red->pos.y = 9 * 32;
         gd->red->percentage = 0;
-        for (int index = 0; gd->scene_names[index] != NULL; index++) {
-            if (my_strcmp(gd->scene_names[index], "defeat") == 1)
-                gd->run_index = index;
-    }
     }
 }
 
