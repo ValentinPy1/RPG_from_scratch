@@ -11,12 +11,13 @@ void step_particles(data_t *game_data)
 {
     partic_ll_t *node;
     particle_param_t param;
+    scene_t *game_scene = get_scene(game_data->scene_list, "game_scene");
 
     param = setup_step_param();
     param.pos = (sfVector2f) {game_data->red->pos.x,
     game_data->red->pos.y + 14};
     node = setup_partic_node(&param);
-    add_partic_group(game_data->scene_list[1]->partic, node);
+    add_partic_group(game_scene->partic, node);
 }
 
 void knife(data_t *game_data)

@@ -31,5 +31,6 @@ void setup_values_enem(enem_t *enem);
 sfIntRect *set_enemy_rect(void);
 void move_rect(sfIntRect *rect, int offset, int max_value);
 sfTexture *random_enemy_texture(void);
+scene_t *get_scene(scene_t **scene_list, char *name);
 
 #endif
