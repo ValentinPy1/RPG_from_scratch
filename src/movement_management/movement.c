@@ -25,6 +25,7 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
         gd->red->pos.x = 2320;
         gd->red->pos.y = 592;
         gd->red->is_in_house = true;
+        gd->red->kb_speed = 0;
         return;
     } else if (is_blocking_tile(gd->scene_list[gd->run_index]->map,
                 temp_pos) == 3) {
@@ -63,10 +64,9 @@ void player_knockback(data_t *gd, scene_t *scene)
     int y = floor(newy);
 
     red->pos = (sfVector2f) {newx, newy};
-    if (!(scene->map->tiles[(int) newy / 32][(int) newx / 32] >= 36 && scene->
-    map->tiles[(int) newy / 32][(int) newx / 32] <= 43) && !(scene->map->tiles
-    [y / 32][x / 32] >= 4 && scene->map->tiles[y / 32][x / 32] <= 7))
+    if (!(is_blocking_tile(scene->map, gd->red->pos))) {
         red->kb_speed *= 0.9;
+    }
     if (is_all_lava(scene, x, y)) {
         sfSound_play(gd->red->effects->fall);
         gd->red->pos.x = 13 * 32;
@@ -74,19 +74,6 @@ void player_knockback(data_t *gd, scene_t *scene)
         gd->red->percentage = 0;
     }
 }
-
-// void handle_percentage(data_t *gd, scene_t *scene)
-// {
-//     char *str = my_getstr(gd->red->percentage);
-//     if (gd->frame_count % (gd->framerate * REGEN_DELAY) == 0 &&
-//     gd->red->percentage > 0) {
-//         gd->red->percentage -= 1;
-//     }
-//     sfText_setPosition(scene->texts[0],
-//     (sfVector2f) {gd->red->pos.x - 290, gd->red->pos.y - 200});
-//     sfText_setString(scene->texts[0], str);
-//     free(str);
-// }
 
 void player_move(data_t *game_data, scene_t *scene)
 {
@@ -102,5 +89,4 @@ void player_move(data_t *game_data, scene_t *scene)
         game_data->red->pos.x, game_data->red->pos.y);
         player_knockback(game_data, scene);
     }
-    // handle_percentage(game_data, scene);
 }

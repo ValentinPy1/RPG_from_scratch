@@ -42,6 +42,7 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         display_other_scene(game_data, scene);
     } else if (scene->map != NULL) {
         game_scene(window, game_data, scene);
+        handle_percentage(game_data, scene);
     }
     draw_images(window, scene);
     draw_texts(window, scene);

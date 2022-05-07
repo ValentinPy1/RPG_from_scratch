@@ -17,6 +17,7 @@ static const int WIN_WIDTH = 1920;
 static const int WIN_HEIGHT = 1080;
 static const int WIN_DIAG = 2203;
 static const int MSEC = 1000000;
+static const int REGEN_DELAY = 1;
 
 typedef struct data_s data_t;
 
@@ -239,4 +240,8 @@ struct data_s {
     unsigned long long int frame_count;
 };
 
+text_t *get_text(text_t *texts, char *name);
+char *my_getstr(int nb);
+void handle_percentage(data_t *gd, scene_t *scene);
+char *my_strconc(char *str1, char *str2);
 #endif /*STRUCT_H_*/
