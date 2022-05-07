@@ -14,6 +14,7 @@ void init_default_button(button_t *button)
     button->height = 50;
     button->scale = (sfVector2f) {1, 1};
     button->rotation = 0;
+    button->is_hovered = 0;
     button->sprite = NULL;
     button->texture = NULL;
     button->ho_sprite = NULL;

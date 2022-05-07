@@ -33,8 +33,6 @@ void open_window(int width, int height, data_t *game_data)
 
     create_window(&window, width, height);
     game_data->window = window;
-    printf("Scene run:%s\n", game_data->scene_list[game_data->run_index]->name);
-    
     sfSound_play(game_data->scene_list[game_data->run_index]->music);
     while (sfRenderWindow_isOpen(game_data->window)) {
         sfRenderWindow_clear(game_data->window, sfBlack);

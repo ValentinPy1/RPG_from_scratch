@@ -10,9 +10,10 @@ static void set_volumes(data_t *game_data, sfVector2i mouse_pos)
 {
     int volume = 1640 - mouse_pos.x;
     int ratio = 100 - (((float)volume / 420) * 100);
-    sfSound_setVolume(game_data->scene_list[0]->music, ratio);
-    sfSound_setVolume(game_data->scene_list[1]->music, ratio);
-    sfSound_setVolume(game_data->scene_list[2]->music, ratio);
+    for (int index = 0; game_data->scene_list[index] != NULL; index++) {
+        if (game_data->scene_list[index]->music != NULL)
+            sfSound_setVolume(game_data->scene_list[index]->music, ratio);
+    }
 }
 
 int volume_bar(data_t *game_data, char **scenes_name, int *index_run)
@@ -20,16 +21,16 @@ int volume_bar(data_t *game_data, char **scenes_name, int *index_run)
     (void) scenes_name;
     (void) index_run;
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(game_data->window);
+    scene_t *option_scene = get_scene(game_data->scene_list, "option_menu");
+    button_t *slider = get_button(option_scene->buttons, "slider");
 
-    button_t *volume_bar = get_button(game_data->scene_list[2]->buttons, "volume_bar");
-    
-    volume_bar->position.x = mouse_pos.x;
-    volume_bar->hitbox->position.x = mouse_pos.x;
-    sfSprite_setPosition(volume_bar->ho_sprite, volume_bar->position);
-    sfSprite_setPosition(volume_bar->sprite, volume_bar->position);
-    sfRectangleShape_setPosition(volume_bar->hitbox->rectangle,
-                                    volume_bar->position);
-    load_vertices(volume_bar->hitbox);
+    slider->position.x = mouse_pos.x;
+    slider->hitbox->position.x = mouse_pos.x;
+    sfSprite_setPosition(slider->ho_sprite, slider->position);
+    sfSprite_setPosition(slider->sprite, slider->position);
+    sfRectangleShape_setPosition(slider->hitbox->rectangle,
+                                    slider->position);
+    load_vertices(slider->hitbox);
     set_volumes(game_data, mouse_pos);
     return (0);
 }
@@ -56,7 +57,7 @@ int update_spd(data_t *game_data, char **scenes_name, int *index_run)
 {
     (void) scenes_name;
     (void) index_run;
-    
+
     game_data->red->stats->spd += 1;
     return (0);
 }
