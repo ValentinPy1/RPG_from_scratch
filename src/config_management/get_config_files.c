@@ -10,7 +10,6 @@ int count_files(DIR *d, struct dirent *file)
 {
     int file_count = 0;
     d = opendir("config_files/scene_config/");
-    
     if (d == NULL)
         return (-1);
     while ((file = readdir(d)) != NULL) {

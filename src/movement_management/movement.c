@@ -42,6 +42,7 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
     gd->red->pos.y += gd->red->stats->spd * dir.y * delta;
     player_walk(gd, 16, 64);
 }
+//too long
 
 bool is_all_lava(scene_t *scene, int x, int y)
 {
