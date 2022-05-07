@@ -11,16 +11,16 @@
 void update_stats(data_t *game_data, scene_t *option_scene)
 {
     sfText *attack = get_text(option_scene->texts, "attack")->text;
-    sfText *defense = get_text(option_scene->texts, "defense")->text;
+    sfText *healing = get_text(option_scene->texts, "heal")->text;
     sfText *speed = get_text(option_scene->texts, "speed")->text;
     char *att = my_getstr(game_data->red->stats->att);
-    char *def = my_getstr(game_data->red->stats->def);
+    char *heal = my_getstr(game_data->red->stats->heal);
     char *spd = my_getstr(game_data->red->stats->spd);
 
     sfText_setString(attack, att);
-    sfText_setString(defense, def);
+    sfText_setString(healing, heal);
     sfText_setString(speed, spd);
     free(att);
-    free(def);
+    free(heal);
     free(spd);
 }
