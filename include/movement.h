@@ -35,5 +35,7 @@ particle_param_t setup_step_param(void);
 partic_ll_t *setup_partic_node(particle_param_t *p);
 void add_partic_group(partic_ll_t *groups, partic_ll_t *node);
 scene_t *get_scene(scene_t **scene_list, char *name);
+int defeat(data_t *game_data, char **scenes_name, int *index_run);
+int victory(data_t *game_data, char **scenes_name, int *index_run);
 
 #endif

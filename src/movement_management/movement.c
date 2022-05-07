@@ -74,6 +74,7 @@ void player_knockback(data_t *gd, scene_t *scene)
         gd->red->pos.y = 9 * 32;
         gd->red->percentage = 0;
         gd->red->kill_streak = 0;
+        defeat(gd, gd->scene_names, &gd->run_index);
     }
 }
 
