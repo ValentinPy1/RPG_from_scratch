@@ -83,7 +83,7 @@ void update_enemies(data_t *gd, enemies_t *enemies)
     next = enemies->next;
     update_enem_node(gd, next);
     if (next->enem->life <= 0) {
-        sfSound_play(gd->red->kill);
+        sfSound_play(gd->red->effects->kill);
         destroy_next_enemies(enemies);
         return;
     } else if (get_distance(next->enem->pos, gd->red->pos) > 800) {

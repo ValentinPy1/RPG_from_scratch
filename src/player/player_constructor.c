@@ -45,7 +45,7 @@ static sounds_t *get_sound(void)
     sfSound_setBuffer(effects->slash, effects->slash_buffer);
     effects->hit = sfSound_create();
     effects->hit_buffer =
-    sfSoundBuffer_createFromFile("assets/snd/hit.ogg");
+    sfSoundBuffer_createFromFile("assets/snd/player_hit.ogg");
     sfSound_setBuffer(effects->hit, effects->hit_buffer);
     effects->fall = sfSound_create();
     effects->fall_buffer =
