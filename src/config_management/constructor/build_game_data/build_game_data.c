@@ -11,7 +11,6 @@ int data_constructor(data_t *game_data)
     scene_t *game_scene = get_scene(game_data->scene_list, "game_scene");
 
     game_data->framerate = 60;
-    game_data->debug_mode = 0;
     game_data->keys = build_keys();
     game_data->scene_names = get_names_scene(game_data->scene_list);
     game_data->run_index = get_run_index(game_data->scene_names, "home_scene");
