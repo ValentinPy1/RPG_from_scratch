@@ -18,7 +18,6 @@
     static const int VIEW_HEIGHT  = 400;
     static const int WINDOW_WIDTH = 1920;
     static const int WINDOW_HEIGHT = 1008;
-    static const int REGEN_DELAY = 1;
 
 static const sfVector2f OFFSET[4] =
 {{-16, 0}, {-32, -32}, {0, -32}, {-16, -35}};
