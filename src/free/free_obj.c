@@ -55,7 +55,7 @@ void free_entities(entity_t *entities)
     }
 }
 
-void free_scenes(scene_t **scene_list, char **scene_names)
+void free_scenes(scene_t **scene_list)
 {
     if (scene_list == NULL)
         return;
@@ -83,7 +83,7 @@ void free_data(data_t *game_data)
 {
     if (game_data == NULL)
         return;
-    free_scenes(game_data->scene_list, game_data->scene_names);
+    free_scenes(game_data->scene_list);
     free_player(game_data);
     free(game_data);
 }

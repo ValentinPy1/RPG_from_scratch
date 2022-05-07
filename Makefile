@@ -12,6 +12,7 @@ SRC = 	src/main.c													\
 		src/free/free_obj.c 										\
 		src/random/random_generator.c								\
 		src/linked_list_tools/get_button.c							\
+		src/linked_list_tools/get_text.c							\
 		src/enemies/setup.c											\
 		src/enemies/setup_tools.c									\
 		src/enemies/draw.c											\
@@ -20,16 +21,17 @@ SRC = 	src/main.c													\
 		src/enemies/ai.c											\
 		src/enemies/tools.c											\
 		src/player/player_constructor.c 							\
+		src/player/player_construct_tools.c							\
 		src/particles/setup.c										\
 		src/particles/update.c										\
 		src/particles/draw.c										\
 		src/particles/destroy.c										\
 		src/particles/manage_particules.c							\
 		src/particles/type.c										\
+		src/window_management/get_scene.c							\
 		src/window_management/open_window.c							\
 		src/window_management/manage_events.c						\
 		src/window_management/manage_buttons.c						\
-		src/window_management/get_run_index.c 						\
 		src/window_management/manage_display/display_objects.c		\
 		src/window_management/manage_display/display_scene.c		\
 		src/collision_management/point_in_rect.c					\
@@ -43,8 +45,9 @@ SRC = 	src/main.c													\
 		src/config_management/callbacks/button_callback1.c			\
 		src/config_management/callbacks/button_callback2.c			\
 		src/config_management/callbacks/button_callback3.c			\
-		$(CON_PATH)build_keys/build_keys.c							\
+		src/window_management/manage_scene/option_scene.c			\
 		$(CON_PATH)build_game_data/build_game_data.c				\
+		$(CON_PATH)build_keys/build_keys.c							\
 		$(CON_PATH)build_scene.c									\
 		$(CON_PATH)scene_option.c									\
 		$(CON_PATH)build_scene_tool.c								\

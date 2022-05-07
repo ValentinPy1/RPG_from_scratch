@@ -10,7 +10,7 @@ int my_strcmp(char *str1, char *str2);
 
 text_t *get_text(text_t *texts, char *name)
 {
-    button_t *tmp_head_txt = texts;
+    text_t *tmp_head_txt = texts;
 
     while (tmp_head_txt != NULL) {
         if (my_strcmp(name, tmp_head_txt->name))

@@ -61,7 +61,7 @@ scene_t **create_scene_list(int nb_config_files, char **file_name)
     return (scene_list);
 }
 
-scene_t **get_scenes(void)
+scene_t **get_scene_list(void)
 {
     DIR *d = NULL;
     struct dirent *file = NULL;

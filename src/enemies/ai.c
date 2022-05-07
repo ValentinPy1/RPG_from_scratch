@@ -13,7 +13,7 @@
 
 sfVector2f handle_dest(data_t *gd, enemies_t *node)
 {
-    float angle = rdm_float(0, 2 * PI);
+    float angle = rdm_float(0, 2 * M_PI);
     float dist = rdm_float(100, 200);
 
     if (get_distance(node->enem->pos, node->enem->destination) < 1) {

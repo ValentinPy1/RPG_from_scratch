@@ -42,7 +42,8 @@ void draw_images(sfRenderWindow *window, scene_t *scene)
     }
 }
 
-void draw_texts(sfRenderWindow *window, scene_t *scene) {
+void draw_texts(sfRenderWindow *window, scene_t *scene)
+{
     
     text_t *head_ref_txt = scene->texts;
 

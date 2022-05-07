@@ -19,4 +19,3 @@ button_t *get_button(button_t *buttons, char *name)
     }
     return (tmp_head_but);
 }
-

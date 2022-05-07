@@ -14,7 +14,6 @@
     #include "structures.h"
 
 int init_game(int ac, char **av, data_t *game_data);
-scene_t **get_scenes(void);
 int my_putstr(char const *str);
 void open_window(int width, int height, data_t *game_data);
 char **get_names_scene(scene_t **scene_list);

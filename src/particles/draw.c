@@ -52,13 +52,13 @@ data_t *game_data, scene_t *scene)
 {
     particle_param_t lava = setup_lava_param();
     partic_ll_t *node_lava;
-
-    update_groups(game_data->scene_list[1]->partic->next);
-    sup_partic_groups(game_data->scene_list[1]->partic->next);
-    draw_groups(win, game_data->scene_list[1]->partic->next);
+    scene_t *game_scene = get_scene(game_data->scene_list, "game_scene");
+    
+    update_groups(game_data, game_scene->partic->next);
+    sup_partic_groups(game_scene->partic->next);
+    draw_groups(win, game_scene->partic->next);
     lava.pos = (sfVector2f) {get_rdm() * 1920, get_rdm() * 1080};
-    if (is_in_screen(game_data, lava.pos) &&
-    my_strcmp(scene->name, "main_scene") && get_rdm() > 0.5) {
+    if (is_in_screen(game_data, lava.pos) && my_strcmp(scene->name, "game_scene") && get_rdm() > 0.5) {
         node_lava = setup_partic_node(&lava);
         add_partic_group(game_data->scene_list[1]->partic, node_lava);
     }

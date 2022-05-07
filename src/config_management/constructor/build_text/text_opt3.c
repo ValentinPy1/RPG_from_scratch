@@ -6,12 +6,12 @@
 */
 #include "build_scene_texts.h"
 
-int build_text_outline_tickness(text_t *text, char *value)
+int build_text_outline_thickness(text_t *text, char *value)
 {
-    float tickness = my_atof(value);
+    float thickness = my_atof(value);
 
-    text->outline_tickness = tickness;
-    sfText_setOutlineThickness(text->text, text->outline_tickness);
+    text->outline_thickness = thickness;
+    sfText_setOutlineThickness(text->text, text->outline_thickness);
     return (0);
 }
 

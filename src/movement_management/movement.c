@@ -31,7 +31,7 @@ void move_dir(data_t *game_data, sfVector2f dir, int key, int sprite)
         }
         game_data->red->pos.x += game_data->red->stats->spd * dir.x;
         game_data->red->pos.y += game_data->red->stats->spd * dir.y;
-        player_walk(game_data, game_data->red->player_rect, 16, 64);
+        player_walk(game_data, 16, 64);
     }
 }
 

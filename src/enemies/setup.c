@@ -61,7 +61,7 @@ void add_enem(enemies_t *enemies, sfVector2f pos)
 
 void spawn_enem(data_t *gd)
 {
-    float angle = rdm_float(0, 2 * PI);
+    float angle = rdm_float(0, 2 * M_PI);
     float dist = rdm_float(500, 1000);
     if (enem_count(gd->enemies) < 50)
         add_enem(gd->enemies, (sfVector2f)

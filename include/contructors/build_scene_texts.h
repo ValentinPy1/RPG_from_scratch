@@ -40,7 +40,7 @@ int build_text_rotation(text_t *text, char *value);
 int build_text_style(text_t *text, char *value);
 int build_text_color(text_t *text, char *value);
 int build_text_outline_color(text_t *text, char *value);
-int build_text_outline_tickness(text_t *text, char *value);
+int build_text_outline_thickness(text_t *text, char *value);
 int build_text_letter_spacing(text_t *text, char *value);
 int build_text_line_spacing(text_t *text, char *value);
 
@@ -55,7 +55,7 @@ __attribute__((unused)) static text_opt_t TEXT_OPT_TAB[] =  {
     {"style", build_text_style},
     {"color", build_text_color},
     {"outline_color", build_text_outline_color},
-    {"outline_tickness", build_text_outline_tickness},
+    {"outline_thickness", build_text_outline_thickness},
     {"letter_spacing", build_text_letter_spacing},
     {"line_spacing", build_text_line_spacing},
     {NULL, NULL},

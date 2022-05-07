@@ -9,14 +9,68 @@
     #define STRUCT_H_
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
-    #include "particles.h"
-    #include "enemies.h"
 
 static const int WIN_WIDTH = 1920;
 static const int WIN_HEIGHT = 1080;
 static const int WIN_DIAG = 2203;
+static const int MSEC = 1000000;
 
 typedef struct data_s data_t;
+
+typedef struct particle_param_s {
+    sfVector2f pos;
+    sfVector2f spawn_radius;
+    sfVector2f init_vel;
+    sfVector2f rdm_vel;
+    sfColor color;
+    int max_duration;
+    float size;
+    sfVector2f gravity;
+    sfVector2f resistance;
+    int count;
+} particle_param_t;
+
+typedef struct particle_s {
+    sfVector2f pos;
+    sfVector2f vel;
+    sfColor color;
+    float duration;
+    sfVector2f grav;
+    sfVector2f res;
+    sfCircleShape *circle;
+} particle_t;
+
+typedef struct partic_arr_s {
+    particle_t *particles;
+    int count;
+    int duration;
+} partic_arr_t;
+
+typedef struct partic_ll_s {
+    partic_arr_t *partic_arr;
+    struct partic_ll_s *next;
+} partic_ll_t;
+
+typedef struct enem_s {
+    float speed;
+    float direction;
+    float damage;
+    sfVector2f pos;
+    float life;
+    sfSprite *sprite;
+    sfIntRect *rect;
+    sfClock *clock;
+    sfTime time;
+    float seconds;
+    float kb_speed;
+    float kb_dir;
+    sfVector2f destination;
+} enem_t;
+
+typedef struct enemies_s {
+    enem_t *enem;
+    struct enemies_s *next;
+} enemies_t;
 
 typedef struct hitbox_s {
     sfVector2f position;
@@ -41,7 +95,7 @@ typedef struct text_s {
     float rotation;
     sfColor color;
     sfColor outline_color;
-    float outline_tickness;
+    float outline_thickness;
     float line_spacing;
     float letter_spacing;
 } text_t;
@@ -107,12 +161,10 @@ typedef struct scene_s {
     text_t *texts;
     sfSound *music;
     sfSoundBuffer *music_buffer;
+    map_t *map;
     sfSprite *background_sprite;
     sfTexture *background_texture;
     partic_ll_t *partic;
-    sfVector2i mouse_loc;
-    map_t *map;
-    int is_running;
 } scene_t;
 
 typedef struct set_s {
@@ -126,7 +178,7 @@ typedef struct stats_s {
     int spd;
 } stats_t;
 
- typedef struct player_s {
+typedef struct player_s {
     stats_t *stats;
     sfVector2f pos;
     sfSprite *player_sprite;

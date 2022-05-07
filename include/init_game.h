@@ -12,6 +12,6 @@
 
 int my_putstr(char const *str);
 int my_strcmp(char *str1, char *str2);
-scene_t **get_scenes(void);
-char **get_names_scene(scene_t **scene_list);
+void data_constructor(data_t *game_data);
+scene_t **get_scene_list();
 #endif /* !INIT_GAME_H_ */

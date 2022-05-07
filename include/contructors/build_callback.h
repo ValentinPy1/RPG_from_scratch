@@ -27,4 +27,7 @@ static const but_call_t BUT_CALL[11] = {
     {NULL, NULL}
 };
 
+void load_vertices(hitbox_t *hitbox);
+button_t *get_button(button_t *buttons, char *name);
+int my_strcmp(char *str1, char *str2);
 #endif /*CALL_H_*/

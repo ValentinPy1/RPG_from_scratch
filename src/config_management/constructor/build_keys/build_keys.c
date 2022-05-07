@@ -5,6 +5,7 @@
 ** SOurce code to build key to move play
 */
 #include "structures.h"
+#include <stdlib.h>
 
 keys_t *build_keys(void)
 {

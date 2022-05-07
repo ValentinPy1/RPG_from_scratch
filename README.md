@@ -97,7 +97,7 @@ Those keywords need a tab for each element in there
 `style:<sfStyle style>`				-\
 `color:<int r; int g; int b; int a>`		-\
 `outline_color:<int r; int g; int b; int a>`	-\
-`outline_tickness:<float tickness`		-\
+`outline_thickness:<float thickness`		-\
 `letter_spacing:<float spacing>`		-\
 `line_spacing:<float spacing>`			-
 

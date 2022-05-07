@@ -18,7 +18,7 @@ void init_default_text(text_t *text)
     text->rotation = 0;
     text->color = (sfColor) {255, 255, 255, 255};
     text->outline_color = (sfColor) {0, 0, 0, 255};
-    text->outline_tickness = 1.5;
+    text->outline_thickness = 1.5;
     text->line_spacing = 1.5;
     text->letter_spacing = 1.5;
 }
