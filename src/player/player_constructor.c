@@ -29,15 +29,21 @@ static void set_player_values(player_t *player)
     player->view = sfView_create();
 }
 
-static void get_sound(player_t *player)
+static sounds_t *get_sound(void)
 {
-    sfSoundBuffer *kill_buffer =
-    sfSoundBuffer_createFromFile("assets/snd/kill.ogg");
-    sfSound *kill = sfSound_create();
-
-    sfSound_setBuffer(kill, kill_buffer);
-    player->kill = kill;
-    player->kill_buffer = kill_buffer;
+    sounds_t *effects = malloc(sizeof(sounds_t));
+    effects->kill = sfSound_create();
+    effects->kill_buffer = sfSoundBuffer_createFromFile("assets/snd/kill.ogg");
+    sfSound_setBuffer(effects->kill, effects->kill_buffer);
+    effects->slash = sfSound_create();
+    effects->slash_buffer =
+    sfSoundBuffer_createFromFile("assets/snd/slash.ogg");
+    sfSound_setBuffer(effects->slash, effects->slash_buffer);
+    effects->swing = sfSound_create();
+    effects->swing_buffer =
+    sfSoundBuffer_createFromFile("assets/snd/swing.ogg");
+    sfSound_setBuffer(effects->swing, effects->swing_buffer);
+    return effects;
 }
 
 player_t *player_constructor(void)
@@ -60,6 +66,6 @@ player_t *player_constructor(void)
     player->clock = clk;
     player->time = tm;
     player->stats = setup_stats();
-    get_sound(player);
+    player->effects = get_sound();
     return player;
 }

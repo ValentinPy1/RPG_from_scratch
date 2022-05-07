@@ -178,6 +178,19 @@ typedef struct stats_s {
     int spd;
 } stats_t;
 
+typedef struct sounds_s {
+    sfSound *kill;
+    sfSoundBuffer *kill_buffer;
+    sfSound *swing;
+    sfSoundBuffer *swing_buffer;
+    sfSound *slash;
+    sfSoundBuffer *slash_buffer;
+    sfSound *hit;
+    sfSoundBuffer *hit_buffer;
+    sfSound *fall;
+    sfSoundBuffer *fall_buffer;
+} sounds_t;
+
 typedef struct player_s {
     stats_t *stats;
     sfVector2f pos;
@@ -197,8 +210,7 @@ typedef struct player_s {
     float kb_dir;
     float kb_speed;
     float percentage;
-    sfSound *kill;
-    sfSoundBuffer *kill_buffer;
+    sounds_t *effects;
 } player_t;
 
 typedef struct key_s {
