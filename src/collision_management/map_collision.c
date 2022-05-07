@@ -17,12 +17,27 @@ int parse_tile(map_t *map)
     return 0;
 }
 
+int check_entrance(map_t *map, int x, int y)
+{
+    if ((map->tiles[y / 32][x / 32] == BLUE_ENTRANCE))
+        return (2);
+    return (0);
+}
+
 int is_blocking_tile(map_t *map, sfVector2f pos)
 {
     int x = floor(pos.x);
     int y = floor(pos.y + 14);
+    int status = 0;
 
     if (map == NULL || x < 0 || y < 0) // TO DO better error handling
+<<<<<<< HEAD
+        return 1;
+    if (check_entrance(map, x, y) == 2) {
+        return 2;
+    } else if ((map->tiles[y / 32][x / 32] >= 36 && map->tiles[y / 32][x / 32] <= 59)) {
+        return 1;
+=======
         return (1);
     if ((map->tiles[y / 32][x / 32] == 38)) {
         return (2);
@@ -30,7 +45,9 @@ int is_blocking_tile(map_t *map, sfVector2f pos)
     map->tiles[y / 32][x / 32] <= 7 || (map->tiles[y / 32][x / 32] >= 36 &&
     map->tiles[y / 32][x / 32] <= 43)) {
         return (1);
+>>>>>>> 05ba39daaed0fe93889d0aaeae17bbeb6acf267a
     } else {
-        return (0);
+        return 0;
     }
+    // status = check_entrance(map, x, y);
 }

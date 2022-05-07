@@ -60,12 +60,12 @@ Orphelin balise:
 <scene_name:> 'name'="scene name"
 <background:> 'type'="img/map" and 'path'="img path"
 Object balise:
-<image:>      ''
-<button:>     ''
-<entity:>     ''
-<text:>       ''
-<image:>      ''
-<sound:>      ''
+<image:>      'name'="<char*>", 'posx'="<float>", 'posy'="<float>", 'width'="<int>", 'height'="<int>", 'scale'="<float>", 'rotation'="<float>
+<button:>     'name'="<char*>", 'posx'="<float>", 'posy'="<float>", 'width'="<int>", 'height'="<int>", 'scale'="<float>", 'rotation'="<float>
+<entity:>     'name'="<char*>", 'posx'="<float>", 'posy'="<float>", 'width'="<int>", 'height'="<int>", 'scale'="<float>", 'rotation'="<float>
+<text:>       'name'="<char*>", 'posx'="<float>", 'posy'="<float>", 'width'="<int>", 'height'="<int>", 'scale'="<float>", 'rotation'="<float>
+<image:>      'name'="<char*>", 'posx'="<float>", 'posy'="<float>", 'width'="<int>", 'height'="<int>", 'scale'="<float>", 'rotation'="<float>
+<sound:>      'name'="<char*>", 'posx'="<float>", 'posy'="<float>", 'width'="<int>", 'height'="<int>", 'scale'="<float>", 'rotation'="<float>
 
 
 
