@@ -14,8 +14,11 @@
     #include <stdbool.h>
     #include "structures.h"
 
-    #define VIEW_WIDTH 600
-    #define VIEW_HEIGHT 400
+static const int VIEW_WIDTH  = 600;
+static const int VIEW_HEIGHT  = 400;
+static const int WINDOW_WIDTH = 1920;
+static const int WINDOW_HEIGHT = 1008;
+static const int REGEN_DELAY = 1;
 
 void set_position(sfSprite *sprite, float x, float y);
 int is_blocking_tile(map_t *map, sfVector2f pos);
@@ -26,5 +29,8 @@ void player_walk(data_t *game_data, sfIntRect *rect,
 bool is_in_screen(data_t *gd, sfVector2f pos);
 void player_walk(data_t *game_data, sfIntRect *rect,
 int offset, int max_value);
+char *my_getstr(int nb);
+char *my_strdup(char *str);
+char *my_strconc(char *str1, char *str2);
 
 #endif

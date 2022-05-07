@@ -34,3 +34,18 @@ int volume_bar(data_t *game_data, char **scenes_name, int *index_run)
     set_volumes(game_data, mouse_pos);
     return (0);
 }
+
+int update_att(data_t *game_data, char **scenes_name, int *index_run)
+{
+    game_data->red->stats->att += 1;
+}
+
+int update_def(data_t *game_data, char **scenes_name, int *index_run)
+{
+    game_data->red->stats->def += 1;
+}
+
+int update_spd(data_t *game_data, char **scenes_name, int *index_run)
+{
+    game_data->red->stats->spd += 1;
+}

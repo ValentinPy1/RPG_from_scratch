@@ -15,6 +15,7 @@
 static const int WIN_WIDTH = 1920;
 static const int WIN_HEIGHT = 1080;
 static const int WIN_DIAG = 2203;
+static const int MSEC = 1000000;
 
 typedef struct data_s data_t;
 
@@ -129,13 +130,22 @@ typedef struct player_s {
     sfVector2f pos;
     sfSprite *player_sprite;
     sfIntRect *player_rect;
-    sfView *view;
     sfClock *clock;
     sfTime time;
     float seconds;
+    sfSprite *attack_sprite;
+    sfIntRect *attack_rect;
+    sfClock *attack_clock;
+    sfTime attack_time;
+    float attack_seconds;
+    int attack_state;
+    int facing;
+    sfView *view;
     float kb_dir;
     float kb_speed;
     float percentage;
+    sfSound *kill;
+    sfSoundBuffer *kill_buffer;
 } player_t;
 
 typedef struct key_s {
@@ -156,6 +166,7 @@ struct data_s {
     unsigned int framerate;
     sfRenderWindow *window;
     enemies_t *enemies;
+    unsigned long long int frame_count;
 };
 
 #endif /*STRUCT_H_*/

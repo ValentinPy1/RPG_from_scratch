@@ -24,9 +24,12 @@ int thirty_fps(data_t *game_data, char **scenes_name, int *index_run);
 int sixty_fps(data_t *game_data, char **scenes_name, int *index_run);
 int hundred_and_twenty_fps(data_t *game_data,
 char **scenes_name, int *index_run);
-int volume_bar(data_t *game_data, char **scenes_name, int *index_run);
+int bar(data_t *game_data, char **scenes_name, int *index_run);
+int update_att(data_t *game_data, char **scenes_name, int *index_run);
+int update_def(data_t *game_data, char **scenes_name, int *index_run);
+int update_spd(data_t *game_data, char **scenes_name, int *index_run);
 
-static const but_call_t BUT_CALL[11] = {
+static const but_call_t BUT_CALL[14] = {
     {"no", nothing},
     {"play", play},
     {"quit", quit},
@@ -36,7 +39,10 @@ static const but_call_t BUT_CALL[11] = {
     {"30", thirty_fps},
     {"60", sixty_fps},
     {"120", hundred_and_twenty_fps},
-    {"volume_bar", volume_bar},
+    {"bar", bar},
+    {"update_att", update_att},
+    {"update_def", update_def},
+    {"update_spd", update_spd},
     {NULL, NULL}
 };
 

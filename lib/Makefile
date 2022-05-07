@@ -23,10 +23,15 @@ SRC =	fonctions/count_char.c		\
 		fonctions/my_atof.c			\
 		fonctions/free_tab.c 		\
 		fonctions/count_line.c		\
+<<<<<<< HEAD
 		fonctions/my_printf.c 		\
 		fonctions/my_putnbr.c		\
 		fonctions/my_strdup.c		\
 		fonctions/get_nb_row_tab.c
+=======
+		fonctions/my_getstr.c		\
+		fonctions/my_strdup.c		\
+>>>>>>> main
 
 
 NAME =	libmy.a
