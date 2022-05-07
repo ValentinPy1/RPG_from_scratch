@@ -19,6 +19,8 @@ void draw_buttons(sfRenderWindow *window, data_t *game_data, scene_t *scene)
     button_t *head_ref_but = scene->buttons;
 
     while (head_ref_but != NULL) {
+        if (head_ref_but == NULL)
+            break;
         if (head_ref_but->is_hovered == 0) {
             sfRenderWindow_drawSprite(window,
                 head_ref_but->sprite, NULL);
