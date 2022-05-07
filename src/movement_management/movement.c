@@ -72,19 +72,6 @@ void player_knockback(data_t *gd, scene_t *scene)
     }
 }
 
-// void handle_percentage(data_t *gd, scene_t *scene)
-// {
-//     char *str = my_getstr(gd->red->percentage);
-//     if (gd->frame_count % (gd->framerate * REGEN_DELAY) == 0 &&
-//     gd->red->percentage > 0) {
-//         gd->red->percentage -= 1;
-//     }
-//     sfText_setPosition(scene->texts[0],
-//     (sfVector2f) {gd->red->pos.x - 290, gd->red->pos.y - 200});
-//     sfText_setString(scene->texts[0], str);
-//     free(str);
-// }
-
 void player_move(data_t *game_data, scene_t *scene)
 {
     game_data->red->time = sfClock_getElapsedTime(game_data->red->clock);
@@ -99,5 +86,4 @@ void player_move(data_t *game_data, scene_t *scene)
         game_data->red->pos.x, game_data->red->pos.y);
         player_knockback(game_data, scene);
     }
-    // handle_percentage(game_data, scene);
 }
