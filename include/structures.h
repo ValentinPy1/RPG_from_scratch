@@ -178,7 +178,7 @@ typedef struct set_s {
 
 typedef struct stats_s {
     int att;
-    int def;
+    int heal;
     int spd;
 } stats_t;
 

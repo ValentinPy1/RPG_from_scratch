@@ -44,12 +44,12 @@ int update_att(data_t *game_data, char **scenes_name, int *index_run)
     return (0);
 }
 
-int update_def(data_t *game_data, char **scenes_name, int *index_run)
+int update_heal(data_t *game_data, char **scenes_name, int *index_run)
 {
     (void) scenes_name;
     (void) index_run;
 
-    game_data->red->stats->def += 1;
+    game_data->red->stats->heal += 1;
     return (0);
 }
 
