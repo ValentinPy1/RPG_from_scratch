@@ -10,6 +10,8 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
 
+    #define PI 3.1415926535
+
 static const int WIN_WIDTH = 1920;
 static const int WIN_HEIGHT = 1080;
 static const int WIN_DIAG = 2203;
@@ -59,12 +61,13 @@ typedef struct enem_s {
     float life;
     sfSprite *sprite;
     sfIntRect *rect;
-    sfClock *clock;
+    sfClock *anim;
     sfTime time;
     float seconds;
     float kb_speed;
     float kb_dir;
     sfVector2f destination;
+    int last_attack;
 } enem_t;
 
 typedef struct enemies_s {

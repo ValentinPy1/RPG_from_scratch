@@ -9,6 +9,7 @@
 #include "particles.h"
 #include "structures.h"
 
+
 void draw_enem(sfRenderWindow *win, enem_t *enem)
 {
     sfRenderWindow_drawSprite(win, enem->sprite, NULL);

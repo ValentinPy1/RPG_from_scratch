@@ -22,6 +22,7 @@ SRC = 	src/main.c													\
 		src/enemies/tools.c											\
 		src/player/player_constructor.c 							\
 		src/player/player_construct_tools.c							\
+		src/player/player_attack.c									\
 		src/particles/setup.c										\
 		src/particles/update.c										\
 		src/particles/draw.c										\

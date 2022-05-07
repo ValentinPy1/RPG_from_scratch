@@ -34,16 +34,36 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
     player_walk(gd, 16, 64);
 }
 
+bool is_all_lava(scene_t *scene, int x, int y)
+{
+    for (int i = 0; i < 9; ++i) {
+        if (!(scene->map->tiles[y / 32 +
+        (i / 3 - 1)][x / 32 + (i % 3 - 1)] >= 4 && scene->map->tiles[y / 32 +
+        (i / 3 - 1)][x / 32 + (i % 3 - 1)] <= 7)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 void player_knockback(data_t *gd, scene_t *scene)
 {
     player_t *red = gd->red;
     float newx = red->pos.x + red->kb_speed * cos(red->kb_dir);
     float newy = red->pos.y + red->kb_speed * sin(red->kb_dir);
+    int x = floor(newx);
+    int y = floor(newy);
 
     red->pos = (sfVector2f) {newx, newy};
-    if (!(scene->map->tiles[(int) newy / 32][(int) newx / 32] >= 36
-    && scene->map->tiles[(int) newy / 32][(int) newx / 32] <= 43))
+    if (!(scene->map->tiles[(int) newy / 32][(int) newx / 32] >= 36 && scene->
+    map->tiles[(int) newy / 32][(int) newx / 32] <= 43) && !(scene->map->tiles
+    [y / 32][x / 32] >= 4 && scene->map->tiles[y / 32][x / 32] <= 7))
         red->kb_speed *= 0.9;
+    if (is_all_lava(scene, x, y)) {
+        gd->red->pos.x = 13 * 32;
+        gd->red->pos.y = 9 * 32;
+        gd->red->percentage = 0;
+    }
 }
 
 void player_move(data_t *game_data, scene_t *scene)
