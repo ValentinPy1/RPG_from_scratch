@@ -35,14 +35,22 @@ static sounds_t *get_sound(void)
     effects->kill = sfSound_create();
     effects->kill_buffer = sfSoundBuffer_createFromFile("assets/snd/kill.ogg");
     sfSound_setBuffer(effects->kill, effects->kill_buffer);
-    effects->slash = sfSound_create();
-    effects->slash_buffer =
-    sfSoundBuffer_createFromFile("assets/snd/slash.ogg");
-    sfSound_setBuffer(effects->slash, effects->slash_buffer);
     effects->swing = sfSound_create();
     effects->swing_buffer =
     sfSoundBuffer_createFromFile("assets/snd/swing.ogg");
     sfSound_setBuffer(effects->swing, effects->swing_buffer);
+    effects->slash = sfSound_create();
+    effects->slash_buffer =
+    sfSoundBuffer_createFromFile("assets/snd/slash.ogg");
+    sfSound_setBuffer(effects->slash, effects->slash_buffer);
+    effects->hit = sfSound_create();
+    effects->hit_buffer =
+    sfSoundBuffer_createFromFile("assets/snd/hit.ogg");
+    sfSound_setBuffer(effects->hit, effects->hit_buffer);
+    effects->fall = sfSound_create();
+    effects->fall_buffer =
+    sfSoundBuffer_createFromFile("assets/snd/fall.ogg");
+    sfSound_setBuffer(effects->fall, effects->fall_buffer);
     return effects;
 }
 
