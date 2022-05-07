@@ -60,6 +60,9 @@ void enemy_attack(data_t *gd, enemies_t *node)
     if ((long long unsigned int) node->enem->last_attack < gd->frame_count -
     ENEM_ATTACK_DELAY * gd->framerate &&
     get_distance(node->enem->pos, gd->red->pos) < ENEM_ATTACK_DIST) {
+        sfSound_setPitch(gd->red->effects->hit, rdm_float(0.8, 1.8));
+        sfSound_setVolume(gd->red->effects->hit, 30);
+        sfSound_play(gd->red->effects->hit);
         gd->red->kb_speed = 5 + gd->red->percentage / 10;
         gd->red->kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x));
         spawn_blood(gd);

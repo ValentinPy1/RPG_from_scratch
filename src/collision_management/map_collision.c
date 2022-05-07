@@ -37,8 +37,8 @@ int is_blocking_tile(map_t *map, sfVector2f pos)
     status = check_entrance(map, x, y);
     if (status != 0) {
         return status;
-    } else if (map->tiles[y / 32][x / 32] >= 4 &&
-    map->tiles[y / 32][x / 32] <= 7 || (map->tiles[y / 32][x / 32] >= 36 &&
+    } else if ((map->tiles[y / 32][x / 32] >= 4 &&
+    map->tiles[y / 32][x / 32] <= 7) || (map->tiles[y / 32][x / 32] >= 36 &&
     map->tiles[y / 32][x / 32] <= 63)) {
         return (1);
     } else {

@@ -39,7 +39,7 @@ static void attack_enem(data_t *gd, enemies_t *enem)
     ppos = gd->red->pos;
     dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + PI;
     if (get_distance(epos, ppos) < 60 && is_in_front(gd, enem->enem->pos)) {
-        sfSound_setPitch(gd->red->effects->slash, get_rdm() * 8);
+        sfSound_setPitch(gd->red->effects->slash, rdm_float(0.8, 2));
         sfSound_play(gd->red->effects->slash);
         enem->enem->kb_speed = 10;
         enem->enem->life -= gd->red->stats->att;
