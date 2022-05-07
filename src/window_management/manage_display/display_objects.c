@@ -39,6 +39,8 @@ void draw_images(sfRenderWindow *window, scene_t *scene)
     image_t *head_ref_img = scene->images;
 
     while (head_ref_img != NULL) {
+        if (head_ref_img == NULL)
+            break;
         sfRenderWindow_drawSprite(window, head_ref_img->sprite, NULL);
         head_ref_img = head_ref_img->next;
     }
@@ -50,6 +52,8 @@ void draw_texts(sfRenderWindow *window, scene_t *scene)
     text_t *head_ref_txt = scene->texts;
 
     while (head_ref_txt != NULL) {
+        if (head_ref_txt == NULL)
+            break;
         sfRenderWindow_drawText(window, head_ref_txt->text, NULL);
         head_ref_txt = head_ref_txt->next;
     }
