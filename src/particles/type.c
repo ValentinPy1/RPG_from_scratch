@@ -34,7 +34,7 @@ particle_param_t setup_blood_param(void)
     param.init_vel = (sfVector2f) {0, 0};
     param.color = (sfColor) {220, 10, 10, 255};
     param.max_duration = 20;
-    param.size = 1.5;
+    param.size = 1.3;
     param.gravity = (sfVector2f) {0, 0.3};
     param.resistance = (sfVector2f) {0, 0.01};
     param.count = 50;

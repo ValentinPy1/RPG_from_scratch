@@ -29,6 +29,7 @@ SRC = 	src/main.c													\
 		src/particles/destroy.c										\
 		src/particles/manage_particules.c							\
 		src/particles/type.c										\
+		src/particles/type_more.c										\
 		src/window_management/get_scene.c							\
 		src/window_management/open_window.c							\
 		src/window_management/manage_events.c						\
