@@ -14,7 +14,8 @@
     #define AGGRO_DIST 150
     #define ENEM_ATTACK_DELAY 1
     #define ENEM_ATTACK_DIST 30
-    #define ENEM_COLLIDE_DIST 25
+    #define ENEM_COLLIDE_DIST 25$
+    #define ENEM_DMG 10
 
 typedef struct enem_s {
     float speed;

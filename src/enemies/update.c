@@ -61,7 +61,7 @@ void enemy_attack(data_t *gd, enemies_t *node)
         gd->red->kb_speed = 5 + gd->red->percentage / 10;
         gd->red->kb_dir = atan2((ppos.y - epos.y), (ppos.x - epos.x));
         spawn_blood(gd);
-        gd->red->percentage += 5;
+        gd->red->percentage += ENEM_DMG;
         node->enem->last_attack = gd->frame_count;
     }
 }

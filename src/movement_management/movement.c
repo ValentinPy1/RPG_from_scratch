@@ -28,8 +28,8 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
         gd->red->pos.y = 620;
     }
     if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
-        gd->red->pos.x += gd->red->stats->spd * dir.x * 0.6 * delta;
-        gd->red->pos.y += gd->red->stats->spd * dir.y * 0.6 * delta;
+        gd->red->pos.x += gd->red->stats->spd * dir.x * 0.6 * delta / 10;
+        gd->red->pos.y += gd->red->stats->spd * dir.y * 0.6 * delta / 10;
     }
     gd->red->pos.x += gd->red->stats->spd * dir.x * delta;
     gd->red->pos.y += gd->red->stats->spd * dir.y * delta;
