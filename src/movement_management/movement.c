@@ -24,11 +24,13 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 2) {
         gd->red->pos.x = 2320;
         gd->red->pos.y = 592;
+        gd->red->is_in_house = true;
         return;
     } else if (is_blocking_tile(gd->scene_list[gd->run_index]->map,
                 temp_pos) == 3) {
         gd->red->pos.x = 1070;
         gd->red->pos.y = 670;
+        gd->red->is_in_house = false;
         return;
     }
     if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
@@ -66,6 +68,7 @@ void player_knockback(data_t *gd, scene_t *scene)
     [y / 32][x / 32] >= 4 && scene->map->tiles[y / 32][x / 32] <= 7))
         red->kb_speed *= 0.9;
     if (is_all_lava(scene, x, y)) {
+        sfSound_play(gd->red->effects->fall);
         gd->red->pos.x = 13 * 32;
         gd->red->pos.y = 9 * 32;
         gd->red->percentage = 0;

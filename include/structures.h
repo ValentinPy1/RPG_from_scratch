@@ -9,6 +9,7 @@
     #define STRUCT_H_
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
+    #include <stdbool.h>
 
     #define PI 3.1415926535
 
@@ -178,7 +179,7 @@ typedef struct set_s {
 
 typedef struct stats_s {
     int att;
-    int def;
+    int heal;
     int spd;
 } stats_t;
 
@@ -215,6 +216,7 @@ typedef struct player_s {
     float kb_speed;
     float percentage;
     sounds_t *effects;
+    bool is_in_house;
 } player_t;
 
 typedef struct key_s {

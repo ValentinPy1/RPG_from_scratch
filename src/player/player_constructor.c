@@ -11,7 +11,7 @@ static stats_t *setup_stats(void)
 {
     stats_t *stats = malloc(sizeof(stats_t));
     stats->att = 19;
-    stats->def = 5;
+    stats->heal = 5;
     stats->spd = 2;
     return stats;
 }
@@ -27,6 +27,7 @@ static void set_player_values(player_t *player)
     player->kb_speed = 0;
     player->percentage = 0;
     player->view = sfView_create();
+    player->is_in_house = false;
 }
 
 static sounds_t *get_sound(void)
