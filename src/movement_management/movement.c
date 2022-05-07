@@ -22,8 +22,14 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 1)
         return;
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 2) {
-        gd->red->pos.x = 2260;
-        gd->red->pos.y = 620;
+        gd->red->pos.x = 2320;
+        gd->red->pos.y = 592;
+        return;
+    } else if (is_blocking_tile(gd->scene_list[gd->run_index]->map,
+                temp_pos) == 3) {
+        gd->red->pos.x = 1070;
+        gd->red->pos.y = 670;
+        return;
     }
     if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
         gd->red->pos.x += gd->red->stats->spd * dir.x * 0.6 * delta;
