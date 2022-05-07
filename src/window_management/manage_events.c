@@ -61,7 +61,8 @@ void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         if (event.type == sfEvtClosed) {
             sfRenderWindow_close(game_data->window);
         }
-        if (event.key.code == sfKeyEscape) {
+        if (event.key.code == sfKeyEscape && my_strcmp(
+        game_data->scene_list[game_data->run_index]->name, "game_scene")) {
             options(game_data, game_data->scene_names, &game_data->run_index);
             init_hud(game_data->window, game_data);
         }

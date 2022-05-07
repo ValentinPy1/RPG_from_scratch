@@ -19,4 +19,6 @@ int options(data_t *game_data, char **scenes_name, int *index_run);
 void spawn_enem_blood(data_t *gd, sfVector2f pos);
 void add_enem(enemies_t *enemies, sfVector2f pos);
 void destroy_next_enemies(enemies_t *node);
+int my_strcmp(char *str1, char *str2);
+
 #endif /*MAIN_H_*/
