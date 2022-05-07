@@ -19,8 +19,6 @@ void draw_buttons(sfRenderWindow *window, data_t *game_data, scene_t *scene)
     button_t *head_ref_but = scene->buttons;
 
     while (head_ref_but != NULL) {
-        if (head_ref_but == NULL)
-            break;
         if (head_ref_but->is_hovered == 0) {
             sfRenderWindow_drawSprite(window,
                 head_ref_but->sprite, NULL);
@@ -39,8 +37,6 @@ void draw_images(sfRenderWindow *window, scene_t *scene)
     image_t *head_ref_img = scene->images;
 
     while (head_ref_img != NULL) {
-        if (head_ref_img == NULL)
-            break;
         sfRenderWindow_drawSprite(window, head_ref_img->sprite, NULL);
         head_ref_img = head_ref_img->next;
     }
@@ -51,8 +47,6 @@ void draw_texts(sfRenderWindow *window, scene_t *scene)
     text_t *head_ref_txt = scene->texts;
 
     while (head_ref_txt != NULL) {
-        if (head_ref_txt == NULL)
-            break;
         sfRenderWindow_drawText(window, head_ref_txt->text, NULL);
         head_ref_txt = head_ref_txt->next;
     }

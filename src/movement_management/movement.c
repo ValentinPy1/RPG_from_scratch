@@ -9,30 +9,29 @@
 #include "particles.h"
 #include "math.h"
 
-void move_dir(data_t *game_data, sfVector2f dir, int key, int sprite)
+void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
 {
-    sfVector2f temp_pos = (sfVector2f) {game_data->red->pos.x +
-    game_data->red->stats->spd * dir.x, game_data->red->pos.y +
-    game_data->red->stats->spd * dir.y};
-
-    if (sfKeyboard_isKeyPressed(key)) {
-        game_data->red->player_rect->left = sprite * 16;
-        if (is_blocking_tile(game_data->scene_list[game_data->run_index]->map,
-        temp_pos) == 1)
-            return;
-        if (is_blocking_tile(game_data->scene_list[game_data->run_index]->map,
-        temp_pos) == 2) {
-            game_data->red->pos.x = 1000;
-            game_data->red->pos.y = 800;
-        }
-        if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
-            game_data->red->pos.x += game_data->red->stats->spd * dir.x * 0.5;
-            game_data->red->pos.y += game_data->red->stats->spd * dir.y * 0.5;
-        }
-        game_data->red->pos.x += game_data->red->stats->spd * dir.x;
-        game_data->red->pos.y += game_data->red->stats->spd * dir.y;
-        player_walk(game_data, 16, 64);
+    sfVector2f temp_pos = (sfVector2f) {gd->red->pos.x + gd->red->stats->spd
+    * dir.x, gd->red->pos.y + gd->red->stats->spd * dir.y};
+    float delta = 60.0 / gd->framerate;
+    if (!sfKeyboard_isKeyPressed(key))
+        return;
+    gd->red->facing = sprite;
+    gd->red->player_rect->left = sprite * 16;
+    gd->red->attack_rect->left = sprite * 32;
+    if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 1)
+        return;
+    if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 2) {
+        gd->red->pos.x = 2260;
+        gd->red->pos.y = 620;
     }
+    if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
+        gd->red->pos.x += gd->red->stats->spd * dir.x * 0.6 * delta;
+        gd->red->pos.y += gd->red->stats->spd * dir.y * 0.6 * delta;
+    }
+    gd->red->pos.x += gd->red->stats->spd * dir.x * delta;
+    gd->red->pos.y += gd->red->stats->spd * dir.y * delta;
+    player_walk(gd, 16, 64);
 }
 
 bool is_all_lava(scene_t *scene, int x, int y)
