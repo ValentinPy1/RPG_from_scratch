@@ -14,6 +14,7 @@ static void set_volumes(data_t *game_data, sfVector2i mouse_pos)
     sfSound_setVolume(game_data->scene_list[0]->music, ratio);
     sfSound_setVolume(game_data->scene_list[1]->music, ratio);
     sfSound_setVolume(game_data->scene_list[2]->music, ratio);
+    sfSound_setVolume(game_data->red->kill, ratio);
 }
 
 int bar(data_t *game_data, char **scenes_name, int *index_run)
