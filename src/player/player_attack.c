@@ -12,7 +12,7 @@
 #include "random.h"
 
 float get_distance(sfVector2f p1, sfVector2f p2);
-void spawn_enem_blood(data_t *gd, sfVector2f pos);
+void spawn_enem_blood(data_t *gd, enemies_t *enem);
 
 static bool is_in_front(data_t *gd, sfVector2f pos)
 {
@@ -35,6 +35,7 @@ static void attack_enem(data_t *gd, enemies_t *enem)
     sfVector2f ppos;
     sfVector2f epos;
     float dir;
+
     epos = enem->enem->pos;
     ppos = gd->red->pos;
     dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + PI;
@@ -44,7 +45,7 @@ static void attack_enem(data_t *gd, enemies_t *enem)
         enem->enem->kb_speed = 10;
         enem->enem->life -= gd->red->stats->att;
         enem->enem->kb_dir = dir;
-        spawn_enem_blood(gd, enem->enem->pos);
+        spawn_enem_blood(gd, enem);
     }
 }
 

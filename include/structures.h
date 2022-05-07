@@ -217,6 +217,7 @@ typedef struct player_s {
     float percentage;
     sounds_t *effects;
     bool is_in_house;
+    int kill_streak;
 } player_t;
 
 typedef struct key_s {
