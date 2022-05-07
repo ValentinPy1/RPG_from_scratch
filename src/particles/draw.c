@@ -6,7 +6,6 @@
 */
 
 #include "particles.h"
-#include "callbacks.h"
 #include "structures.h"
 #include "random.h"
 #include <stdbool.h>
