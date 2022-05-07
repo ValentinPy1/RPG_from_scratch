@@ -37,7 +37,7 @@ particle_param_t setup_blood_param(void)
     param.size = 1.5;
     param.gravity = (sfVector2f) {0, 0.3};
     param.resistance = (sfVector2f) {0, 0.01};
-    param.count = 100;
+    param.count = 50;
     return param;
 }
 
@@ -70,5 +70,22 @@ particle_param_t setup_step_param(void)
     param.gravity = (sfVector2f) {0, 0.1};
     param.resistance = (sfVector2f) {0, 0.1};
     param.count = 5;
+    return param;
+}
+
+particle_param_t setup_smoke_param(void)
+{
+    particle_param_t param;
+    float brightness = rdm_float(50, 150);
+    param.pos = (sfVector2f) {960, 540};
+    param.spawn_radius = (sfVector2f) {30, 15};
+    param.rdm_vel = (sfVector2f) {0.1, 0.1};
+    param.init_vel = (sfVector2f) {0, 0};
+    param.color = (sfColor) {brightness, brightness, brightness, 150};
+    param.max_duration = 500;
+    param.size = rdm_float(1, 3);
+    param.gravity = (sfVector2f) {0, -0.02};
+    param.resistance = (sfVector2f) {0.1, 0.1};
+    param.count = 1;
     return param;
 }

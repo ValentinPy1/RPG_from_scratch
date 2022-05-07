@@ -7,11 +7,14 @@
 
 #ifndef _PARTICLES_H_
     #define _PARTICLES_H_
-    #include "structures.h"
+
     #include <SFML/Graphics.h>
     #include <SFML/System.h>
     #include <SFML/Window.h>
     #include <stdbool.h>
+    #include "structures.h"
+
+    #define PI 3.14159265359
 
 partic_arr_t *setup_partic_arr(particle_param_t *param);
 void draw_partic_arr(sfRenderWindow *win, partic_arr_t *partic);
@@ -24,9 +27,7 @@ void add_partic_group(partic_ll_t *groups, partic_ll_t *node);
 particle_param_t setup_blood_param(void);
 particle_param_t setup_fire_param(void);
 particle_param_t setup_lava_param(void);
-particle_param_t setup_sperm_param(void);
 particle_param_t setup_step_param(void);
-void update_groups(data_t *gd, partic_ll_t *groups);
-scene_t *get_scene(scene_t **scene_list, char *name);
-int my_strcmp(char *str1, char *str2);
+particle_param_t setup_smoke_param(void);
+
 #endif

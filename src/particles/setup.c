@@ -30,9 +30,9 @@ particle_t setup_particle(particle_param_t *p)
 {
     particle_t particle;
     sfCircleShape *circle = sfCircleShape_create();
-    float angle_pos = get_rdm() * M_PI * 2;
+    float angle_pos = get_rdm() * PI * 2;
     float dist_pos = get_rdm();
-    float angle_vel = get_rdm() * M_PI * 2;
+    float angle_vel = get_rdm() * PI * 2;
     float dist_vel = rdm_exp(0.2) + 0.1;
     particle.pos = (sfVector2f) {dist_pos * cos(angle_pos) *
     p->spawn_radius.x + p->pos.x, dist_pos *

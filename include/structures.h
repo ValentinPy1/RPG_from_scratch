@@ -59,12 +59,13 @@ typedef struct enem_s {
     float life;
     sfSprite *sprite;
     sfIntRect *rect;
-    sfClock *clock;
+    sfClock *anim;
     sfTime time;
     float seconds;
     float kb_speed;
     float kb_dir;
     sfVector2f destination;
+    int last_attack;
 } enem_t;
 
 typedef struct enemies_s {

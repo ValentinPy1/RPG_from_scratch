@@ -1,10 +1,9 @@
 /*
-** EPITECH PROJECT, 2022
-** B-MUL-200-PAR-2-3-myrpg-gabriel.lepinay
+** EPITECH PROJECT, 2021
+** rpg
 ** File description:
-** update
+** update.c
 */
-
 
 #include "particles.h"
 #include "structures.h"

@@ -20,17 +20,18 @@ static enem_t *setup_enem(sfVector2f pos)
 
     setup_values_enem(enem);
     enem->time = tm;
-    enem->clock = clk;
+    enem->anim = clk;
     enem->pos = pos;
     sfSprite *sprite = sfSprite_create();
     sfTexture *texture = random_enemy_texture();
     enem->rect = set_enemy_rect();
     sfSprite_setTexture(sprite, texture, sfFalse);
-    sfSprite_setScale(sprite, (sfVector2f) { 1.25, 1.25 });
-    sfSprite_setOrigin(sprite, (sfVector2f) { 16, 16 });
+    sfSprite_setScale(sprite, (sfVector2f) {1.25, 1.25});
+    sfSprite_setOrigin(sprite, (sfVector2f) {16, 16});
     sfSprite_setTextureRect(sprite, *enem->rect);
     enem->sprite = sprite;
     enem->destination = pos;
+    enem->last_attack = 0;
     return enem;
 }
 
@@ -61,7 +62,7 @@ void add_enem(enemies_t *enemies, sfVector2f pos)
 
 void spawn_enem(data_t *gd)
 {
-    float angle = rdm_float(0, 2 * M_PI);
+    float angle = rdm_float(0, 2 * PI);
     float dist = rdm_float(500, 1000);
     if (enem_count(gd->enemies) < 50)
         add_enem(gd->enemies, (sfVector2f)
