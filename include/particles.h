@@ -14,8 +14,6 @@
     #include <stdbool.h>
     #include "structures.h"
 
-    #define PI 3.14159265359
-
 partic_arr_t *setup_partic_arr(particle_param_t *param);
 void draw_partic_arr(sfRenderWindow *win, partic_arr_t *partic);
 particle_param_t setup_default_param(void);

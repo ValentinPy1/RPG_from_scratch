@@ -35,7 +35,6 @@ static void spawn_fire(data_t *game_data)
 {
     particle_param_t param = setup_fire_param();
     partic_ll_t *node;
-    float delta = 60.0 / game_data->framerate;
 
     param.pos = (sfVector2f) {560, 495};
     if (is_in_screen(game_data, param.pos)) {

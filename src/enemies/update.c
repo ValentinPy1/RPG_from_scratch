@@ -19,11 +19,13 @@ void enemy_hover(enem_t *enem, sfVector2f intent)
 {
     enem->time = sfClock_getElapsedTime(enem->anim);
     enem->seconds = enem->time.microseconds / MSEC;
-    if (fabs(intent.x) > 20)
-        if (intent.x < 0)
+    if (fabs(intent.x) > 20) {
+        if (intent.x < 0) {
             sfSprite_setScale(enem->sprite, (sfVector2f) {1, 1});
-        else
+        } else {
             sfSprite_setScale(enem->sprite, (sfVector2f) {-1, 1});
+        }
+    }
     if (enem->seconds > 0.20) {
         move_rect(enem->rect, 32, 128);
         sfClock_restart(enem->anim);
@@ -55,7 +57,7 @@ void enemy_attack(data_t *gd, enemies_t *node)
     sfVector2f ppos = gd->red->pos;
     sfVector2f epos = node->enem->pos;
 
-    if (node->enem->last_attack < gd->frame_count -
+    if ((long long unsigned int) node->enem->last_attack < gd->frame_count -
     ENEM_ATTACK_DELAY * gd->framerate &&
     get_distance(node->enem->pos, gd->red->pos) < ENEM_ATTACK_DIST) {
         gd->red->kb_speed = 5 + gd->red->percentage / 10;

@@ -17,7 +17,6 @@
     #define ENEM_ATTACK_DIST 30
     #define ENEM_COLLIDE_DIST 25
     #define ENEM_DMG 10
-    #define PI 3.1415926535
 
 enemies_t *setup_enemies_nodes(sfVector2f pos);
 void add_enem(enemies_t *enemies, sfVector2f pos);
