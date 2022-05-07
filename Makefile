@@ -64,6 +64,7 @@ SRC = 	src/main.c													\
 		src/movement_management/movement.c 							\
 		src/movement_management/view.c								\
 		src/movement_management/animations.c						\
+		src/movement_management/player_attack.c						\
 		src/enemies/setup.c											\
 		src/enemies/setup_tools.c									\
 		src/enemies/draw.c											\
