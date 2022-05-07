@@ -59,10 +59,9 @@ void handle_percentage(data_t *gd, scene_t *scene)
     sfText *percentage = get_text(scene->texts, "percent")->text;
     sfColor color = (sfColor) 
             {255, 255 - gd->red->percentage, 255 - gd->red->percentage, 255};
-
     char *str_w_per = my_strconc(str, "%");
-    free(str);
 
+    free(str);
     if (gd->frame_count % (gd->framerate * REGEN_DELAY) == 0 &&
     gd->red->percentage > 0) {
         gd->red->percentage -= 1;
