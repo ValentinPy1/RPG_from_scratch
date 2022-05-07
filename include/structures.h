@@ -15,7 +15,6 @@
 static const int WIN_WIDTH = 1920;
 static const int WIN_HEIGHT = 1080;
 static const int WIN_DIAG = 2203;
-static const int MSEC = 1000000;
 
 typedef struct data_s data_t;
 
@@ -108,10 +107,12 @@ typedef struct scene_s {
     text_t *texts;
     sfSound *music;
     sfSoundBuffer *music_buffer;
-    map_t *map;
     sfSprite *background_sprite;
     sfTexture *background_texture;
     partic_ll_t *partic;
+    sfVector2i mouse_loc;
+    map_t *map;
+    int is_running;
 } scene_t;
 
 typedef struct set_s {
@@ -125,7 +126,7 @@ typedef struct stats_s {
     int spd;
 } stats_t;
 
-typedef struct player_s {
+ typedef struct player_s {
     stats_t *stats;
     sfVector2f pos;
     sfSprite *player_sprite;

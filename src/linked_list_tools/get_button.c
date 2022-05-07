@@ -13,7 +13,7 @@ button_t *get_button(button_t *buttons, char *name)
     button_t *tmp_head_but = buttons;
 
     while (tmp_head_but != NULL) {
-        if (my_strcmp(name, buttons->name))
+        if (my_strcmp(name, tmp_head_but->name))
             break;
         tmp_head_but = tmp_head_but->next;
     }

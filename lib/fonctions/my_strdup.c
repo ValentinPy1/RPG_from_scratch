@@ -1,5 +1,4 @@
 /*
-<<<<<<< HEAD
 ** EPITECH PROJECT, 2022
 ** my_strdup
 ** File description:
@@ -22,17 +21,4 @@ char *my_strdup(char const *src)
     }
     dest[counter] = '\0';
     return dest;
-=======
-** EPITECH PROJECT, 2021
-** rpg
-** File description:
-** my_strdup.c
-*/
-
-char *my_strdup(char *str)
-{
-    char *dup = malloc(my_strlen(str) + 1);
-    my_strcpy(dup, str);
-    return dup;
->>>>>>> main
 }

@@ -1,18 +1,21 @@
 /*
-** EPITECH PROJECT, 2021
-** MyRPG
+** EPITECH PROJECT, 2022
+** option_scene
 ** File description:
-** display_stats.c
+** Source code to 
 */
-
 #include "structures.h"
 #include "manage_display.h"
 
 void update_stats(data_t *game_data)
 {
-    sfText *attack = game_data->scene_list[2]->texts[0];
-    sfText *defense = game_data->scene_list[2]->texts[1];
-    sfText *speed = game_data->scene_list[2]->texts[2];
+    scene_t *option_scene = get_scene(game_data->scene_list, "option_scene");
+
+    if (option_scene == NULL)
+        return;
+    sfText *attack = get_text(option_scene->texts, "attack_text")->text;
+    sfText *defense = get_text(option_scene->texts, "defense_text")->text;
+    sfText *speed = get_text(option_scene->texts, "speed_text")->text;
     char *att = my_getstr(game_data->red->stats->att);
     char *def = my_getstr(game_data->red->stats->def);
     char *spd = my_getstr(game_data->red->stats->spd);

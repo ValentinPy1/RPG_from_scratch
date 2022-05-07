@@ -11,7 +11,5 @@
     #include "structures.h"
 
 int my_strcmp(char *str1, char *str2);
-
 int write_error(char const *str);
-
 #endif /*GRUN_H_*/

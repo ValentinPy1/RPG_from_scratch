@@ -4,7 +4,9 @@
 ** File description:
 ** Source code to build hitbox of a button
 */
-#include "load_vertices.h"
+#include "structures.h"
+#include <stdlib.h>
+#include <math.h>
 
 sfVector2f **get_vertices_sq(sfVector2f center, int width, int height)
 {

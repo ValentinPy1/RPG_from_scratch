@@ -20,18 +20,17 @@ static enem_t *setup_enem(sfVector2f pos)
 
     setup_values_enem(enem);
     enem->time = tm;
-    enem->anim = clk;
+    enem->clock = clk;
     enem->pos = pos;
     sfSprite *sprite = sfSprite_create();
     sfTexture *texture = random_enemy_texture();
     enem->rect = set_enemy_rect();
     sfSprite_setTexture(sprite, texture, sfFalse);
-    sfSprite_setScale(sprite, (sfVector2f) {1.25, 1.25});
-    sfSprite_setOrigin(sprite, (sfVector2f) {16, 16});
+    sfSprite_setScale(sprite, (sfVector2f) { 1.25, 1.25 });
+    sfSprite_setOrigin(sprite, (sfVector2f) { 16, 16 });
     sfSprite_setTextureRect(sprite, *enem->rect);
     enem->sprite = sprite;
     enem->destination = pos;
-    enem->last_attack = 0;
     return enem;
 }
 

@@ -10,7 +10,6 @@
     #include "structures.h"
     #include "stdlib.h"
 
-
 int my_putstr(char const *str);
 int my_strcmp(char *str1, char *str2);
 scene_t **get_scenes(void);

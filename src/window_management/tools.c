@@ -15,3 +15,13 @@ int get_run_index(char **scene_names, char *name)
     write_error("This name of scene does not exist.\n");
     return (-1);
 }
+
+scene_t *get_scene(scene_t **scene_list, char *name)
+{
+    for (int index = 0; scene_list[index] != NULL; index++) {
+        if (my_strcmp(scene_list[index]->name, name))
+            return (scene_list[index]);
+    }
+    write_error("This name of scene does not exist.\n");
+    return (NULL);
+}

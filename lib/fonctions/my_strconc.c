@@ -10,7 +10,7 @@ int my_strlen(char const *str);
 
 char *my_strconc(char *str1, char *str2)
 {
-    int lens = my_strlen(str1) + my_strlen(str2);
+    int lens = my_strlen(str1) + my_strlen(str2); 
     char *res = malloc((lens + 1) * sizeof(char));
     int i_str1;
     int i_str2;

@@ -20,5 +20,7 @@ void update_enemies(data_t *gd, enemies_t *enemies);
 void update_groups(data_t *gd, partic_ll_t *groups);
 void update_stats(data_t *game_data);
 char *my_getstr(int nb);
+scene_t *get_scene(scene_t **scene_list, char *name);
+text_t *get_text(text_t *texts, char *name);
 
 #endif /*MDIS_H_*/
