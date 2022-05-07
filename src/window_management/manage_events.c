@@ -23,6 +23,7 @@ void kbd_input(data_t *gd, sfEvent event, sfVector2i mouse_loc)
         if (gd->enemies->next != NULL)
             destroy_next_enemies(gd->enemies);
     if (event.key.code == sfKeySpace) {
+        sfSound_play(gd->red->effects->swing);
         push_enemies(gd);
     }
 }

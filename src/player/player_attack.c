@@ -9,6 +9,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include "enemies.h"
+#include "random.h"
 
 float get_distance(sfVector2f p1, sfVector2f p2);
 void spawn_enem_blood(data_t *gd, sfVector2f pos);
@@ -38,6 +39,8 @@ static void attack_enem(data_t *gd, enemies_t *enem)
     ppos = gd->red->pos;
     dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + PI;
     if (get_distance(epos, ppos) < 60 && is_in_front(gd, enem->enem->pos)) {
+        sfSound_setPitch(gd->red->effects->slash, rand() % 8);
+        sfSound_play(gd->red->effects->slash);
         enem->enem->kb_speed = 10;
         enem->enem->life -= gd->red->stats->att;
         enem->enem->kb_dir = dir;
