@@ -25,7 +25,7 @@ void knife(data_t *game_data)
     sfClock_getElapsedTime(game_data->red->attack_clock);
     game_data->red->attack_seconds =
     game_data->red->attack_time.microseconds / 1000000.0;
-    if (game_data->red->attack_seconds > 0.10) {
+    if (game_data->red->attack_seconds > 0.1) {
         if (game_data->red->attack_state !=  5) {
             move_rect(game_data->red->attack_rect, 32, 160);
             sfClock_restart(game_data->red->attack_clock);
