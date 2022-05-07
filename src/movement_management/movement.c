@@ -60,6 +60,7 @@ void player_knockback(data_t *gd, scene_t *scene)
     [y / 32][x / 32] >= 4 && scene->map->tiles[y / 32][x / 32] <= 7))
         red->kb_speed *= 0.9;
     if (is_all_lava(scene, x, y)) {
+        sfSound_play(gd->red->effects->fall);
         gd->red->pos.x = 13 * 32;
         gd->red->pos.y = 9 * 32;
         gd->red->percentage = 0;
