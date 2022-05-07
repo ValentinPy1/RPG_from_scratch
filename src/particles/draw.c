@@ -34,19 +34,25 @@ void draw_groups(sfRenderWindow *win, partic_ll_t *groups)
 
 static void spawn_fire(data_t *game_data)
 {
-    particle_param_t fire = setup_fire_param();
-    partic_ll_t *node_fire;
+    particle_param_t param = setup_fire_param();
+    partic_ll_t *node;
     float delta = 60.0 / game_data->framerate;
 
-    fire.pos = (sfVector2f) {560, 495};
-    if (is_in_screen(game_data, fire.pos)) {
-        node_fire = setup_partic_node(&fire);
-        add_partic_group(game_data->scene_list[1]->partic, node_fire);
+    param.pos = (sfVector2f) {560, 495};
+    if (is_in_screen(game_data, param.pos)) {
+        node = setup_partic_node(&param);
+        add_partic_group(game_data->scene_list[1]->partic, node);
     }
-    fire.pos = (sfVector2f) {1810, 720};
-    if (is_in_screen(game_data, fire.pos)) {
-        node_fire = setup_partic_node(&fire);
-        add_partic_group(game_data->scene_list[1]->partic, node_fire);
+    param.pos = (sfVector2f) {1810, 720};
+    if (is_in_screen(game_data, param.pos)) {
+        node = setup_partic_node(&param);
+        add_partic_group(game_data->scene_list[1]->partic, node);
+    }
+    param = setup_smoke_param();
+    param.pos = (sfVector2f) {480, 240};
+    if (is_in_screen(game_data, param.pos)) {
+        node = setup_partic_node(&param);
+        add_partic_group(game_data->scene_list[1]->partic, node);
     }
 }
 
