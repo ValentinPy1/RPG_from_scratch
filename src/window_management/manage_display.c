@@ -34,7 +34,8 @@ void knife(data_t *game_data)
     }
 }
 
-void game_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
+static void game_scene(sfRenderWindow *window,
+data_t *game_data, scene_t *scene)
 {
     player_move(game_data, game_data->scene_list[game_data->run_index]);
     spawn_enem(game_data);
