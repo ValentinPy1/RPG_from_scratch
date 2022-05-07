@@ -37,23 +37,7 @@ particle_param_t setup_blood_param(void)
     param.size = 1.5;
     param.gravity = (sfVector2f) {0, 0.3};
     param.resistance = (sfVector2f) {0, 0.01};
-    param.count = 100;
-    return param;
-}
-
-particle_param_t setup_sperm_param(void)
-{
-    particle_param_t param;
-    param.pos = (sfVector2f) {960, 540};
-    param.spawn_radius = (sfVector2f) {0, 0};
-    param.rdm_vel = (sfVector2f) {3, 3};
-    param.init_vel = (sfVector2f) {0, 0};
-    param.color = (sfColor) {230, 230, 230, 255};
-    param.max_duration = 20;
-    param.size = 1.5;
-    param.gravity = (sfVector2f) {0, 0.3};
-    param.resistance = (sfVector2f) {0, 0.01};
-    param.count = 10;
+    param.count = 50;
     return param;
 }
 
@@ -85,6 +69,6 @@ particle_param_t setup_step_param(void)
     param.size = 1.5;
     param.gravity = (sfVector2f) {0, 0.1};
     param.resistance = (sfVector2f) {0, 0.1};
-    param.count = 10;
+    param.count = 5;
     return param;
 }

@@ -22,7 +22,6 @@ void scene_selector(sfRenderWindow *window, data_t *game_data)
     game_data->scene_list[game_data->run_index]);
     if (game_data->run_index == -1)
         return;
-    player_move(game_data, game_data->scene_list[game_data->run_index]);
     display_scene(window, game_data,
     game_data->scene_list[game_data->run_index]);
     int block = is_blocking_tile(
@@ -44,6 +43,7 @@ void open_window(int width, int height, data_t *game_data)
             break;
         }
         sfRenderWindow_display(game_data->window);
+        game_data->frame_count += 1;
     }
     sfRenderWindow_destroy(game_data->window);
 }

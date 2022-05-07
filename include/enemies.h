@@ -11,6 +11,10 @@
     #include <SFML/Graphics.h>
     #include <SFML/System.h>
     #include <SFML/Window.h>
+    #define AGGRO_DIST 150
+    #define ENEM_ATTACK_DELAY 1
+    #define ENEM_ATTACK_DIST 30
+    #define ENEM_COLLIDE_DIST 25
 
 typedef struct enem_s {
     float speed;
@@ -20,12 +24,13 @@ typedef struct enem_s {
     float life;
     sfSprite *sprite;
     sfIntRect *rect;
-    sfClock *clock;
+    sfClock *anim;
     sfTime time;
     float seconds;
     float kb_speed;
     float kb_dir;
     sfVector2f destination;
+    int last_attack;
 } enem_t;
 
 typedef struct enemies_s {

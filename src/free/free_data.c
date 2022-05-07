@@ -52,6 +52,8 @@ static void free_player(data_t *game_data)
     sfClock_destroy(game_data->red->clock);
     free(game_data->red->player_rect);
     sfView_destroy(game_data->red->view);
+    sfSound_destroy(game_data->red->kill);
+    sfSoundBuffer_destroy(game_data->red->kill_buffer);
     free(game_data->red->stats);
     free(game_data->red);
 }
