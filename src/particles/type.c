@@ -13,14 +13,14 @@ particle_param_t setup_lava_param(void)
     particle_param_t param;
     param.pos = (sfVector2f) {960, 540};
     param.spawn_radius = (sfVector2f) {0, 0};
-    param.rdm_vel = (sfVector2f) {2, 0.5};
-    param.init_vel = (sfVector2f) {0, -2};
+    param.rdm_vel = (sfVector2f) {2, 2};
+    param.init_vel = (sfVector2f) {0, 0};
     param.color = (sfColor) {234 + 20 *
-    get_rdm(), 98 + 20 * get_rdm(), 0, 255};
-    param.max_duration = 100;
-    param.size = 2;
-    param.gravity = (sfVector2f) {0, 0.1};
-    param.resistance = (sfVector2f) {0, 0.001};
+    get_rdm(), 98 + 20 * get_rdm(), 0, 150 + 100 * get_rdm()};
+    param.max_duration = 10000;
+    param.size = 0.5 + get_rdm() * 1.5;
+    param.gravity = (sfVector2f) {0, 0};
+    param.resistance = (sfVector2f) {0.001, 0.001};
     param.count = 2;
     return param;
 }

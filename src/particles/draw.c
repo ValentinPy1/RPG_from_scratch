@@ -61,7 +61,7 @@ data_t *gd, scene_t *scene)
         sup_partic_groups(scene->partic->next);
         draw_groups(win, scene->partic->next);
         lava.pos = (sfVector2f) {get_rdm() * 1920, get_rdm() * 1080};
-        if (is_in_screen(gd, lava.pos) && get_rdm() > 0.5) {
+        if (is_in_screen(gd, lava.pos) && get_rdm() > 0.7) {
             node_lava = setup_partic_node(&lava);
             add_partic_group(scene->partic, node_lava);
         }
