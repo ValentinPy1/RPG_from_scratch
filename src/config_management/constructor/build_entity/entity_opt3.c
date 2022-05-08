@@ -47,6 +47,7 @@ int build_ent_back_texture(entity_t *entity, char *value)
     sfVector2f origin = (sfVector2f) {entity->width / (2 * entity->scale.x),
     entity->height / (2 * entity->scale.y)};
 
+    printf("load back text..%s\n", value);
     entity->back_sprite = sfSprite_create();
     entity->back_texture = sfTexture_createFromFile(value, NULL);
     if (entity->back_texture == NULL) {
@@ -65,7 +66,7 @@ int build_ent_back_texture(entity_t *entity, char *value)
 
 int build_ent_quest(entity_t *entity, char *value)
 {
-    (void) value;
+    printf("load quest..%s\n", value);
     entity->quest = build_quest_button(entity);
     entity->quit = build_quit_button(entity);
     return (0);
