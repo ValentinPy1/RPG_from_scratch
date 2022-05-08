@@ -44,11 +44,15 @@ static sounds_t *get_sounds(void)
     sounds_t *effects = malloc(sizeof(sounds_t));
 
     get_sound(&effects->kill, &effects->kill_buffer, "assets/snd/kill.ogg");
-    get_sound(&effects->swing, &effects->swing_buffer, "assets/snd/swing.ogg");
-    get_sound(&effects->slash, &effects->slash_buffer, "assets/snd/slash.ogg");
-    get_sound(&effects->hit, &effects->hit_buffer, "assets/snd/player_hit.ogg");
+    get_sound(&effects->swing,
+    &effects->swing_buffer, "assets/snd/swing.ogg");
+    get_sound(&effects->slash,
+    &effects->slash_buffer, "assets/snd/slash.ogg");
+    get_sound(&effects->hit,
+    &effects->hit_buffer, "assets/snd/player_hit.ogg");
     get_sound(&effects->fall, &effects->fall_buffer, "assets/snd/fall.ogg");
-    get_sound(&effects->xp, &effects->xp_buffer, "assets/snd/minecraft-xp.ogg");
+    get_sound(&effects->xp,
+    &effects->xp_buffer, "assets/snd/minecraft-xp.ogg");
     return effects;
 }
 
