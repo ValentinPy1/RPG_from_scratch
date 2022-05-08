@@ -21,6 +21,8 @@ static void free_sounds(data_t *game_data)
     sfSoundBuffer_destroy(game_data->red->effects->hit_buffer);
     sfSound_destroy(game_data->red->effects->xp);
     sfSoundBuffer_destroy(game_data->red->effects->xp_buffer);
+    sfSound_destroy(game_data->red->effects->vent);
+    sfSoundBuffer_destroy(game_data->red->effects->vent_buffer);
 }
 
 static void free_player(data_t *game_data)
