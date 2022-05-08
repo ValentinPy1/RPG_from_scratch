@@ -59,6 +59,6 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
     draw_images(window, scene);
     handle_particles(window, game_data, scene);
     draw_texts(window, scene);
-    draw_entities(window, scene);
+    draw_entities(window, game_data, scene);
     draw_buttons(window, game_data, scene);
 }

@@ -54,11 +54,18 @@ void draw_texts(sfRenderWindow *window, scene_t *scene)
     }
 }
 
-void draw_entities(sfRenderWindow *window, scene_t *scene)
+void draw_entities(sfRenderWindow *window,  data_t *game_data, scene_t *scene)
 {
     entity_t *head_ref_ent = scene->entities;
+    sfVector2f position = (sfVector2f) {game_data->red->pos.x - 280, game_data->red->pos.y + 100};
 
     while (head_ref_ent != NULL) {
+        if (head_ref_ent->is_interact == 1) {
+            sfText_setPosition(head_ref_ent->dialogue, position);
+            sfSprite_setPosition(head_ref_ent->back_sprite, position);
+            sfRenderWindow_drawSprite(window, head_ref_ent->back_sprite, NULL);
+            sfRenderWindow_drawText(window, head_ref_ent->dialogue, NULL);
+        }
         sfRenderWindow_drawSprite(window, head_ref_ent->sprite, NULL);
         head_ref_ent = head_ref_ent->next;
     }

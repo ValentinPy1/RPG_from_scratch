@@ -156,6 +156,7 @@ typedef struct entity_s {
     sfSprite *back_sprite;
     sfTexture *back_texture;
     sfText *dialogue;
+    int is_interact;
 } entity_t;
 
 typedef struct map_s {
