@@ -29,14 +29,14 @@ static int check_block(data_t *gd, sfVector2f dir)
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 1)
         return 1;
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 2) {
-        gd->red->pos.x = 2320;
+        gd->red->pos.x = 2352;
         gd->red->pos.y = 656;
         gd->red->is_in_house = true;
         gd->red->kb_speed = 0;
         return 1;
     } else if (is_blocking_tile(gd->scene_list[gd->run_index]->map,
                 temp_pos) == 3) {
-        gd->red->pos.x = 1070;
+        gd->red->pos.x = 1102;
         gd->red->pos.y = 734;
         gd->red->is_in_house = false;
         return 1;
@@ -78,7 +78,7 @@ void player_knockback(data_t *gd, scene_t *scene)
     if (is_all_lava(scene, x, y)) {
         sfSound_play(gd->red->effects->fall);
         gd->red->pos.x = 13 * 32;
-        gd->red->pos.y = 9 * 32;
+        gd->red->pos.y = 11 * 32;
         gd->red->percentage = 0;
         gd->red->kill_streak = 0;
         gd->red->stats->xp = 0;
