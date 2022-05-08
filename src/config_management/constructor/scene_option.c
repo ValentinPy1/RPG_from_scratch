@@ -26,8 +26,9 @@ char *get_id(char **content, int *line, int index)
     int counter = 0;
     char *id = NULL;
     int tmp_index = index + 1;
-    
-    while (content[*line][tmp_index] != '>' && content[*line][tmp_index] != '\0') {
+
+    while (content[*line][tmp_index] != '>' &&
+    content[*line][tmp_index] != '\0') {
         if (content[*line][tmp_index] == ':')
             flag = 1;
         counter++;

@@ -10,6 +10,7 @@ CON_PATH = src/config_management/constructor/
 SRC = 	src/main.c													\
 		src/init_game.c												\
 		src/free/free_obj.c 										\
+		src/free/free_struct.c 										\
 		src/random/random_generator.c								\
 		src/linked_list_tools/get_button.c							\
 		src/linked_list_tools/get_text.c							\

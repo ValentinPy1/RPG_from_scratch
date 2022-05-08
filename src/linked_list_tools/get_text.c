@@ -19,5 +19,3 @@ text_t *get_text(text_t *texts, char *name)
     }
     return (tmp_head_txt);
 }
-
-

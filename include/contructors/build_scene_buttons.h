@@ -40,7 +40,7 @@ __attribute__((unused)) static butt_opt_t BUTT_OPT_TAB[] = {
     {"ho_texture", build_butt_ho_texture},
     {"sound", build_butt_sound},
     {"callback", build_butt_callback},
-    {NULL, NULL}    
+    {NULL, NULL}
 };
 
 char *is_a_scene_opt(char **content, int *line);
