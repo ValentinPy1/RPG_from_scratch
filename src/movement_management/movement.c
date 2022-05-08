@@ -36,11 +36,11 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
         return;
     }
     if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
-        gd->red->pos.x += gd->red->stats->spd * dir.x * 0.6 * delta;
-        gd->red->pos.y += gd->red->stats->spd * dir.y * 0.6 * delta;
+        gd->red->pos.x += gd->red->stats->spd * dir.x * 0.6 * delta / 20.0;
+        gd->red->pos.y += gd->red->stats->spd * dir.y * 0.6 * delta / 20.0;
     }
-    gd->red->pos.x += gd->red->stats->spd * dir.x * delta;
-    gd->red->pos.y += gd->red->stats->spd * dir.y * delta;
+    gd->red->pos.x += gd->red->stats->spd * dir.x * delta / 10.0;
+    gd->red->pos.y += gd->red->stats->spd * dir.y * delta / 10.0;
     player_walk(gd, 16, 64);
 }
 //TODO too long
