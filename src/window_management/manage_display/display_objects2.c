@@ -30,8 +30,11 @@ void handle_percentage(data_t *gd, scene_t *scene)
 void handle_killstreak(data_t *gd, scene_t *scene)
 {
     char *str = my_getstr(gd->red->kill_streak);
+    char *str_w_per = my_strconc(str, "/20");
+
+    free(str);
     sfText *kill_streak = get_text(scene->texts, "kill_streak")->text;
-    sfColor in_color = (sfColor) {255, 255, 255, 255};
+    sfColor in_color = (sfColor) {0, 255, 10, 255};
     sfColor out_color = (sfColor) {0, 0, 0, 255};
     if (gd->quest_state != 1) {
         in_color.a = 0;
@@ -39,8 +42,8 @@ void handle_killstreak(data_t *gd, scene_t *scene)
     }
     sfText_setColor(kill_streak, in_color);
     sfText_setOutlineColor(kill_streak, out_color);
-    sfText_setString(kill_streak, str);
-    free(str);
+    sfText_setString(kill_streak, str_w_per);
+    free(str_w_per);
 }
 
 void handle_xp_points(data_t *gd, scene_t *scene)
