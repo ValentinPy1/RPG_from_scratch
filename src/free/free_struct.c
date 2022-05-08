@@ -7,11 +7,32 @@
 
 #include "free_data.h"
 
+static void free_sounds(data_t *game_data)
+{
+    sfSound_destroy(game_data->red->effects->fall);
+    sfSoundBuffer_destroy(game_data->red->effects->fall_buffer);
+    sfSound_destroy(game_data->red->effects->kill);
+    sfSoundBuffer_destroy(game_data->red->effects->kill_buffer);
+    sfSound_destroy(game_data->red->effects->swing);
+    sfSoundBuffer_destroy(game_data->red->effects->swing_buffer);
+    sfSound_destroy(game_data->red->effects->slash);
+    sfSoundBuffer_destroy(game_data->red->effects->slash_buffer);
+    sfSound_destroy(game_data->red->effects->hit);
+    sfSoundBuffer_destroy(game_data->red->effects->hit_buffer);
+    sfSound_destroy(game_data->red->effects->xp);
+    sfSoundBuffer_destroy(game_data->red->effects->xp_buffer);
+}
+
 static void free_player(data_t *game_data)
 {
+    free_sounds(game_data);
     sfClock_destroy(game_data->red->clock);
-    free(game_data->red->player_rect);
     sfView_destroy(game_data->red->view);
+    sfSprite_destroy(game_data->red->player_sprite);
+    sfSprite_destroy(game_data->red->attack_sprite);
+    free(game_data->red->player_rect);
+    free(game_data->red->attack_rect);
+    sfClock_destroy(game_data->red->attack_clock);
     free(game_data->red->stats);
     free(game_data->red);
 }

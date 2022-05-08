@@ -1,10 +1,9 @@
 /*
-** EPITECH PROJECT, 2021
-** rpg
+** EPITECH PROJECT, 2022
+** display_objects
 ** File description:
-** game_texts.c
+** Source code to display object
 */
-
 #include "structures.h"
 #include <stdlib.h>
 
