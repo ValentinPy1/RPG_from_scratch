@@ -89,7 +89,8 @@ void update_enemies(data_t *gd, enemies_t *enemies)
         sfSound_play(gd->red->effects->kill);
         destroy_next_enemies(enemies);
         return;
-    } else if (get_distance(next->enem->pos, gd->red->pos) > 800) {
+    } else if (get_distance(next->enem->pos, gd->red->pos) > 800
+    || gd->red->is_in_house) {
         destroy_next_enemies(enemies);
         return;
     }

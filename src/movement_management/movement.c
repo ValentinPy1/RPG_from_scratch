@@ -10,6 +10,8 @@
 #include "math.h"
 #include <stdlib.h>
 
+void spawn_enem(data_t *gd);
+
 void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
 {
     sfVector2f temp_pos = (sfVector2f) {gd->red->pos.x + gd->red->stats->spd
