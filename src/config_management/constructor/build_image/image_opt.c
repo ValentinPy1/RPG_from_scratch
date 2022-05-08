@@ -31,7 +31,7 @@ int build_img_posy(image_t *image, char *value)
 int build_img_width(image_t *image, char *value)
 {
     int width = my_getnbr(value);
-    
+
     image->width = width;
     return (0);
 }
@@ -39,7 +39,7 @@ int build_img_width(image_t *image, char *value)
 int build_img_height(image_t *image, char *value)
 {
     int height = my_getnbr(value);
-    
+
     image->height = height;
     return (0);
 }

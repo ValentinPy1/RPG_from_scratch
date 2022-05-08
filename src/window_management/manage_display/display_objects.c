@@ -4,6 +4,7 @@
 ** File description:
 ** Source code to display object
 */
+
 #include "structures.h"
 #include <stdlib.h>
 

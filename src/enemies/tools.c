@@ -31,6 +31,11 @@ sfVector2f get_direction(sfVector2f p1, sfVector2f p2)
     return (sfVector2f) {x, y};
 }
 
+sfVector2f get_vector(float dir, float speed)
+{
+    return (sfVector2f) {speed * cos(dir), speed * sin(dir)};
+}
+
 int enem_count(enemies_t *node)
 {
     if (node == NULL)

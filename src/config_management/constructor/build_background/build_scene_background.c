@@ -24,7 +24,8 @@ int build_scene_background(scene_t *scene, char **content, int *line)
     char *opt = NULL;
     char *value = NULL;
 
-    for (int index = 0; content[*line][index] != '>' && content[*line] != NULL; index++)
+    for (int index = 0; content[*line][index] != '>' &&
+    content[*line] != NULL; index++)
     {
         if (content[*line][index] == '\0' && content[*line + 1] != NULL) {
             index = 0;

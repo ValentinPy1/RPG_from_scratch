@@ -98,4 +98,3 @@ hitbox_t *init_hitbox(button_t *button)
     load_vertices(hitbox);
     return (hitbox);
 }
-

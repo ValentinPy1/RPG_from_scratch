@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** text_opt
 ** File description:
-** Source code 
+** Source code
 */
 #include "build_scene_texts.h"
 
@@ -23,7 +23,7 @@ int build_text_posx(text_t *text, char *value)
 int build_text_posy(text_t *text, char *value)
 {
     float coord_y = my_atof(value);
-    
+
     text->position.y = coord_y;
     sfText_setPosition(text->text, text->position);
     return (0);

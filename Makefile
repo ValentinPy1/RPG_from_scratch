@@ -10,6 +10,7 @@ CON_PATH = src/config_management/constructor/
 SRC = 	src/main.c													\
 		src/init_game.c												\
 		src/free/free_obj.c 										\
+		src/free/free_struct.c 										\
 		src/random/random_generator.c								\
 		src/linked_list_tools/get_button.c							\
 		src/linked_list_tools/get_text.c							\
@@ -30,7 +31,7 @@ SRC = 	src/main.c													\
 		src/particles/destroy.c										\
 		src/particles/manage_particules.c							\
 		src/particles/type.c										\
-		src/particles/type_more.c										\
+		src/particles/type_more.c									\
 		src/window_management/get_scene.c							\
 		src/window_management/open_window.c							\
 		src/window_management/manage_event/manage_events.c			\
@@ -39,11 +40,13 @@ SRC = 	src/main.c													\
 		src/window_management/manage_display/display_objects.c		\
 		src/window_management/manage_display/display_scene.c		\
 		src/window_management/manage_display/display_objects2.c		\
+		src/window_management/manage_display/game_texts.c			\
 		src/collision_management/point_in_rect.c					\
 		src/collision_management/map_collision.c					\
 		src/movement_management/movement.c 							\
 		src/movement_management/view.c								\
 		src/movement_management/animations.c						\
+		src/movement_management/death_condition.c					\
 		src/config_management/get_names_scene.c 					\
 		src/config_management/get_config_files.c					\
 		src/config_management/get_content_file.c					\
