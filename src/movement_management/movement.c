@@ -8,6 +8,7 @@
 #include "movement.h"
 #include "particles.h"
 #include "math.h"
+#include <stdlib.h>
 
 void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
 {
@@ -42,7 +43,7 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
     gd->red->pos.y += gd->red->stats->spd * dir.y * delta;
     player_walk(gd, 16, 64);
 }
-//too long
+//TODO too long
 
 bool is_all_lava(scene_t *scene, int x, int y)
 {
@@ -78,6 +79,17 @@ void player_knockback(data_t *gd, scene_t *scene)
     }
 }
 
+void handle_killstreak(data_t *gd, scene_t *scene)
+{
+    char *str = my_getstr(gd->red->kill_streak);
+    sfText *kill_streak = get_text(scene->texts, "kill_streak")->text;
+    sfColor color = (sfColor)
+    {255, 255 - gd->red->kill_streak, 255 - gd->red->kill_streak, 255};
+    sfText_setColor(kill_streak, color);
+    sfText_setString(kill_streak, str);
+    free(str);
+}
+
 void player_move(data_t *game_data, scene_t *scene)
 {
     game_data->red->time = sfClock_getElapsedTime(game_data->red->clock);
@@ -92,4 +104,5 @@ void player_move(data_t *game_data, scene_t *scene)
         game_data->red->pos.x, game_data->red->pos.y);
         player_knockback(game_data, scene);
     }
+    handle_killstreak(game_data, scene);
 }
