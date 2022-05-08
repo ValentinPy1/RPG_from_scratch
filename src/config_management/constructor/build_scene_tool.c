@@ -12,7 +12,8 @@ char *parse_opt(char **content, int *line, int *index)
     char *opt = NULL;
     int tmp_index = *index + 1;
 
-    while (content[*line][tmp_index] != '\'' && content[*line][tmp_index] != '\0')
+    while (content[*line][tmp_index] != '\'' &&
+    content[*line][tmp_index] != '\0')
         tmp_index++;
     if (content[*line][tmp_index] != '\'')
         return (NULL);
@@ -32,7 +33,8 @@ char *parse_opt_value(char **content, int *line, int *index)
     char *opt = NULL;
     int tmp_index = *index + 1;
 
-    while (content[*line][tmp_index] != '\"' && content[*line][tmp_index] != '\0')
+    while (content[*line][tmp_index] != '\"' &&
+    content[*line][tmp_index] != '\0')
         tmp_index++;
     if (content[*line][tmp_index] != '\"')
         return (NULL);
@@ -48,10 +50,11 @@ char *parse_opt_value(char **content, int *line, int *index)
 }
 
 char *get_obj_opt(char **content, int *line, int *index)
-{   
+{
     char *opt = NULL;
-  
-    for (*index = *index; content[*line][*index] != '>' && content[*line] != NULL; *index += 1) {
+
+    for (*index = *index; content[*line][*index] != '>' &&
+    content[*line] != NULL; *index += 1) {
         if (content[*line][*index] == '\0' && content[*line + 1] != NULL) {
             *index = 0;
             *line += 1;
@@ -67,9 +70,10 @@ char *get_obj_opt(char **content, int *line, int *index)
 
 char *get_opt_value(char **content, int *line, int *index)
 {
-        char *opt = NULL;
-  
-    for (*index = *index; content[*line][*index] != '>' && content[*line] != NULL; *index += 1) {
+    char *opt = NULL;
+
+    for (*index = *index; content[*line][*index] != '>' &&
+    content[*line] != NULL; *index += 1) {
         if (content[*line][*index] == '\0' && content[*line + 1] != NULL) {
             *index = 0;
             *line += 1;

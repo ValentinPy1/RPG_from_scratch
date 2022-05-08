@@ -39,7 +39,7 @@ int build_entities(entity_t **head_ref, char **content, int *line)
     char *opt = NULL;
     char *value = NULL;
     entity_t *new_entity = malloc(sizeof(entity_t));
-        
+
     init_default_entity(new_entity);
     for (int index = 0; content[*line][index] != '\0'; index++) {
         opt = get_obj_opt(content, line, &index);

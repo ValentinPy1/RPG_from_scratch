@@ -48,7 +48,7 @@ int build_butt_ho_texture(button_t *button, char *value)
     sfVector2f origin = (sfVector2f) {button->width * button->scale.x /
     (2 * button->scale.x), button->height * button->scale.y /
     (2 * button->scale.y)};
-    
+
     button->ho_sprite = sfSprite_create();
     button->ho_texture = sfTexture_createFromFile(value, NULL);
     if (button->ho_texture == NULL) {

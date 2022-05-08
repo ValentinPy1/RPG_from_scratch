@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** text_opt2
 ** File description:
-** Source code 
+** Source code
 */
 #include "build_scene_texts.h"
 

@@ -41,7 +41,8 @@ sfVector2f calculate_intent(data_t *gd, enemies_t *node)
     dir = handle_dest(gd, node);
     dist = get_distance(dir, (sfVector2f) {0, 0});
     spring = dist / 100;
-    intent = (sfVector2f) {intent.x + dir.x * spring, intent.y + dir.y * spring};
+    intent = (sfVector2f)
+    {intent.x + dir.x * spring, intent.y + dir.y * spring};
     target = 100;
     for (enemies_t *temp = gd->enemies->next; temp != NULL;
     temp = temp->next) {
