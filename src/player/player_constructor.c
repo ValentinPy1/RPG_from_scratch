@@ -10,7 +10,7 @@
 static stats_t *setup_stats(void)
 {
     stats_t *stats = malloc(sizeof(stats_t));
-    stats->att = 19;
+    stats->att = 20;
     stats->heal = 5;
     stats->spd = 2;
     return stats;
