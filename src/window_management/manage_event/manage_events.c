@@ -21,8 +21,8 @@ void is_interact_pnj(data_t *game_data, sfEvent event)
     while (tmp_ent != NULL) {
         distance = get_distance(tmp_ent->position, game_data->red->pos);
         if (distance < 40) {
-            interact_pnj(game_data, game_data->scene_list[game_data->run_index],
-                                        tmp_ent);
+            interact_pnj(game_data,
+                game_data->scene_list[game_data->run_index], tmp_ent);
         }
         tmp_ent = tmp_ent->next;
     }

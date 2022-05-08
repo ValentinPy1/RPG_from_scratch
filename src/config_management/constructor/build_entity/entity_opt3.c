@@ -18,7 +18,8 @@ static button_t *build_quest_button(entity_t *entity)
     button->rotation = 0;
     button->is_hovered = 0;
     build_butt_texture(button, "assets/img/buttons/check_button_still.png");
-    build_butt_ho_texture(button, "assets/img/buttons/check_button_hovered.png");
+    build_butt_ho_texture(button,
+        "assets/img/buttons/check_button_hovered.png");
     build_butt_sound(button, "assets/snd/toggle.ogg");
     button->callback = NULL;
     return (button);
@@ -36,7 +37,8 @@ static button_t *build_quit_button(entity_t *entity)
     button->rotation = 0;
     button->is_hovered = 0;
     build_butt_texture(button, "assets/img/buttons/cross_button_still.png");
-    build_butt_ho_texture(button, "assets/img/buttons/cross_button_hovered.png");
+    build_butt_ho_texture(button,
+        "assets/img/buttons/cross_button_hovered.png");
     build_butt_sound(button, "assets/snd/toggle.ogg");
     button->callback = NULL;
     return (button);

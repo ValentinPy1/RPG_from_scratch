@@ -65,7 +65,8 @@ int build_ent_dialogue(entity_t *entity, char *value)
     sfText *dialogue = sfText_create();
     sfVector2f position = (sfVector2f) 
             {entity->position.x, entity->position.y - 100};
-    sfFont *font = sfFont_createFromFile("assets/font/DeterminationSansWebRegular-369X.ttf");
+    sfFont *font = sfFont_createFromFile
+        ("assets/font/DeterminationSansWebRegular-369X.ttf");
     
     sfText_setPosition(dialogue, position);
     sfText_setString(dialogue, value);
