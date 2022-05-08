@@ -63,18 +63,6 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
     player_walk(gd, 16, 64);
 }
 
-bool is_all_lava(scene_t *scene, int x, int y)
-{
-    for (int i = 0; i < 9; ++i) {
-        if (!(scene->map->tiles[y / 32 +
-        (i / 3 - 1)][x / 32 + (i % 3 - 1)] >= 4 && scene->map->tiles[y / 32 +
-        (i / 3 - 1)][x / 32 + (i % 3 - 1)] <= 7)) {
-            return false;
-        }
-    }
-    return true;
-}
-
 void player_knockback(data_t *gd, scene_t *scene)
 {
     player_t *red = gd->red;

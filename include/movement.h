@@ -37,5 +37,6 @@ void add_partic_group(partic_ll_t *groups, partic_ll_t *node);
 scene_t *get_scene(scene_t **scene_list, char *name);
 int defeat(data_t *game_data, char **scenes_name, int *index_run);
 int victory(data_t *game_data, char **scenes_name, int *index_run);
+bool is_all_lava(scene_t *scene, int x, int y);
 
 #endif
