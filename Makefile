@@ -40,7 +40,6 @@ SRC = 	src/main.c													\
 		src/window_management/manage_display/display_objects.c		\
 		src/window_management/manage_display/display_scene.c		\
 		src/window_management/manage_display/display_objects2.c		\
-		src/window_management/manage_display/game_texts.c			\
 		src/collision_management/point_in_rect.c					\
 		src/collision_management/map_collision.c					\
 		src/movement_management/movement.c 							\
