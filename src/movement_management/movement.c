@@ -89,7 +89,7 @@ void player_knockback(data_t *gd, scene_t *scene)
         gd->red->stats->xp = 0;
         gd->red->kb_speed = 0;
         // sfSound_stop(scene->music);
-        // defeat(gd, gd->scene_names, &gd->run_index);
+        defeat(gd, gd->scene_names, &gd->run_index);
     }
 }
 
