@@ -31,8 +31,10 @@ data_t *game_data, scene_t *scene)
 
 void display_other_scene(data_t *game_data, scene_t *scene)
 {
-    if (my_strcmp(scene->name, "option_menu") == 1)
+    if (my_strcmp(scene->name, "option_menu") == 1) {
         update_stats(game_data, scene);
+        print_xp(game_data, scene);
+    }
 }
 
 void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
