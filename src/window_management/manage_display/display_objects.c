@@ -53,3 +53,13 @@ void draw_texts(sfRenderWindow *window, scene_t *scene)
         head_ref_txt = head_ref_txt->next;
     }
 }
+
+void draw_entities(sfRenderWindow *window, scene_t *scene)
+{
+    entity_t *head_ref_ent = scene->entities;
+
+    while (head_ref_ent != NULL) {
+        sfRenderWindow_drawSprite(window, head_ref_ent->sprite, NULL);
+        head_ref_ent = head_ref_ent->next;
+    }
+}

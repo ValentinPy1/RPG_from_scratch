@@ -20,7 +20,7 @@ static stats_t *setup_stats(void)
 static void set_player_values(player_t *player)
 {
     player->pos.x = 13 * 32;
-    player->pos.y = 9 * 32;
+    player->pos.y = 11 * 32;
     player->attack_state = 0;
     player->stats = setup_stats();
     player->facing = 0;

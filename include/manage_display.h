@@ -25,6 +25,7 @@ void draw_buttons(sfRenderWindow *window, data_t *game_data, scene_t *scene);
 void draw_images(sfRenderWindow *window, scene_t *scene);
 void draw_texts(sfRenderWindow *window, scene_t *scene);
 void player_move(data_t *game_data, scene_t *scene);
+void draw_entities(sfRenderWindow *window, scene_t *scene);
 void draw_enemies(sfRenderWindow *win, enemies_t *enemies);
 void print_xp(data_t *game_data, scene_t *option_scene);
 int my_strlen(char *str);
