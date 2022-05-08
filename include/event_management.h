@@ -20,5 +20,5 @@ void spawn_enem_blood(data_t *gd, sfVector2f pos);
 void add_enem(enemies_t *enemies, sfVector2f pos);
 void destroy_next_enemies(enemies_t *node);
 int my_strcmp(char *str1, char *str2);
-void interact_pnj(data_t *game_data, scene_t *scene, entity_t *tmp_ent);
+void interact_pnj(data_t *game_data, float distance, entity_t *tmp_ent);
 #endif /*MAIN_H_*/

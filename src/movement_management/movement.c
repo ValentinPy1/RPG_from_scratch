@@ -31,7 +31,6 @@ static int check_block(data_t *gd, sfVector2f dir)
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 1)
         return 1;
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 2) {
-        init_quest(gd);
         gd->red->pos.x = 2352;
         gd->red->pos.y = 656;
         gd->red->is_in_house = true;
