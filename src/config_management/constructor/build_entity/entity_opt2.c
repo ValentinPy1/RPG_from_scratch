@@ -62,6 +62,15 @@ int build_ent_action_sound(entity_t *entity, char *value)
 
 int build_ent_dialogue(entity_t *entity, char *value)
 {
-    entity->name = my_strdup(value);
+    sfText *dialogue = sfText_create();
+    sfVector2f position = (sfVector2f) 
+            {entity->position.x, entity->position.y - 100};
+    sfFont *font = sfFont_createFromFile("assets/font/DeterminationSansWebRegular-369X.ttf");
+    
+    sfText_setPosition(dialogue, position);
+    sfText_setString(dialogue, value);
+    sfText_setFont(dialogue, font);
+    sfText_setCharacterSize(dialogue, 15);
+    entity->dialogue = dialogue;
     return (0);
 }
