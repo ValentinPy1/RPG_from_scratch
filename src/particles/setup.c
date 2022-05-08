@@ -26,10 +26,19 @@ particle_param_t setup_default_param(void)
     return param;
 }
 
+sfCircleShape *setup_circle(particle_param_t *p, particle_t particle)
+{
+    sfCircleShape *circle = sfCircleShape_create();
+    sfCircleShape_setFillColor(circle, p->color);
+    sfCircleShape_setRadius(circle, p->size);
+    sfCircleShape_setOrigin(circle, (sfVector2f) {p->size, p->size});
+    sfCircleShape_setPosition(circle, particle.pos);
+    return circle;
+}
+
 particle_t setup_particle(particle_param_t *p)
 {
     particle_t particle;
-    sfCircleShape *circle = sfCircleShape_create();
     float angle_pos = get_rdm() * PI * 2;
     float dist_pos = get_rdm();
     float angle_vel = get_rdm() * PI * 2;
@@ -38,16 +47,13 @@ particle_t setup_particle(particle_param_t *p)
     p->spawn_radius.x + p->pos.x, dist_pos *
     sin(angle_pos) * p->spawn_radius.y + p->pos.y};
     particle.vel = (sfVector2f) {p->init_vel.x + dist_vel * cos(angle_vel) *
-    p->rdm_vel.x, p->init_vel.y + dist_vel * sin(angle_vel) *
-    p->rdm_vel.y};
+    p->rdm_vel.x, p->init_vel.y + dist_vel * sin(angle_vel) * p->rdm_vel.y};
     particle.duration = p->max_duration * get_rdm();
-    sfCircleShape_setFillColor(circle, p->color);
-    sfCircleShape_setRadius(circle, p->size);
-    sfCircleShape_setOrigin(circle, (sfVector2f) {p->size, p->size});
-    sfCircleShape_setPosition(circle, particle.pos);
-    particle.circle = circle;
-    particle.res = (sfVector2f) {p->resistance.x * get_rdm(), p->resistance.y * get_rdm()};
-    particle.grav = (sfVector2f) {p->gravity.x * get_rdm(), p->gravity.y * get_rdm()};
+    particle.circle = setup_circle(p, particle);
+    particle.res = (sfVector2f) {p->resistance.x * get_rdm(), p->resistance.y
+    * get_rdm()};
+    particle.grav = (sfVector2f) {p->gravity.x * get_rdm(), p->gravity.y
+    * get_rdm()};
     return particle;
 }
 
@@ -69,5 +75,6 @@ partic_ll_t *setup_partic_node(particle_param_t *p)
     partic_ll_t *node = malloc(sizeof(partic_ll_t));
     node->partic_arr = setup_partic_arr(p);;
     node->next = NULL;
+    node->is_xp = p->is_xp;
     return node;
 }

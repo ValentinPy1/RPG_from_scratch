@@ -31,9 +31,9 @@ void sup_partic_groups(partic_ll_t *groups) {
         free(temp->partic_arr);
         free(temp);
         sup_partic_groups(groups);
-    } else {
-        sup_partic_groups(groups->next);
+        return;
     }
+    sup_partic_groups(groups->next);
 }
 
 bool is_in_screen(data_t *gd, sfVector2f pos)

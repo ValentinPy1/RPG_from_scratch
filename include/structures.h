@@ -32,6 +32,7 @@ typedef struct particle_param_s {
     sfVector2f gravity;
     sfVector2f resistance;
     int count;
+    bool is_xp;
 } particle_param_t;
 
 typedef struct particle_s {
@@ -42,6 +43,7 @@ typedef struct particle_s {
     sfVector2f grav;
     sfVector2f res;
     sfCircleShape *circle;
+    bool is_xp;
 } particle_t;
 
 typedef struct partic_arr_s {
@@ -52,6 +54,7 @@ typedef struct partic_arr_s {
 
 typedef struct partic_ll_s {
     partic_arr_t *partic_arr;
+    bool is_xp;
     struct partic_ll_s *next;
 } partic_ll_t;
 
@@ -185,6 +188,7 @@ typedef struct stats_s {
     int att;
     int heal;
     int spd;
+    int xp;
 } stats_t;
 
 typedef struct sounds_s {
@@ -198,6 +202,8 @@ typedef struct sounds_s {
     sfSoundBuffer *hit_buffer;
     sfSound *fall;
     sfSoundBuffer *fall_buffer;
+    sfSound *xp;
+    sfSoundBuffer *xp_buffer;
 } sounds_t;
 
 typedef struct player_s {

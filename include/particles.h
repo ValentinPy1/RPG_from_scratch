@@ -28,5 +28,6 @@ particle_param_t setup_lava_param(void);
 particle_param_t setup_step_param(void);
 particle_param_t setup_smoke_param(void);
 particle_param_t setup_spark_param(void);
+particle_param_t setup_xp_param(void);
 
 #endif

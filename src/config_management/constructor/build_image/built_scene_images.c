@@ -36,7 +36,7 @@ int build_images(image_t **head_ref, char **content, int *line)
     char *opt = NULL;
     char *value = NULL;
     image_t *new_image = malloc(sizeof(image_t));
-        
+
     init_default_image(new_image);
     for (int index = 0; content[*line][index] != '\0'; index++) {
         opt = get_obj_opt(content, line, &index);

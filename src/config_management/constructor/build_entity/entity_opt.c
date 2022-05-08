@@ -23,7 +23,7 @@ int build_ent_posx(entity_t *entity, char *value)
 int build_ent_posy(entity_t *entity, char *value)
 {
     int coord_y = my_getnbr(value);
-    
+
     entity->position.y = coord_y;
     return (0);
 }
@@ -31,14 +31,14 @@ int build_ent_posy(entity_t *entity, char *value)
 int build_ent_width(entity_t *entity, char *value)
 {
     int width = my_getnbr(value);
-    
+
     entity->width = width;
     return (0);
 }
 int build_ent_height(entity_t *entity, char *value)
 {
     int height = my_getnbr(value);
-    
+
     entity->height = height;
     return (0);
 }

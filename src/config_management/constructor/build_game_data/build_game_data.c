@@ -21,5 +21,6 @@ int data_constructor(data_t *game_data)
     game_data->scene_list[1]->partic->next = NULL;
     game_data->enemies = malloc(sizeof(enemies_t));
     game_data->enemies->next = NULL;
+    game_data->frame_count = 0;
     return (0);
 }

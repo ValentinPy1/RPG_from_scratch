@@ -41,7 +41,7 @@ int build_texts(text_t **head_ref, char **content, int *line)
     char *opt = NULL;
     char *value = NULL;
     text_t *new_text = malloc(sizeof(text_t));
-        
+
     init_default_text(new_text);
     for (int index = 0; content[*line][index] != '\0'; index++) {
         opt = get_obj_opt(content, line, &index);
