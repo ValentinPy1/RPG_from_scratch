@@ -24,7 +24,7 @@ void valid_quest(data_t *gd, scene_t *scene)
 
     if (gd->quest_state == 1) {
         gd->quest_state = 2;
-        image->position = (sfVector2f) {1250, 500};
+        image->position = (sfVector2f) {1216, 508};
         sfSprite_setPosition(image->sprite, image->position);
     }
 }
