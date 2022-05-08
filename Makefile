@@ -43,6 +43,7 @@ SRC = 	src/main.c													\
 		src/movement_management/movement.c 							\
 		src/movement_management/view.c								\
 		src/movement_management/animations.c						\
+		src/movement_management/death_condition.c					\
 		src/config_management/get_names_scene.c 					\
 		src/config_management/get_config_files.c					\
 		src/config_management/get_content_file.c					\

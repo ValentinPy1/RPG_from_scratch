@@ -24,6 +24,20 @@ sfVector2f get_gravity(data_t *gd, particle_t *p)
     return gravity;
 }
 
+static sfVector2f set_grav(data_t *gd, float posx, float posy, particle_t *p)
+{
+    sfVector2f grav = p->grav;
+    if (get_distance(gd->red->pos, (sfVector2f) {posx, posy}) < 10) {
+        p->duration = 0;
+        gd->red->stats->xp += 1;
+        sfSound_setPitch(gd->red->effects->xp, 0.8 + get_rdm());
+        sfSound_play(gd->red->effects->xp);
+        return grav;
+    }
+    grav = get_gravity(gd, p);
+    return grav;
+}
+
 void update_particle(data_t *gd, particle_t *p, bool is_xp)
 {
     float d = 60.0 / gd->framerate;
@@ -33,14 +47,7 @@ void update_particle(data_t *gd, particle_t *p, bool is_xp)
     float vely = ((p->vel.y * (1 - p->res.y) + p->grav.y) - p->vel.y) * d;
     sfVector2f grav = p->grav;
     if (is_xp) {
-        if (get_distance(gd->red->pos, (sfVector2f) {posx, posy}) < 10) {
-            p->duration = 0;
-            gd->red->stats->xp += 1;
-            sfSound_setPitch(gd->red->effects->xp, 0.8 + get_rdm());
-            sfSound_play(gd->red->effects->xp);
-            return;
-        }
-        grav = get_gravity(gd, p);
+        grav = set_grav(gd, posx, posy, p);
     }
     velx = ((p->vel.x * (1 - p->res.x) + grav.x) - p->vel.x) * d;
     vely = ((p->vel.y * (1 - p->res.y) + grav.y) - p->vel.y) * d;
