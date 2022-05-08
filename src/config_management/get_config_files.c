@@ -14,7 +14,7 @@ int count_files(DIR *d, struct dirent *file)
         return (-1);
     while ((file = readdir(d)) != NULL) {
         if (file->d_name[0] != '.') {
-            file_count += 1;;
+            file_count += 1;
         }
     }
     closedir(d);

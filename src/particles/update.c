@@ -11,6 +11,7 @@
 #include "random.h"
 
 sfVector2f get_vector(float dir, float speed);
+
 float get_distance(sfVector2f p1, sfVector2f p2);
 
 sfVector2f get_gravity(data_t *gd, particle_t *p)

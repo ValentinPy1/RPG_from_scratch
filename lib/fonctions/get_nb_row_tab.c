@@ -10,6 +10,6 @@ int get_nb_row(char **tab)
 {
     int row;
 
-    for (row = 0; tab[row] != NULL; row ++);
+    for (row = 0; tab[row] != NULL; row++);
     return (row);
 }

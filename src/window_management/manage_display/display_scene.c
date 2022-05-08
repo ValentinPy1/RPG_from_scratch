@@ -12,6 +12,7 @@
 void init_view(sfRenderWindow *window, data_t *game_data);
 
 void spawn_enem(data_t *gd);
+
 void handle_xp_points(data_t *gd, scene_t *scene);
 
 static void game_scene(sfRenderWindow *window,

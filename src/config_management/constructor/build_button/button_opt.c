@@ -11,6 +11,7 @@ int build_butt_name(button_t *button, char *value)
     button->name = my_strdup(value);
     return (0);
 }
+
 int build_butt_posx(button_t *button, char *value)
 {
     int coord_x = my_getnbr(value);

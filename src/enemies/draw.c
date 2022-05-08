@@ -49,7 +49,7 @@ void spawn_enem_blood(data_t *gd, enemies_t *enem)
     if (enem->enem->life <= 0) {
         param.count = 90;
         gd->red->kill_streak += 1;
-        if (gd->quest_state == 1 && gd->red->kill_streak >= 5)
+        if (gd->quest_state == 1 && gd->red->kill_streak >= 20)
             valid_quest(gd, game_scene);
         for (int i = 0; i < 3; ++i)
             spawn_xp_orbs(game_scene, enem->enem->pos);

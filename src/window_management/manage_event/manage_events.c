@@ -11,6 +11,7 @@
 #include <math.h>
 
 float get_distance(sfVector2f p1, sfVector2f p2);
+
 void push_enemies(data_t *gd);
 
 void is_interact_pnj(data_t *game_data)
@@ -78,12 +79,12 @@ void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         if (event.type == sfEvtClosed) {
             sfRenderWindow_close(game_data->window);
         }
-        if (event.key.code == sfKeyEscape && 
+        if (event.key.code == sfKeyEscape &&
                     my_strcmp(scene->name, "game_scene") == 1) {
             options(game_data, game_data->scene_names, &game_data->run_index);
             init_hud(game_data->window, game_data);
         }
-        if (my_strcmp(scene->name, "game_scene") == 1 
+        if (my_strcmp(scene->name, "game_scene") == 1
                                 && event.key.code == sfKeyE)
             is_interact_pnj(game_data);
         events_conditions(event, game_data, scene, mouse_loc);

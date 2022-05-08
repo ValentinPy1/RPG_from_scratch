@@ -11,8 +11,11 @@
 #include <stdlib.h>
 
 void spawn_enem(data_t *gd);
+
 void handle_killstreak(data_t *gd, scene_t *scene);
+
 void init_quest(data_t *gd);
+
 void win_game(data_t *gd, map_t *map, sfVector2f pos);
 
 sfVector2f get_move_vector(data_t *gd, sfVector2f dir)

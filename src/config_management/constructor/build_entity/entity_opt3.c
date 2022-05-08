@@ -68,7 +68,7 @@ int build_ent_back_texture(entity_t *entity, char *value)
 int build_ent_quest(entity_t *entity, char *value)
 {
     (void) value;
-    
+
     entity->quest = build_quest_button(entity);
     entity->quit = build_quit_button(entity);
     return (0);

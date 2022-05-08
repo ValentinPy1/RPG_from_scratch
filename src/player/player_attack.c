@@ -12,6 +12,7 @@
 #include "random.h"
 
 float get_distance(sfVector2f p1, sfVector2f p2);
+
 void spawn_enem_blood(data_t *gd, enemies_t *enem);
 
 static bool is_in_front(data_t *gd, sfVector2f pos)
@@ -38,7 +39,7 @@ static void attack_enem(data_t *gd, enemies_t *enem)
 
     epos = enem->enem->pos;
     ppos = gd->red->pos;
-    dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + PI;
+    dir = atan2((ppos.y - epos.y), (ppos.x - epos.x)) + M_PI;
     if (get_distance(epos, ppos) < 60 && is_in_front(gd, enem->enem->pos)) {
         sfSound_setPitch(gd->red->effects->slash, rdm_float(0.8, 2));
         sfSound_play(gd->red->effects->slash);

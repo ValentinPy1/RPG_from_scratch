@@ -13,6 +13,7 @@ int build_butt_scale(button_t *button, char *value)
     button->scale = scale;
     return (0);
 }
+
 int build_butt_rotation(button_t *button, char *value)
 {
     float rot = my_atof(value);

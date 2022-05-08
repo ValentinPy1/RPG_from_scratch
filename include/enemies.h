@@ -12,11 +12,12 @@
     #include <SFML/System.h>
     #include <SFML/Window.h>
     #include "structures.h"
-    #define AGGRO_DIST 150
-    #define ENEM_ATTACK_DELAY 1
-    #define ENEM_ATTACK_DIST 30
-    #define ENEM_COLLIDE_DIST 25
-    #define ENEM_DMG 10
+
+    static const int AGGRO_DIST = 150;
+    static const int ENEM_ATTACK_DELAY = 1;
+    static const int ENEM_ATTACK_DIST = 30;
+    static const int ENEM_COLLIDE_DIST = 25;
+    static const int ENEM_DMG = 10;
 
 enemies_t *setup_enemies_nodes(sfVector2f pos);
 void add_enem(enemies_t *enemies, sfVector2f pos);

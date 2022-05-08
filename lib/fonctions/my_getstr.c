@@ -6,6 +6,7 @@
 */
 
 #include <stdlib.h>
+
 #define ABS(x) ((x) > 0 ? (x) : (-(x)))
 
 char *my_strdup(char *str);

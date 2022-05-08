@@ -8,6 +8,7 @@
 #include "structures.h"
 
 int my_strcmp(char *str1, char *str2);
+
 int victory(data_t *game_data, char **scenes_name, int *index_run);
 
 void init_quest(data_t *gd)

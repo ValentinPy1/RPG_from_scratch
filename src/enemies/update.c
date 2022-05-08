@@ -12,7 +12,9 @@
 #include <stdio.h>
 
 sfVector2f calculate_intent(data_t *gd, enemies_t *node);
+
 float get_distance(sfVector2f p1, sfVector2f p2);
+
 void spawn_blood(data_t *game_data);
 
 void enemy_hover(enem_t *enem, sfVector2f intent)

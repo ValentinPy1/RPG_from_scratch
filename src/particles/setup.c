@@ -39,9 +39,9 @@ sfCircleShape *setup_circle(particle_param_t *p, particle_t particle)
 particle_t setup_particle(particle_param_t *p)
 {
     particle_t particle;
-    float angle_pos = get_rdm() * PI * 2;
+    float angle_pos = get_rdm() * M_PI * 2;
     float dist_pos = get_rdm();
-    float angle_vel = get_rdm() * PI * 2;
+    float angle_vel = get_rdm() * M_PI * 2;
     float dist_vel = rdm_exp(0.2) + 0.1;
     particle.pos = (sfVector2f) {dist_pos * cos(angle_pos) *
     p->spawn_radius.x + p->pos.x, dist_pos *
@@ -73,7 +73,7 @@ partic_arr_t *setup_partic_arr(particle_param_t *param)
 partic_ll_t *setup_partic_node(particle_param_t *p)
 {
     partic_ll_t *node = malloc(sizeof(partic_ll_t));
-    node->partic_arr = setup_partic_arr(p);;
+    node->partic_arr = setup_partic_arr(p);
     node->next = NULL;
     node->is_xp = p->is_xp;
     return node;

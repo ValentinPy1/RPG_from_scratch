@@ -10,7 +10,6 @@ int my_getnbr(char *str)
     int index = 0;
     int nb = 0;
     int neg = 1;
-
     if (str[0] == 48)
         return (0);
     for (index = 0; str[index] <= 48 || str[index] >= 58; index++) {

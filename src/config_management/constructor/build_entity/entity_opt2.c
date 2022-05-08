@@ -57,7 +57,7 @@ int build_ent_action_sound(entity_t *entity, char *value)
     sfSound_setBuffer(sound, sound_buffer);
     entity->action_sound = sound;
     entity->sound_buffer = sound_buffer;
-    return(0);
+    return (0);
 }
 
 int build_ent_dialogue(entity_t *entity, char *value)
@@ -65,8 +65,8 @@ int build_ent_dialogue(entity_t *entity, char *value)
     sfText *dialogue = sfText_create();
     sfFont *font = sfFont_createFromFile
         ("assets/font/DeterminationSansWebRegular-369X.ttf");
-    
-    entity->is_interact = 0;  
+
+    entity->is_interact = 0;
     sfText_setPosition(dialogue, (sfVector2f) {0, 0});
     sfText_setString(dialogue, value);
     sfText_setFont(dialogue, font);

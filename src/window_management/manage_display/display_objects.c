@@ -57,7 +57,8 @@ void draw_texts(sfRenderWindow *window, scene_t *scene)
 void draw_entities(sfRenderWindow *window,  data_t *game_data, scene_t *scene)
 {
     entity_t *head_ref_ent = scene->entities;
-    sfVector2f position = (sfVector2f) {game_data->red->pos.x - 280, game_data->red->pos.y + 100};
+    sfVector2f position = (sfVector2f)
+    {game_data->red->pos.x - 280, game_data->red->pos.y + 100};
 
     while (head_ref_ent != NULL) {
         if (head_ref_ent->is_interact == 1) {

@@ -35,6 +35,7 @@ int build_ent_width(entity_t *entity, char *value)
     entity->width = width;
     return (0);
 }
+
 int build_ent_height(entity_t *entity, char *value)
 {
     int height = my_getnbr(value);
