@@ -63,7 +63,10 @@ int build_ent_action_sound(entity_t *entity, char *value)
 int build_ent_dialogue(entity_t *entity, char *value)
 {
     sfText *dialogue = sfText_create();
-    sfFont *font = sfFont_createFromFile("assets/font/DeterminationSansWebRegular-369X.ttf");
+    sfVector2f position = (sfVector2f) 
+            {entity->position.x, entity->position.y - 100};
+    sfFont *font = sfFont_createFromFile
+        ("assets/font/DeterminationSansWebRegular-369X.ttf");
     
     entity->is_interact = 0;  
     sfText_setPosition(dialogue, (sfVector2f) {0, 0});

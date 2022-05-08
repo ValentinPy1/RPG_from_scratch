@@ -31,19 +31,19 @@ void draw_groups(sfRenderWindow *win, partic_ll_t *groups)
     draw_groups(win, groups->next);
 }
 
-static void spawn_fire(data_t *game_data, scene_t *scene)
+static void spawn_special_particles(data_t *game_data, scene_t *scene)
 {
     particle_param_t param;
     partic_ll_t *node;
 
     param = setup_smoke_param();
-    param.pos = (sfVector2f) {480, 240};
+    param.pos = (sfVector2f) {512, 304};
     if (is_in_screen(game_data, param.pos) && get_rdm() > 0.5) {
         node = setup_partic_node(&param);
         add_partic_group(scene->partic, node);
     }
     param = setup_spark_param();
-    param.pos = (sfVector2f) {435, 230};
+    param.pos = (sfVector2f) {467, 294};
     if (is_in_screen(game_data, param.pos) && get_rdm() > 0.97) {
         node = setup_partic_node(&param);
         add_partic_group(scene->partic, node);
@@ -65,7 +65,7 @@ data_t *gd, scene_t *scene)
             node_lava = setup_partic_node(&lava);
             add_partic_group(scene->partic, node_lava);
         }
-        spawn_fire(gd, scene);
+        spawn_special_particles(gd, scene);
     }
 }
 

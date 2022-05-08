@@ -31,9 +31,14 @@ void handle_killstreak(data_t *gd, scene_t *scene)
 {
     char *str = my_getstr(gd->red->kill_streak);
     sfText *kill_streak = get_text(scene->texts, "kill_streak")->text;
-    sfColor color = (sfColor)
-    {255, 255, 255, 255};
-    sfText_setColor(kill_streak, color);
+    sfColor in_color = (sfColor) {255, 255, 255, 255};
+    sfColor out_color = (sfColor) {0, 0, 0, 255};
+    if (gd->quest_state != 1) {
+        in_color.a = 0;
+        out_color.a = 0;
+    }
+    sfText_setColor(kill_streak, in_color);
+    sfText_setOutlineColor(kill_streak, out_color);
     sfText_setString(kill_streak, str);
     free(str);
 }

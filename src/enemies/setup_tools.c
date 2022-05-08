@@ -14,7 +14,7 @@ sfTexture *random_enemy_texture(void)
     int index = rdm_int(1, 3);
     sfTexture *texture = NULL;
     if (index == 1) {
-        texture =sfTexture_createFromFile(
+        texture = sfTexture_createFromFile(
         "assets/img/enemies/enemy1_walk_left.png", NULL);
     } else if (index == 2) {
         texture = sfTexture_createFromFile(

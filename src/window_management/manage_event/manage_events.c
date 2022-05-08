@@ -21,8 +21,8 @@ void is_interact_pnj(data_t *game_data, sfEvent event)
     while (tmp_ent != NULL) {
         distance = get_distance(tmp_ent->position, game_data->red->pos);
         if (distance < 40) {
-            interact_pnj(game_data, game_data->scene_list[game_data->run_index],
-                                        tmp_ent);
+            interact_pnj(game_data,
+                game_data->scene_list[game_data->run_index], tmp_ent);
         }
         tmp_ent = tmp_ent->next;
     }
@@ -40,6 +40,11 @@ void kbd_input(data_t *gd, sfEvent event, sfVector2i mouse_loc)
     if (event.key.code == sfKeySpace) {
         sfSound_play(gd->red->effects->swing);
         push_enemies(gd);
+    }
+    if (event.key.code == sfKeyN) {
+        gd->quest_state += 1;
+        if (gd->quest_state > 2)
+            gd->quest_state = 0;
     }
 }
 

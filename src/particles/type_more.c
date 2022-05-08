@@ -33,7 +33,8 @@ particle_param_t setup_xp_param(void)
     param.spawn_radius = (sfVector2f) {5, 5};
     param.rdm_vel = (sfVector2f) {3, 3};
     param.init_vel = (sfVector2f) {0, 0};
-    param.color = (sfColor) {brightness, 220 + get_rdm() * 35, brightness, 255};
+    param.color = (sfColor) {brightness, 220 + get_rdm()
+                                * 35, brightness, 255};
     param.max_duration = 1000;
     param.size = 1.5 + get_rdm();
     param.gravity = (sfVector2f) {0, 0};

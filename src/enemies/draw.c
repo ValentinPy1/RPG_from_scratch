@@ -35,18 +35,20 @@ void spawn_xp_orbs(scene_t *scene, sfVector2f pos)
     }
 }
 
-void spawn_enem_blood(data_t *game_data, enemies_t *enem)
+void spawn_enem_blood(data_t *gd, enemies_t *enem)
 {
     partic_ll_t *node;
     particle_param_t param;
-    scene_t *game_scene = get_scene(game_data->scene_list, "game_scene");
+    scene_t *game_scene = get_scene(gd->scene_list, "game_scene");
 
     param = setup_blood_param();
     param.pos = (sfVector2f) enem->enem->pos;
     param.color = (sfColor) {150, 0, 150, 255};
     if (enem->enem->life <= 0) {
         param.count = 90;
-        game_data->red->kill_streak += 1;
+        gd->red->kill_streak += 1;
+        if (gd->quest_state == 1 && gd->red->kill_streak >= 5)
+            gd->quest_state = 2;
         for (int i = 0; i < 3; ++i)
             spawn_xp_orbs(game_scene, enem->enem->pos);
     } else {

@@ -205,6 +205,8 @@ typedef struct sounds_s {
     sfSoundBuffer *fall_buffer;
     sfSound *xp;
     sfSoundBuffer *xp_buffer;
+    sfSound *vent;
+    sfSoundBuffer *vent_buffer;
 } sounds_t;
 
 typedef struct player_s {
@@ -250,6 +252,7 @@ struct data_s {
     sfRenderWindow *window;
     enemies_t *enemies;
     unsigned long long int frame_count;
+    int quest_state;
 };
 
 text_t *get_text(text_t *texts, char *name);
