@@ -12,6 +12,7 @@
 
 void spawn_enem(data_t *gd);
 void handle_killstreak(data_t *gd, scene_t *scene);
+void init_quest(data_t *gd);
 
 sfVector2f get_move_vector(data_t *gd, sfVector2f dir)
 {
@@ -31,6 +32,7 @@ static int check_block(data_t *gd, sfVector2f dir)
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 2) {
         gd->red->pos.x = 2320;
         gd->red->pos.y = 592;
+        init_quest(gd);
         gd->red->is_in_house = true;
         gd->red->kb_speed = 0;
         return 1;

@@ -26,6 +26,11 @@ void kbd_input(data_t *gd, sfEvent event, sfVector2i mouse_loc)
         sfSound_play(gd->red->effects->swing);
         push_enemies(gd);
     }
+    if (event.key.code == sfKeyN) {
+        gd->quest_state += 1;
+        if (gd->quest_state > 2)
+            gd->quest_state = 0;
+    }
 }
 
 static void init_hud(sfRenderWindow *window, data_t *game_data)

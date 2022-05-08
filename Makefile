@@ -78,7 +78,8 @@ SRC = 	src/main.c													\
 		$(CON_PATH)build_text/text_opt3.c							\
 		$(CON_PATH)build_image/built_scene_images.c					\
 		$(CON_PATH)build_image/image_opt.c							\
-		$(CON_PATH)build_image/image_opt2.c
+		$(CON_PATH)build_image/image_opt2.c							\
+		src/quest/quest.c											\
 
 NAME = my_rpg
 

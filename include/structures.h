@@ -245,6 +245,7 @@ struct data_s {
     sfRenderWindow *window;
     enemies_t *enemies;
     unsigned long long int frame_count;
+    int quest_state;
 };
 
 text_t *get_text(text_t *texts, char *name);
