@@ -79,7 +79,8 @@ void player_knockback(data_t *gd, scene_t *scene)
         gd->red->percentage = 0;
         gd->red->kill_streak = 0;
         gd->red->stats->xp = 0;
-        //defeat(gd, gd->scene_names, &gd->run_index);
+        // sfSound_stop(scene->music);
+        // defeat(gd, gd->scene_names, &gd->run_index);
     }
 }
 
