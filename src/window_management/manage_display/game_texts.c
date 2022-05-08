@@ -23,7 +23,7 @@ void handle_percentage(data_t *gd, scene_t *scene)
     }
     sfText_setColor(percentage, color);
     sfText_setPosition(percentage,
-                (sfVector2f) {gd->red->pos.x - 10, gd->red->pos.y + 150});
+                (sfVector2f) {gd->red->pos.x + 240, gd->red->pos.y + 160});
     sfText_setString(percentage, str_w_per);
     free(str_w_per);
 }
@@ -43,7 +43,7 @@ void handle_xp_points(data_t *gd, scene_t *scene)
 {
     char *str = my_getstr(gd->red->stats->xp);
     sfText *xp = get_text(scene->texts, "xp_points")->text;
-    char *str_w_per = my_strconc("xp: ", str);
+    char *str_w_per = my_strconc(str, " xp");
 
     free(str);
     if (gd->red->stats->xp >= 5)
@@ -52,7 +52,7 @@ void handle_xp_points(data_t *gd, scene_t *scene)
         sfText_setColor(xp, sfWhite);
     }
     sfText_setPosition(xp,
-    (sfVector2f) {gd->red->pos.x + 240, gd->red->pos.y + 150});
+    (sfVector2f) {gd->red->pos.x + 240, gd->red->pos.y + 130});
     sfText_setString(xp, str_w_per);
     free(str_w_per);
 }
