@@ -24,7 +24,7 @@ void valid_quest(data_t *gd, scene_t *scene)
 
     if (gd->quest_state == 1) {
         gd->quest_state = 2;
-        image->position = (sfVector2f) {1250, 500};
+        image->position = (sfVector2f) {1216, 508};
         sfSprite_setPosition(image->sprite, image->position);
     }
 }
@@ -33,6 +33,7 @@ void win_game(data_t *gd, map_t *map, sfVector2f pos)
 {
     if (gd->quest_state == 2 &&
     map->tiles[(int) pos.y / 32][(int) pos.x / 32] == 70) {
+        sfSound_play(gd->red->effects->vent);
         victory(gd, gd->scene_names, &gd->run_index);
     }
 }
