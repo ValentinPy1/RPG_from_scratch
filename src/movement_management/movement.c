@@ -21,31 +21,39 @@ sfVector2f get_move_vector(data_t *gd, sfVector2f dir)
     return (sfVector2f) {movex, movey};
 }
 
-void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
+static int check_block(data_t *gd, sfVector2f dir)
 {
     sfVector2f move_vector = get_move_vector(gd, dir);
     sfVector2f temp_pos = (sfVector2f) {gd->red->pos.x + move_vector.x,
     gd->red->pos.y + move_vector.y};
-    if (!sfKeyboard_isKeyPressed(key))
-        return;
-    gd->red->facing = sprite;
-    gd->red->player_rect->left = sprite * 16;
-    gd->red->attack_rect->left = sprite * 32;
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 1)
-        return;
+        return 1;
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 2) {
         gd->red->pos.x = 2320;
         gd->red->pos.y = 592;
         gd->red->is_in_house = true;
         gd->red->kb_speed = 0;
-        return;
+        return 1;
     } else if (is_blocking_tile(gd->scene_list[gd->run_index]->map,
                 temp_pos) == 3) {
         gd->red->pos.x = 1070;
         gd->red->pos.y = 670;
         gd->red->is_in_house = false;
-        return;
+        return 1;
     }
+    return 0;
+}
+
+void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
+{
+    sfVector2f move_vector = get_move_vector(gd, dir);
+    if (!sfKeyboard_isKeyPressed(key))
+        return;
+    gd->red->facing = sprite;
+    gd->red->player_rect->left = sprite * 16;
+    gd->red->attack_rect->left = sprite * 32;
+    if (check_block(gd, dir))
+        return;
     if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
         gd->red->pos.x += move_vector.x * 0.6;
         gd->red->pos.y += move_vector.y * 0.6;
@@ -54,7 +62,6 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
     gd->red->pos.y += move_vector.y;
     player_walk(gd, 16, 64);
 }
-//TODO too long
 
 bool is_all_lava(scene_t *scene, int x, int y)
 {
@@ -88,8 +95,6 @@ void player_knockback(data_t *gd, scene_t *scene)
         gd->red->kill_streak = 0;
         gd->red->stats->xp = 0;
         gd->red->kb_speed = 0;
-        // sfSound_stop(scene->music);
-        // defeat(gd, gd->scene_names, &gd->run_index);
     }
 }
 
