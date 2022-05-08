@@ -8,6 +8,17 @@
 #include "manage_display.h"
 #include <stdlib.h>
 
+void print_xp(data_t *game_data, scene_t *option_scene)
+{
+    sfText *xp = get_text(option_scene->texts, "xp")->text;
+    char *nb_xp = my_getstr(game_data->red->stats->xp);
+    char *full_xp = my_strconc("xp:\n", nb_xp);
+
+    sfText_setString(xp, full_xp);
+    free(nb_xp);
+    free(full_xp);
+}
+
 void update_stats(data_t *game_data, scene_t *option_scene)
 {
     sfText *attack = get_text(option_scene->texts, "attack")->text;
