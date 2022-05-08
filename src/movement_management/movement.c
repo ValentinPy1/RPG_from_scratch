@@ -24,14 +24,14 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
         return;
     if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 2) {
         gd->red->pos.x = 2320;
-        gd->red->pos.y = 592;
+        gd->red->pos.y = 656;
         gd->red->is_in_house = true;
         gd->red->kb_speed = 0;
         return;
     } else if (is_blocking_tile(gd->scene_list[gd->run_index]->map,
                 temp_pos) == 3) {
         gd->red->pos.x = 1070;
-        gd->red->pos.y = 670;
+        gd->red->pos.y = 734;
         gd->red->is_in_house = false;
         return;
     }
