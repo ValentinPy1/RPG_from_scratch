@@ -181,6 +181,7 @@ typedef struct stats_s {
     int att;
     int heal;
     int spd;
+    int xp;
 } stats_t;
 
 typedef struct sounds_s {

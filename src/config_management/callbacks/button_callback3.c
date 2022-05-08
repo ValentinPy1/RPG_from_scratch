@@ -40,7 +40,10 @@ int update_att(data_t *game_data, char **scenes_name, int *index_run)
     (void) scenes_name;
     (void) index_run;
 
-    game_data->red->stats->att += 1;
+    if (game_data->red->stats->xp >= 10) {
+        game_data->red->stats->att += 10;
+        game_data->red->stats->xp -= 10;
+    }
     return (0);
 }
 
@@ -48,8 +51,10 @@ int update_heal(data_t *game_data, char **scenes_name, int *index_run)
 {
     (void) scenes_name;
     (void) index_run;
-
-    game_data->red->stats->heal += 1;
+    if (game_data->red->stats->xp >= 10) {
+        game_data->red->stats->heal += 10;
+        game_data->red->stats->xp -= 10;
+    }
     return (0);
 }
 
@@ -58,6 +63,9 @@ int update_spd(data_t *game_data, char **scenes_name, int *index_run)
     (void) scenes_name;
     (void) index_run;
 
-    game_data->red->stats->spd += 1;
+    if (game_data->red->stats->xp >= 10) {
+        game_data->red->stats->spd += 10;
+        game_data->red->stats->xp -= 10;
+    }
     return (0);
 }

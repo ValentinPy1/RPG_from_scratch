@@ -13,6 +13,7 @@ static stats_t *setup_stats(void)
     stats->att = PLAYER_DAMAGES;
     stats->heal = PLAYER_HEAL_PER_MINUTES;
     stats->spd = PLAYER_SPEED;
+    stats->xp = 0;
     return stats;
 }
 

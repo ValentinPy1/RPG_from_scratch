@@ -88,6 +88,7 @@ void update_enemies(data_t *gd, enemies_t *enemies)
     if (next->enem->life <= 0) {
         sfSound_play(gd->red->effects->kill);
         destroy_next_enemies(enemies);
+        gd->red->stats->xp += rdm_int(1, 3);
         return;
     } else if (get_distance(next->enem->pos, gd->red->pos) > 800
     || gd->red->is_in_house) {
