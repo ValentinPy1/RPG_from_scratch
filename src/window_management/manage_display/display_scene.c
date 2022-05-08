@@ -25,7 +25,6 @@ data_t *game_data, scene_t *scene)
     sfRenderWindow_drawSprite(window, game_data->red->player_sprite, NULL);
     sfSprite_setTextureRect(game_data->red->attack_sprite,
     *game_data->red->attack_rect);
-    handle_particles(window, game_data, scene);
     draw_enemies(window, game_data->enemies);
     knife(game_data);
 }
@@ -46,6 +45,7 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         handle_percentage(game_data, scene);
     }
     draw_images(window, scene);
+    handle_particles(window, game_data, scene);
     draw_texts(window, scene);
     draw_entities(window, scene);
     draw_buttons(window, game_data, scene);

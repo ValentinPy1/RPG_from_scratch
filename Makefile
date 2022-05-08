@@ -30,6 +30,7 @@ SRC = 	src/main.c													\
 		src/particles/destroy.c										\
 		src/particles/manage_particules.c							\
 		src/particles/type.c										\
+		src/particles/type_more.c										\
 		src/window_management/get_scene.c							\
 		src/window_management/open_window.c							\
 		src/window_management/manage_event/manage_events.c			\
@@ -49,6 +50,7 @@ SRC = 	src/main.c													\
 		src/config_management/callbacks/button_callback1.c			\
 		src/config_management/callbacks/button_callback2.c			\
 		src/config_management/callbacks/button_callback3.c			\
+		src/config_management/callbacks/button_callback4.c			\
 		src/window_management/manage_scene/option_scene.c			\
 		$(CON_PATH)build_game_data/build_game_data.c				\
 		$(CON_PATH)build_keys/build_keys.c							\

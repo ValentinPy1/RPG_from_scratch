@@ -10,7 +10,7 @@
 static stats_t *setup_stats(void)
 {
     stats_t *stats = malloc(sizeof(stats_t));
-    stats->att = 19;
+    stats->att = 20;
     stats->heal = 5;
     stats->spd = 2;
     return stats;
@@ -19,7 +19,7 @@ static stats_t *setup_stats(void)
 static void set_player_values(player_t *player)
 {
     player->pos.x = 13 * 32;
-    player->pos.y = 9 * 32;
+    player->pos.y = 11 * 32;
     player->attack_state = 0;
     player->stats = setup_stats();
     player->facing = 0;
@@ -28,6 +28,7 @@ static void set_player_values(player_t *player)
     player->percentage = 0;
     player->view = sfView_create();
     player->is_in_house = false;
+    player->kill_streak = 0;
 }
 
 static sounds_t *get_sound(void)

@@ -221,6 +221,7 @@ typedef struct player_s {
     float percentage;
     sounds_t *effects;
     bool is_in_house;
+    int kill_streak;
 } player_t;
 
 typedef struct key_s {
@@ -248,4 +249,5 @@ text_t *get_text(text_t *texts, char *name);
 char *my_getstr(int nb);
 void handle_percentage(data_t *gd, scene_t *scene);
 char *my_strconc(char *str1, char *str2);
+
 #endif /*STRUCT_H_*/

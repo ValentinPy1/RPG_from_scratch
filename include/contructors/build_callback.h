@@ -28,8 +28,13 @@ int volume_bar(data_t *game_data, char **scenes_name, int *index_run);
 int update_att(data_t *game_data, char **scenes_name, int *index_run);
 int update_heal(data_t *game_data, char **scenes_name, int *index_run);
 int update_spd(data_t *game_data, char **scenes_name, int *index_run);
+int main_options(data_t *game_data, char **scenes_name, int *index_run);
+int main_volume_bar(data_t *game_data, char **scenes_name, int *index_run);
+int home(data_t *game_data, char **scenes_name, int *index_run);
+int defeat(data_t *game_data, char **scenes_name, int *index_run);
+int victory(data_t *game_data, char **scenes_name, int *index_run);
 
-static const but_call_t BUT_CALL[14] = {
+static const but_call_t BUT_CALL[19] = {
     {"no", nothing},
     {"play", play},
     {"quit", quit},
@@ -43,6 +48,11 @@ static const but_call_t BUT_CALL[14] = {
     {"update_att", update_att},
     {"update_heal", update_heal},
     {"update_spd", update_spd},
+    {"main_options", main_options},
+    {"main_bar", main_volume_bar},
+    {"home", home},
+    {"defeat", defeat},
+    {"victory", victory},
     {NULL, NULL}
 };
 
