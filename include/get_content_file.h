@@ -14,9 +14,7 @@
     #include <stdlib.h>
 
 char *get_content(int fd);
-
 char **my_split(char *str, char splitter);
-
 int write_error(char const *str);
-
+int count_char(char *str, char c);
 #endif /*FILE_H_*/

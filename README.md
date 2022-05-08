@@ -44,30 +44,67 @@ frgthyujiouyjhtrgfedfrgtyujkikjuhytgrftyu;k,jnhbgvf
 ---
 # 1. Config file to launch scene
 
-This game was create with a personal parser that permit the create scene with a .conf file
+The config file work with keyword you need to know before use it.
+There is **only one** keyword per line.
 
-To write a new scene create a new config file in config_file/scene_config
+Thoses keywords are mendatory at the beggining of a config file.
 
+`name:<char *name>`   Scene name\
+`game_object:`  List of the game object 
 
-There is 2 type of balise:
-Oprhelin and object
-Balise that takes argument have attribut and value and it's write in this way: 'attribut'="value" '=' is not mendatory
-You need some balise to call object but first of all you need to give a name for the code.
+**game_object elements:**
 
-## Documentation
+Those keywords need a tab for each element in there
 
-Orphelin balise:
-<scene_name:> 'name'="scene name"
-<background:> 'type'="img/map" and 'path'="img path"
-Object balise:
-<image:>      'name'="<char*>", 'posx'="<float>", 'posy'="<float>", 'width'="<int>", 'height'="<int>", 'scale'="<float>", 'rotation'="<float>
-<button:>     'name'="<char*>", 'posx'="<float>", 'posy'="<float>", 'width'="<int>", 'height'="<int>", 'scale'="<float>", 'rotation'="<float>
-<entity:>     'name'="<char*>", 'posx'="<float>", 'posy'="<float>", 'width'="<int>", 'height'="<int>", 'scale'="<float>", 'rotation'="<float>
-<text:>       'name'="<char*>", 'posx'="<float>", 'posy'="<float>", 'width'="<int>", 'height'="<int>", 'scale'="<float>", 'rotation'="<float>
-<image:>      'name'="<char*>", 'posx'="<float>", 'posy'="<float>", 'width'="<int>", 'height'="<int>", 'scale'="<float>", 'rotation'="<float>
-<sound:>      'name'="<char*>", 'posx'="<float>", 'posy'="<float>", 'width'="<int>", 'height'="<int>", 'scale'="<float>", 'rotation'="<float>
+`buttons:`	- Set the button list bellow.\
+`entities:`	- Set the entity list bellow.\
+`texts:`	- Set the text list bellow.\
+`background:`	- Set the background type.\
 
+**buttons elements:**
 
+`posx:<int x position>`			- Set x position of the button.\
+`posy:<int y position>`			- Set y position of the button.\
+`width:<int width>`			- Set the width of the hitbox button.\
+`height:<int height>`			- Set the height of the hitbix button.\
+`scale:<float scale>`			- Set the scale of the button and his hitbox.\
+`rotation:<float rotation>`		- Set the rotation of the button and his hitbox.\
+`texture:<char *path>`			- Set the texture of the button.\
+`ho_texture:<char *path>`		- Set the hovered texture of the button.\
+`sound:<char *path>`			- Set the sound when you clicked on the button.\
+`callback:<char *function_name>`	- Set the function when you clicked on the button
+
+**entities elements:**
+
+`posx:<int x position>`		- Set x position of the button.\
+`posy:<int y position>`		- Set y position of the button.\
+`width:<int width>`		- Set the width of the hitbox button.\
+`height:<int height>`		- Set the height of the hitbix button.\
+`scale:<float scale>`		- Set the scale of the button and his hitbox.\
+`rotation:<float rotation>`	- Set the rotation of the button and his hitbox.\
+`texture:<char *path>`		- Set the texture of the button.\
+`sound:<char *path>`  		- Set the sound of the entity.\
+`dialogue:<char *str`		- Set the dialogue when you interact with an entity.\	
+
+**texts elements:**
+
+`posx:<int x position>`				- Set x position of the text.\
+`posy:<int y position>`				- Set y position of the text.\
+`text:<char *text>`	     			- Set the text to display.\
+`font:<char *font path>`			- Set the font of the text.\
+`size:<int size>`				-\
+`rotation:<float>`				-\
+`style:<sfStyle style>`				-\
+`color:<int r; int g; int b; int a>`		-\
+`outline_color:<int r; int g; int b; int a>`	-\
+`outline_thickness:<float thickness`		-\
+`letter_spacing:<float spacing>`		-\
+`line_spacing:<float spacing>`			-
+
+**background elements:**
+
+`map:`
+`path:<char *background path`
 
 2. Config file to create map
 

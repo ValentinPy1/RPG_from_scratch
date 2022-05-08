@@ -6,7 +6,6 @@
 */
 
 #include "particles.h"
-#include "callbacks.h"
 #include "structures.h"
 #include "random.h"
 #include <stdbool.h>
@@ -32,56 +31,53 @@ void draw_groups(sfRenderWindow *win, partic_ll_t *groups)
     draw_groups(win, groups->next);
 }
 
-static void spawn_fire(data_t *game_data)
+static void spawn_fire(data_t *game_data, scene_t *scene)
 {
-    particle_param_t param = setup_fire_param();
+    particle_param_t param;
     partic_ll_t *node;
-    float delta = 60.0 / game_data->framerate;
 
-    param.pos = (sfVector2f) {560, 495};
-    if (is_in_screen(game_data, param.pos)) {
-        node = setup_partic_node(&param);
-        add_partic_group(game_data->scene_list[1]->partic, node);
-    }
-    param.pos = (sfVector2f) {1810, 720};
-    if (is_in_screen(game_data, param.pos)) {
-        node = setup_partic_node(&param);
-        add_partic_group(game_data->scene_list[1]->partic, node);
-    }
     param = setup_smoke_param();
     param.pos = (sfVector2f) {480, 240};
-    if (is_in_screen(game_data, param.pos)) {
+    if (is_in_screen(game_data, param.pos) && get_rdm() > 0.5) {
         node = setup_partic_node(&param);
-        add_partic_group(game_data->scene_list[1]->partic, node);
+        add_partic_group(scene->partic, node);
+    }
+    param = setup_spark_param();
+    param.pos = (sfVector2f) {435, 230};
+    if (is_in_screen(game_data, param.pos) && get_rdm() > 0.97) {
+        node = setup_partic_node(&param);
+        add_partic_group(scene->partic, node);
     }
 }
 
 void handle_particles(sfRenderWindow *win,
-data_t *game_data, scene_t *scene)
+data_t *gd, scene_t *scene)
 {
     particle_param_t lava = setup_lava_param();
     partic_ll_t *node_lava;
 
-    update_groups(game_data, game_data->scene_list[1]->partic->next);
-    sup_partic_groups(game_data->scene_list[1]->partic->next);
-    draw_groups(win, game_data->scene_list[1]->partic->next);
-    lava.pos = (sfVector2f) {get_rdm() * 1920, get_rdm() * 1080};
-    if (is_in_screen(game_data, lava.pos) &&
-    my_strcmp(scene->name, "main_scene") && get_rdm() > 0.5) {
-        node_lava = setup_partic_node(&lava);
-        add_partic_group(game_data->scene_list[1]->partic, node_lava);
+    if (scene->map != NULL) {
+        update_groups(gd, scene->partic->next);
+        sup_partic_groups(scene->partic->next);
+        draw_groups(win, scene->partic->next);
+        lava.pos = (sfVector2f) {get_rdm() * 1920, get_rdm() * 1080};
+        if (is_in_screen(gd, lava.pos) && get_rdm() > 0.7) {
+            node_lava = setup_partic_node(&lava);
+            add_partic_group(scene->partic, node_lava);
+        }
+        spawn_fire(gd, scene);
     }
-    spawn_fire(game_data);
 }
 
 void spawn_blood(data_t *game_data)
 {
     partic_ll_t *node;
     particle_param_t param;
+    scene_t *game_scene = get_scene(game_data->scene_list, "game_scene");
 
     param = setup_blood_param();
     param.pos = (sfVector2f) {game_data->red->pos.x,
     game_data->red->pos.y};
     node = setup_partic_node(&param);
-    add_partic_group(game_data->scene_list[1]->partic, node);
+    add_partic_group(game_scene->partic, node);
 }

@@ -1,13 +1,16 @@
 /*
-** EPITECH PROJECT, 2021
-** my_getstr.c
+** EPITECH PROJECT, 2022
+** B-MUL-200-PAR-2-3-myrpg-gabriel.lepinay
 ** File description:
-** change a int into a string
+** my_getstr
 */
 
 #include <stdlib.h>
 #define ABS(x) ((x) > 0 ? (x) : (-(x)))
+
 char *my_strdup(char *str);
+
+char *my_strconc(char *str1, char *str2);
 
 int int_len(int nb, int base)
 {

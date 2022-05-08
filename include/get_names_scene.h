@@ -13,7 +13,6 @@
     #include "structures.h"
 
 int my_strlen(char const *str);
-
 char *my_strcpy(char *dest, char const *src);
 
 #endif /*GNAME_H_*/

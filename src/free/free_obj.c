@@ -7,54 +7,65 @@
 
 #include "free_data.h"
 
-void free_hitbox(hitbox_t *hitbox)
+void free_images(image_t *images)
 {
-    for (int index = 0; hitbox->vertices[index] != NULL; index++) {
-        free(hitbox->vertices[index]);
-        sfCircleShape_destroy(hitbox->circle[index]);
+    image_t *next_image = NULL;
+
+    while (images != NULL) {
+        next_image = images->next;
+        free(images->name);
+        free(images);
+        images = next_image;
     }
-    sfRectangleShape_destroy(hitbox->rectangle);
-    free(hitbox->vertices);
-    free(hitbox->circle);
-    free(hitbox);
 }
 
-void free_buttons(button_t **buttons)
+void free_texts(text_t *texts)
 {
-    for (int index = 0; buttons[index] != NULL; index++) {
-        free_hitbox(buttons[index]->hitbox);
-        sfTexture_destroy(buttons[index]->texture);
-        sfTexture_destroy(buttons[index]->ho_texture);
-        sfSprite_destroy(buttons[index]->sprite);
-        sfSprite_destroy(buttons[index]->ho_sprite);
-        sfSound_stop(buttons[index]->sound);
-        sfSound_destroy(buttons[index]->sound);
-        sfSoundBuffer_destroy(buttons[index]->sound_buffer);
-        free(buttons[index]);
+    text_t *next_text = NULL;
+
+    while (texts != NULL) {
+        next_text = texts->next;
+        free(texts->name);
+        free(texts);
+        texts = next_text;
     }
-    free(buttons);
 }
 
-void free_entities(entity_t **entities)
+void free_buttons(button_t *buttons)
 {
-    for (int index = 0; entities[index] != NULL; index++) {
-        free_hitbox(entities[index]->hitbox);
-        sfTexture_destroy(entities[index]->texture);
-        sfSprite_destroy(entities[index]->sprite);
-        sfSound_destroy(entities[index]->sound);
-        sfSoundBuffer_destroy(entities[index]->sound_buffer);
-        free(entities[index]->dialogue);
-        free(entities[index]);
+    button_t *next_button = NULL;
+
+    while (buttons != NULL) {
+        next_button = buttons->next;
+        free(buttons->name);
+        free(buttons);
+        buttons = next_button;
     }
-    free(entities);
 }
 
-void free_images(image_t **images)
+void free_entities(entity_t *entities)
 {
-    for (int index = 0; images[index] != NULL; index++) {
-        sfTexture_destroy(images[index]->texture);
-        sfSprite_destroy(images[index]->sprite);
-        free(images[index]);
+    entity_t *next_entity = NULL;
+
+    while (entities != NULL) {
+        next_entity = entities->next;
+        free(entities->name);
+        free(entities);
+        entities = next_entity;
     }
-    free(images);
+}
+
+void free_scenes(scene_t **scene_list)
+{
+    if (scene_list == NULL)
+        return;
+    for (int index = 0; scene_list[index] != NULL; index++) {
+        free(scene_list[index]->name);
+        free_buttons(scene_list[index]->buttons);
+        free_entities(scene_list[index]->entities);
+        free_texts(scene_list[index]->texts);
+        free_images(scene_list[index]->images);
+        free(scene_list[index]);
+    }
+    free(scene_list);
 }

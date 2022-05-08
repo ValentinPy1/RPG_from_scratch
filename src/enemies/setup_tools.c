@@ -41,7 +41,7 @@ void setup_values_enem(enem_t *enem)
     enem->damage = 0;
     enem->speed = 1.2;
     enem->direction = 0;
-    enem->life = 100;
+    enem->life = rdm_int(15, 30);
     enem->kb_speed = 0;
     enem->kb_dir = 0;
 }

@@ -7,6 +7,7 @@
 
 #ifndef WIN_H_
     #define WIN_H_
+
     #include "structures.h"
     #include <SFML/Graphics.h>
     #include <SFML/System.h>

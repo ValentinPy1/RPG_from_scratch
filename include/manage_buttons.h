@@ -10,10 +10,8 @@
     #include <stddef.h>
     #include "structures.h"
 
-void manage_hover_buttons(data_t *game_data, button_t **buttons,
-sfVector2i mouse_loc);
-void manage_clic_buttons(data_t *game_data, button_t **buttons,
+void manage_hover_buttons(button_t *buttons, sfVector2i mouse_loc);
+void manage_clic_buttons(data_t *game_data, button_t *buttons,
 sfVector2i mouse_loc);
 int button_collision(sfVector2i mouse_loc, button_t *button);
-
 #endif /*MBUT_H_*/

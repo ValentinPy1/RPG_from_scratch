@@ -7,45 +7,60 @@
 
 #include "movement.h"
 #include "particles.h"
-#include <math.h>
+#include "math.h"
 #include <stdlib.h>
-#include <stdbool.h>
+
+void spawn_enem(data_t *gd);
+void handle_killstreak(data_t *gd, scene_t *scene);
+
+sfVector2f get_move_vector(data_t *gd, sfVector2f dir)
+{
+    float delta = 60.0 / gd->framerate;
+    float movex = gd->red->stats->spd * dir.x * delta / 3.0;
+    float movey = gd->red->stats->spd * dir.y * delta / 3.0;
+    return (sfVector2f) {movex, movey};
+}
+
+static int check_block(data_t *gd, sfVector2f dir)
+{
+    sfVector2f move_vector = get_move_vector(gd, dir);
+    sfVector2f temp_pos = (sfVector2f) {gd->red->pos.x + move_vector.x,
+    gd->red->pos.y + move_vector.y};
+    if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 1)
+        return 1;
+    if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 2) {
+        gd->red->pos.x = 2320;
+        gd->red->pos.y = 592;
+        gd->red->is_in_house = true;
+        gd->red->kb_speed = 0;
+        return 1;
+    } else if (is_blocking_tile(gd->scene_list[gd->run_index]->map,
+                temp_pos) == 3) {
+        gd->red->pos.x = 1070;
+        gd->red->pos.y = 670;
+        gd->red->is_in_house = false;
+        return 1;
+    }
+    return 0;
+}
 
 void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
 {
-    sfVector2f temp_pos = (sfVector2f) {gd->red->pos.x + gd->red->stats->spd
-    * dir.x, gd->red->pos.y + gd->red->stats->spd * dir.y};
-    float delta = 60.0 / gd->framerate;
+    sfVector2f move_vector = get_move_vector(gd, dir);
     if (!sfKeyboard_isKeyPressed(key))
         return;
     gd->red->facing = sprite;
     gd->red->player_rect->left = sprite * 16;
     gd->red->attack_rect->left = sprite * 32;
-    if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 1)
+    if (check_block(gd, dir))
         return;
-    if (is_blocking_tile(gd->scene_list[gd->run_index]->map, temp_pos) == 2) {
-        gd->red->pos.x = 2260;
-        gd->red->pos.y = 620;
-    }
     if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
-        gd->red->pos.x += gd->red->stats->spd * dir.x * 0.6 * delta / 10;
-        gd->red->pos.y += gd->red->stats->spd * dir.y * 0.6 * delta / 10;
+        gd->red->pos.x += move_vector.x * 0.6;
+        gd->red->pos.y += move_vector.y * 0.6;
     }
-    gd->red->pos.x += gd->red->stats->spd * dir.x * delta / 10;
-    gd->red->pos.y += gd->red->stats->spd * dir.y * delta / 10;
-    player_walk(gd, gd->red->player_rect, 16, 64);
-}
-
-bool is_all_lava(scene_t *scene, int x, int y)
-{
-    for (int i = 0; i < 9; ++i) {
-        if (!(scene->map->tiles[y / 32 +
-        (i / 3 - 1)][x / 32 + (i % 3 - 1)] >= 4 && scene->map->tiles[y / 32 +
-        (i / 3 - 1)][x / 32 + (i % 3 - 1)] <= 7)) {
-            return false;
-        }
-    }
-    return true;
+    gd->red->pos.x += move_vector.x;
+    gd->red->pos.y += move_vector.y;
+    player_walk(gd, 16, 64);
 }
 
 void player_knockback(data_t *gd, scene_t *scene)
@@ -57,44 +72,34 @@ void player_knockback(data_t *gd, scene_t *scene)
     int y = floor(newy);
 
     red->pos = (sfVector2f) {newx, newy};
-    if (!(scene->map->tiles[(int) newy / 32][(int) newx / 32] >= 36 && scene->
-    map->tiles[(int) newy / 32][(int) newx / 32] <= 43) && !(scene->map->tiles
-    [y / 32][x / 32] >= 4 && scene->map->tiles[y / 32][x / 32] <= 7))
+    if (!(is_blocking_tile(scene->map, gd->red->pos))) {
         red->kb_speed *= 0.9;
+    }
     if (is_all_lava(scene, x, y)) {
+        sfSound_play(gd->red->effects->fall);
         gd->red->pos.x = 13 * 32;
         gd->red->pos.y = 9 * 32;
         gd->red->percentage = 0;
+        gd->red->kill_streak = 0;
+        gd->red->stats->xp = 0;
+        gd->red->kb_speed = 0;
+        defeat(gd, gd->scene_names, &gd->run_index);
     }
 }
 
-void handle_percentage(data_t *gd, scene_t *scene)
+void player_move(data_t *game_data, scene_t *scene)
 {
-    char *str = my_getstr(gd->red->percentage);
-    if (gd->frame_count % (gd->framerate * REGEN_DELAY) == 0 &&
-    gd->red->percentage > 0) {
-        gd->red->percentage -= 1;
-    }
-    sfText_setPosition(scene->texts[0],
-    (sfVector2f) {gd->red->pos.x - 290, gd->red->pos.y - 200});
-    sfText_setString(scene->texts[0], str);
-    free(str);
-}
+    game_data->red->time = sfClock_getElapsedTime(game_data->red->clock);
+    game_data->red->seconds = game_data->red->time.microseconds / 1000000.0;
 
-void player_move(data_t *gd, scene_t *scene)
-{
-    gd->red->time = sfClock_getElapsedTime(gd->red->clock);
-    gd->red->seconds = gd->red->time.microseconds / 1000000.0;
-    if (scene->background_to_run == 1) {
-        move_dir(gd, (sfVector2f) {0, -1}, gd->keys->up, 3);
-        move_dir(gd, (sfVector2f) {0, 1}, gd->keys->down, 0);
-        move_dir(gd, (sfVector2f) {-1, 0}, gd->keys->left, 1);
-        move_dir(gd, (sfVector2f) {1, 0}, gd->keys->right, 2);
-        set_position(gd->red->player_sprite,
-        gd->red->pos.x, gd->red->pos.y);
-        set_position(gd->red->attack_sprite,
-        gd->red->pos.x, gd->red->pos.y);
-        player_knockback(gd, scene);
-        handle_percentage(gd, scene);
+    if (scene->map != NULL) {
+        move_dir(game_data, (sfVector2f) {0, -1}, game_data->keys->up, 3);
+        move_dir(game_data, (sfVector2f) {0, 1}, game_data->keys->down, 0);
+        move_dir(game_data, (sfVector2f) {-1, 0}, game_data->keys->left, 1);
+        move_dir(game_data, (sfVector2f) {1, 0}, game_data->keys->right, 2);
+        set_position(game_data->red->player_sprite,
+        game_data->red->pos.x, game_data->red->pos.y);
+        player_knockback(game_data, scene);
     }
+    handle_killstreak(game_data, scene);
 }
