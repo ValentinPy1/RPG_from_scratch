@@ -204,6 +204,8 @@ typedef struct sounds_s {
     sfSoundBuffer *fall_buffer;
     sfSound *xp;
     sfSoundBuffer *xp_buffer;
+    sfSound *vent;
+    sfSoundBuffer *vent_buffer;
 } sounds_t;
 
 typedef struct player_s {

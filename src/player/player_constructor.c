@@ -53,6 +53,7 @@ static sounds_t *get_sounds(void)
     get_sound(&effects->fall, &effects->fall_buffer, "assets/snd/fall.ogg");
     get_sound(&effects->xp,
     &effects->xp_buffer, "assets/snd/minecraft-xp.ogg");
+    get_sound(&effects->vent, &effects->vent_buffer, "assets/snd/vent.ogg");
     return effects;
 }
 
