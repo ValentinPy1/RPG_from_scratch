@@ -11,7 +11,6 @@ void interact_pnj(data_t *game_data, scene_t *scene, entity_t *tmp_ent)
 {
     // Create an sfText in build and two button one close one accept
     // display text button maybe image
-    printf("DEBUG\n");
     sfVector2f position_txt = (sfVector2f) {game_data->red->pos.x,
                                                 game_data->red->pos.y};
     sfText_setPosition(tmp_ent->dialogue, position_txt);
