@@ -13,6 +13,7 @@
 void spawn_enem(data_t *gd);
 void handle_killstreak(data_t *gd, scene_t *scene);
 void init_quest(data_t *gd);
+void win_game(data_t *gd, map_t *map, sfVector2f pos);
 
 sfVector2f get_move_vector(data_t *gd, sfVector2f dir)
 {
@@ -43,6 +44,7 @@ static int check_block(data_t *gd, sfVector2f dir)
         gd->red->is_in_house = false;
         return 1;
     }
+    win_game(gd, gd->scene_list[gd->run_index]->map, temp_pos);
     return 0;
 }
 

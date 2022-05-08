@@ -1,17 +1,17 @@
 /*
-** EPITECH PROJECT, 2022
-** get_node
+** EPITECH PROJECT, 2021
+** rpg
 ** File description:
-** Source code to get a button
+** get_image.c
 */
 
 #include "structures.h"
 
 int my_strcmp(char *str1, char *str2);
 
-text_t *get_text(text_t *texts, char *name)
+image_t *get_image(image_t *images, char *name)
 {
-    text_t *tmp_head_txt = texts;
+    image_t *tmp_head_txt = images;
 
     while (tmp_head_txt != NULL) {
         if (my_strcmp(name, tmp_head_txt->name))

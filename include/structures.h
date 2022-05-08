@@ -259,5 +259,6 @@ text_t *get_text(text_t *texts, char *name);
 char *my_getstr(int nb);
 void handle_percentage(data_t *gd, scene_t *scene);
 char *my_strconc(char *str1, char *str2);
+image_t *get_image(image_t *images, char *name);
 
 #endif /*STRUCT_H_*/

@@ -15,6 +15,7 @@ SRC = 	src/main.c													\
 		src/linked_list_tools/get_button.c							\
 		src/linked_list_tools/get_text.c							\
 		src/linked_list_tools/get_entity.c							\
+		src/linked_list_tools/get_image.c							\
 		src/enemies/setup.c											\
 		src/enemies/setup_tools.c									\
 		src/enemies/draw.c											\

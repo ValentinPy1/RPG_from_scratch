@@ -10,6 +10,8 @@
 #include "structures.h"
 #include "random.h"
 
+void valid_quest(data_t *gd, scene_t *scene);
+
 void draw_enem(sfRenderWindow *win, enem_t *enem)
 {
     sfRenderWindow_drawSprite(win, enem->sprite, NULL);
@@ -48,7 +50,7 @@ void spawn_enem_blood(data_t *gd, enemies_t *enem)
         param.count = 90;
         gd->red->kill_streak += 1;
         if (gd->quest_state == 1 && gd->red->kill_streak >= 5)
-            gd->quest_state = 2;
+            valid_quest(gd, game_scene);
         for (int i = 0; i < 3; ++i)
             spawn_xp_orbs(game_scene, enem->enem->pos);
     } else {

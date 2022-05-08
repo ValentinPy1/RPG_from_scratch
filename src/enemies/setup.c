@@ -64,9 +64,10 @@ void spawn_enem(data_t *gd)
 {
     float angle = rdm_float(0, 2 * PI);
     float dist = rdm_float(500, 1000);
-    if (gd->quest_state == 0 && !gd->red->is_in_house && enem_count(gd->enemies) < 20) {
-        add_enem(gd->enemies, (sfVector2f) {gd->red->pos.x + cos(angle) *
-        dist, gd->red->pos.y + sin(angle) * dist});
+    if (gd->quest_state == 0 && !gd->red->is_in_house) {
+        if (enem_count(gd->enemies) < 15)
+            add_enem(gd->enemies, (sfVector2f) {gd->red->pos.x + cos(angle) *
+            dist, gd->red->pos.y + sin(angle) * dist});
         return;
     }
     if (!gd->red->is_in_house && enem_count(gd->enemies) < 50)
