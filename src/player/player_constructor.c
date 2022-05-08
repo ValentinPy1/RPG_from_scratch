@@ -32,28 +32,23 @@ static void set_player_values(player_t *player)
     player->kill_streak = 0;
 }
 
-static sounds_t *get_sound(void)
+static void get_sound(sfSound **sound, sfSoundBuffer **buffer, char *path)
+{
+    *sound = sfSound_create();
+    *buffer = sfSoundBuffer_createFromFile(path);
+    sfSound_setBuffer(*sound, *buffer);
+}
+
+static sounds_t *get_sounds(void)
 {
     sounds_t *effects = malloc(sizeof(sounds_t));
-    effects->kill = sfSound_create();
-    effects->kill_buffer = sfSoundBuffer_createFromFile("assets/snd/kill.ogg");
-    sfSound_setBuffer(effects->kill, effects->kill_buffer);
-    effects->swing = sfSound_create();
-    effects->swing_buffer =
-    sfSoundBuffer_createFromFile("assets/snd/swing.ogg");
-    sfSound_setBuffer(effects->swing, effects->swing_buffer);
-    effects->slash = sfSound_create();
-    effects->slash_buffer =
-    sfSoundBuffer_createFromFile("assets/snd/slash.ogg");
-    sfSound_setBuffer(effects->slash, effects->slash_buffer);
-    effects->hit = sfSound_create();
-    effects->hit_buffer =
-    sfSoundBuffer_createFromFile("assets/snd/player_hit.ogg");
-    sfSound_setBuffer(effects->hit, effects->hit_buffer);
-    effects->fall = sfSound_create();
-    effects->fall_buffer =
-    sfSoundBuffer_createFromFile("assets/snd/fall.ogg");
-    sfSound_setBuffer(effects->fall, effects->fall_buffer);
+
+    get_sound(&effects->kill, &effects->kill_buffer, "assets/snd/kill.ogg");
+    get_sound(&effects->swing, &effects->swing_buffer, "assets/snd/swing.ogg");
+    get_sound(&effects->slash, &effects->slash_buffer, "assets/snd/slash.ogg");
+    get_sound(&effects->hit, &effects->hit_buffer, "assets/snd/player_hit.ogg");
+    get_sound(&effects->fall, &effects->fall_buffer, "assets/snd/fall.ogg");
+    get_sound(&effects->xp, &effects->xp_buffer, "assets/snd/minecraft-xp.ogg");
     return effects;
 }
 
@@ -77,6 +72,6 @@ player_t *player_constructor(void)
     player->clock = clk;
     player->time = tm;
     player->stats = setup_stats();
-    player->effects = get_sound();
+    player->effects = get_sounds();
     return player;
 }

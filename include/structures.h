@@ -198,6 +198,8 @@ typedef struct sounds_s {
     sfSoundBuffer *hit_buffer;
     sfSound *fall;
     sfSoundBuffer *fall_buffer;
+    sfSound *xp;
+    sfSoundBuffer *xp_buffer;
 } sounds_t;
 
 typedef struct player_s {

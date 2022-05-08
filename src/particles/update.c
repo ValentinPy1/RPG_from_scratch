@@ -8,6 +8,7 @@
 #include "particles.h"
 #include "structures.h"
 #include <math.h>
+#include "random.h"
 
 sfVector2f get_vector(float dir, float speed);
 float get_distance(sfVector2f p1, sfVector2f p2);
@@ -35,6 +36,8 @@ void update_particle(data_t *gd, particle_t *p, bool is_xp)
         if (get_distance(gd->red->pos, (sfVector2f) {posx, posy}) < 10) {
             p->duration = 0;
             gd->red->stats->xp += 1;
+            sfSound_setPitch(gd->red->effects->xp, 0.8 + get_rdm());
+            sfSound_play(gd->red->effects->xp);
             return;
         }
         grav = get_gravity(gd, p);
