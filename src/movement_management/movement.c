@@ -13,11 +13,19 @@
 void spawn_enem(data_t *gd);
 void handle_killstreak(data_t *gd, scene_t *scene);
 
+sfVector2f get_move_vector(data_t *gd, sfVector2f dir)
+{
+    float delta = 60.0 / gd->framerate;
+    float movex = gd->red->stats->spd * dir.x * delta / 3.0;
+    float movey = gd->red->stats->spd * dir.y * delta / 3.0;
+    return (sfVector2f) {movex, movey};
+}
+
 void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
 {
-    sfVector2f temp_pos = (sfVector2f) {gd->red->pos.x + gd->red->stats->spd
-    * dir.x, gd->red->pos.y + gd->red->stats->spd * dir.y};
-    float delta = 60.0 / gd->framerate;
+    sfVector2f move_vector = get_move_vector(gd, dir);
+    sfVector2f temp_pos = (sfVector2f) {gd->red->pos.x + move_vector.x,
+    gd->red->pos.y + move_vector.y};
     if (!sfKeyboard_isKeyPressed(key))
         return;
     gd->red->facing = sprite;
@@ -39,11 +47,11 @@ void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
         return;
     }
     if (sfKeyboard_isKeyPressed(sfKeyLShift)) {
-        gd->red->pos.x += gd->red->stats->spd * dir.x * 0.6 * delta / 20.0;
-        gd->red->pos.y += gd->red->stats->spd * dir.y * 0.6 * delta / 20.0;
+        gd->red->pos.x += move_vector.x * 0.6;
+        gd->red->pos.y += move_vector.y * 0.6;
     }
-    gd->red->pos.x += gd->red->stats->spd * dir.x * delta / 10.0;
-    gd->red->pos.y += gd->red->stats->spd * dir.y * delta / 10.0;
+    gd->red->pos.x += move_vector.x;
+    gd->red->pos.y += move_vector.y;
     player_walk(gd, 16, 64);
 }
 //TODO too long
