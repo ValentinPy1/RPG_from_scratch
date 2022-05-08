@@ -53,22 +53,12 @@ void draw_texts(sfRenderWindow *window, scene_t *scene)
     }
 }
 
-void handle_percentage(data_t *gd, scene_t *scene)
+void draw_entities(sfRenderWindow *window, scene_t *scene)
 {
-    char *str = my_getstr(gd->red->percentage);
-    sfText *percentage = get_text(scene->texts, "percent")->text;
-    sfColor color = (sfColor) 
-            {255, 255 - gd->red->percentage, 255 - gd->red->percentage, 255};
-    char *str_w_per = my_strconc(str, "%");
+    entity_t *head_ref_ent = scene->entities;
 
-    free(str);
-    if (gd->frame_count % (gd->framerate * REGEN_DELAY) == 0 &&
-    gd->red->percentage > 0) {
-        gd->red->percentage -= 1;
+    while (head_ref_ent != NULL) {
+        sfRenderWindow_drawSprite(window, head_ref_ent->sprite, NULL);
+        head_ref_ent = head_ref_ent->next;
     }
-    sfText_setColor(percentage, color);
-    sfText_setPosition(percentage, 
-                (sfVector2f) {gd->red->pos.x - 10, gd->red->pos.y + 150});
-    sfText_setString(percentage, str_w_per);
-    free(str_w_per);
 }

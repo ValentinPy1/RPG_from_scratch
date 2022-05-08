@@ -9,6 +9,7 @@
 #include "random.h"
 
 void init_view(sfRenderWindow *window, data_t *game_data);
+
 void spawn_enem(data_t *gd);
 
 static void game_scene(sfRenderWindow *window,
@@ -46,5 +47,6 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
     }
     draw_images(window, scene);
     draw_texts(window, scene);
+    draw_entities(window, scene);
     draw_buttons(window, game_data, scene);
 }

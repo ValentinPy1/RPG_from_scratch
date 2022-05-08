@@ -13,6 +13,7 @@ SRC = 	src/main.c													\
 		src/random/random_generator.c								\
 		src/linked_list_tools/get_button.c							\
 		src/linked_list_tools/get_text.c							\
+		src/linked_list_tools/get_entity.c							\
 		src/enemies/setup.c											\
 		src/enemies/setup_tools.c									\
 		src/enemies/draw.c											\
@@ -31,10 +32,12 @@ SRC = 	src/main.c													\
 		src/particles/type.c										\
 		src/window_management/get_scene.c							\
 		src/window_management/open_window.c							\
-		src/window_management/manage_events.c						\
+		src/window_management/manage_event/manage_events.c			\
+		src/window_management/manage_event/pnj_interaction.c		\
 		src/window_management/manage_buttons.c						\
 		src/window_management/manage_display/display_objects.c		\
 		src/window_management/manage_display/display_scene.c		\
+		src/window_management/manage_display/display_objects2.c		\
 		src/collision_management/point_in_rect.c					\
 		src/collision_management/map_collision.c					\
 		src/movement_management/movement.c 							\
@@ -65,6 +68,7 @@ SRC = 	src/main.c													\
 		$(CON_PATH)build_entity/build_scene_entities.c				\
 		$(CON_PATH)build_entity/entity_opt.c						\
 		$(CON_PATH)build_entity/entity_opt2.c						\
+		$(CON_PATH)build_entity/entity_opt3.c						\
 		$(CON_PATH)build_sound/build_scene_sounds.c					\
 		$(CON_PATH)build_sound/sound_opt.c							\
 		$(CON_PATH)build_text/build_scene_texts.c					\

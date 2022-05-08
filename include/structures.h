@@ -138,17 +138,21 @@ typedef struct button_s {
 
 typedef struct entity_s {
     struct entity_s *next;
-    char *name;
     sfVector2f position;
+    char *name;
     int width;
     int height;
-    sfVector2f scale;
     float rotation;
+    sfVector2f scale;
+    button_t *quest;
+    button_t *quit;
     sfSprite *sprite;
     sfTexture *texture;
     sfSound *action_sound;
     sfSoundBuffer *sound_buffer;
-    char *dialogue;
+    sfSprite *back_sprite;
+    sfTexture *back_texture;
+    sfText *dialogue;
 } entity_t;
 
 typedef struct map_s {

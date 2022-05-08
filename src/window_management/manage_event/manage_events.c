@@ -13,6 +13,21 @@
 float get_distance(sfVector2f p1, sfVector2f p2);
 void push_enemies(data_t *gd);
 
+void is_interact_pnj(data_t *game_data, sfEvent event)
+{
+    entity_t *tmp_ent = game_data->scene_list[game_data->run_index]->entities;
+    float distance = 0;
+
+    while (tmp_ent != NULL) {
+        distance = get_distance(tmp_ent->position, game_data->red->pos);
+        if (distance < 40) {
+            interact_pnj(game_data, game_data->scene_list[game_data->run_index],
+                                        tmp_ent);
+        }
+        tmp_ent = tmp_ent->next;
+    }
+}
+
 void kbd_input(data_t *gd, sfEvent event, sfVector2i mouse_loc)
 {
     if (event.key.code == sfKeyY)
@@ -64,6 +79,10 @@ void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         if (event.key.code == sfKeyEscape) {
             options(game_data, game_data->scene_names, &game_data->run_index);
             init_hud(game_data->window, game_data);
+        }
+        if (my_strcmp(game_data->scene_list[game_data->run_index]->name,
+             "game_scene") == 1 && event.key.code == sfKeyE) {
+            is_interact_pnj(game_data, event);
         }
         events_conditions(event, game_data, scene, mouse_loc);
     }
