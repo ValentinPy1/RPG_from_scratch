@@ -13,7 +13,7 @@
 float get_distance(sfVector2f p1, sfVector2f p2);
 void push_enemies(data_t *gd);
 
-void is_interact_pnj(data_t *game_data, sfEvent event)
+void is_interact_pnj(data_t *game_data)
 {
     entity_t *tmp_ent = game_data->scene_list[game_data->run_index]->entities;
     float distance = 0;
@@ -88,7 +88,7 @@ void event_handling(sfRenderWindow *window, data_t *game_data, scene_t *scene)
         }
         if (my_strcmp(scene->name, "game_scene") == 1 
                                 && event.key.code == sfKeyE)
-            is_interact_pnj(game_data, event);
+            is_interact_pnj(game_data);
         events_conditions(event, game_data, scene, mouse_loc);
     }
 }
