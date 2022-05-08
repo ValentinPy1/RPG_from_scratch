@@ -11,14 +11,14 @@ int build_butt_scale(button_t *button, char *value)
     sfVector2f scale = (sfVector2f) {my_atof(value), my_atof(value)};
 
     button->scale = scale;
-    return(0);
+    return (0);
 }
 int build_butt_rotation(button_t *button, char *value)
 {
     float rot = my_atof(value);
 
     button->rotation = rot;
-    return(0);
+    return (0);
 }
 
 int build_butt_texture(button_t *button, char *value)
@@ -40,7 +40,7 @@ int build_butt_texture(button_t *button, char *value)
     sfSprite_setOrigin(button->sprite, origin);
     sfSprite_setPosition(button->sprite, button->position);
     sfSprite_setTexture(button->sprite, button->texture, sfFalse);
-    return(0);
+    return (0);
 }
 
 int build_butt_ho_texture(button_t *button, char *value)
@@ -62,7 +62,7 @@ int build_butt_ho_texture(button_t *button, char *value)
     sfSprite_setOrigin(button->ho_sprite, origin);
     sfSprite_setPosition(button->ho_sprite, button->position);
     sfSprite_setTexture(button->ho_sprite, button->ho_texture, sfFalse);
-    return(0);
+    return (0);
 }
 
 int build_butt_sound(button_t *button, char *value)
@@ -79,5 +79,5 @@ int build_butt_sound(button_t *button, char *value)
     sfSound_setBuffer(sound, sound_buffer);
     button->clic_sound = sound;
     button->sound_buffer = sound_buffer;
-    return(0);
+    return (0);
 }

@@ -70,4 +70,3 @@ int build_ent_quest(entity_t *entity, char *value)
     entity->quit = build_quit_button(entity);
     return (0);
 }
-
