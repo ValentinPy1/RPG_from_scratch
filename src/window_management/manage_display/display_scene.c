@@ -41,7 +41,6 @@ void display_other_scene(data_t *game_data, scene_t *scene)
 void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
 {
     sfFloatRect view_rect = {0, 0, WINDOW_WIDTH, WINDOW_HEIGHT};
-    sfVector2f cpc = {WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2};
 
     if (scene->background_sprite != NULL) {
         sfRenderWindow_drawSprite(window, scene->background_sprite, NULL);

@@ -4,8 +4,8 @@
 ** File description:
 ** split str
 */
-#include <stdio.h> //DLETE
-#include <string.h> //DELETE
+#include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 
 int count_char(char *str, char c);
