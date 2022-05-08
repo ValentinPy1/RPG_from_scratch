@@ -10,6 +10,7 @@
 
 void init_view(sfRenderWindow *window, data_t *game_data);
 void spawn_enem(data_t *gd);
+void handle_xp_points(data_t *gd, scene_t *scene);
 
 static void game_scene(sfRenderWindow *window,
 data_t *game_data, scene_t *scene)
@@ -42,6 +43,7 @@ void display_scene(sfRenderWindow *window, data_t *game_data, scene_t *scene)
     } else if (scene->map != NULL) {
         game_scene(window, game_data, scene);
         handle_percentage(game_data, scene);
+        handle_xp_points(game_data, scene);
     }
     draw_images(window, scene);
     handle_particles(window, game_data, scene);

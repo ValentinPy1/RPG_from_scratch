@@ -11,6 +11,7 @@
 #include <stdlib.h>
 
 void spawn_enem(data_t *gd);
+void handle_killstreak(data_t *gd, scene_t *scene);
 
 void move_dir(data_t *gd, sfVector2f dir, int key, int sprite)
 {
@@ -79,17 +80,6 @@ void player_knockback(data_t *gd, scene_t *scene)
         gd->red->kill_streak = 0;
         defeat(gd, gd->scene_names, &gd->run_index);
     }
-}
-
-void handle_killstreak(data_t *gd, scene_t *scene)
-{
-    char *str = my_getstr(gd->red->kill_streak);
-    sfText *kill_streak = get_text(scene->texts, "kill_streak")->text;
-    sfColor color = (sfColor)
-    {255 - gd->red->kill_streak * 2.55, 255, 255 - gd->red->kill_streak * 2.55, 255};
-    sfText_setColor(kill_streak, color);
-    sfText_setString(kill_streak, str);
-    free(str);
 }
 
 void player_move(data_t *game_data, scene_t *scene)
