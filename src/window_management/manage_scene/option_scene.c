@@ -10,13 +10,13 @@
 
 void print_xp(data_t *game_data, scene_t *option_scene)
 {
-    sfText *xp = get_text(option_scene->texts, "xp")->text;
+    text_t *xp = get_text(option_scene->texts, "xp");
     char *nb_xp = my_getstr(game_data->red->stats->xp);
-    char *full_xp = my_strconc("xp:\n", nb_xp);
 
-    sfText_setString(xp, full_xp);
+    xp->position.x = 775 - ((my_strlen(nb_xp) - 1) * 13);
+    sfText_setPosition(xp->text, xp->position);
+    sfText_setString(xp->text, nb_xp);
     free(nb_xp);
-    free(full_xp);
 }
 
 void update_stats(data_t *game_data, scene_t *option_scene)
