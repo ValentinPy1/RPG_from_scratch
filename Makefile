@@ -29,14 +29,14 @@ SRC = 	src/main.c													\
 		src/particles/destroy.c										\
 		src/particles/manage_particules.c							\
 		src/particles/type.c										\
-		src/particles/type_more.c										\
+		src/particles/type_more.c									\
 		src/window_management/get_scene.c							\
 		src/window_management/open_window.c							\
 		src/window_management/manage_events.c						\
 		src/window_management/manage_buttons.c						\
 		src/window_management/manage_display/display_objects.c		\
 		src/window_management/manage_display/display_scene.c		\
-		src/window_management/manage_display/game_texts.c		\
+		src/window_management/manage_display/game_texts.c			\
 		src/collision_management/point_in_rect.c					\
 		src/collision_management/map_collision.c					\
 		src/movement_management/movement.c 							\
