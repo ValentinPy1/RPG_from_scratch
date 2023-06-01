@@ -13,7 +13,7 @@ This is the MyRpg Epitech's project.
 ---
 - Installation
   - Download
-  - Compil an run the game
+  - Compile an run the game
 - Synopsis
 - How to play
 - Features
